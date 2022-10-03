@@ -1,0 +1,115 @@
+$bannerGeneralHeight: 2.3rem;
+
+.l-with-navigation {
+  display: grid;
+  overflow: hidden;
+  height: 100vh;
+  grid-template-areas:
+    "l-banner l-banner"
+    "l-navigation l-page";
+  grid-template-rows: min-content auto;
+
+  @include tablet {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+.l-banner {
+  grid-area: l-banner;
+  position: sticky;
+  height: $bannerGeneralHeight;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  padding: 0.5rem;
+  z-index: $zindex-banner;
+
+  & ~ .l-navigation {
+    height: calc(100vh - #{$bannerGeneralHeight});
+
+    @include touch {
+      margin-top: $bannerGeneralHeight;
+    }
+  }
+
+  & ~ .l-page .p-sidebar {
+    height: calc(100vh - #{$bannerGeneralHeight});
+  }
+
+  & ~ .l-modal .modal {
+    top: $bannerGeneralHeight;
+  }
+
+  @include touch {
+    & ~ .l-modal {
+      .c-modal {
+        margin-top: $bannerGeneralHeight;
+      }
+
+      .c-modal-close,
+      .has-background .c-modal-close {
+        top: 3rem;
+      }
+    }
+  }
+}
+
+.l-navigation {
+  grid-area: l-navigation;
+  height: 100vh;
+
+  @include until($desktop) {
+    position: absolute;
+    z-index: $zindex-sidebar;
+    transform: translateX(-100%);
+    transition: transform $transitionSpeed;
+
+    &.is-active {
+      transform: translateX(0);
+    }
+  }
+}
+
+.l-page {
+  position: relative;
+  grid-area: l-page;
+  overflow-y: auto;
+  overflow-x: hidden; /* so sidebars can be hidden correctly */
+}
+
+.l-modal {
+  position: absolute;
+}
+
+.l-1-2 {
+  display: grid;
+  grid-gap: 1rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+
+  @include tablet {
+    grid-template-columns: 1.5fr 2fr;
+  }
+}
+
+.l-1 {
+  max-width: 45.625rem;
+  margin: 0 auto;
+}
+
+.l-1-1-1 {
+  display: grid;
+  grid-gap: 1rem 2rem;
+  max-width: 70rem;
+  margin: 0 auto;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

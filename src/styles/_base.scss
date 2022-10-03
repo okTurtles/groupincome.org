@@ -1,0 +1,50 @@
+html {
+  background-color: #fff;
+  min-width: 19rem;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+
+hr {
+  background-color: $background;
+  border: none;
+  display: block;
+  height: 2px;
+  margin: 1.5rem;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: baseline;
+}
+
+td,
+th {
+  padding: 0 0 1rem 0;
+  text-align: left;
+  vertical-align: top;
+}

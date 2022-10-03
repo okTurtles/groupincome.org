@@ -1,0 +1,182 @@
+@font-face {
+  src: url(../fonts/Lato/Lato-Bold.ttf);
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+@font-face {
+  src: url(../fonts/Lato/Lato-Regular.ttf);
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+@font-face {
+  src: url(../fonts/Poppins/Poppins-Medium.ttf);
+  font-family: "Poppins";
+  font-weight: 500;
+}
+
+@font-face {
+  src: url(../fonts/Poppins/Poppins-SemiBold.ttf);
+  font-family: "Poppins";
+  font-weight: 600;
+}
+
+@font-face {
+  src: url(../fonts/Poppins/Poppins-Bold.ttf);
+  font-family: "Poppins";
+  font-weight: 700;
+}
+
+@font-face {
+  src: url(../fonts/Poppins/Poppins-Regular.ttf);
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+html {
+  background-color: white;
+  font-size: var(--text-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: 19rem;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+  font-style: normal;
+  font-weight: normal;
+  font-size: $size_5; // 14px
+  line-height: 1.5; // 21/14
+  color: $text_0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0; // reset margins
+}
+
+// From _variables.scss
+// $size_1 = 4.5rem   = 72px = $size_extra_large
+// $size_2 = 3.5rem   = 56px = $size_large
+// $size_3 = 1.375rem = 22px = $size_medium
+// $size_4 = 1.125rem = 18px = $size_normal
+// $size_5 = 1rem     = 16px = $size_small
+// $size_6 = 0.875rem = 14px = $size_extra_small
+
+$titles: $size_1, $size_2, $size_3, $size_4, $size_5, $size_6;
+$letterSpacing: -3, -2.4, -0.55, 0, 0, 0;
+$lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
+
+@each $size in $titles {
+  $i: index($titles, $size);
+
+  .is-title-#{$i} {
+    font-family: "Poppins";
+    font-size: $size;
+    line-height: #{nth($lineHeight, $i) * .5}rem;
+
+    @if ($i < 3) {
+      font-weight: 600;
+      font-size: $size * .5;
+      @include tablet {
+        font-size: $size * .8;
+        line-height: #{nth($lineHeight, $i) * .8}rem;
+      }
+    }
+
+    @include desktop {
+      letter-spacing: #{nth($letterSpacing, $i)}px;
+    }
+  }
+}
+
+.is-posttitle {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.4px;
+  line-height: 1.875rem; // 30
+  font-size: $size_5;
+  @include desktop {
+    font-size: $size_4; // 18
+  }
+}
+
+.is-subtitle {
+  line-height: 1.6875rem; // 27
+  font-size: $size_5;
+  @include desktop {
+    font-size: $size_4; // 18
+  }
+}
+
+.label {
+  font-weight: 600;
+}
+
+.has-text-big {
+  font-size: 1rem;
+}
+
+.help,
+.has-text-small,
+small {
+  font-size: $size_5;
+}
+
+.has-text-normal {
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.has-text-bold {
+  font-weight: 600;
+}
+
+.has-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// formerly in _colors.scss, moved here so that
+// @import "_variables"; in scoped styles in vue components
+// doesn't result in repeated CSS generated
+
+.has-text-0 {
+  color: $text_0;
+}
+
+.help,
+.has-text-1 {
+  color: $text_1;
+}
+
+@each $name in $colors {
+  .has-text-#{$name} {
+    color: var(--#{$name}_0);
+  }
+
+  .has-background-#{$name} {
+    background-color: var(--#{$name}_2);
+  }
+
+  .has-background-#{$name}-solid {
+    background-color: var(--#{$name}_0);
+  }
+}
+
+.has-background-blank {
+  background-color: $background;
+}
+
+.has-text-white {
+  color: $white;
+}

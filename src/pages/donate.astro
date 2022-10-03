@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/DefaultLayout.astro';
+import Donate from '../components/Donate.vue'
+---
+
+<Layout>
+  <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+  <div class="c-wrapper">
+    <section class="container grey-container">
+      <div class="is-posttitle">SUPPORT OUR DEVELOPMENT</div>
+      <h1 class="is-title-1 c-main-title">Donate to Group Income.</h1>
+      <p class="is-subtitle c-main-para">Group Income is a project developed by the okTurtles Foundation, a non-profit organization that supports beneficial decentralization technologies. If you want to help us succeed, consider making a donation.</p>
+    </section>
+    <div class="c-container-middle">
+      <section class="container c-grid">
+        <div class="c-direct">
+          <Donate client:load/>
+          <div class="c-or">or</div>
+        </div>
+        <div class="c-credit">
+          <h2 class="c-sub-title">Credit/Debit Card Donation</h2>
+          <iframe class="c-donation-box" src="https://donorbox.org/embed/group-income" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="550px" width="100%" style="min-width: 250px; max-height:none!important;"></iframe>
+        </div>
+        <div><b>Crypto Donation Receipt</b>
+          <div class="c-main-para">After you make a crypto donation, contact us so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!</div>
+        </div>
+        <div><b>okTurtles Foundation</b>
+          <div class="c-main-para">The okTurtles Foundation is a 501(c)(3) non-profit corporation, and our U.S. federal tax ID number is 47-1188610.</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<style lang="scss">
+@import "../styles/_variables";
+@import "../styles/_mixins";
+
+.c-wrapper {
+  padding-bottom: 2rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 4rem 1rem;
+  }
+
+  @include desktop {
+    padding: 6rem 1rem;
+  }
+}
+
+.c-container-middle {
+  width: 70rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.c-main-title {
+  max-width: 47rem;
+  margin: 1.5rem auto;
+
+  @include phone {
+    max-width: 30rem;
+  }
+}
+
+.c-main-para {
+  max-width: 46rem;
+  margin-bottom: 1rem;
+
+  @include desktop {
+    margin: 0 auto 1rem auto;
+  }
+}
+
+.grey-container {
+  text-align: center;
+}
+
+.c-sub-title {
+  margin-bottom: 2rem;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.c-grid {
+  display: grid;
+  padding-bottom: 0;
+  grid-template-rows: 1fr;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 0 7.5rem;
+  }
+}
+
+.c-direct {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 6rem;
+
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+.c-or {
+  position: absolute;
+  display: flex;
+  height: 24px;
+  width: 100%;
+  max-height: 435px;
+  align-items: center;
+  flex-direction: column;
+  top: calc(100% + 2rem);
+
+  @include desktop {
+    flex-direction: row;
+    right: -4rem;
+    top: 0;
+    height: 100%;
+    width: auto;
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+  }
+
+  &::before {
+    z-index: -2;
+    background: linear-gradient(90deg, #FFFFFF 0%, #D0DEEA 51.56%, #FFFFFF 100%);
+    height: 1px;
+    width: 100%;
+    top: .6rem;
+    left: 0;
+
+    @include desktop {
+      background: linear-gradient(180deg, #FFFFFF 0%, #D0DEEA 51.56%, #FFFFFF 100%);
+      height: 100%;
+      width: 1px;
+      top: 0;
+      left: calc(50% - .5px);
+    }
+  }
+
+  &::after {
+    background: #F6F8FB;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 2rem;
+    height: 2rem;
+    top: calc(50% - 1rem);
+    left: calc(50% - 1rem);
+  }
+}
+
+.c-donation-box {
+  filter: drop-shadow(0px 2px 6px rgba(0,0,0,.2));
+}
+</style>

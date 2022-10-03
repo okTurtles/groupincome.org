@@ -1,0 +1,38 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.vue';
+import AppStyles from '../components/AppStyles.vue';
+import Footer from '../components/Footer.vue';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<div class="main-wrapper">
+			<AppStyles/>
+			<Header/>
+			<main>
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+<style lang="scss">
+@import "../styles/_variables";
+
+.main-wrapper {
+	padding-top: $headerHeightMobile;
+	@include tablet {
+		padding-top: $headerHeightTablet;
+	}
+	@include desktop {
+		padding-top: $headerHeight;
+	}
+}
+</style>

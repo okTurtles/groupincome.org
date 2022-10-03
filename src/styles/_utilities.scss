@@ -1,0 +1,90 @@
+.is-unstyled {
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-size: inherit;
+  min-height: auto;
+  color: inherit;
+  text-align: inherit;
+  padding: 0;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    border: none;
+    color: inherit;
+    background: none;
+    box-shadow: none;
+  }
+}
+
+.is-link {
+  font-size: $size_extra_small;
+  color: $primary_0;
+}
+
+.is-link-inherit {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $primary_0;
+    border-bottom: 1px solid;
+  }
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// Global Classes for SVG fills
+$fills: (
+  primary: $primary_0,
+  blank: $background,
+  success: $success_0,
+  warning: $warning_0,
+);
+
+@each $class, $color in $fills {
+  .u-has-fill-#{$class} {
+    fill: $color;
+  }
+}
+
+.hide-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.hide-touch {
+  @include touch {
+    display: none !important;
+  }
+}
+
+.hide-phone {
+  @include phone {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @include tablet {
+    display: none;
+  }
+}

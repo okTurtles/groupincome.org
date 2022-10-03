@@ -1,0 +1,63 @@
+$white:      #fff;
+$background: var(--background_0); // Not sure yet if that should be one value or two, that will depend on other themes
+$background_0: var(--background_0);
+$background_0_opacity_0: var(--background_0_opacity_0);
+
+$general_0: var(--general_0);
+$general_1: var(--general_1);
+$general_1_opacity_6: var(--general_1_opacity_6);
+$general_2: var(--general_2);
+
+$text_0: var(--text_0);
+$text_1: var(--text_1);
+
+$primary_0: var(--primary_0);
+$primary_0_1: var(--primary_0_1);
+$primary_1: var(--primary_1);
+$primary_2: var(--primary_2);
+
+$success_0: var(--success_0);
+$success_0_1: var(--success_0_1);
+$success_1: var(--success_1);
+$success_2: var(--success_2);
+
+$warning_0: var(--warning_0);
+$warning_0_1: var(--warning_0_1);
+$warning_0_text: var(--warning_0_text);
+$warning_1: var(--warning_1);
+$warning_2: var(--warning_2);
+
+$danger_0: var(--danger_0);
+$danger_0_1: var(--danger_0_1);
+$danger_1: var(--danger_1);
+$danger_2: var(--danger_2);
+
+$orange: var(--orange);
+$blue: var(--blue);
+$green: var(--green);
+
+$colors: "primary", "success", "warning", "danger", "general";
+
+.text-orange {
+  color: $orange;
+}
+
+.text-blue {
+  color: $blue;
+}
+
+.text-green {
+  color: $green;
+}
+
+.bg-orange {
+  background-color: $orange;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.bg-green {
+  background-color: $green;
+}

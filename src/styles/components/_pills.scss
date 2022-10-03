@@ -1,0 +1,20 @@
+.pill {
+  border-radius: $radius;
+  padding: 0.125rem 0.25rem;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-size: $size_5;
+
+  &.is-neutral {
+    background-color: $general_0;
+  }
+
+  @each $name in $colors {
+    &.is-#{$name} {
+      background-color: var(--#{$name}_2);
+      color: var(--#{$name}_0);
+    }
+  }
+}

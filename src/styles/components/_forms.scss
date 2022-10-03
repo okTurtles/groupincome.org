@@ -1,0 +1,527 @@
+$inputHeight: 2.75rem;
+
+@mixin placeholder {
+  $placeholders: ":-moz" ":-webkit-input" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+form {
+  width: 100%;
+}
+
+legend.legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.field {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .helper {
+    display: block;
+    color: $text_1;
+    margin-top: 0.5rem;
+  }
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.textarea,
+.select,
+.input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: $inputHeight;
+  width: 100%;
+  border-radius: $radius;
+  padding: 0 0.625rem;
+  background-color: $background_0;
+  border: 1px solid $general_0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  outline: none;
+  font-family: inherit;
+  color: $text_0;
+
+  @mixin placeholder {
+    color: $text_1;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: $primary_0;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $primary_1;
+  }
+
+  &.error {
+    border-color: $danger_0;
+    color: initial;
+
+    &:focus,
+    &:hover {
+      border-color: $danger_0;
+    }
+
+    @media (hover: hover) {
+      &:focus {
+        box-shadow: 0 0 0 2px $danger_1;
+      }
+    }
+  }
+}
+
+.textarea {
+  padding: 0.625rem;
+  height: auto;
+  min-height: 7.5rem;
+  resize: vertical;
+
+  &[readonly] {
+    background-color: $general_2;
+
+    &:hover,
+    &:focus {
+      border-color: var(--general_0);
+      box-shadow: none;
+    }
+  }
+}
+
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* ------- Combo elements ------- */
+
+.selectbox,
+.selectgroup,
+.inputgroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &.error {
+    .input,
+    .select {
+      border-color: $danger_0;
+
+      &:hover,
+      &:focus {
+        border-color: $danger_0;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $danger_1;
+      }
+    }
+  }
+
+  .is-btn-shifted {
+    margin-left: 0.5rem;
+  }
+}
+
+// Input with select
+.selectbox,
+.selectgroup {
+  &::after {
+    @include icon(sort-down);
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(calc(-50% - 2px));
+    pointer-events: none;
+    z-index: 2; // be above input, even when :hover it.
+  }
+}
+
+.selectbox {
+  .select {
+    padding-right: 2rem;
+    padding-left: 1rem;
+    min-width: 6.5rem;
+
+    option:disabled,
+    &.is-empty {
+      color: $text_1;
+    }
+  }
+}
+
+.selectgroup {
+  .select,
+  .input {
+    border: 1px solid $general_0;
+
+    &:hover,
+    &:focus {
+      border-color: $primary_0;
+      z-index: 1; // keep the "edge" border visible.
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $primary_1;
+    }
+  }
+
+  .input {
+    border-radius: $radius 0 0 $radius;
+    flex-grow: 1;
+  }
+
+  .select {
+    min-width: 6rem; // customized based on the context
+    width: auto;
+    border-radius: 0 $radius $radius 0;
+    margin-left: -1px; // collapse border
+
+    &.is-empty {
+      color: $text_1;
+    }
+  }
+
+  &.is-reversed {
+    .select {
+      border-radius: $radius 0 0 $radius;
+      margin-left: 0;
+    }
+
+    .input {
+      border-radius: 0 $radius $radius 0;
+      margin-left: -1px; // collapse border
+    }
+
+    &::after {
+      left: 4rem; // customized based on the context
+      right: auto;
+    }
+  }
+}
+
+.inputgroup {
+  .input {
+    padding-right: 5rem; /* avg of suffix width */
+    flex-grow: 1;
+  }
+
+  .prefix + .input {
+    padding-left: 2.5rem;
+  }
+
+  .prefix {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: $general_0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .suffix {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1rem;
+    font-weight: normal;
+    font-size: 1rem;
+    align-self: center;
+    height: $inputHeight;
+    line-height: $inputHeight;
+    white-space: nowrap;
+    color: $text_1;
+    z-index: 1 /* to be above input, always */
+  }
+
+  .addons {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+    button.is-icon {
+      z-index: 1;
+      width: 2rem;
+      height: 100%;
+      border-radius: 0;
+      text-align: center;
+      color: var(--general_0);
+
+      &:hover,
+      &:focus {
+        color: $primary_0;
+        background-color: transparent;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $primary_1;
+        border-color: $primary_0;
+      }
+
+      &:last-child {
+        border-radius: 0 $radius $radius 0;
+      }
+
+      // when it's the only child.
+      &:first-child:last-child {
+        width: 2.75rem;
+      }
+    }
+  }
+}
+
+span.error,
+p.error {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: var(--danger_0);
+
+  &::before {
+    @include icon(times-circle);
+    margin-right: 0.25rem;
+  }
+
+  & + .helper {
+    // When the error and a helper are visisble at the same time
+    margin-top: 0.5rem;
+  }
+}
+
+.radio,
+.checkbox {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 1.5rem;
+
+  .input {
+    position: absolute;
+    opacity: 0;
+    width: 0.875rem;
+    height: 0.875rem;
+    transform: translateY(0.25rem);
+  }
+
+  .input:disabled + :last-child {
+    color: $text_1;
+    cursor: default;
+  }
+
+  .input:not(:disabled):hover + :last-child {
+    &::before {
+      border-color: $primary_0;
+    }
+  }
+
+  .input:not(:disabled):focus + :last-child {
+    &::before {
+      border-color: $primary_0;
+      box-shadow: 0 0 0 2px $primary_1;
+    }
+  }
+
+  .is-column & {
+    display: block;
+
+    + .radio,
+    + .checkbox {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.radio {
+  > :last-child {
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      border-radius: 50%;
+    }
+
+    // Exception: Use px because units
+    // are tiny and may have cause render issues
+    // in diff browsers / zoom resolutions
+    &::before {
+      width: 14px;
+      height: 14px;
+      margin-right: 0.5rem;
+      border: 1px solid $general_0;
+      transform: translateY(2px);
+      transition: box-shadow 150ms, background-color 150ms;
+    }
+
+    &::after {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: $background_0;
+      margin-top: 1px;
+      top: 50%;
+      left: 7px;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 150ms;
+    }
+  }
+
+  .input:checked + :last-child {
+    &::before {
+      border-color: $primary_0;
+      background-color: $primary_0;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+.checkbox {
+  > :last-child {
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    &::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      margin-right: 0.5rem;
+      border: 1px solid $general_0;
+      transform: translateY(2px);
+      transition: box-shadow 150ms, background-color 150ms;
+    }
+
+    &::after {
+      @include icon(check);
+      font-size: 10px;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      top: 9px;
+      left: 5px;
+      color: $background_0;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 150ms;
+    }
+  }
+
+  .input:checked + :last-child {
+    &::before {
+      border-color: $primary_0;
+      background-color: $primary_0;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+/* The toggle container */
+.switch {
+  width: 3rem;
+  height: 1.6875rem;
+  border-radius: 1.6875rem;
+  border: 1px solid transparent;
+  position: relative;
+  background: $general_0;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  @media (hover: hover) {
+    &:checked:hover,
+    &:hover {
+      border-color: $text_1;
+      background: $text_1;
+
+      &::after {
+        background: $white;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $primary_1;
+    }
+  }
+
+  /* The toggle knob */
+  &::after {
+    content: "";
+    border-radius: 50%;
+    width: 1.1875rem;
+    height: 1.1875rem;
+    position: absolute;
+    left: 0.25rem;
+    top: 0.2rem;
+    background: $white;
+    transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  &:checked {
+    background: $primary_0;
+
+    &::after {
+      transform: translateX(1.1875rem);
+    }
+
+    &:hover {
+      background: $primary_0;
+    }
+  }
+
+  &:disabled:not(:checked)::after {
+    opacity: 0.6;
+  }
+}
+
+.is-dark-theme {
+  .radio :last-child::after {
+    background: $text_0;
+  }
+
+  .checkbox :last-child::after {
+    color: $white;
+  }
+
+  .switch:checked:hover {
+    background: var(--primary_0);
+    border-color: transparent;
+  }
+}

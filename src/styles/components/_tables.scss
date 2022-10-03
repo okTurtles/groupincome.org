@@ -1,0 +1,62 @@
+.table {
+  tr {
+    box-shadow: inset 0 -2px 0 $general_2;
+  }
+
+  tbody tr {
+    height: 3.75rem;
+  }
+
+  thead tr {
+    height: 2rem;
+  }
+
+  th {
+    text-transform: uppercase;
+    font-family: "Poppins";
+    font-size: $size_5;
+    color: $text-1;
+  }
+
+  td {
+    font-size: $size_4;
+    color: $text_0;
+  }
+
+  th,
+  td {
+    padding: 0;
+    vertical-align: middle;
+  }
+}
+
+.table-in-card {
+  @include removeSideCardPadding;
+
+  th,
+  td {
+    &:first-child {
+      padding-left: 1rem;
+
+      @include tablet {
+        padding-left: 1.5rem;
+      }
+
+      @include desktop {
+        padding-left: 2.5rem;
+      }
+    }
+
+    &:last-child {
+      padding-right: 1rem;
+
+      @include tablet {
+        padding-right: 1.5rem;
+      }
+
+      @include desktop {
+        padding-right: 2.5rem;
+      }
+    }
+  }
+}
