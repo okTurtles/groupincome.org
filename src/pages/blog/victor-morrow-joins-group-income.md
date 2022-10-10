@@ -1,0 +1,39 @@
+---
+title: Victor Morrow Joins Group Income!
+description: 'After a long search, we found our dev: please welcome Victor Morrow as our new lead frontend developer. Victor is an amazing human being and developer...'
+author: Greg Slepak
+date: November 11, 2016
+isoDate: "2016-11-10T17:00:00.000Z"
+layout: "../../layouts/BlogPost.astro"
+---
+
+# Victor Morrow Joins Group Income!
+
+After a long search, we found our dev: please welcome Victor Morrow as our new lead frontend developer.
+
+<img src="https://groupincome.org/wp-content/uploads/2016/11/victor.jpg" alt="" width="256" height="256" class="alignright size-full wp-image-644" />
+
+Victor is an amazing human being and developer. A resident of D.C., he's made great contributions to the same area our team has been working in for quite some time.
+
+I first met Victor a few months ago at the Internet Archive's [Decentralized Web Summit](http://www.decentralizedweb.net). There he presented his project [Prometheus](http://prometheus.network), a system that shares the same spirit as Group Income. So it's both an honor and quite fortuitous that we're now able to work together full-time on Group Income.
+
+### What's Next
+
+Here's our current plan. Some of these items we may do sequentially or together:
+
+- Finish and bring [the centralized prototype](https://github.com/okTurtles/group-income-simple) to a usable state.
+- Build a community of users and volunteers around the project.
+- Run live tests with real groups to find out what helps groups succeed in establishing a long-term basic income (or mincome) for themselves.
+- Launch our crowd fund campaign to further fund development of the decentralized 1.0. But note: we could still use any [donation](https://groupincome.org/donate/) you're able to give in the interim.
+
+### Resources & How To Contribute
+
+We've already put a lot of thought and effort into making it simple for anyone to help with the development of Group Income:
+
+- We have a [guide on modern frontend development](https://github.com/okTurtles/group-income-simple/blob/master/docs/Getting-Started-frontend.md) (this guide alone received a lot of attention from across the web).
+- We have a [simple and clear contribution policy](https://github.com/okTurtles/group-income-simple/blob/master/CONTRIBUTING.md) inspired by the wisdom of the late [Pieter Hintjens](https://twitter.com/hintjens).
+- It's simple to get in touch with our team via our public [Gitter chat](https://gitter.im/okTurtles/group-income), which is bridged with our internal Slack.
+
+And I'm working on putting together even more resources and information about the project, including information on the **Group Income Developer's Group**, a special group for Group Income contributors that's sustained by voluntary contributions from the larger network of groups.
+
+In the meantime, if you have questions, suggestions — feel free to let us know in the comments or get in touch with us directly [via our chat](https://gitter.im/okTurtles/group-income).

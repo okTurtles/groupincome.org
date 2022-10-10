@@ -1,0 +1,275 @@
+---
+title: Deprecating May’s Theorem
+description: This is a followup to “Misconceptions About Majority Rule”. We recommend reading that first. Previously, we left off with the following conclusion about May’s Theorem...
+author: Greg Slepak
+date: September 28, 2016
+isoDate: "2016-09-27T17:00:00.000Z"
+layout: "../../layouts/BlogPost.astro"
+---
+
+_This is a followup to ["Misconceptions About Majority Rule"](/articles/misconceptions-about-majority-rule/). We recommend reading that first._
+
+Previously, we left off with the following conclusion about May's Theorem:
+
+> The primary justification for majority rule—May's Theorem—does not say (in math) what it claims it says (in English), and its descriptions in textbooks and across the web are misleading. Majority rule is not an "anonymous" voting rule, nor is it an "egalitarian" voting rule, nor is it "neutral with respect to the status quo". What is called "majority rule" today is also often not.
+
+Today, we'll look at situations where using majority rule can help or harm, and we'll show how simple it is to both commit and avoid May's mistake.
+
+<style>
+.sidenote {
+  display: block;
+  overflow-x: auto;
+  padding: 1em 1em;
+  border-radius: 6px;
+  background-color: #ebebeb;
+  color: #6C7E8F;
+  margin: 2em 1.5em 2em 1.5em;
+  font-size: 90%;
+}
+.sidenote b {
+  color: #6C7E8F !important;
+}
+</style>
+
+- **[When Majority Rule Can Harm](#when-majority-rule-can-harm)**
+- **[When Majority Rule Can Help](#when-majority-rule-can-help)**
+- **[Minority Rights](#minority-rights)**
+- **[Beyond Voting Thresholds](#beyond-voting-thresholds)**
+- **[When Voting Is Not Enough](#when-voting-is-not-enough)**
+- **[Avoiding May's Mistake](#avoiding-mays-mistake)**
+- **[Repeating May's Mistake For Great Profit](#repeating-mays-mistake-for-great-profit)**
+- **[Conclusion](#conclusion)**
+
+<div class="sidenote">Why are we spending so much time on voting? Isn't this project supposed to be about voluntary basic income? The reason is, <b>voting is a critical part of not just Group Income, but almost any basic income system.</b> It is ultimately the decisions groups make that determine their success or failure, and we want to help ensure their success.</div>
+
+<a name="when-majority-rule-can-harm"></a>
+## When Majority Rule Can Harm
+
+As we [discussed previously](/articles/misconceptions-about-majority-rule/#z-the-missing-third-alternative), a 50% threshold can indicate _perfect disagreement_, but we can also think of it in terms of _(un)certainty_.
+
+Doctors are willing to take some actions $x$ if they are "50% certain", but not others. To determine the level of certainty needed, they [weigh the potential consequences](https://en.wikipedia.org/wiki/Prospect_theory) of making the wrong choice.
+
+Decisions that can significantly affect lives are called **"high stakes"** decisions, and it's important to consider not only _how many_ but also _to what degree_ they're impacted.
+
+If a _large number_ of lives are affected in a _small way_, that could be called a _medium_ stake decision. However, it only takes the potential ruin of a single life to make something a _high stake_ decision.
+
+Therefore, it is dangerous to use majority rule whenever supermajority rule should be used instead, e.g. [passing laws](/articles/what-makes-a-good-voting-system/#representatives). That is why we plan on making _supermajority_ the default threshold for removing members in Group Income, since doing so can have a potentially significant impact on a person's life.
+
+Other inappropriate situations for majority rule (or any other rule) include those where there isn't enough time to have a vote, as in military conflicts. In those situations, [chain-of-command](https://en.wikipedia.org/wiki/Command_hierarchy#Chain_of_command) is more appropriate. Hopefully, a better understanding of voting can help us avoid such situations in the first place.
+
+<a name="when-majority-rule-can-help"></a>
+## When Majority Rule Can Help
+
+Earlier [we asked](#terms-and-conditions) whether May's Theorem helps in deciding when to use majority rule (as opposed to some other voting rule). We hope it's clear by this point why we feel it is more likely to hurt understanding than help.
+
+However, contemplating the four conditions _with_ their limitations, may still prove useful:
+
+- **[Condition I](/articles/misconceptions-about-majority-rule/#condition-i-always-decisive)**, though more of a misleading redundancy than a condition, can help us remember that the answer to our problems is not always found through a yes/no vote on a single proposal.
+- **[Condition II](/articles/misconceptions-about-majority-rule/#condition-ii-egalitarian-or-anonymity)**, though not about "anonymity" and not really about "equality", encourages us to consider whether or not votes should be weighted (whether by how invested someone is in a project, how knowledgeable they are about an issue, etc.).
+- **[Condition III](/articles/misconceptions-about-majority-rule/#condition-iii-neutrality)**, though not about "neutrality", nevertheless encourages us to consider what an appropriate _voting threshold_ for any given situation might be.
+- **[Condition IV](/articles/misconceptions-about-majority-rule/#condition-iv-positive-responsiveness)**, and its confusion over $D=0$, encourages us to consider what to do in the event of a tie, as well as what to do when most in a group are in favor of a proposal, but not enough to definitively pass a supermajority threshold.
+
+We think majority rule is appropriate for **regularly (or semi-regularly) occurring, medium-to-low-stakes reversible decisions that affect a small group.**
+
+Given a semi-regular medium-to-low-stakes reversible vote within a small group, and depending on how that vote affects other groups, it is possible a 50% threshold may lower the _magnitude_ of disagreement and frustration that occurs over time as compared to a higher threshold on those same types of decisions.
+
+Groups might contain factions, and therefore each side may "get its turn" more often. Therefore, _in situations where it is OK to go back and forth on a decision,_ majority rule—along with submajority rule—can make perfect sense.
+
+But remember: the voting threshold is only one of [many important levers](#beyond-voting-thresholds) to consider.
+
+<a name="minority-rights"></a>
+## Minority Rights
+
+It is [sometimes asserted](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) that majority rule's [Condition III](/articles/misconceptions-about-majority-rule/#condition-iii-neutrality) makes it a good choice for protecting minority rights. In truth, different situations call for different voting thresholds.
+
+Submajority rules make it easier (than majority rule) for anyone to pass a proposal, and supermajority rules make it more difficult.
+
+#### Submajority rules and the "status quo"
+
+Making assertions about [the "status quo" is tricky business](/articles/misconceptions-about-majority-rule/#confusion-over-status-quo)—especially the "status quo" of an entire country.
+
+Like a ship, the larger the "scope" of a status quo, the more energy it takes to change its course. This means that if a large country used submajority rule to pass laws, they would likely be ineffective because any competing group could quickly override them. Even if, miraculously, laws were not overturned, the "status quo on paper" would quickly cease to represent the "status quo in reality".
+
+For this reason alone, submajority rule is a poor choice for making decisions about fundamental human rights, but also because fundamental rights are [not low-stakes decisions](#when-majority-rule-can-harm). However, submajority rules might be the perfect choice for low-stakes decisions affecting the status quo of your office. :)
+
+#### Supermajority rules and the "status quo"
+
+When you have something widely recognized as good (like the [Bill of Rights](https://en.wikipedia.org/wiki/United_States_Bill_of_Rights) or a [global, decentralized system](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2015-October/011457.html)), supermajority rules are the best way of holding onto it.
+
+Fundamental rights that apply to everyone, and therefore also to minority groups, are [perfect candidates](http://www.libertylawsite.org/2014/01/22/more-on-supermajority-rules-mays-theorem/) for supermajority rules.
+
+#### Compensating for status quo bias in supermajority rule
+
+Although supermajority rules are great for preserving good decisions, that property can make them a double-edged sword if not approached carefully.
+
+It's possible to compensate for this property by [considering more than just the voting threshold](#beyond-voting-thresholds):
+
+- Ensure that [*real* supermajority rules are used](/articles/misconceptions-about-majority-rule/#confusion-over-majority) by involving everyone affected by the decision.
+- Consider requiring some decisions be re-authorized after a period of time.
+- Disallow consideration of _highly specific and detailed laws_ that apply to large populations.
+
+<a name="beyond-voting-thresholds"></a>
+## Beyond Voting Thresholds
+
+Although we've spent significant time discussing the implications of _voting thresholds_, a message that deserves re-emphasis is: *when designing voting systems, there are far more important factors to consider than just the threshold.*
+
+Voting thresholds are important; however, their relevance can be completely nullified by [other](/articles/what-makes-a-good-voting-system/#considerations) [factors](/articles/misconceptions-about-majority-rule/#condition-iii-neutrality), and sometimes no amount of "voting systems engineering" is enough.
+
+<a name="when-voting-is-not-enough"></a>
+## When Voting Is Not Enough
+
+#### Germany, 1933
+
+One of history's greatest tragedies shows that virtually any voting system can be gamed:
+
+> Although receiving five million more votes than in the previous election, the Nazis had failed to gain an absolute majority in parliament, depending on the 8% of seats won by their coalition partner, the German National People's Party, for a slim majority of 52%.
+>
+> To free himself from this dependency, Hitler had the cabinet, in its first post-election meeting on 15 March, draw up plans for an Enabling Act which would give the cabinet legislative power for four years. The Nazis devised the Enabling Act to gain complete political power without the need of the support of a majority in the Reichstag and without the need to bargain with their coalition partners.
+
+To pass the Enabling Act (effectively modifying Germany's Constitution) the Nazis [would need a 2/3 supermajority](https://en.wikipedia.org/w/index.php?title=Enabling_Act_of_1933&oldid=733295412#Background). With a bit of intimidation, a bit of deception, and some bending of the rules, this turned out to not be enough of an obstacle:
+
+> The Social Democrats (SPD) and the Communists (KPD) were expected to vote against the Act. The government had already arrested all Communist and some Social Democrat deputies under the Reichstag Fire Decree. [...]
+>
+> The Reichstag, led by its President, Hermann Göring, changed its rules of procedure to make it easier to pass the bill. Under the Weimar Constitution, a quorum of two-thirds of the entire Reichstag membership was required to be present in order to bring up a constitutional amendment bill. In this case, 432 of the Reichstag's 584 deputies would have normally been required for a quorum. However, Göring reduced the quorum to 378 by not counting the 81 KPD deputies. [...]
+>
+> Göring also declared that any deputy who was "absent without excuse" was to be considered as present, in order to overcome obstructions. Leaving nothing to chance, the Nazis used the provisions of the Reichstag Fire Decree to detain several SPD deputies. A few others saw the writing on the wall and fled into exile. [...]
+
+The act passed with "83%" voting in favor:
+
+> At this stage, the majority of deputies already supported the bill, and any deputies who might have been reluctant to vote in favour were intimidated by the SA troops surrounding the meeting. In the end, all parties except the SPD voted in favour of the Enabling Act. With the KPD banned and 26 SPD deputies arrested or in hiding, the final tally was 444 in favour of the Enabling Act against 94 (all Social Democrats) opposed. The Reichstag had adopted the Enabling Act with the support of 83% of the deputies. If all SPD deputies had been present, it would have still passed with 78.7% support. After the Reichsrat also gave its approval, the Act was signed into law.
+
+Recently [defeated in war](https://en.wikipedia.org/w/index.php?title=World_War_I&oldid=737411531#Discontent_in_Germany) and [suffering economically](https://en.wikipedia.org/w/index.php?title=Adolf_Hitler%27s_rise_to_power&oldid=736132140#Weimar_parties_fail_to_halt_Nazis), German anger found expression through a man who promised to return Germany to greatness (while blaming their problems on a minority group). A wave of ignorance, violence, and intimidation swept his political opponents away, along with their troublesome "supermajority voting rules".
+
+It also helped that, like many today, the German people continued to put faith into political institutions they had lived under for years, even though these institutions were responsible for the death and suffering of millions. This meant that Hitler's position was "legitimate", "legal", and as "good law abiding German citizens" it was "their duty" to support him. After all, the state-controlled media, and "all" of their neighbors, told them so.
+
+So it is easy to see how eventually even a [referendum vote](https://en.wikipedia.org/wiki/Referendum) (a form of [direct democracy](https://en.wikipedia.org/wiki/Direct_democracy)) to give Hitler the ceremonial title of "supreme ruler of Germany", [could pass](https://en.wikipedia.org/w/index.php?title=German_referendum,_1934&oldid=735441267#Results) with "88.1%", or 38 million Germans, voting _"Ja!"_
+
+#### America, 2001
+
+A more recent example occurred on September 14th, 2001, when representative [Barbara Lee](https://en.wikipedia.org/wiki/Barbara_Lee) was the [sole dissenting voice](https://twitter.com/adamjohnsonNYC/status/774867550907817984) in a 420-1 vote authorizing [an expansion of executive powers](http://www.latimes.com/politics/la-pol-sac-essential-poli-us-house-rejects-rep-barbara-lees-push-to-end-1463612506-htmlstory.html) to conduct war, which then led to the [Iraq War](https://en.wikipedia.org/wiki/Iraq_War) and today's continuing [War on Terror](https://en.wikipedia.org/wiki/Iraq_War_and_the_War_on_Terror).
+
+<center>\* \* \*</center>
+
+That is a long way of saying: voting rules and voting systems are important, but they cannot single-handedly save us. Humans are still [easily manipulated and mislead](https://en.wikipedia.org/wiki/Propaganda). If we want a brighter future, we have to teach both children and adults how to think for themselves, how to resist manipulation, how to think through the potential consequences of actions _and inactions_, and how to be courageous enough to be that lone dissenting voice.
+
+Anti-propaganda classes and schools are beginning to appear, like [this "School for Disobedience"](http://yle.fi/uutiset/school_for_disobedience_opens_this_autumn_in_helsinki/8216818) in Finland:
+
+> "The whole idea started from the fact that I was worried that maybe kids in schools are just too happy to take their place in society and fulfill the goals that are fed to them," says Leinonen. The idea is to teach them to be outspoken in their questioning of everything they see in the media, read and even what they're taught in school.
+
+<a name="avoiding-mays-mistake"></a>
+## Avoiding May's Mistake
+
+Truth is difficult and hard to come by because it requires both speaker and listener put energy into reducing potential misunderstanding.
+
+It's easy to say one thing in English while writing something entirely different in math. May might have mislead fewer people and caused less harm if he had followed these three rules:
+
+1. **Clearly define terms.** May's concept of "indifference" loses its meaning because of the different contexts in which it's used.
+2. **Never redefine established terms or use controversial terms.** Established terms have established definitions, and _you will_ mislead people by using them in a novel way, or even in a way that is just slightly off. Pick words that potential critics agree are _unquestionably_ represented by the math, or invent new words, or use variables instead. General rule: if it's _possible_ for a term to be misunderstood, **don't use it.** May's terms "anonymity", "egalitarian", and "indifference" created confusion because their usage cannot be mapped to their well established meaning in the contexts of voting or colloquial English.
+3. **Guard against misinterpretations and correct others.** Explicitly strike down potential misinterpretations both within your paper, and outside of it after publication. Computers make it simple to reply to comments and make corrective edits (if you're not using PDF). If someone uses your work to mislead people, correct them privately and then publicly if necessary.
+
+<a name="repeating-mays-mistake-for-great-profit"></a>
+## Repeating May's Mistake For Great Profit
+
+<center>***"Turn any boring definition into an exciting theorem with this one weird trick!"***</center>
+
+Suppose we want to mislead people into thinking equilateral triangles are the best of all shapes. We can do that by following May's example:
+
+> THEOREM: A group decision function is the method of simple majority decision if and only if it is always decisive, egalitarian, neutral, and positively responsive.
+
+We'll start with the [boring definition](https://en.wikipedia.org/w/index.php?title=Equilateral_triangle&oldid=740373984):[^1]
+
+[^1]: You must learn how to *sell* math! You can't just say, "Majority rule is an unweighted voting rule with a 50% voting threshold." That doesn't impress anyone! ;)
+
+- DEFINITION: An **equilateral triangle** is a [triangle](https://en.wikipedia.org/wiki/Triangle) in which all three sides are equal.
+
+Then we'll invert it using "if and only if" and describe some characteristics in terms of misleading "conditions". We're left with the following extraordinary theorem:
+
+- THEOREM: A shape is the polygon known as **equilateral triangle** if and only if it is always shapely, benevolent, perfectly symmetrical, and positively edgy.
+
+We can now publish a paper with a proof of these amazing revelations, and explain, in fancier terms, that "always shapely" means it's a shape, that "benevolent" means the shape treats its edges and vertices equally by ensuring there are always the same amount of each, that "perfectly symmetrical" means there are three ways to fold the shape symmetrically, and that "positively edgy" means that if you increase the number of vertices even by one then the shape's corners are no longer as pointy.
+
+Before long, our theorem may have a Wikipedia page and our triangle business will be booming thanks to technically accurate declarations like, _"[Author] showed only the equilateral triangle satisfies these great properties!"_
+
+Now, we're having a bit of fun at May's expense. To be clear, we're not aware of any reason to believe it was May's intention to mislead, and his paper appeared during a time when [Social Choice Theory](https://en.wikipedia.org/wiki/Social_choice_theory) was only in its infancy.
+
+<a name="conclusion"></a>
+## Conclusion
+
+Thank you and congratulations on making it this far! 🎉
+
+We'll attempt an answer to the final question [we asked](/articles/misconceptions-about-majority-rule/#context) at the beginning: _What is the real significance of May's Theorem?_
+
+For the author, it is the troubling ease with which anyone can be mislead through the (ab)use of math and English. To this day, what is ultimately [just a definition](#repeating-mays-mistake-for-great-profit) of majority rule, is instead used as an [inappropriate justification](/articles/misconceptions-about-majority-rule/).
+
+The words and labels that we use to describe our math **matter a great deal.** Especially when politics are involved.
+
+Through a better and more accurate understanding of how collective decisions are made, how they are manipulated, and how the world reacts in response to them, it is possible to build a better society.
+
+If there's only one thing you take away from these posts, let it be this: **always use an [appropriate voting threshold](#when-majority-rule-can-harm), and always consider [the other important factors](/articles/what-makes-a-good-voting-system/#considerations).**
+
+_Thanks to [Simon Grondin](http://simongrondin.name/) and [Andrea Devers](https://twitter.com/dotmacro) for reviewing this post, and to the members of `r/math` and `r/askmath` for their valuable and insightful feedback. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter.<!-- Want to work on basic income with us? <a href="/positions" class="orange">We're hiring!</a>-->_
+
+## A note
+
+This post is the result of months of research and work involving 300+ revisions and several rewrites. We think it would be wrong to place it behind a paywall, but we're very thankful for any support you can give, whether it's financial, or simply a link back.
+
+<center style="font-weight: bold; color: green;">Donating = Loving!
+Please <a href="/donate/">support our work</a> by donating.
+<span style="font-size:70%">(USD, BTC and ETH accepted!)</span></center>
+
+<!--
+#### Compensating For Status Quo Bias In Supermajority Rule
+
+For whatever reason, the critics of supermajority do not seem to consider that it might be possible to eliminate its bias toward the status quo by taking into consideration the favor of _time_.
+
+Let's consider, for example, the War on Drugs, a status quo that is excessively harmful by many objective metrics. Now, for the moment, let's ignore the fact that we got here because drug laws were passed through majority rule. Let's imagine that these same laws managed to get passed via supermajority rule, even though it is less likely. If that were to occur then it would clearly be worse because now it is even more difficult to repeal the laws.
+
+How can we fix this? Simple: if a decision is _reversible_, then we can prevent a potentially harmful decision from becoming a long-term status quo by building into it an expiration date that automatically reverses the decision unless some sub-supermajority criteria are met (for example, we could require a majority vote to re-authorize the law after 1 year, or we could allow a submajority of 30% to prevent its re-authorization).
+
+There are additional ways of ensuring successful outcomes from supermajority rules (i.e. vaguer instructions the higher up you go), but we will cover those in future posts.
+
+## For fun: Selected Bad Decisions Made By Majority Rule
+
+Good to link to from the "Societal Damage From May's Theorem", but not as in blaming May, but in pointing out some bad decisions. Or better yet, maybe link to this from the "When Is It Dangerous To Use Majority Rule?" section.
+
+- Election of Adolf Hitler
+- Election of Benito Mussolini
+- Invasion of Iraq
+- War On Drugs
+- Prohibition
+- Slavery
+- Segregation (racial & ethnic groups, women, immigrants)
+- Japanese internment in U.S. during WWII
+- Slavery & segregation
++ 1794 -- U.S. House votes against bill to end slavery in all territories
++ States addressed slavery in their Constitutions (rep via constitutional convention)
++ post-1831 -- states passed more restrictions on slaves & free people of color bc Southampton Insurrection [e.g. lost right to vote 1853 in NC]
+- CA Propositions:
+    + 13 (property tax)
+    + 187 (denies illegal immigrants eligibility for public services, immediate federal stay imposed bc unconstitutional... i.e. ineffective)
+    + 22 (ban on same-sex marriage via statute, now unconstitutional)
+    + 8 (ban on same-sex marriage via constitutional amendment, now unconstitutional)
+    + 19 (legalization of marijuana -- didn't pass)
+    + 34 (abolish death penalty -- didn't pass)
+
+#### "Representative" Majority
+
+- Indian Wars (i.e. Native Americans)
+- sodomy laws (invalidated by *Lawrence v. Texas*)
+
+#### "Judicial" Majority
+
+Note: These likely stem from prior direct or representative majority decisions.
+
+These are things the supreme court felt were "wrong decisions".
+
+- 1896 -- *Plessy v. Ferguson* ("separate but equal")
+- 1928 -- *Olmstead v. United States* (wiretapping ok)
+- 1937 -- *Breedlove v. Suttles* (mandatory poll taxes ok)
+- 1949 -- *Wolf v. Colorado* (states can use evidence obtained via violation of 4th amendment)
+- 1971 -- *Baker v. Nelson* (state law banning non-hetero marriage is a-ok)
+- 1986 -- *Bowers v. Hardwick* (sodomy laws ok... overruled by *Lawrence v. Texas)*
+- *Citizens United*
+- Check out the rest of the [Overruled SCOTUS decisions (w/ overruling decision)](https://en.wikipedia.org/wiki/List_of_overruled_United_States_Supreme_Court_decisions)
+
+-->

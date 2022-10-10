@@ -1,0 +1,67 @@
+---
+title: A Reliable Safety Net for Small Communities
+description: As misfortunes don’t seem to come singly in 2020, the COVID-19 pandemic is magnifying social and economic inequality and accelerating an economic collapse...
+author: Catarina Chavinha
+date: July 17, 2020
+isoDate: "2020-07-16T17:00:00.000Z"
+layout: "../../layouts/BlogPost.astro"
+---
+
+As misfortunes don't seem to come singly in 2020, the [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) is magnifying [social and economic inequality](https://graduateinstitute.ch/coronavirus-information-our-community-and-visitors/covid-19-magnifier-social-inequality) and accelerating an [economic collapse](https://www.cnbc.com/2020/06/29/nearly-half-the-us-population-is-without-a-job-showing-how-far-the-labor-recovery-has-to-go.html). As an answer, some people are [demanding disruptive change](https://www.chicagoreader.com/chicago/police-abolitionist-movement-alternatives-cops-chicago/Content?oid=23289710), because governments have been slow and [unsatisfactory in their response](https://www.ohchr.org/en/NewsEvents/Pages/DisplayNews.aspx?NewsID=25793&amp;LangID=E). There are several viewpoints on how to address these issues, but we came down to a dilemma: Should we rely on malfunctioning governments to be the answer? Or should we be resourceful and find tools, like Group Income, to build safety nets for ourselves and our communities?
+
+[Inequality alarms](https://inequality.stanford.edu/publications/20-facts-about-us-inequality-everyone-should-know) [have been](https://ourworldindata.org/global-economic-inequality) [ringing for years](https://news.un.org/en/story/2020/01/1055681), especially when it comes to income inequality. According to OECD, [inequality is rising worldwide](https://youtu.be/T_AEBZK427I). The gap between the poor and the rich is the highest in 30 years. In the U.S., the average income of the richest 10% of the population is 14 times higher than the poorest 10%. The income of the top 1% also [grew five times as fast](https://gop-waysandmeans.house.gov/wp-content/uploads/2019/04/Gould-Testimony.pdf) as the income of the bottom 90%, and in 2017, the top 1% reached the [highest wages ever earned](https://www.investopedia.com/articles/personal-finance/050615/are-you-top-one-percent-world.asp) (they increased 157.3% since 1979). 
+
+The benefits of economic growth aren't trickling down to all. Despite the numbers and the explicit need, [little](https://www.cbpp.org/research/safety-net-effective-at-fighting-poverty-but-has-weakened-for-the-very-poorest) to [nothing has been done](https://theconversation.com/4-ways-covid-19-has-exposed-gaps-in-the-us-social-safety-net-138233) towards building strong safety nets for the general population. Now, governments are trying to address inequality while handling a pandemic that's making job losses reach historic levels.
+
+https://twitter.com/PeterHoskinsTV/status/1245850003144200193
+
+The outcome seems to only get more and more discouraging, from this narrow view of government accountability. But we don't need to solely rely on governments. We can choose to come together, using tools like [Group Income](https://groupincome.org/shorts/), and create safety nets for ourselves and our communities. This will help us form stronger communities, during a time that [we deeply need it](https://promarket.org/2020/03/19/this-crisis-is-different-the-coronavirus-is-a-social-disease-which-we-need-to-tackle-as-a-community/). 
+
+Group Income solely relies on our sense of community, our ability to care for each other, and our shared wish for everyone to be financially secure, particularly the ones closest to us. We're creating a tool that encourages everyone to share, expecting that those who have more share it with those who have less. This is why community spirit is so vital for Group Income, and if we imagine it at a larger scale, then we begin to understand why it is so vital for society itself.
+
+- **Why we consider communities so vital**
+
+<img src="https://groupincome.org/wp-content/uploads/2020/07/society-three-pillars.jpg" alt="" width="700" height="560" class="aligncenter size-full wp-image-1429" />
+
+Communities keep society balanced. Let's have a look at it from the standpoint of [Raghuram Rajan](https://www.chicagobooth.edu/faculty/directory/r/raghuram-g-rajan). The Chicago Booth professor explains that society is upheld by three fundamental pillars: governments (political pillar), markets (economic pillar), and communities (sociological pillar). 
+
+According to Rajan, what happened across the industrial world was a continued vicious circle of [community aid failure](https://knowledge.wharton.upenn.edu/article/jeremy-siegel-and-raghuram-rajan-how-abandoned-communities-fuel-political-division/). 
+
+"First, because trade and technology have hit some communities really hard. Granite City, Illinois — which is a steel city — essentially lost an enormous number of jobs. And you can find places like that across the industrial world."
+
+"Second, in these very places, you also see that soon after there’s an economic loss of jobs, you also see social dysfunction creeping in. Because people don’t have jobs, you see marriages breaking up. You see substance abuse. You see teenage pregnancies. And as social dysfunction sets in, the local institutions start breaking down. Schools no longer are adequate and don’t teach as well as other places."
+
+"(...) then what you have is the third problem, which is in order to get the jobs in a technologically advanced economy, you need superior skills in order to move up from where you were. And that’s much harder when your local institutions aren’t functioning, when your schools aren’t providing — or your community colleges aren’t providing the kind of training that you actually need."
+
+**The consequence? The sociological pillar is now too fragile and there's an imbalance in society.**
+
+<img src="https://groupincome.org/wp-content/uploads/2020/07/society-broken-communities.jpg" alt="" width="700" height="560" class="aligncenter size-full wp-image-1430" />
+
+**We no longer can deny [this imbalance](https://www.weforum.org/agenda/2018/11/unmanaged-globalisation-damaging-local-communities-heres-how). But how do we rectify it?** 
+
+We believe we can contribute to strengthening this so-called fragile pillar. Group Income helps you financially support the ones closest to you. We're developing a tool that is a small solution to a larger scale problem. You may think of it as [Basic Income](https://www.reddit.com/r/basicincome/wiki/index) for small communities.
+
+As we've seen, governments aren't prepared, nor are they creating the safety nets we need. It will most likely be up to us to guarantee that no one, from our friends to our neighbors, falls through the cracks during these especially difficult times. What we want is for you to create a group where all members can rely on each other and be financially interdependent.
+
+**Your community has always been your strongest safety net.**
+
+When you deeply need help, who do you expect to be there for you? When you lose your job, when you run out of savings, where do you go? Back to your family, back to your friends. You might even go back to your hometown, because you know there's a structure that supports you there. We also know that many kids never leave home because they simply can't find jobs within their communities, and don't have the will or resources to look elsewhere. 
+
+#### **Creating your group on Group Income will simply formalize an already existing unspoken contract.**
+
+
+________________________________________________________
+
+
+##### [WE'RE HIRING!](https://groupincome.org/positions/)
+
+Group Income is looking for a [Protocol &amp; Backend Developer](https://twitter.com/Group_Income/status/1275457213327269889)
+
+##### What would you like to read about next?
+
+Visit our [community page](https://groupincome.org/community/) and choose your favorite channel to tell us!
+
+##### Want to help us get Group Income to you faster?
+
+Become a [sponsor on GitHub](https://github.com/sponsors/okTurtles)!
+Make a [tax-deductible donation to the okTurtles Foundation](https://okturtles.org/donate/).

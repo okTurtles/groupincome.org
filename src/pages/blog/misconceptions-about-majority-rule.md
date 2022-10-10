@@ -1,0 +1,358 @@
+---
+title: Misconceptions About Majority Rule
+description: In our previous post, we explored the meaning of voting and what it takes to make a good voting system. In this Part 2, we hope to convince you that what you’ve been told about majority rule is not only untrue, but harmful...
+author: Greg Slepak
+date: September 26, 2016
+isoDate: "2016-09-25T17:00:00.000Z"
+layout: "../../layouts/BlogPost.astro"
+---
+
+<!--
+FYI, this is another example of academia gone wrong:
+http://www-groups.dcs.st-and.ac.uk/history/PrintHT/Voting.html
+
+- [ ] Post followup two days later.
+- [ ] post job listing to: https://govuejs.com/jobs/1/full-stack-engineer
+-->
+
+In our [previous post](/articles/what-makes-a-good-voting-system/), we explored the meaning of voting and what it takes to make a good voting system. In this _Part 2_, we hope to convince you that what you've been told about [majority rule](https://en.wikipedia.org/wiki/Majority_rule) is not only untrue, but harmful.
+
+<style>
+.sidenote {
+  display: block;
+  overflow-x: auto;
+  padding: 1em 1em;
+  border-radius: 6px;
+  background-color: #ebebeb;
+  color: #6C7E8F;
+  margin: 2em 1.5em 2em 1.5em;
+  font-size: 90%;
+}
+.sidenote b {
+  color: #6C7E8F !important;
+}
+</style>
+
+- **[Voting Is Fairly New](#voting-is-fairly-new)**
+- **[A Series Of Unfortunate Decisions](#a-series-of-unfortunate-decisions)**
+- **[May's Theorem](#mays-theorem)**
+- **[Terms & Conditions](#terms-and-conditions)**
+  - **Condition I: ["always decisive"](#condition-i-always-decisive)**
+  - **Condition II: ["anonymity" or "egalitarian"](#condition-ii-egalitarian-or-anonymity)**
+  - **Condition III: ["neutrality"](#condition-iii-neutrality)**
+  - **Condition IV: ["positively responsive"](#condition-iv-positive-responsiveness)**
+- **[Even Academics Are Misled By May's Theorem](#even-academics-are-misled-by-mays-theorem)**
+- **[Confusion Over 'Status Quo'](#confusion-over-status-quo)**
+- **[Confusion Over 'Majority'](#confusion-over-majority)**
+- **[Confusion Over 'Minority'](#confusion-over-minority)**
+- **[Summary](#summary)**
+
+<div class="sidenote">Why are we spending so much time on voting? Isn't this project supposed to be about voluntary basic income? The reason is, <b>voting is a critical part of not just Group Income, but almost any basic income system.</b> It is ultimately the decisions groups make that determine their success or failure, and we want to help ensure their success.</div>
+
+## Voting Is Fairly New
+
+Voting, and especially voting that involves a significant portion of the population (which we call [Democracy](https://en.wikipedia.org/wiki/Democracy)), is a fairly new concept. Most online descriptions of voting and democracy-*ish* type systems point to [either Greece or India](https://en.wikipedia.org/w/index.php?title=History_of_democracy&oldid=739915873) as their earliest examples, followed by [Rome](https://en.wikipedia.org/w/index.php?title=History_of_democracy&oldid=739915873#Rome.2C_Towards_Middle_Ages). These systems [still excluded](https://en.wikipedia.org/w/index.php?title=Athenian_democracy&oldid=731734425) much of the population from having a say in their society, but they involved a lot more voting than the [dark ages](https://en.wikipedia.org/wiki/Dark_Ages_(historiography)) and monarchies to follow. It seems it really wasn't until around the time that a few colonists [decided to leave](https://en.wikipedia.org/wiki/Mayflower) one of those monarchies and [eventually establish](https://en.wikipedia.org/wiki/American_Revolution) the United States that voting [began to resurface around the world](https://en.wikipedia.org/wiki/Timeline_of_women%27s_suffrage) in any serious capacity.
+
+So, the practice of voting, and especially the idea of _voting systems_, remains a fairly new and poorly understood, unexplored phenomenon.
+
+<a name="a-series-of-unfortunate-decisions"></a>
+## A Series Of Unfortunate Decisions
+
+Whether it be the election of a tyrant, the passing of prohibition, or the invasion of Iraq, our world is deep with the painful consequences of poor collective decision-making brought about through voting.
+
+In each of these decisions, the concept of voting and the notion of a _majority_ have played pivotal roles. It does not seem to matter whether a country is run by democracy or dictatorship: every major political system has representative nations who've made decisions where everyone was left worse off, including the decision makers.
+
+In spite of failing to prevent various disasters, the concept of _majority rule_ has not only survived but has maintained a prominent position in our day-to-day decision-making systems.
+
+When does majority rule work? When does it fail? And why do we use it so often? These are some of the questions we'll be exploring today.
+
+<a name="mays-theorem"></a>
+## May's Theorem
+
+If you've ever wondered why majority rule is so prominent, you've undoubtedly stumbled upon *May's Theorem*. It is found in [almost](https://en.wikipedia.org/w/index.php?title=Majority_rule&oldid=725844819#May.27s_theorem) [every](http://plato.stanford.edu/entries/social-choice/#ProArgForMajRul) justification for majority rule.
+
+Most descriptions of the theorem look something like this:
+
+> Theorem (May 1952): An aggregation rule satisfies universal domain, anonymity, neutrality, and positive responsiveness if and only if it is majority rule.
+>
+> — *Stanford's Encyclopedia of Philosophy*
+
+However, the [original](http://www.eecs.harvard.edu/cs286r/courses/fall11/papers/May52.pdf) [theorem](https://sci-hub.tw/10.2307/1907651), as written by Kenneth May in 1952, looks like this:
+
+<img src="https://groupincome.org/wp-content/uploads/2016/07/mays-theorem-1024x134.jpg" alt="THEOREM: A group decision function is the method of simple majority decision if and only if it is always decisive, egalitarian, neutral, and positively responsive." width="1024" height="134" class="size-large wp-image-217" />
+
+Are either of these expressions of the theorem true?
+
+To find out, we'll examine the four "Terms & Conditions" of May's Theorem, and explore how _bad English_ and _good math_ can produce a theorem so misleading, that it might as well be untrue.
+
+<a name="terms-and-conditions"></a>
+## Terms & Conditions
+
+May's Theorem says majority rule is the only rule to satisfy these four conditions:
+
+- **Condition I: "always decisive"**, sometimes called **"universal domain"**, and sometimes missing entirely (as [on Wikipedia](https://en.wikipedia.org/w/index.php?title=May%27s_theorem&oldid=707839979))
+- **Condition II: "egalitarian"**, sometimes **"anonymity"** or **"anonymous"**
+- **Condition III: "neutral"**
+- **Condition IV: "positively responsive"** or **"positive responsiveness"**
+
+But … what are they? Why does Wikipedia not mention the first condition? How are "egalitarian" and "anonymous" the same thing? Is it possible to *prove* that a voting rule is "egalitarian"? What do "neutral" and "positively responsive" mean? What is the real significance of this theorem? How does it help us decide when to use majority rule? (Does it?)
+
+To answer these questions, let's look at its context and then examine the four conditions.
+
+<a name="context"></a>
+### Context of May's Theorem
+
+May says the theorem is about a vote between "two alternatives" <span class="math-inline">x</span> and <span class="math-inline">y</span>. As we'll see, this isn't exactly true. More accurately, May's Theorem concerns itself with a _proposal_ <span class="math-inline">x</span>, the _status quo_ <span class="math-inline">y</span>,[^1] and a third option we'll call *z*.
+
+May considers various _group decision functions_ that could be used to decide between the choices <span class="math-inline">x</span> and <span class="math-inline">y</span>, and focuses on one with a 50% _threshold_ called "majority rule".
+
+Let's define these terms:
+
+- **Group decision function:** A voting rule that tallies votes in favor or against a proposition and outputs *1*, *-1*, or <span class="math-inline">0</span>.
+- **Threshold** or **turnout threshold:** The percentage of votes in favor _above which_ the motion will pass, when votes of <span class="math-inline">0</span> (indifference or abstention) are ignored.
+- **Abstention threshold:** Like threshold, except votes of <span class="math-inline">0</span> are counted and are used to increase the likelihood of impasse. So, with a 50% abstention threshold and the votes <span class="math-inline">\small\\{1,1,-1,0,0\\}</span>, the outcome is not <span class="math-inline">x</span> but either <span class="math-inline">y</span> or <span class="math-inline">z</span>, depending on the decision function. Abstention thresholds are similar to _supermajority rules_ but are specifically useful when it makes sense to encourage a high _turnout_.
+- **Turnout:** The percentage (or number) of voters who did not abstain from voting.
+- **Unweighted:** 1-person-1-vote style voting (as opposed to 1-dollar-1-vote style voting).
+- **Majority rule:** Unweighted voting rule with a threshold of 50%.
+- **Supermajority rule:** Unweighted voting rule with a threshold >50%. Typically, [2/3 or more](https://en.wikipedia.org/w/index.php?title=Supermajority&oldid=723462259#Common_supermajorities).
+- **Submajority rule:** Unweighted voting rule with a threshold of <50%.[^2]
+
+[^1]: May did not explicitly state that <span class="math-inline">y</span> refers to the status quo, but it is indicated by his four conditions and the implications (and problems) surrounding his theorem. If <span class="math-inline">y</span> were something other than the ["status quo"](#confusion-over-status-quo), his theorem would fall apart because majority rule's ["neutrality"](#condition-iii-neutrality) would no longer be at all believable (it would be exactly _not neutral_, resulting in a move away from the status quo almost every time).
+
+[^2]: Submajority rules are rare, but some argue there are [good reasons](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=495569) to use them, and you'll notice the well-known [plurality rule](https://en.wikipedia.org/wiki/Plurality_(voting)) fits our definition. Note also that using an abstention threshold makes less sense in the context of submajority rules.
+
+May assigns meaning to the output of the group decision function like so:
+
+> We assume *n* individuals and two alternatives <span class="math-inline">x</span> and <span class="math-inline">y</span>. Symbolizing "the <span class="math-inline">i</span>th individual prefers <span class="math-inline">x</span> to <span class="math-inline">y</span>" by <span class="math-inline">xP_iy</span> and "the <span class="math-inline">i</span>th individual is indifferent to <span class="math-inline">x</span> and <span class="math-inline">y</span>" by <span class="math-inline">xl_iy</span>, we assume that for each <span class="math-inline">i</span> one and only one of the following holds: <span class="math-inline">yP_ix</span>, <span class="math-inline">yI_ix</span>, or <span class="math-inline">xP_iy</span>. With each individual we associate a variable <span class="math-inline">D_i</span> that takes the values <span class="math-inline">-1, 0, 1</span> respectively for each of these situations. Similarly, for the group, we write <span class="math-inline">D = -1, 0, 1</span> according as <span class="math-inline">yPx</span>, <span class="math-inline">yIx</span>, or <span class="math-inline">xPy</span>, i.e., according as the group decision is in favor of <span class="math-inline">y</span>, indifference, or in favor of <span class="math-inline">x</span>.
+
+**In plain English:** the individual votes and the group decision can have one of three values:
+
+<div class="math-display">
+\begin{aligned}-1 &= against \\ 0 &= indifferent, indifference \\ 1 &= in favor \end{aligned}
+</div>
+
+Had May recognized the significance of <span class="math-inline">0</span> as an outcome, the world might have turned out differently.
+
+<a name="z-the-missing-third-alternative"></a>
+#### <span class="math-inline">Z</span> — The Missing Third Alternative
+
+May mapped <span class="math-inline">D=1</span> to mean "in favor of <span class="math-inline">x</span>", <span class="math-inline">D=-1</span> to "in favor of <span class="math-inline">y</span>" (against <span class="math-inline">x</span>), but did not map an outcome for <span class="math-inline">D=0</span>. Instead, he simply referred to it as "indifference" or a "tie".
+
+What is the outcome in this situation? In the real world, different groups have different answers. They might proceed with a tie breaker, arbitration, negotiation, or some other procedure. These are often very meaningful and important activities, and their result is not always represented by <span class="math-inline">x</span> or <span class="math-inline">y</span>. Furthermore, _the "tie" itself as an outcome_, is neither <span class="math-inline">x</span> nor <span class="math-inline">y</span>. If it were, it would imply <span class="math-inline">0 = -1</span> or <span class="math-inline">0 = 1</span>, which is nonsense in both English and math.
+
+May's confusion around <span class="math-inline">D=0</span> results in an even more serious problem, for it can be used to represent semantically *opposite* concepts:
+
+<table>
+<tr><th>Votes</th><th>Possible meaning</th></tr>
+<tr><td><span class="math-inline"><0,0,0,0></span>   </td><td> "Nobody cares" aka "Indifference"</td></tr>
+<tr><td><span class="math-inline"><1,1,-1,-1></span> </td><td> "Everybody cares"                </td></tr>
+<tr><td><span class="math-inline"><0,1,-1,0></span>  </td><td> "Some care"                      </td></tr>
+</table>
+
+Our [previous post](/articles/what-makes-a-good-voting-system/) explains why <span class="math-inline">D=0</span> does not (typically) mean "indifference" but is indicative of disagreement:
+
+<img src="https://groupincome.org/wp-content/uploads/2016/06/voting-v6.2.png" alt="What &quot;Voting&quot; Means" style="box-shadow:1px 1px 3px rgba(1, 1, 1, 0.25); width: 80%;" class="aligncenter size-full wp-image-119" />
+
+However, even if we used the turnout to measure "indifference", that is also not necessarily a reliable way of representing indifference. For example, a low turnout in a presidential election *might* mean that people do not care, or it could mean that they care but do not approve of either option.
+
+During our discussion of [Condition IV](#condition-iv-positive-responsiveness), we will see why it can be more helpful to think of *z* as a "no-win" outcome, rather than "a tie".
+
+Onward!
+
+<a name="condition-i-always-decisive"></a>
+## Condition I: "always decisive"
+
+Here's a screenshot of Condition I from May's paper:
+
+<img src="https://groupincome.org/wp-content/uploads/2016/07/condition1-always-decisive-e1472518395474-1024x248.jpg" alt="CONDITION I: The group decision function is defined and single valued for every element of U X U X ... X U. We might describe this condition by saying that the method must be decisive and universally applicable, or more briefly always decisive, since it must specify a unique decision (even if this decision is to be indifferent) for any individual preferences." width="1024" height="248" class="aligncenter size-large wp-image-236" />
+
+That may sound fancy, but all it says is: "A _group decision function_ is a [function](https://en.wikipedia.org/w/index.php?title=Function_(mathematics)&oldid=735355683) _[that outputs -1, 0, or 1]_."[^3]
+
+[^3]: That last part comes from the definition of <span class="math-inline">\footnotesize{U}</span>, found earlier in the paper: _"It seems appropriate to call it a group decision function.<sup>4</sup> It maps the <span class="math-inline">\footnotesize{n}</span>-fold cartesian product <span class="math-inline">\footnotesize{U \times U \times \cdots \times U}</span> onto <span class="math-inline">\footnotesize{U}</span>, where <span class="math-inline">\footnotesize{U = \\{-1, 0, 1\\}}</span>."_
+
+May gives the following example of "something" that does not satisfy this condition:
+
+<center><span class="math-inline">D = 1</span> for <span class="math-inline">N(1)-N(-1) \geq 0, D =-1</span> for <span class="math-inline">N(1)-N(-1) \leq 0</span></center>
+
+We say "something" because the above, having multiple values for <span class="math-inline">0</span>, is called a _[multivalued function](https://en.wikipedia.org/w/index.php?title=Multivalued_function&oldid=711620746)_, which is not a function:
+
+> In the strict sense, a well-defined function associates one, and only one, output to any particular input. The term "multivalued function" is, therefore, a misnomer because functions are single-valued.
+
+Now we understand why Wikipedia probably left out the fairly uninteresting Condition I. After all, <a href='#context'>the context</a> of the theorem is about whether a proposal passes, and a proposal cannot both _pass and not pass_ at the same time. Even a tie maps to a single output.
+
+As we'll see, each one of May's conditions comes with an _English description_ that is, to varying degrees, an unfaithful representation of _the math_. **Condition I** is the least misleading condition, but it's still worth considering how it could be misunderstood.
+
+Consider May's example of a jury decision rule, which he says is "always decisive":
+
+<center><span class="math-inline">D = -1, 1,</span> or <span class="math-inline">0</span> according as <span class="math-inline">N(-1)=n,N(1)=n,</span> or otherwise.</center>
+<p>Is a <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung jury</a> therefore "decisive" when it <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103"><i>cannot agree upon a verdict"</i></a>? We'll forgive May this one time and say they're "decisive about their indecision."</p>
+
+## Condition II: "egalitarian" or "anonymity"
+
+The term "egalitarian" only appears once in the entire paper: in the [theorem statement itself](#mays-theorem). We know the terms "egalitarian" and "anonymity" refer to the same thing by process of elimination and the reference to "equality":[^4]
+
+[^4]: Note that **this is sloppy, bad math.** Mathematical theorems must define terms precisely and then use them in a consistent manner. Instead, May plays word games with the reader, misleading them into believing Condition II implies majority rule is ["egalitarian"](http://www.thefreedictionary.com/egalitarian) or ["anonymous"](http://www.thefreedictionary.com/anonymous) when the math implies neither.
+
+<img src="https://groupincome.org/wp-content/uploads/2016/07/condition2-anonymity-e1472519254126-1024x399.jpg" alt="The second condition is that each individual be treated the same as far as his influence on the outcome is concerned. This means that in f(D1, D2, ---, Dn) we could interchange any two of the variables without changing the result. CONDITION II: The group decision function is a symmetricfunction of its arguments. This condition might well be termed anonymity, since it means that D is determined only by the values of the Di that appear, regardless of how they are assigned to individuals as indicated by subscripts (names). A more usual label is equality." width="1024" height="399" class="aligncenter size-large wp-image-222" />
+
+This simply says votes are _unweighted_ and their order doesn't matter. That is, we're focusing on decision rules of the [1-person-1-vote](https://en.wikipedia.org/wiki/One_man,_one_vote) variety (and not, e.g., the [1-share-1-vote variety](https://en.wikipedia.org/wiki/One_share,_one_vote)).
+
+The word "anonymity" does not mean votes are anonymous in the sense of requiring a [hidden ballot](https://en.wikipedia.org/wiki/Secret_ballot) (a fully transparent vote would still satisfy Condition II), nor does it necessarily mean that majority rule is [egalitarian](http://www.merriam-webster.com/dictionary/egalitarianism).
+
+Egalitarianism is the belief that people deserve equal rights and opportunities, but does that imply it is <i>un</i>egalitarian for a company to give less voting power to an outside shareholder with 0.000001% ownership in the company than to its CEO, who owns 30%? And is it suddenly "egalitarian" if a group votes to enslave another group using majority rule?
+
+Clearly, it does not matter whether or not majority rule is used in these situations, the words "equal", "anonymous", and "egalitarian" do not apply. Per egalitarianism, people have an equal right to use whatever voting system they feel is appropriate to their situation, as long as they do not deprive others of that same right.
+
+Therefore, the math of Condition II is not represented by the English.[^5]
+
+[^5]: This "trick"—that of mapping misleading terms to math that works out—is considered by some mathematicians to be sufficient to declare the resulting misleading English of a theorem to be "true". In our opinion, allowing lay persons to then walk away with an entirely _untrue_ understanding, especially when it results in _real harm_ to their lives (and then <span class="math-inline">blaming them!</span>), is severe professional negligence. Besides, if this were acceptable, one would be able to "mathematically prove" literally any English statement, no matter how absurd.
+
+<a name="condition-iii-neutrality"></a>
+## Condition III: "neutrality"
+
+Condition III is the most [frequently](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) [cited](http://www.libertylawsite.org/2014/01/22/more-on-supermajority-rules-mays-theorem/) justification of the four conditions:
+
+<img src="https://groupincome.org/wp-content/uploads/2016/07/condition3-neutrality-1024x257.jpg" alt="Another way of justifying this is by considering that we might have decided in the first place to assign the values -1 and 1 in the opposite way, and we do not want this to make any difference. Accordingly: CONDITION III: f(-D1, -D2, *. *,Dn) = - f(D1 , D2, ...* Dn) For obvious reasons the mathematical term &quot;odd&quot; does not seem con- venient in this context, and we describe this property as neutrality." width="1024" height="257" class="aligncenter size-large wp-image-233" />
+
+It is Condition III that's referenced when someone says majority rule is "neutral with respect to the status quo". For example, Adrian Vermeule's [review](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) of a book on Social Choice Theory says:
+
+>  A formal result called May’s Theorem shows that where a group must choose between two options, simple majority rule is the only approach that respects equal treatment of voters (so-called anonymity) and equal treatment of the options before the group (so-called neutrality). By contrast, supermajority rule in its ordinary form violates neutrality, because it privileges one of the options—the status quo option of leaving everything as it is, an option that will become the group choice so long as a sufficient minority supports it.
+
+But is that true?
+
+Again we find May's English betraying a far more complicated reality.
+
+In the following two scenarios, the status quo starts out as "America in 2016". Consider how the status quo changes after proposal <span class="math-inline">x</span> passes via majority rule:
+
+- **Scenario 1:** A vote is held on proposal <span class="math-inline">x</span> to "Make America Great Again by giving everyone a free makeover." After <span class="math-inline">x</span> passes, everyone looks slightly better for a day.
+- **Scenario 2:** Now suppose <span class="math-inline">x</span> is a proposal to "Make America Great Again by forcibly sterilizing half the population." Again, we use majority rule because of all of its supposed wonderful mathematical properties, and, thanks to a heaping of state propaganda, <span class="math-inline">x</span> passes and in doing so radically changes the course of history.
+
+It seems silly to suggest that in both scenarios the status quo and proposal <span class="math-inline">x</span> are "equally privileged". We note the following factors, all of which can play a more significant role in determining the status quo than the voting threshold:
+
+- **The difference between the existing status quo and the proposal.** Compared to mandatory castration, few would object to a free makeover (today, at least). Therefore, whether the threshold is 30% or 60%, _Scenario 1_ seems far more likely to pass than _Scenario 2_. Even if the proposal in _Scenario 2_ passed, if it did so outside the context of a fair vote in a [direct democracy](https://en.wikipedia.org/wiki/Direct_democracy) that would not necessarily mean _the reality_ of <span class="math-inline">x</span> would pass. Instead, it's possible the new status quo would be neither <span class="math-inline">x</span> nor <span class="math-inline">y</span>, but <span class="math-inline">z=\text{Civil War 2}</span>.
+- **Who chooses the proposal, who votes on it, and who is affected by it.** "Majority rule" is supposedly used in Congress to decide whether or not a law passes, but a Congress majority is [only 0.00008%](https://fixingtao.com/2016/04/lets-end-hotdog-worship-in-america/) of the population. Laws, however, affect not only Congress but all 300+ million Americans. It does not matter, therefore, what the "options before the group" are or what the voting threshold is — the outcome, and therefore the status quo, will still be biased in favor of the interests of a microscopic fraction of the population.
+
+Increasing the voting threshold obviously makes it more difficult for proposals to pass, but as we've seen, that does not mean a 50% threshold ensures a voting rule does not privilege some outcome over another.
+
+In truth, every voting rule and voting system privileges some status quo over others, no matter the threshold used. And, we should _want_ to privilege some status quos over others: the ones that make life work well for the greatest number of people while minimizing harm.
+
+As we'll discuss in the next post, there are many situations where it only makes sense to use a high voting threshold. But: _who chooses the proposal, who votes on it, and who is affected_ can matter a great deal more than the threshold in determining the status quo.
+
+If we care at all about the status quo, we have no choice but to pay attention to these other factors as well.[^6]
+
+It's nice that May somewhat acknowledges this, although few seem to have noticed his footnote:
+
+<img src="https://groupincome.org/wp-content/uploads/2016/07/footnote7-1024x137.jpg" alt="7 There are many situations where this neutrality is not desirable. It goes without saying that our purpose here is to illuminate the formal characteristics of simple majority decision and not to assert any special value or universality for the stated conditions." width="1024" height="137" class="aligncenter size-large wp-image-253" />
+
+[^6]: We maintain [a giant list](/2016/06/what-makes-a-good-voting-system/#considerations) of important considerations.
+
+<a name="condition-iv-positive-responsiveness"></a>
+## Condition IV: "positive responsiveness"
+
+The final condition is a nice segue to understanding the real difference between _majority rule_ and other voting rules, although it is by understanding _the misunderstanding_ of the condition that we get there:
+
+<img src="https://groupincome.org/wp-content/uploads/2016/07/condition4-positive-responsiveness-e1472612112472-1024x325.jpg" alt="The final condition that we place on the decision function is that it respond to changes in individual preferences in a &quot;positive&quot; way. By this we mean that if the group decision is indifference or favorable to x, and if the individual preferences remain the same except that a single individual changes in a way favorable to x, then the group decision becomes favorable to x. More precisely: CONDITION IV : If D=f(D1,D2, ... ,Dn) = 0 or 1, and D&#039;i=Di for all i != i0, and Di0 &gt; Dio, then D&#039; = f(D&#039;1, ... ,D&#039;n) = 1." width="1024" height="325" class="aligncenter size-large wp-image-235" />
+
+In other words, if a group is initially "indifferent" towards a proposition and someone changes their vote to be more favorable, the proposition succeeds.
+
+That probably sounds very sensible. However, as [noted earlier](#z-the-missing-third-alternative), May's description of Condition IV is incorrect because May's _math_ is [incapable](#z-the-missing-third-alternative) of expressing the concept of [indifference](http://www.thefreedictionary.com/indifference). On the other hand, Wikipedia [does](https://en.wikipedia.org/w/index.php?title=May%27s_theorem&oldid=707839979) accurately describe the math. Note the lack of any mention of "indifference":
+
+> Condition 4. If the group decision was 0 or 1 and a voter raises a vote from −1 to 0 or 1 or from 0 to 1, the group decision is 1. (positive responsiveness)
+
+We can piece together a better understanding of **Condition IV** by returning to our [discussion](#z-the-missing-third-alternative) about the misunderstood <span class="math-inline">D=0</span> result, and by considering the examples May gives for voting rules satisfying all but one of the four conditions:
+
+- May's so-called ["always decisive"](condition-i-always-decisive) jury decision rule violates only **Condition IV**:
+
+<center><span class="math-inline">D = -1, 1,</span> or <span class="math-inline">0</span> according as <span class="math-inline">N(-1)=n,N(1)=n,</span> or otherwise.</center>
+
+- What May calls the "familiar two-thirds majority rule" violates only **Condition III**:
+
+<center><span class="math-inline">D = -1, 0, 1</span> according as <span class="math-inline">N(1)-2N(-1)</span> is less than, equal to, or greater than zero.</center>
+In neither example does <span class="math-inline">D=0</span> represent "indifference". A jury is not "indifferent" when it is <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung</a>, nor is a group that's split 2 to 3.
+
+So what to make of <span class="math-inline">D=0</span>?
+
+Stanford's Encyclopedia of Philosophy <a href="http://plato.stanford.edu/entries/social-choice/#ProArgForMajRul">makes a distinction</a> between two kinds of supermajority rules, referring to the type May gives as "asymmetrical" because <span class="math-inline">D=0</span> occurs only at the voting threshold. The other type, "symmetrical", is more like the jury voting rule because it increases the likelihood of a "no-win" outcome where _there is no winning side._
+
+The movie <a href="https://en.wikipedia.org/wiki/12_Angry_Men_(1957_film)">12 Angry Men</a> explores the significance of the "no-win" situation and how, thanks to the emphasis unanimity places on <span class="math-inline">D=0</span> (and the related principle of [reasonable doubt](https://en.wikipedia.org/wiki/Reasonable_doubt)), a single obstinate juror is able to persuade the rest into making the correct decision — thereby saving the life of an innocent man.
+
+The effect of **Condition IV** is to reduce the opportunity for the "no-win" outcome that <span class="math-inline">D=0</span> represents, and therefore it reduces opportunities for [options](#z-the-missing-third-alternative) like honest debate, negotiation, and arbitration. A successful bribe to a single member can be enough to declare half the group "the winner" and the other half "the loser", even though there's little difference between 50-50 and 49-51.
+
+<a name="even-academics-are-misled-by-mays-theorem"></a>
+## Even Academics Are Misled By May's Theorem
+
+By this point, you should understand how May's Theorem misled many people into reaching the mistaken conclusion that _"math"_ says majority rule is "the best" voting rule.
+
+This misunderstanding even afflicts some parts of academia, where we find declarations such as the following (taken from the abstract of a University of California, Irvine [paper](http://repositories.cdlib.org/cgi/viewcontent.cgi?article=1001&context=csd)):
+
+> This paper demonstrates that majority rule offers more protection to the worst-off minority than any other system, in that it maximizes the ability to overturn an unfavorable outcome. It is known (May 1952, Dahl 1956) that majority rule is the only decision rule that completely respects political equality.
+
+Although that [is untrue](#condition-ii-egalitarian-or-anonymity), it's still a relevant contribution to the prevalence of majority rule today.
+
+<a name="confusion-over-status-quo"></a>
+## Confusion Over 'Status Quo'
+
+The word "status quo" is frequently misunderstood in discussions about voting rules, and especially in discussions about May's Theorem. Though it may certainly play a contributing role, the [status quo](https://en.wikipedia.org/wiki/Status_quo) has never been _contingent_ solely on the threshold of some voting rule.
+
+It is incorrect to imply that if <span class="math-inline">x</span> does or does not pass, some static thing called <span class="math-inline">y</span> (the "status quo") remains or changes in the prescribed way.
+
+Whether you live in a dictatorship or a ["democracy"](https://fixingtao.com/2016/04/lets-end-hotdog-worship-in-america/), the status quo is always changing—by itself. Today's reality might include a fearsome dictator who tomorrow chokes on a pretzel, ending years of oppression without any voting involved. Likewise, just because a law is on the books [doesn't mean](https://duckduckgo.com/?q=weird+laws+still+on+the+books) that it has meaningful influence over the status quo. Most people have approximately zero awareness of [the laws](https://twitter.com/CrimeADay) they supposedly should be following, and the few who are aware frequently [choose to ignore them](http://www.mit.edu/~jfc/laws.html#tolerance). When prohibition passed, alcohol abuse not disappear, in [some cases the problem got worse](http://www.druglibrary.org/Prohibitionresults.htm).
+
+What if the misrepresentation and misuse of majority rule biases the status quo towards one where poor decisions are the norm?
+
+<a name="confusion-over-majority"></a>
+## Confusion Over 'Majority'
+
+Sometimes there is confusion about what is or is not called "majority rule". May's paper seems to focus primarily on decisions that affect group members. He does not consider what happens when decisions affect people outside of the voting group.
+
+We have to recognize that there is a fundamental difference between "majority rule" that affects only those who can vote, and "majority rule" that affects a population _[~600,000 times larger](https://fixingtao.com/2016/04/lets-end-hotdog-worship-in-america/)_ than the voting group. These are so different that they deserve different terms. At the very least, we should not refer to the latter as "majority rule".
+
+Similarly, sometimes a "51% majority vote" is called "majority rule" when it is not. Per [Condition II](condition-ii-egalitarian-or-anonymity), shareholder voting, [proof-of-work](https://en.bitcoin.it/wiki/Proof_of_work), [proof-of-stake](https://en.wikipedia.org/wiki/Proof-of-stake)—none of these are majority rule.
+
+<a name="confusion-over-minority"></a>
+## Confusion Over 'Minority'
+
+Often, arguments for or against higher voting thresholds will confuse the notion of "oppressed minorities" with the mathematical notion of a minority.
+
+Note the contrast between "oppressed minorities" and the following "minorities" of the mathematical sense:
+
+- Those who think we should have ice-cream on Tuesdays instead of Wednesdays
+- Everyone (as can happen in [plurality voting](https://en.wikipedia.org/wiki/Plurality_(voting)))
+
+When discussing "oppressed minorities", thinking purely in terms of "50%" and "majority vs. minority" is unhelpful. After all, most "minority groups" are oppressed not by "majorities", but by "minorities" like the following:
+
+- [Dictators](https://en.wikipedia.org/wiki/Dictator) (can have only 1 of them)
+- The ["ruling class"](https://en.wikipedia.org/wiki/Ruling_class) or ["power elite"](https://en.wikipedia.org/wiki/Elite#Power_.C3.A9lites) (aka [plutocrats](https://scholar.princeton.edu/sites/default/files/mgilens/files/gilens_and_page_2014_-testing_theories_of_american_politics.doc.pdf))
+
+The message bears repeating: [there are more factors to consider than simply the voting threshold.](https://www.youtube.com/watch?v=vb8Rj5xkDPk)
+
+<a name="summary"></a>
+## Summary
+
+The primary justification for majority rule—May's Theorem—does not say (in math) what it claims it says (in English), and its descriptions in textbooks and across the web are misleading. Majority rule is not an "anonymous" voting rule, nor is it an "egalitarian" voting rule, nor is it "neutral with respect to the status quo". What is called "majority rule" today is also often not.
+
+### This Wednesday — Part 3.
+
+Post split up due to length.
+
+Day after tomorrow we'll cover the final topics:
+
+- **When Majority Rule Can Harm**
+- **When Majority Rule Can Help**
+- **Minority Rights**
+- **Beyond Voting Thresholds**
+- **When Voting Is Not Enough**
+- **Avoiding May's Mistake**
+- **Repeating May's Mistake For Great Profit**
+
+_Thanks to [Simon Grondin](http://simongrondin.name/), [Andrea Devers](https://twitter.com/dotmacro), and [Jason Krueger](https://twitter.com/grandcamel) for reviewing this post, and to the members of `r/math` and `r/askmath` for their insightful feedback, with special thanks to RosaDecidua and wonkey_monkey. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter.<!--Want to work on basic income with us? <a href="/positions" class="orange">We're hiring!</a>-->_
+
+## A note
+
+This post is the result of months of research and work involving 300+ revisions and several rewrites. We think it would be wrong to place it behind a paywall, but we're very thankful for any support you can give, whether it's financial, or simply a link back.
+
+<center style="font-weight: bold; color: green;">
+<div>Donating = Loving!</div>
+<div>Please <a href="/donate/">support our work</a> by donating.</div>
+<div style="font-size:70%">(USD, BTC and ETH accepted!)</div>
+</center>

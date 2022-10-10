@@ -1,57 +1,156 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-
+import Layout from './DefaultLayout.astro';
 export interface Props {
 	content: {
 		title: string;
 		description: string;
-		pubDate?: string;
+		author?: string;
+		date?: string;
+		isoDate?: string;
 		updatedDate?: string;
-		heroImage?: string;
+		image?: string;
 	};
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+	content: { title, author, description, date, image, url },
 } = Astro.props;
+
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-  				border-top: 1px solid #DDD;
-				margin: 1rem 0;
-			}
-		</style>
-	</head>
+<Layout>
+	<section class="container grey-container">
+		<div class="l-1-2">
+			<div class="c-header">
+				<a class="is-posttitle" href="/blog">BLOG</a>
+				<h1 class="is-title-1 c-main-title">{title}</h1>
+				<p class="c-main-para">{author} • { date }</p>
+			</div>
+			<img class="c-header-image" src={image || '/images/' + url + '.jpeg'}/>
+		</div>
+	</section>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				{heroImage && (
-					<img
-						width={720}
-						height={360}
-						src={heroImage}
-						alt=""
-					/>
-				)}
-				<h1 class="title">{title}</h1>
-				{pubDate && <time>{pubDate}</time>}
-				{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-				<hr/>
+	<section class="l-1">
+			<article class="c-article c-blog-wrapper">
 				<slot />
 			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+	</section>
+</Layout>
+
+<style lang="scss" scoped>
+@import "../styles/_variables";
+@import "../styles/_mixins";
+.c-header {
+	display: flex;
+	flex-direction: column;
+	min-height: 32rem;
+	justify-content: center;
+
+	@include until($tablet) {
+		min-height: auto;
+		margin-top: 1rem;
+		margin-bottom: 5rem;
+	}
+}
+
+.c-header-image {
+	width: 100%;
+	height: 20rem;
+	max-height: 44vw;
+	object-fit: cover;
+}
+
+.grey-container {
+	margin-bottom: 6rem;
+}
+
+section {
+	@include until($desktop) {
+		padding: 0 2rem;
+	}
+}
+
+.c-info,
+.c-main-para {
+	color: #939393;
+}
+
+.l-1-2 {
+	min-height: 32rem;
+
+	@include until($tablet) {
+		display: flex;
+		flex-direction: column-reverse;
+		margin-top: 2rem;
+	}
+}
+
+.l-1-1-1 {
+	.c-article-image {
+		background-color: #D0DEEA;
+		border-radius: .5rem;
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		object-fit: cover;
+	}
+}
+
+.c-article-image {
+	background-color: #D0DEEA;
+	border-radius: .5rem;
+}
+
+.c-blog-title,
+.c-main-title {
+	margin: 1rem 0 1rem 0;
+}
+
+.c-blog-title {
+	font-weight: 600;
+
+	@include phone {
+		line-height: 1.4;
+	}
+}
+
+.c-main-title {
+	font-size: 3.5rem;
+
+	@include until($desktop) {
+		font-size: 3rem;
+		line-height: 1.2;
+	}
+
+	@include phone {
+		font-size: 2.25rem;
+	}
+}
+
+.c-info {
+	font-weight: .5rem;
+	margin: 1rem 0 3rem 0;
+
+	time::before {
+		content: ' • ';
+	}
+}
+
+.c-article {
+	border-bottom: 1px solid #D0DEEA;
+	padding-bottom: 2rem;
+	margin-bottom: 5rem;
+
+	p {
+		margin-bottom: 1.5rem;
+	}
+
+	img {
+		margin: 2rem auto;
+	}
+
+	h2 {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+}
+</style>

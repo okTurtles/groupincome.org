@@ -1,0 +1,153 @@
+---
+title: Group Income July Progress Update
+description: The Group Income prototype is nearing completion. We will sign up groups for the prototype to give us feedback before the public release. What’s holding up the prototype?
+author: Greg Slepak
+date: July 19, 2017
+isoDate: "2017-07-18T17:00:00.000Z"
+layout: "../../layouts/BlogPost.astro"
+---
+
+The Group Income prototype is nearing completion.
+
+We will sign up groups for the prototype to give us feedback before the public release.
+
+#### What's holding up the prototype?
+
+There are two reasons why the prototype is taking a while to complete:
+
+1. We are designing software that will affect people's finances, and possibly their relationships. ["Move fast and break things"](https://duckduckgo.com/?q=move+fast+and+break+things) — not an option! We must treat this responsibility with the care and respect it deserves.
+2. When user data is sent over the Internet, that data must be carefully protected. **Traditional approaches fail to provide meaningful protection.** We've therefore designed **[a new approach](https://www.youtube.com/watch?v=I381R5_joLE&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&index=3)** to safeguarding user data. There is no ["Ruby On Rails"](https://en.wikipedia.org/wiki/Ruby_on_Rails) framework for doing this.[^1]
+
+[^1]: Not yet, at least. We will likely turn some of our work into standalone tools that other developers can use to create data-respecting software.
+
+We are going to test the prototype with a small number of groups so that we can iterate on ideas _before_ any changes we make impact a large number of lives.
+
+There will **only be room for about 8 groups** to test the prototype.
+
+If your group wants to be among the first to try Group Income, keep a close eye on **[our twitter](https://twitter.com/Group_Income)**.
+
+## Hackathon #6 — Nature, Food, And Code
+
+Among cows, horses, and sheep, surrounded by hills and grass, seven [totally OK turtles](https://okturtles.com) assembled.[^2]
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/nature.jpg" alt="" width="911" height="683" class="alignnone size-full wp-image-978" />
+
+We rented two nights at a countryside AirBnB. It featured a large, spacious interior — ideal for Getting Things Done.
+
+Shoes and social media were off. Electronic music was on.
+
+<div class="gallery">
+<img width="750" height="500" src="https://groupincome.org/wp-content/uploads/2017/07/discussion2.jpg" />
+<img width="750" height="500" src="https://groupincome.org/wp-content/uploads/2017/07/inside.jpg" />
+</div>
+
+I walked around with an iPad, looking important — err, I mean, I answered questions while going over the vision and remaining priorities.
+
+Andrea and Victor were in the kitchen, busy preparing a meal for everyone. Soon, the hackathon was well underway.
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/food2.jpg" alt="" width="1020" height="680" class="alignnone size-full wp-image-981" />
+
+
+### Who, What, Why
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/tamas-200x300.jpg" alt="" width="200" height="300" class="alignright size-medium wp-image-992" />
+
+Joining us for the second time was Tamas Kalman. Tamas had previously helped out our group during the most recent [San Francisco Basic Income Create-A-Thon](https://www.youtube.com/watch?v=NADBkuEPMnA).
+
+Tamas is easy to spot. He's usually dressed in all black while isolating himself from the world with a pair Bose QC35 noise-cancelling headphones. He's a super competent programmer and entrepreneur whose interests span basic income, helicopters, security, and automation.
+
+During the hackathon, Tamas tackled research and development related to Group Income's payment system, and implemented the payment distribution algorithm.
+
+When asked what it is about Group Income that he finds most exciting, he said:
+
+> **"Group Income is the closest thing we could get to universal basic income, and we can make it happen right now, without waiting for state approval."**
+> — Tamas Kalman
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/outside-300x225.jpg" alt="" width="300" height="225" class="alignright size-medium wp-image-985" />
+
+Also present was Dana Woodman, who had already been helping us with the project but had yet to attend one of our hackathons. An entrepreneur as well, Dana's frontend skills are second-to-none, and in his spare time he teaches others how to use ReactJS, often at [the makerspace](https://www.chimeraarts.org) he co-founded. For Dana, the potential of Group Income lies beyond its use as a safety net, to its potential to serve as a dream enabler. For him, that dream is traveling more, and that means: _"Saving money for group trips with my close friends."_
+
+During the hackathon, Dana, along with David Ernst and Megan Cress, worked together to completely redesign and reinvent Group Income's user interface, paying special attention to the Group Dashboard — the most important screen in the app and the place users will likely spend the most time.
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/David-215x300.jpg" alt="" width="215" height="300" class="alignright size-medium wp-image-1030" />
+
+Like Tamas, this was David's second Group Income hackathon, having previously joined our group at the 2017 San Francisco Create-A-Thon. David, too, is an entrepreneur, and when he's not working on [liquid.vote](https://liquid.vote), he likes to help out various open source projects, including Group Income!
+
+We asked David why he volunteers on Group Income, and he had this to say:
+
+> **"What excites me most is how this makes real world experience with a shared group income. We can begin using it now, instead of waiting on a political process. This also gives us a much quicker way to learn about the effects of and best ways to run this structure."**
+> — David Ernst
+
+The final member of the Dashboard team was Megan Cress, a strategy consultant and coach. This was Megan's first Group Income hackathon, and we have her to thank for all of the amazing photos of the event. Speaking of photos — it's totally my fault that we don't have a better picture of her besides the one I took on my phone (sorry!!!). That's her in the back, no doubt writing something brilliant:
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/IMG_0758.jpg" alt="" width="1020" height="728" class="alignnone size-full wp-image-1034" />
+
+Megan helped design the new Group Dashboard, and often acted as a catalyst for the team by asking great questions while making important contributions to the app itself, including critical adjustments to how our distribution algorithm works.
+
+I wanted to know, what excites her about Group Income?
+
+> **"There are a multitude of uses for the platform long term, it is very exciting! Family members may want to make sure health insurance costs are covered, friends can help with basic needs, or even support a special project where team members may need additional support.**
+>
+> **In the future a savings feature could be very exciting, and would allow groups to save for a special event (vacation, family reunion), annual trip, or help create savings clubs where each member contributes monthly and then receives a large sum one month each year. Flexibility being key, as the group chooses together what they want to use the platform for. The possibilities are endless."**
+> — Megan Cress
+
+[Victor Morrow](/articles/victor-morrow-joins-group-income/) flew in from D.C. the day before the hackathon, and besides being a fantastic guest, he's also a fantastic developer whose excellent work has helped steer the course of the project.
+
+Victor's background spans a dizzying array of fields including economic theory, financial systems, and data storage. A veteran software developer, Victor worked on core functionality related to Group Income's voting system and various other components too complicated to summarize here.
+
+What about Group Income excites Victor enough to fly across the country?
+
+> **"I'm excited about the idea of people coming together to identify and fulfill the needs of members of their own community. I'm also excited about the infrastructure we're creating."**
+> — Victor Morrow
+
+The hackathon, of course, would not have happened without the help of [Andrea Devers](https://twitter.com/dotmacro), who spent much of her time setting up the entire event. Andrea has been with Group Income since the beginning, and few understand the project and its goals as well as she does, and that's because she's principally responsible for many of them in the first place.
+
+A former resident of Alaska, Andrea has first-hand experience when it comes to living in a state that distributes a mincome to all of its residents. She is one of the project's chief architects, and is the guiding force behind every single psychological aspect of Group Income's design. Have a question about Group Income? She's the person to ask. So it's not surprising that she spent a good part of the hackathon writing down everything there is to know about Group Income.
+
+> **"Being recognized and supported simply for being alive and present was an empowering experience — an experience that everyone deserves.**
+>
+> **Group Income is a way for us to support and empower each other now, instead of waiting for social or political change to happen to us. And once we start using it, that will be an example and catalyst for change."**
+> — Andrea Devers
+
+The hackathon spanned two nights and three days. On the last day, we drove to Dana's markerspace where we buckled down and turtled our way to the finish line.
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/makerspace.jpg" alt="" width="1020" height="765" class="alignnone size-full wp-image-986" />
+
+At the end of the long three day hackathon, the turtles deserved a break, and so we went out for dinner, drinks and several games of pool at a local bar. :)
+
+[^2]: Five of the male sex, two of the female, representing at least three countries and cultural backgrounds, spanning the well-to-do to the well-in-debt. Not quite a tampon commercial, but almost. Diversity is of utmost importance for this project, and something we're paying close attention to.
+
+It's been a long road...
+
+#### Prototype stats
+
+- **337 [commits](https://github.com/okTurtles/group-income-simple/commits/master)**
+- **131 [issues closed](https://github.com/okTurtles/group-income-simple/issues?q=is%3Aissue+is%3Aclosed)**
+- **86 [pull requests reviewed](https://github.com/okTurtles/group-income-simple/pulls?q=is%3Apr+is%3Aclosed)**
+
+#### Activities
+
+- **6 [hackathons](https://twitter.com/search?f=tweets&vertical=default&q=from%3Agroup_income%20hackathon)**
+- **3 Basic Income [Create-A-Thons](http://www.universalincome.org/createathons/)**
+- **1 Group Income [meetup](https://www.meetup.com/New-York-City-Group-Income-Meetup/)**
+
+But we're almost there![^3]
+
+<img src="https://groupincome.org/wp-content/uploads/2017/07/dashboard.png" alt="" width="1082" height="1336" class="alignnone size-full wp-image-987" />
+
+[^3]: The final dashboard will look slightly different. Some elements, like the display of individual contribution amounts, will be removed, while others are being redesigned.
+
+Thanks to Megan Cress, Andrea Devers, David Ernst, Tamas Kalman, Victor Morrow, Greg Slepak and Dana Woodman for attending and making this year's hackathon the best one we've had so far!
+
+### Participate In Group Income
+
+Are you as excited about Group Income as we are? Want to participate in shaping its future?
+
+Everyone working on Group Income will be _using_ Group Income to support its development, and if you're as excited as we are about the project and want to participate in its creation — you can!
+
+- Join [our community](/community/)
+- Join our [developer chat](https://gitter.im/okTurtles/group-income)
+- Financially [back the project](/donate/)
+- When the time is right, sign up for the prototype trials
+
+Thanks for reading, see you soon!

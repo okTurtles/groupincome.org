@@ -1,0 +1,173 @@
+---
+title: Bulgaria Hackathon 2019 + Roadmap Updates + Hiring!
+description: Some say it’s not the destination that matters so much, but the journey and friends you meet along the way. I couldn’t agree more...
+image: https://groupincome.org/wp-content/uploads/2020/10/PANO_20191016_183902.vr-01.jpeg
+author: Greg Slepak
+date: June 8, 2021
+isoDate: "2021-06-07T17:00:00.000Z"
+layout: "../../layouts/BlogPost.astro"
+---
+
+Some say it's not the destination that matters so much, but the journey and friends you meet along the way.
+
+I couldn't agree more. But also, destinations aren't to be underestimated either! Back in 2019, during the Before Times, our team — a mixture of independent contractors and volunteers — got together in the beautiful land of Bulgaria for **Hackathon #8**!
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_3732-768x1024.jpeg" alt="" width="768" height="1024" class="aligncenter size-large wp-image-1480" />
+
+**In This Post**
+
+- [Stories and Photos from our 2019 Hackathon in Bulgaria](#stories)
+- [Roadmap Updates](#roadmap)
+- [We're Hiring!](#hiring)
+
+<a name="stories"></a>
+
+## Stories & Photos
+
+Remember when people traveled? And did stuff? Together? In the same place? Wasn't that fun?
+
+Teammates from various parts of the world joined under a single roof, and this roof had two kinds of pools.
+
+<div class="gallery">
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_4028-300x225.jpeg"/>
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_4022-300x225.jpeg"/>
+</div>
+
+In attendance were familiar characters as well as new ones, including a brilliant young engineer and Group Income volunteer from South Korea by the name of [Sebin Song](https://sebinsong.github.io/).
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_20191018_172603.jpg"/>
+
+Sebin is one of the coolest people I've had to good fortune of meeting. He's an extremely intelligent, humble, and kind person whose talents in frontend development are exemplary.
+
+I asked Sebin what he found exciting about Group Income, and what drew him to volunteer on the project. Here's what he had to say:
+
+> **"What's most fascinating to me about Group Income is, it's a project that aims to improve people's lives. Everyone today in this special COVID era, including the ones who don't know what UBI is, know that they need Basic Income. Group Income allows us to independently provide ourselves with Basic Income without having to wait for the governments to do something and I believe that will give us huge freedom, as well as stability. I can't wait to see it released because the world needs Group Income NOW**.
+>
+> **Although I didn't win the 'Group Income Challenge', Group Income provided me with a report on the full anatomy of my code submission and it blew my mind. To me, the engineers seemed like the type with whom I could grow my skills to be the best in the industry, and now I can confidently say, they are!**
+> 
+> **I could also see how much time and effort the team put into reviewing submissions, and even to this day I've never met a single company that pays that much care and respect to someone they turned down. People here are not only great engineers but also great human beings and that made me really want to be part of the team."**
+>
+> — Sebin Song (Developer)
+
+Most days we spent the morning, afternoon, and evenings working on Group Income.
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_3996.jpeg"/>
+
+The team worked hard on implementing [Margarida's new dashboard designs](/2020/01/margarida-botelho-and-pierre-schweiger-join-group-income/):
+
+<img src="https://groupincome.org/wp-content/uploads/2020/01/gi-design-2-1024x682.jpg"/>
+
+### Food and exploration
+
+Andrea was our master vegan chef for the hackathon, and prepared a variety of delicious food for the team.
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_4025.jpeg"/>
+
+Of course, we took time to explore Bulgaria too.
+
+The Black Sea is beautiful and was close to where we were staying.
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_3890.jpg"/>
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_20191021_174556.jpg"/>
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_20191021_175003.jpg"/>
+
+
+Pierre, always a fan of high-end restaurants, insisted that we visit one on the trip. This turned out to be a rather good idea, as the team loved the care with which one of Bulgaria's Master Chefs prepared each and every dish:
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_3899-1024x768.jpg"/>
+
+I asked Pierre about his thoughts on Group Income. What was it that drew him to working on Group Income?
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_20191021_174559-300x300.jpg"/>
+
+> **"Our project is dedicated to people that care about each other and you can feel it from the inside: I've never been in a company that considers its people as human beings before being a workforce… and it just feels right."**
+>
+> — Pierre Schweiger (Developer)
+
+<div style="clear: both;"></div>
+
+### Show & Tell
+<div class="gallery">
+<img width="300" height="225" src="https://groupincome.org/wp-content/uploads/2020/10/IMG_4035-300x225.jpeg"/>
+<img width="300" height="225" src="https://groupincome.org/wp-content/uploads/2020/10/IMG_4039-300x225.jpeg"/>
+<img width="300" height="225" src="https://groupincome.org/wp-content/uploads/2020/10/IMG_4046-300x225.jpeg"/>
+</div>
+
+Our hard work had paid off! We now have a mostly-functioning demo that anyone with a little bit of Git knowledge can [download and try out for themselves](https://github.com/okTurtles/group-income-simple)!
+
+#### Features Implemented During Hackathon
+
+Many features came together during this hackathon:
+
+- A fully fleshed out and functioning proposals system. Voting is a topic we've spent a [significant](https://groupincome.org/articles/what-makes-a-good-voting-system/) [amout of time](https://groupincome.org/articles/misconceptions-about-majority-rule/) [covering](https://groupincome.org/articles/deprecating-mays-theorem/) on this blog.
+- Automated hacking detection & ban.
+- Automated tools for localization.
+- Automated frontend UI testing.
+- Logic for adding income details.
+- Early implementation of the Pay Group page.
+- And my many more features and squashed bugs!
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/margarida-278x300.jpg"/>
+
+> **"Working on this project has been one of the highlights of my professional life. I will be forever grateful for the opportunity to use my expertise, knowledge and time to contribute to this amazing project.**
+> 
+> **It was lovely to meet the team in person, once again, in Varna. We had a lovely week working, chatting, and having fun with each other. It’s always a pleasure to hang out with everyone!"**
+> 
+> — Margarida Botelho (Designer)
+
+The hard work is starting to pay off as the code, the UI, and the vision reveal themselves:
+
+<iframe width="710" height="400" src="https://www.youtube-nocookie.com/embed/KU9NGcrjXlo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<a name="roadmap"></a>
+
+## Roadmap Updates
+
+We've been referring to our first functional release as a "prototype" even though we've been working on it for many years now for a few reasons:
+
+1. What we're doing is novel and extremely challenging. We are creating a new method for designing decentralized applications while at the same time delivering a commercial-level user interface for an open-source, free software project.
+2. Our long-term vision is grand. Compared that vision, our first release will appear to be a prototype.
+3. The initial release may lack some features that we wish to see in a "1.0".
+
+What's left to do before the release of the prototype?
+
+- Implementing our end-to-end encrypted protocol. This is surprisingly necessary given how our user accounts system works.
+- Implementing all edge-cases in the distribution algorithm, and perhaps optimizing payments through transaction minimization.
+- Bundling everything into a self-hosted Docker container.
+
+There are two ways to help us get to this final goal: either by [making a tax-deducible donation](https://okturtles.org/donate/) or by [joining our team](https://groupincome.org/positions/)!
+
+<a name="hiring"></a>
+
+## We're Hiring!
+
+Join our team!
+
+We're looking for:
+
+<ul>
+<li><h4 style="font-family: sans-serif"><a href="/pos-infosec/">JavaScript + InfoSec + Protocol Developer</a> ($1000 referral reward!)</a></h4></li>
+<li><h4 style="font-family: sans-serif"><a href="/pos-crypto-integration/">Cryptocurrency Integration with Node.js</a></h4></li>
+<li><h4 style="font-family: sans-serif"><a href="/pos-technical-writer/">Technical Writer</a></h4></li>
+<li><h4 style="font-family: sans-serif"><a href="/pos-fundraiser-marketer/">Fundraiser - OR - Marketer with Fundraising Experience</a></h4></li>
+</ul>
+
+#### Prototype stats (as of May, 2021)
+
+- **907 [commits](https://github.com/okTurtles/group-income-simple/commits/master)**
+- **478 [issues closed](https://github.com/okTurtles/group-income-simple/issues?q=is%3Aissue+is%3Aclosed)**
+- **398 [pull requests reviewed](https://github.com/okTurtles/group-income-simple/pulls?q=is%3Apr+is%3Aclosed)**
+
+<img src="https://groupincome.org/wp-content/uploads/2020/10/IMG_3855.jpg"/>
+
+## Participate In Group Income
+
+Are you as excited about Group Income as we are? Want to participate in shaping its future?
+
+- Follow us on [Mastodon](https://mstdn.io/@GroupIncome) and [Twitter](https://twitter.com/Group_Income)
+- Join [our community](/community/)
+- **Make a [tax-deductible donation](https://okturtles.org/donate/)**
+
+Thanks for reading, see you soon!
