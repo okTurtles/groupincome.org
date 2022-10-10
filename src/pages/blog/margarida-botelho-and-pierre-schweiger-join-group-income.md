@@ -4,6 +4,7 @@ description: Margarida and Pierre are great. “How great?” I hear you ask. We
 author: Greg Slepak
 date: January 30, 2020
 isoDate: "2020-01-29T17:00:00.000Z"
+pubDate: "2020-01-29T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

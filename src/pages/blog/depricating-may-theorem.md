@@ -4,6 +4,7 @@ description: This is a followup to “Misconceptions About Majority Rule”. We 
 author: Greg Slepak
 date: September 28, 2016
 isoDate: "2016-09-27T17:00:00.000Z"
+pubDate: "2016-09-27T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

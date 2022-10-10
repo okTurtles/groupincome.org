@@ -5,6 +5,7 @@ image: https://groupincome.org/wp-content/uploads/2016/12/group-income-shorts-im
 author: Greg Slepak
 date: December 8, 2016
 isoDate: "2016-12-07T17:00:00.000Z"
+pubDate: "2016-12-07T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

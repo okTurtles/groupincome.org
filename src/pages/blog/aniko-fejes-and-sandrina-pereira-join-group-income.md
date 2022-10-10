@@ -4,6 +4,7 @@ description: Recently we bid farewell to Victor Morrow who’s moved on to excit
 author: Greg Slepak
 date: August 20, 2018
 isoDate: "2018-08-19T17:00:00.000Z"
+pubDate: "2018-08-19T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

@@ -5,6 +5,7 @@ image: https://groupincome.org/wp-content/uploads/2020/10/PANO_20191016_183902.v
 author: Greg Slepak
 date: June 8, 2021
 isoDate: "2021-06-07T17:00:00.000Z"
+pubDate: "2021-06-07T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

@@ -4,6 +4,7 @@ description: As misfortunes don’t seem to come singly in 2020, the COVID-19 pa
 author: Catarina Chavinha
 date: July 17, 2020
 isoDate: "2020-07-16T17:00:00.000Z"
+pubDate: "2020-07-16T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

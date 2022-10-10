@@ -4,6 +4,7 @@ description: I was blessed/cursed with a desire to understand, deeply, the world
 author: Greg Slepak
 date: March 23, 2021
 isoDate: "2021-03-22T17:00:00.000Z"
+pubDate: "2021-03-22T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

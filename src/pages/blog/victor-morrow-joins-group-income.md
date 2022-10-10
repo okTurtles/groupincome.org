@@ -4,6 +4,7 @@ description: 'After a long search, we found our dev: please welcome Victor Morro
 author: Greg Slepak
 date: November 11, 2016
 isoDate: "2016-11-10T17:00:00.000Z"
+pubDate: "2016-11-10T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

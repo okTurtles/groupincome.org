@@ -4,6 +4,7 @@ description: Hawaii! Home to many great sea turtles. It seemed an appropriate pl
 author: Greg Slepak
 date: May 13, 2019
 isoDate: "2019-05-12T17:00:00.000Z"
+pubDate: "2019-05-12T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

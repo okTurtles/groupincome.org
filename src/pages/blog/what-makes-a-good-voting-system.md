@@ -5,6 +5,7 @@ author: Greg Slepak
 date: June 18, 2016
 image: https://groupincome.org/wp-content/uploads/2016/06/voting-v6.2.png
 isoDate: "2016-06-17T17:00:00.000Z"
+pubDate: "2016-06-17T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

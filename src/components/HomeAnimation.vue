@@ -128,7 +128,7 @@
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
-import gsap from 'gsap'
+import { gsap } from "gsap/dist/gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import MotionPathPlugin from 'gsap/dist/MotionPathPlugin'
 

@@ -4,6 +4,7 @@ description: Money is simply a tool that exists in circumstances when there is s
 author: Greg Slepak
 date: March 9, 2017
 isoDate: "2017-03-08T17:00:00.000Z"
+pubDate: "2017-03-08T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

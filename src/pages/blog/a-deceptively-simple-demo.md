@@ -4,6 +4,7 @@ description: Our goal for Group Income was to not just get the UI right, but to 
 author: Greg Slepak
 date: May 14, 2020
 isoDate: "2020-05-13T17:00:00.000Z"
+pubDate: "2020-05-13T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 

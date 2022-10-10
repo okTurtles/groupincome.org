@@ -4,6 +4,7 @@ description: In our previous post, we explored the meaning of voting and what it
 author: Greg Slepak
 date: September 26, 2016
 isoDate: "2016-09-25T17:00:00.000Z"
+pubDate: "2016-09-25T17:00:00.000Z"
 layout: "../../layouts/BlogPost.astro"
 ---
 
