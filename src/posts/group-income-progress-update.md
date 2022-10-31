@@ -3,9 +3,15 @@ title: Group Income July Progress Update
 description: The Group Income prototype is nearing completion. We will sign up groups for the prototype to give us feedback before the public release. What’s holding up the prototype?
 author: Greg Slepak
 date: July 19, 2017
-isoDate: "2017-07-18T17:00:00.000Z"
-pubDate: "2017-07-18T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/group-income-progress-update.jpeg'
+isoDate: '2017-07-19T09:52:29+00:00'
+pubDate: '2017-07-19T09:52:29+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 973
+guid: 'https://groupincome.org/?p=973'
+permalink: /2017/07/group-income-july-progress-update/
+categories:
+    - Uncategorized
 ---
 
 The Group Income prototype is nearing completion.

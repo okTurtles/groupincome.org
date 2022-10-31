@@ -3,9 +3,15 @@ title: A Reliable Safety Net for Small Communities
 description: As misfortunes don’t seem to come singly in 2020, the COVID-19 pandemic is magnifying social and economic inequality and accelerating an economic collapse...
 author: Catarina Chavinha
 date: July 17, 2020
-isoDate: "2020-07-16T17:00:00.000Z"
-pubDate: "2020-07-16T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/a-reliable-safety-net-for-small-communities.jpeg'
+isoDate: '2020-07-17T08:24:39+00:00'
+pubDate: '2020-07-17T08:24:39+00:00'
+layout: "../layouts/BlogPost.astro"
+id: 1424
+guid: 'https://groupincome.org/?p=1424'
+permalink: /2020/07/a-reliable-safety-net-for-small-communities/
+categories:
+    - Uncategorized
 ---
 
 As misfortunes don't seem to come singly in 2020, the [COVID-19 pandemic](https://www.who.int/emergencies/diseases/novel-coronavirus-2019) is magnifying [social and economic inequality](https://graduateinstitute.ch/coronavirus-information-our-community-and-visitors/covid-19-magnifier-social-inequality) and accelerating an [economic collapse](https://www.cnbc.com/2020/06/29/nearly-half-the-us-population-is-without-a-job-showing-how-far-the-labor-recovery-has-to-go.html). As an answer, some people are [demanding disruptive change](https://www.chicagoreader.com/chicago/police-abolitionist-movement-alternatives-cops-chicago/Content?oid=23289710), because governments have been slow and [unsatisfactory in their response](https://www.ohchr.org/en/NewsEvents/Pages/DisplayNews.aspx?NewsID=25793&amp;LangID=E). There are several viewpoints on how to address these issues, but we came down to a dilemma: Should we rely on malfunctioning governments to be the answer? Or should we be resourceful and find tools, like Group Income, to build safety nets for ourselves and our communities?

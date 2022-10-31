@@ -3,9 +3,19 @@ title: Group Income Update — Hawaii Hackathon 2018!
 description: Hawaii! Home to many great sea turtles. It seemed an appropriate place for a bunch of okTurtles to host our most ambitious hackathon to date! In This Post Stories and Photos from our 2018 Hackathon in Hawaii...
 author: Greg Slepak
 date: May 13, 2019
-isoDate: "2019-05-12T17:00:00.000Z"
-pubDate: "2019-05-12T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/hawaii-hackathon-2018.jpeg'
+isoDate: '2019-05-13T07:51:37+00:00'
+pubDate: '2019-05-13T07:51:37+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 1316
+guid: 'https://groupincome.org/?p=1316'
+permalink: /2019/05/group-income-update-hawaii-hackathon-2018/
+categories:
+    - Uncategorized
+tags:
+    - hackathon
+    - progress
+    - prototype
 ---
 
 ![IMG_3458_small](https://groupincome.org/wp-content/uploads/2019/04/IMG_3458_small.jpg)

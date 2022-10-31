@@ -3,9 +3,15 @@ title: Anikó Fejes and Sandrina Pereira join Group Income!
 description: Recently we bid farewell to Victor Morrow who’s moved on to exciting new DARPA-related work. Victor is still with us, now in a volunteer capacity. Thanks to his help, we’ve made great progress on Group Income...
 author: Greg Slepak
 date: August 20, 2018
-isoDate: "2018-08-19T17:00:00.000Z"
-pubDate: "2018-08-19T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/aniko-fejes-and-sandrina-pereira-join-group-income.jpeg'
+isoDate: '2018-08-20T09:38:40+00:00'
+pubDate: '2018-08-20T09:38:40+00:00'
+layout: "../layouts/BlogPost.astro"
+id: 1131
+guid: 'https://groupincome.org/?p=1131'
+permalink: /2018/08/aniko-fejes-and-sandrina-pereira-join-group-income/
+categories:
+    - Uncategorized
 ---
 
 Recently we bid farewell to [Victor Morrow](/articles/victor-morrow-joins-group-income/) who's moved on to exciting new [DARPA](https://www.darpa.mil) related work. Victor is still with us, now in a volunteer capacity. Thanks to his help, we've made great progress on Group Income. However, with his departure as full-time contractor, we needed to find someone to fill his shoes.

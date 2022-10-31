@@ -3,9 +3,17 @@ title: Deprecating May’s Theorem
 description: This is a followup to “Misconceptions About Majority Rule”. We recommend reading that first. Previously, we left off with the following conclusion about May’s Theorem...
 author: Greg Slepak
 date: September 28, 2016
-isoDate: "2016-09-27T17:00:00.000Z"
-pubDate: "2016-09-27T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/depricating-may-theorem.jpeg'
+isoDate: '2016-09-28T09:53:18+00:00'
+pubDate: '2016-09-28T09:53:18+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 547
+guid: 'https://groupincome.org/?p=547'
+permalink: /2016/09/deprecating-mays-theorem/
+categories:
+    - Uncategorized
+tags:
+    - voting
 ---
 
 _This is a followup to ["Misconceptions About Majority Rule"](/articles/misconceptions-about-majority-rule/). We recommend reading that first._

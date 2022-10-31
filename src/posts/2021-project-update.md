@@ -3,9 +3,15 @@ title: March 2021 Project Update
 description: I was blessed/cursed with a desire to understand, deeply, the world. Well, I have understood only a fraction of it so far and I can tell you, the world is a ridiculous place...
 author: Greg Slepak
 date: March 23, 2021
-isoDate: "2021-03-22T17:00:00.000Z"
-pubDate: "2021-03-22T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/2021-project-update.jpeg'
+isoDate: '2021-03-23T08:14:31+00:00'
+pubDate: '2021-03-23T08:14:31+00:00'
+layout: "../layouts/BlogPost.astro"
+id: 1538
+guid: 'https://groupincome.org/?p=1538'
+permalink: /2021/03/2021-project-update/
+categories:
+    - Uncategorized
 ---
 
 I was blessed/cursed with a desire to understand, deeply, the world. Well, I have understood only a fraction of it so far and I can tell you, the world is a ridiculous place. It is painful, joyful, frightening, enlightening, evil, dark, ruthless, good, sweet, honest, deceitful, villainous, virtuous, malicious, kind, ugly, beautiful, and everything in between and beyond.
