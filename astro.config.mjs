@@ -7,5 +7,6 @@ import vue from "@astrojs/vue";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://okturtles.github.io',
+  base: '/groupincome.org',
   integrations: [mdx(), sitemap(), vue()],
 });
