@@ -1,12 +1,18 @@
 ---
 title: Bulgaria Hackathon 2019 + Roadmap Updates + Hiring!
 description: Some say it’s not the destination that matters so much, but the journey and friends you meet along the way. I couldn’t agree more...
-image: https://groupincome.org/wp-content/uploads/2020/10/PANO_20191016_183902.vr-01.jpeg
 author: Greg Slepak
 date: June 8, 2021
-isoDate: "2021-06-07T17:00:00.000Z"
-pubDate: "2021-06-07T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/bulgaria-hackathon-2019.jpeg'
+isoDate: '2021-06-08T07:58:32+00:00'
+pubDate: '2021-06-08T07:58:32+00:00'
+layout: "../layouts/BlogPost.astro"
+
+id: 1479
+guid: 'https://groupincome.org/?p=1479'
+permalink: /2021/06/bulgaria-hackathon-2019-roadmap-updates-hiring/
+categories:
+    - Uncategorized
 ---
 
 Some say it's not the destination that matters so much, but the journey and friends you meet along the way.

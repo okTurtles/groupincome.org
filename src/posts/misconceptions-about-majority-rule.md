@@ -3,9 +3,17 @@ title: Misconceptions About Majority Rule
 description: In our previous post, we explored the meaning of voting and what it takes to make a good voting system. In this Part 2, we hope to convince you that what you’ve been told about majority rule is not only untrue, but harmful...
 author: Greg Slepak
 date: September 26, 2016
-isoDate: "2016-09-25T17:00:00.000Z"
-pubDate: "2016-09-25T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/misconceptions-about-majority-rule.jpeg'
+isoDate: '2016-09-26T10:05:38+00:00'
+pubDate: '2016-09-26T10:05:38+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 617
+guid: 'https://groupincome.org/?p=617'
+permalink: /2016/09/misconceptions-about-majority-rule/
+categories:
+    - Uncategorized
+tags:
+    - voting
 ---
 
 <!--

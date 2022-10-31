@@ -1,6 +1,6 @@
 <template>
 <div class="c-wrapper" ref="wrapper">
-  <Sides color="#5DC9F1" :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)'}"></Sides>
+  <Sides color="#5DC9F1" :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)'}" class="right-side"></Sides>
   <Sides color="#F89202" :styles="{ 'top': '120rem'}"></Sides>
   <Sides color="#A1D10E" :styles="{ 'top': '250rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)'}"></Sides>
 
@@ -520,6 +520,11 @@ export default {
   #container5 .c-container-image {
   opacity: 0;
   }
+}
+
+// Rpevent rendering glitch
+.right-side {
+  right: 0;
 }
 
 #circle-graph {

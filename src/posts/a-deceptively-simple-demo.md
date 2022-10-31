@@ -3,9 +3,16 @@ title: A Deceptively Simple Group Income Demo
 description: Our goal for Group Income was to not just get the UI right, but to get the architecture right too. Creating secure, decentralized, user-friendly, open-source software is hard...
 author: Greg Slepak
 date: May 14, 2020
-isoDate: "2020-05-13T17:00:00.000Z"
-pubDate: "2020-05-13T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/a-deceptively-simple-demo.jpeg'
+isoDate: '2020-05-14T13:29:36+00:00'
+pubDate: '2020-05-14T13:29:36+00:00'
+layout: "../layouts/BlogPost.astro"
+
+id: 1381
+guid: 'https://groupincome.org/?p=1381'
+permalink: /2020/05/a-deceptively-simple-demo/
+categories:
+    - Uncategorized
 ---
 
 # A Deceptively Simple Demo

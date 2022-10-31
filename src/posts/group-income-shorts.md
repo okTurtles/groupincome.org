@@ -1,12 +1,17 @@
 ---
 title: A New Series About Group Income
 description: What is Group Income…? …How does Group Income work…? …And what does Star Trek have to do with it? These are just a few of the questions we’ll be answering on our shiny new FAQ and our shiny new YouTube channel...
-image: https://groupincome.org/wp-content/uploads/2016/12/group-income-shorts-image.003.jpeg
 author: Greg Slepak
 date: December 8, 2016
-isoDate: "2016-12-07T17:00:00.000Z"
-pubDate: "2016-12-07T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: /images/blog/group-income-shorts.jpeg
+isoDate: '2016-12-08T10:04:23+00:00'
+pubDate: '2016-12-08T10:04:23+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 660
+guid: 'https://groupincome.org/?p=660'
+permalink: /2016/12/group-income-shorts/
+categories:
+    - Uncategorized
 ---
 
 ***What is <span style="color: #686868">Group Income</span>...?***

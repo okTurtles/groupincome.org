@@ -1,7 +1,18 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro';
-
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+// import { sortedPosts } from '@/utils/sort'
+// const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+//   return posts.map(post => {
+//     return {
+//       params: {
+//         // these `.slice` calls are necessary and remove
+//         // the `/` from the beginning and end of the permalink
+//         blog: post.frontmatter.permalink.slice(1).slice(0, -1)
+//       },
+//       props: post
+//     }
+//   })
+const posts = (await Astro.glob('../posts/*.{md,mdx}')).sort(
 	(a, b) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
 );
 
@@ -10,7 +21,7 @@ const featuredPost = posts.shift()
 
 <Layout>
 	<section class="container grey-container">
-		<a class="l-1-2" href={featuredPost.url}>
+		<a class="l-1-2" href={featuredPost.frontmatter.permalink}>
 			<div class="c-header">
 				<span class="is-posttitle">BLOG</span>
 				<h1 class="is-title-1 c-main-title">{featuredPost?.frontmatter.title || 'No article found'}</h1>
@@ -23,8 +34,8 @@ const featuredPost = posts.shift()
 	<section class="l-1-1-1" v-if="posts">
 			{posts.map((article) => (
 				<article>
-					<a href={article.url}>
-							<img class="c-article-image" src={article.frontmatter.image || '/images/' + article.url + '.jpeg'}/>
+					<a href={article.frontmatter.permalink}>
+							<img class="c-article-image" src={article.frontmatter.image || '/images/' + article.frontmatter.permalink + '.jpeg'}/>
 							<h2 class="c-blog-title">{article.frontmatter.title}</h2>
 							<p>{article.frontmatter.description || 'TODO'}</p>
 							<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>

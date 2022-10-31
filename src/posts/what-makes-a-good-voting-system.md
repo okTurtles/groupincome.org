@@ -3,10 +3,17 @@ title: What Makes A Good Voting System?
 description: It’s not completely clear how this happened, but somewhere in our history it was decided that, “A majority voting in favor of something indicates the presence of agreement, and we should proceed ahead.
 author: Greg Slepak
 date: June 18, 2016
-image: https://groupincome.org/wp-content/uploads/2016/06/voting-v6.2.png
-isoDate: "2016-06-17T17:00:00.000Z"
-pubDate: "2016-06-17T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/what-makes-a-good-voting-system.png'
+isoDate: '2016-06-18T21:54:45+00:00'
+pubDate: '2016-06-18T21:54:45+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 26
+guid: 'https://groupincome.org/?p=26'
+permalink: /2016/06/what-makes-a-good-voting-system/
+categories:
+    - Uncategorized
+tags:
+    - voting
 ---
 
 It's not completely clear how this happened, but somewhere in our history it was decided that, _"A majority voting in favor of something indicates the presence of agreement, and we should proceed ahead."_

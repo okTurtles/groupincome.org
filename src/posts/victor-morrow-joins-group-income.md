@@ -3,9 +3,15 @@ title: Victor Morrow Joins Group Income!
 description: 'After a long search, we found our dev: please welcome Victor Morrow as our new lead frontend developer. Victor is an amazing human being and developer...'
 author: Greg Slepak
 date: November 11, 2016
-isoDate: "2016-11-10T17:00:00.000Z"
-pubDate: "2016-11-10T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/victor-morrow-joins-group-income.jpeg'
+isoDate: '2016-11-11T15:03:12+00:00'
+pubDate: '2016-11-11T15:03:12+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 642
+guid: 'https://groupincome.org/?p=642'
+permalink: /2016/11/victor-morrow-joins-group-income/
+categories:
+    - Uncategorized
 ---
 
 # Victor Morrow Joins Group Income!

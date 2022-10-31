@@ -3,9 +3,15 @@ title: 'Basic Security: Our Real Goal'
 description: Money is simply a tool that exists in circumstances when there is scarcity within an economy. It is a way of measuring the scarcity-demand for something. It is therefore a way of restricting access to that something...
 author: Greg Slepak
 date: March 9, 2017
-isoDate: "2017-03-08T17:00:00.000Z"
-pubDate: "2017-03-08T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/basic-security-our-real-goal.jpeg'
+isoDate: '2017-03-09T10:22:17+00:00'
+pubDate: '2017-03-09T10:22:17+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 928
+guid: 'https://groupincome.org/?p=928'
+permalink: /2017/03/basic-security-our-real-goal/
+categories:
+    - Uncategorized
 ---
 
 Money is simply a tool that exists in circumstances when there is scarcity within an economy. It is a way of measuring the scarcity-demand for something. It is therefore a way of restricting access to that something. But when a lot of people choose to charge for scarce items using money, it gives money itself value -- value it otherwise would not have.

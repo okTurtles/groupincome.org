@@ -3,9 +3,15 @@ title: Margarida Botelho and Pierre Schweiger join Group Income!
 description: Margarida and Pierre are great. “How great?” I hear you ask. Well, they’re sooo great, that I absolutely must write a blog post about them...
 author: Greg Slepak
 date: January 30, 2020
-isoDate: "2020-01-29T17:00:00.000Z"
-pubDate: "2020-01-29T17:00:00.000Z"
-layout: "../../layouts/BlogPost.astro"
+image: '/images/blog/margarida-botelho-and-pierre-schweiger-join-group-income.jpeg'
+isoDate: '2020-01-30T08:43:53+00:00'
+pubDate: '2020-01-30T08:43:53+00:00'
+layout: '../layouts/BlogPost.astro'
+id: 1366
+guid: 'https://groupincome.org/?p=1366'
+permalink: /2020/01/margarida-botelho-and-pierre-schweiger-join-group-income/
+categories:
+    - Uncategorized
 ---
 
 Margarida and Pierre are great.
