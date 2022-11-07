@@ -21,21 +21,21 @@ const featuredPost = posts.shift()
 
 <Layout>
 	<section class="container grey-container">
-		<a class="l-1-2" href={"."+featuredPost.frontmatter.permalink}>
+		<a class="l-1-2" href={"/groupincome.org/"+featuredPost.frontmatter.permalink}>
 			<div class="c-header">
 				<span class="is-posttitle">BLOG</span>
 				<h1 class="is-title-1 c-main-title">{featuredPost?.frontmatter.title || 'No article found'}</h1>
 				<p class="c-main-para">{featuredPost?.frontmatter.author} • { featuredPost?.frontmatter.date }</p>
 			</div>
-			<img class="c-header-image" src={featuredPost?.frontmatter.image}/>
+			<img class="c-header-image" src={'/groupincome.org/'+featuredPost?.frontmatter.image}/>
 		</a>
 	</section>
 
 	<section class="l-1-1-1" v-if="posts">
 			{posts.map((article) => (
 				<article>
-					<a href={"."+article.frontmatter.permalink}>
-							<img class="c-article-image" src={article.frontmatter.image || '/images/' + article.frontmatter.permalink + '.jpeg'}/>
+					<a href={"/groupincome.org/"+article.frontmatter.permalink}>
+							<img class="c-article-image" src={'/groupincome.org/'+article.frontmatter.image || '/groupincome.org/images/' + article.frontmatter.permalink + '.jpeg'}/>
 							<h2 class="c-blog-title">{article.frontmatter.title}</h2>
 							<p>{article.frontmatter.description || 'TODO'}</p>
 							<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
