@@ -7,7 +7,7 @@
   <div class="graphic-wrapper">
     <div class="c-faces" ref="faces">
       <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-        <img class="c-face-img" :src="`/images/faces/${i}.jpg`" />
+        <img class="c-face-img" :src="`../../images/faces/${i}.jpg`" />
         <span class="c-name" v-if="name[i]">{{name[i]}}</span>
         <div class="c-pledge-card" v-if="contribution[i]" :style="{&quot;box-shadow&quot;: `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image" :src="`/images/faces/${i}.jpg`" />
           <div class="c-pledge-content">

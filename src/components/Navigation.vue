@@ -2,13 +2,13 @@
   <nav class="c-navbar" role="navigation" aria-label="main navigation" @click="$emit('toggleNav')">
     <div class="c-navbar-main">
       <a class="c-navbar-item" href="/" data-test="homeLink">Home</a>
-      <a class="c-navbar-item" href="/about-us" data-test="aboutUsLink">About us</a>
-      <a class="c-navbar-item" href="/blog" data-test="blogLink">Blog</a>
-      <a class="c-navbar-item" href="/faq" data-test="faqsLink">FAQS</a>
-      <a class="c-navbar-item" href="/hiring" data-test="hiringLink">Hiring</a>
+      <a class="c-navbar-item" href="./about-us" data-test="aboutUsLink">About us</a>
+      <a class="c-navbar-item" href="./blog" data-test="blogLink">Blog</a>
+      <a class="c-navbar-item" href="./faq" data-test="faqsLink">FAQS</a>
+      <a class="c-navbar-item" href="./hiring" data-test="hiringLink">Hiring</a>
       <!-- <a class="c-navbar-item" href="/hiring" data-test="hiringLink">Volunter</a> -->
-      <a class="c-navbar-item" href="/donate" data-test="donateLink">Donate</a>
-      <a class="c-navbar-item button is-primary" href="/get-started">Get started</a>
+      <a class="c-navbar-item" href="./donate" data-test="donateLink">Donate</a>
+      <a class="c-navbar-item button is-primary" href="./get-started">Get started</a>
     </div>
   </nav>
 </template>
