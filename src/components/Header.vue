@@ -1,7 +1,7 @@
 <template>
 <header class="c-header">
     <div class="c-wrapper" @click="toggleNav(true)" role="banner">
-      <a class="c-logo" href="/">
+      <a class="c-logo" href="/groupincome.org/">
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" src="/images/logo-transparent.svg" />
       </a>
