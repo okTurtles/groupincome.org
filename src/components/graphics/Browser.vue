@@ -163,34 +163,16 @@
       </linearGradient>
     </defs>
   </svg>
-  <img :src="`/images/temp/create-group/1.jpg`"/>
-  <!-- <carousel class="c-browser-content" v-bind="options" :navigateTo="activeStep">
-    <slide v-for="i in 3" :key="i"><img :src="`/images/temp/create-group/${i}.jpg`"/></slide>
-  </carousel> -->
+  <div v-for="i in 3" :key="i" :class="{active: i === activeStep+1}"><img :src="`/images/temp/create-group/${i}.jpg`"/></div>
 </div>
 </template>
 
 <script>
-// import { Carousel, Slide } from 'vue-carousel';
-
 export default {
-  // components: {
-  //   Carousel,
-  //   Slide
-  // },
   props: {
     activeStep: {
       default: 0,
       type: Number
-    }
-  },
-  data () {
-    return {
-      options: {
-        loop: true,
-        perPage: 1,
-        paginationEnabled: false
-      }
     }
   }
 }
@@ -222,5 +204,13 @@ export default {
   @include desktop {
     border-radius: 0 0 30px 30px;
   }
+}
+
+img {
+  display: none;
+}
+
+.active img {
+  display: block;
 }
 </style>

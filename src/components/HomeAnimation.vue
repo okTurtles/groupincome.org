@@ -1,127 +1,157 @@
 <template>
-<div class="c-wrapper" ref="wrapper">
-  <Sides color="#5DC9F1" :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)'}" class="right-side"></Sides>
-  <Sides color="#F89202" :styles="{ 'top': '120rem'}"></Sides>
-  <Sides color="#A1D10E" :styles="{ 'top': '250rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)'}"></Sides>
+  <div class="c-wrapper" ref="wrapper">
+    <Sides color="#5DC9F1"
+      :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"
+      class="right-side"></Sides>
+    <Sides color="#F89202" :styles="{ 'top': '120rem' }"></Sides>
+    <Sides color="#A1D10E"
+      :styles="{ 'top': '250rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
+      class="right-side"></Sides>
 
-  <div class="graphic-wrapper">
-    <div class="c-faces" ref="faces">
-      <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-        <img class="c-face-img" :src="`/groupincome.org/images/faces/${i}.jpg`" />
-        <span class="c-name" v-if="name[i]">{{name[i]}}</span>
-        <div class="c-pledge-card" v-if="contribution[i]" :style="{&quot;box-shadow&quot;: `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image" :src="`/images/faces/${i}.jpg`" />
-          <div class="c-pledge-content">
-            <div class="c-pledge-name">{{name[i]}} Pledge</div>
-            <div class="c-pledge-price">{{contribution[i]}}</div>
+    <div class="graphic-wrapper">
+      <div class="c-faces" ref="faces">
+        <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
+          <img class="c-face-img" :src="`/groupincome.org/images/faces/${i}.jpg`" />
+          <span class="c-name" v-if="name[i]">{{ name[i] }}</span>
+          <div class="c-pledge-card" v-if="contribution[i]"
+              :style="{'box-shadow': `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image"
+              :src="`/images/faces/${i}.jpg`" />
+            <div class="c-pledge-content">
+              <div class="c-pledge-name">{{ name[i] }} Pledge</div>
+              <div class="c-pledge-price">{{ contribution[i] }}</div>
+            </div>
           </div>
         </div>
       </div>
+
+      <section class="container c-main-container">
+        <div class="c-main-wrapper" id="header1">
+          <div class="is-posttitle">GROUP INCOME</div>
+          <h1 class="is-title-1 c-main-title">
+            Basic Income for your
+            friends and family.
+          </h1>
+          <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
+            voluntarily provide a financial safety net for their members.</p>
+          <a class="c-navbar-item button is-big is-primary" href="/get-started" data-test="getStartedLink">Get
+            started</a><i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+        </div>
+      </section>
+
+      <section class="container span-container c-container" id="container2">
+        <div class="span-2" id="circle-graph"><img class="c-container-image" src="/images/temp/homepage-panel2.jpg"
+            ref="panel1Circle" /><img class="c-graph-circle" src="/images/temp/graph-circle.jpg" /><svg
+            id="circle-graph-circle" :height="panel1CirclePos.width" :width="panel1CirclePos.width">
+            <circle class="circleGraphCircle" id="circleGraphCircle" :cx="`${panel1CirclePos.middle}`"
+              :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.middle" stroke="D0DEEA" stroke-width="1.5"></circle>
+            <circle class="circleGraphCircle" :cx="`${panel1CirclePos.middle}`" :cy="`${panel1CirclePos.middle}`"
+              :r="panel1CirclePos.width / 4" stroke="D0DEEA" stroke-width="1.5"></circle>
+          </svg>
+        </div>
+
+        <div class="span-2" id="header2">
+          <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
+          <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
+          <p class="c-container-para">The goal of Basic Income is to guarantee that everyone gets access to enough money
+            to meet their fundamental needs, independent of their life circumstances.</p>
+          <div class="c-container-link is-link">Learn more about Basic Income</div>
+        </div>
+      </section>
+
+      <div class="sections-container" id="freeze-wrapper">
+        <section class="container span-container" id="container3">
+          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel3.jpg" ref="graph1" />
+          </div>
+          <div class="span-2 c-container-header" id="header3">
+            <div class="is-title-3 c-container-posttitle">Why it matters?</div>
+            <p class="is-title-2 c-container-title">Every individual is valuable.</p>
+            <p class="c-container-para">Many people contribute to our lives and our society, but are often not
+              financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed
+              people to unwell.<br />Basic Income can improve the quality of life for millions of people, simply through
+              providing them with basic financial security and the peace of mind that goes with it.</p>
+          </div>
+        </section>
+
+        <section class="container span-container" id="container4">
+          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel4.jpg" />
+            <div class="c-line"></div>
+          </div>
+          <div class="span-2 c-container-header" id="header4">
+            <div class="is-title-3 c-container-posttitle">Mincome</div>
+            <p class="is-title-2 c-container-title">The minimum amount each one should receive.</p>
+            <p class="c-container-para">The mincome is the agreed value that a group sets as the amount each member
+              needs to live a productive and healthy life. Each month, group members contribute to help those who
+              haven't crossed the mincome threshold.</p>
+          </div>
+        </section>
+
+        <section class="container span-container" id="container5">
+          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel6.jpg" /></div>
+          <div class="span-2 c-container-header" id="header5">
+            <div class="is-title-3 c-container-posttitle">With Group Income</div>
+            <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
+            <p class="c-container-para">Create stronger communities and ensure basic financial security for the people
+              you care about.</p>
+          </div>
+        </section>
+      </div>
+
+      <section class="container span-container span-reverse">
+        <div class="span-2">
+          <img class="c-container-image" src="/images/temp/homepage-panel5.jpg" />
+        </div>
+
+        <div class="span-2">
+          <div class="is-title-3 c-container-posttitle">Contribute</div>
+          <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
+          <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
+            securing everyone in your group with an basic income, independet of employment.</p>
+        </div>
+      </section>
+
+      <Swoosh />
     </div>
 
-    <section class="container c-main-container">
-      <div class="c-main-wrapper" id="header1">
-        <div class="is-posttitle">GROUP INCOME</div>
-        <h1 class="is-title-1 c-main-title">
-          Basic Income for your
-          friends and family.
-        </h1>
-        <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
-          voluntarily provide a financial safety net for their members.</p>
-        <a class="c-navbar-item button is-big is-primary" href="/get-started" data-test="getStartedLink">Get started</a><i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+    <section class="container full-container">
+      <div class="is-title-3 c-container-posttitle">How it Works</div>
+      <h3 class="is-title-2 c-container-title c-container-title-nav">
+        <i class="icon-chevron-left"
+          @click='activeStep = activeStep > 1 ? activeStep-1 : 0'
+          :class='{active: activeStep > 0}'
+        >{{steps[activeStep]}}</i>
+        <i class="icon-chevron-right"
+          @click='activeStep = activeStep < steps.length-1 ? activeStep+1 : steps.length-1'
+          :class='{active: activeStep < steps.length-1}'
+        ></i>
+      </h3>
+      <div class="c-app-preview">
+        <Browser :activeStep="activeStep" />
+
+        <div class="c-steps">
+        <div class="c-step" v-for="(step, i) in steps" @click="activeStep = i" :class="{ active: activeStep === i }"
+            :key="i"><span>{{ step }}</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="container span-container c-container" id="container2">
-      <div class="span-2" id="circle-graph"><img class="c-container-image" src="/images/temp/homepage-panel2.jpg" ref="panel1Circle" /><img class="c-graph-circle" src="/images/temp/graph-circle.jpg" /><svg id="circle-graph-circle" :height="panel1CirclePos.width" :width="panel1CirclePos.width">
-          <circle class="circleGraphCircle" id="circleGraphCircle" :cx="`${panel1CirclePos.middle}`" :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.middle" stroke="D0DEEA" stroke-width="1.5"></circle>
-          <circle class="circleGraphCircle" :cx="`${panel1CirclePos.middle}`" :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.width / 4" stroke="D0DEEA" stroke-width="1.5"></circle>
-        </svg>
-      </div>
-
-      <div class="span-2" id="header2">
-        <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
-        <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
-        <p class="c-container-para">The goal of Basic Income is to guarantee that everyone gets access to enough money to meet their fundamental needs, independent of their life circumstances.</p>
-        <div class="c-container-link is-link">Learn more about Basic Income</div>
-      </div>
-    </section>
-
-    <div class="sections-container" id="freeze-wrapper">
-      <section class="container span-container" id="container3">
-        <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel3.jpg" ref="graph1" /></div>
-        <div class="span-2 c-container-header" id="header3">
-          <div class="is-title-3 c-container-posttitle">Why it matters?</div>
-          <p class="is-title-2 c-container-title">Every individual is valuable.</p>
-          <p class="c-container-para">Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.<br />Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.</p>
+    <div class="graphic-wrapper swoosh-dark-blue">
+      <section class="container span-container">
+        <div class="span-2">
+          <div class="c-phone-wrapper"><img class="c-container-image" src="/images/temp/homepage-panel7.png" /></div>
         </div>
-      </section>
 
-      <section class="container span-container" id="container4">
-        <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel4.jpg" />
-          <div class="c-line"></div>
-        </div>
-        <div class="span-2 c-container-header" id="header4">
-          <div class="is-title-3 c-container-posttitle">Mincome</div>
-          <p class="is-title-2 c-container-title">The minimum amount each one should receive.</p>
-          <p class="c-container-para">The mincome is the agreed value that a group sets as the amount each member needs to live a productive and healthy life. Each month, group members contribute to help those who haven't crossed the mincome threshold.</p>
-        </div>
-      </section>
+        <div class="span-2">
+          <div class="is-title-3 c-container-posttitle">Contribute</div>
+          <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
-      <section class="container span-container" id="container5">
-        <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel6.jpg" /></div>
-        <div class="span-2 c-container-header" id="header5">
-          <div class="is-title-3 c-container-posttitle">With Group Income</div>
-          <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
-          <p class="c-container-para">Create stronger communities and ensure basic financial security for the people you care about.</p>
+          <div class="c-buttons">
+            <a class="c-navbar-item button is-big is-primary" href="/get-started">Get started</a>
+            <a class="c-navbar-item button is-big is-outlined" href="/donate">Donate</a>
+          </div>
         </div>
       </section>
     </div>
-
-    <section class="container span-container span-reverse">
-      <div class="span-2">
-        <img class="c-container-image" src="/images/temp/homepage-panel5.jpg" />
-      </div>
-
-      <div class="span-2">
-        <div class="is-title-3 c-container-posttitle">Contribute</div>
-        <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
-        <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with an basic income, independet of employment.</p>
-      </div>
-    </section>
-
-    <Swoosh/>
   </div>
-
-  <section class="container full-container">
-    <div class="is-title-3 c-container-posttitle">How it Works</div>
-    <h3 class="is-title-2 c-container-title c-container-title-nav"><i class="icon-chevron-left" @click="activeStep = activeStep &gt; 1 ? activeStep-1 : 0" :class="{active: activeStep &gt; 0}"></i>{{steps[activeStep]}}<i class="icon-chevron-right" @click="activeStep = activeStep &lt; steps.length-1 ? activeStep+1 : steps.length-1" :class="{active: activeStep &lt; steps.length-1}"></i></h3>
-    <div class="c-app-preview">
-      <Browser :activeStep="activeStep"/>
-
-      <div class="c-steps">
-        <div class="c-step" v-for="(step, i) in steps" @click="activeStep = i" :class="{active: activeStep === i}" :key="i"><span>{{step}}</span></div>
-      </div>
-    </div>
-  </section>
-
-  <div class="graphic-wrapper swoosh-dark-blue">
-    <section class="container span-container">
-      <div class="span-2">
-        <div class="c-phone-wrapper"><img class="c-container-image" src="/images/temp/homepage-panel7.png" /></div>
-      </div>
-
-      <div class="span-2">
-        <div class="is-title-3 c-container-posttitle">Contribute</div>
-        <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
-
-        <div class="c-buttons">
-          <a class="c-navbar-item button is-big is-primary" href="/get-started">Get started</a>
-          <a class="c-navbar-item button is-big is-outlined" href="/donate">Donate</a>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
 </template>
 
 <script>
@@ -142,7 +172,7 @@ export default {
     Sides
   },
 
-  data () {
+  data() {
     return {
       activeStep: 0,
       steps: [
@@ -184,7 +214,7 @@ export default {
     }
   },
 
-  mounted () {
+  mounted() {
     if (window.innerWidth >= '1200') {
       setTimeout(() => {
         if (this.tl === null) {
@@ -196,7 +226,7 @@ export default {
   },
 
   methods: {
-    scrollTo (el) {
+    scrollTo(el) {
       gsap.to(window, {
         duration: 0.5,
         scrollTo: {
@@ -206,12 +236,12 @@ export default {
       })
     },
 
-    getPos (name) {
+    getPos(name) {
       const { top, left, width, height } = this.$refs[name].getBoundingClientRect()
       return { top, left, width, height }
     },
 
-    initAnimation () {
+    initAnimation() {
       // Get top and left offset
       const toptop = this.getPos('wrapper').top
       const wrapperLeft = this.getPos('faces').left
@@ -235,38 +265,38 @@ export default {
       const middleY = top + r
 
       for (let i = 0; i < 5; i++) {
-      const angle = 5 / 4
-      const position = {
-        left: r * Math.cos(i * angle) + middleX,
-        top: r * Math.sin(i * angle) + middleY,
-        left2: r * Math.cos((i - angle) * angle) + middleX,
-        top2: r * Math.sin((i - angle) * angle) + middleY
-      }
-      this.positions.push(position)
+        const angle = 5 / 4
+        const position = {
+          left: r * Math.cos(i * angle) + middleX,
+          top: r * Math.sin(i * angle) + middleY,
+          left2: r * Math.cos((i - angle) * angle) + middleX,
+          top2: r * Math.sin((i - angle) * angle) + middleY
+        }
+        this.positions.push(position)
       }
 
       r = width / 4
       for (let i = 0; i < 2; i++) {
-      const angle = 3
-      const position = {
-        left: r * Math.cos(i * angle) + middleX,
-        top: r * Math.sin(i * angle) + middleY,
-        left2: r * Math.cos((i - angle) * angle) + middleX,
-        top2: r * Math.sin((i - angle) * angle) + middleY
-      }
-      this.positions2.push(position)
+        const angle = 3
+        const position = {
+          left: r * Math.cos(i * angle) + middleX,
+          top: r * Math.sin(i * angle) + middleY,
+          left2: r * Math.cos((i - angle) * angle) + middleX,
+          top2: r * Math.sin((i - angle) * angle) + middleY
+        }
+        this.positions2.push(position)
       }
 
       const graph1 = this.getPos('graph1')
 
       for (let i = 0; i < 5; i++) {
-      this.positions[i].top3 = graph1.top
-      this.positions[i].left3 = graph1.left + wrapperLeft + graph1.width / 2 + 100
-      this.positions[i].top4 = graph1.top + graph1.height - toptop - 52
-      this.positions[i].left4 = i * graph1.width / 5 - wrapperLeft + graph1.left + 100
+        this.positions[i].top3 = graph1.top
+        this.positions[i].left3 = graph1.left
+        this.positions[i].top4 = graph1.top + graph1.height - toptop - 52
+        this.positions[i].left4 = i * graph1.width / 5 - wrapperLeft + graph1.left + 100
       }
     },
-    animateOnScroll () {
+    animateOnScroll() {
       gsap.to('.parallax-bg', {
         scrollTrigger: {
           scrub: true
@@ -280,245 +310,246 @@ export default {
         y: '-30px',
         ease: 'Power1.easeInOut',
         scrollTrigger: {
-        trigger: '.main-wrapper',
-        stagger: 1,
-        pin: true,
-        start: '0',
-        end: '+=100',
-        scrub: true
+          trigger: '.main-wrapper',
+          stagger: 1,
+          pin: true,
+          start: '0',
+          end: '+=100',
+          scrub: true
         }
       })
 
       // Header 2 animation
       gsap.from('#header2 *', {
-      opacity: 0,
-      y: '+30px',
-      ease: 'Power1.easeInOut',
-      scrollTrigger: {
-        trigger: '#container2',
-        stagger: 1,
-        start: '-500',
-        end: '0',
-        scrub: true
-      }
+        opacity: 0,
+        y: '+30px',
+        ease: 'Power1.easeInOut',
+        scrollTrigger: {
+          trigger: '#container2',
+          stagger: 1,
+          start: '-150%',
+          end: '0',
+          scrub: true
+        }
       })
 
       // Circles animations
       gsap.from('.circleGraphCircle', {
-      opacity: '0',
-      'stroke-dashoffset': '-400px',
-      ease: 'Power1.easeInOut',
-      scrollTrigger: {
-        trigger: '#container2',
-        stagger: 1,
-        start: '-500',
-        end: '0',
-        scrub: true
-      }
+        opacity: '0',
+        'stroke-dashoffset': '-400px',
+        ease: 'Power1.easeInOut',
+        scrollTrigger: {
+          trigger: '#container2',
+          stagger: 1,
+          start: '-500',
+          end: '0',
+          scrub: true
+        }
       })
 
       let faces = ['#face-1', '#face-4', '#face-8', '#face-3', '#face-6']
       const tl = gsap.timeline()
       faces.forEach((face, i) => {
-      // Faces animation from hero page to panel 1
-      tl.to(face, {
-        ease: 'Power1.easeInOut',
-        motionPath: {
-        path: [{
-          left: this.positions[i].left,
-          top: this.panel1CirclePos.top,
-          scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-        }, {
-          left: this.positions[i].left,
-          top: this.positions[i].top,
-          scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-        }, {
+        // Faces animation from hero page to panel 1
+        tl.to(face, {
+          ease: 'Power1.easeInOut',
+          motionPath: {
+            path: [{
+              left: this.positions[i].left,
+              top: this.panel1CirclePos.top,
+              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
+            }, {
+              left: this.positions[i].left,
+              top: this.positions[i].top,
+              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
+            }, {
+              left: this.positions[i].left2,
+              top: this.positions[i].top2,
+              scale: 1
+            }],
+            curviness: 1.2,
+            alignOrigin: [0.5, 0.5]
+          },
+          scrollTrigger: {
+            trigger: '.main-wrapper',
+            start: '0%',
+            end: '9%',
+            scrub: true
+          }
+        })
+
+        // Faces animation from panel 1 page to panel 2
+        tl.fromTo(face, {
           left: this.positions[i].left2,
           top: this.positions[i].top2,
           scale: 1
-        }],
-        curviness: 1.2,
-        alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-        trigger: '.main-wrapper',
-        start: '0%',
-        end: '9%',
-        scrub: true
-        }
-      })
-
-      // Faces animation from panel 1 page to panel 2
-      tl.fromTo(face, {
-        left: this.positions[i].left2,
-        top: this.positions[i].top2,
-        scale: 1
-      }, {
-        immediateRender: false,
-        ease: 'Power1.easeInOut',
-        motionPath: {
-        path: [{
-          left: this.positions[i].left3,
-          top: this.positions[i].top3
-          // scale: 0.3
         }, {
-          left: this.positions[i].left4,
-          top: this.positions[i].top4
-          // scale: 0.5
-        }],
-        curviness: 1.2
-        },
-        scrollTrigger: {
-        trigger: '.main-wrapper',
-        start: '18%',
-        end: '30%',
-        scrub: true
-        }
-      })
+          immediateRender: false,
+          ease: 'Power1.easeInOut',
+          motionPath: {
+            path: [{
+              left: this.positions[i].left3,
+              top: this.positions[i].top3
+              // scale: 0.3
+            }, {
+              left: this.positions[i].left4,
+              top: this.positions[i].top4
+              // scale: 0.5
+            }],
+            curviness: 1.2
+          },
+          scrollTrigger: {
+            trigger: '.main-wrapper',
+            start: '18%',
+            end: '30%',
+            scrub: true
+          }
+        })
 
-      tl.to(face + ' img', {
-        immediateRender: false,
-        ease: 'Power1.easeInOut',
-        width: 50,
-        scrollTrigger: {
-        trigger: '.main-wrapper',
-        start: '18%',
-        end: '30%',
-        scrub: true
-        }
-      })
+        tl.to(face + ' img', {
+          immediateRender: false,
+          ease: 'Power1.easeInOut',
+          width: 50,
+          scrollTrigger: {
+            trigger: '.main-wrapper',
+            start: '18%',
+            end: '30%',
+            scrub: true
+          }
+        })
       })
 
       faces = ['#face-5', '#face-7']
       faces.forEach((face, i) => {
-      gsap.to(face, {
-        ease: 'Power1.easeInOut',
-        motionPath: {
-        path: [{
-          left: this.positions2[i].left,
-          top: this.panel1CirclePos.top,
-          scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-        }, {
-          left: this.positions2[i].left,
-          top: this.positions2[i].top,
-          scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-        }, {
-          left: this.positions2[i].left2,
-          top: this.positions2[i].top2,
-          scale: 1
-        }],
-        curviness: 1.2,
-        alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-        trigger: '.main-wrapper',
-        stagger: 1,
-        start: '0%',
-        end: '8%',
-        scrub: true
-        }
-      })
+        gsap.to(face, {
+          ease: 'Power1.easeInOut',
+          motionPath: {
+            path: [{
+              left: this.positions2[i].left,
+              top: this.panel1CirclePos.top,
+              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
+            }, {
+              left: this.positions2[i].left,
+              top: this.positions2[i].top,
+              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
+            }, {
+              left: this.positions2[i].left2,
+              top: this.positions2[i].top2,
+              scale: 1
+            }],
+            curviness: 1.2,
+            alignOrigin: [0.5, 0.5]
+          },
+          scrollTrigger: {
+            trigger: '.main-wrapper',
+            stagger: 1,
+            start: '0%',
+            end: '8%',
+            scrub: true
+          }
+        })
       })
 
       faces = ['#face-2']
       gsap.to(faces, {
-      ease: 'Power1.easeInOut',
-      motionPath: {
-        path: [{
-        left: this.positions2[1].left,
-        top: this.panel1CirclePos.top,
-        scale: 0
-        }],
-        curviness: 1.2,
-        alignOrigin: [0.5, 0.5]
-      },
-      scrollTrigger: {
-        trigger: '.main-wrapper',
-        stagger: 1,
-        start: '0%',
-        end: '8%',
-        scrub: true
-      }
+        ease: 'Power1.easeInOut',
+        motionPath: {
+          path: [{
+            left: this.positions2[1].left,
+            top: this.panel1CirclePos.top,
+            scale: 0
+          }],
+          curviness: 1.2,
+          alignOrigin: [0.5, 0.5]
+        },
+        scrollTrigger: {
+          trigger: '.main-wrapper',
+          stagger: 1,
+          start: '0%',
+          end: '8%',
+          scrub: true
+        }
       })
 
       tl.to('#freeze-wrapper', {
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: '.main-wrapper',
-        pin: true,
-        start: '25%',
-        end: '70%'
-      }
+        immediateRender: false,
+        scrollTrigger: {
+          trigger: '.main-wrapper',
+          pin: true,
+          start: '28%',
+          end: '70%'
+        }
       })
 
       gsap.set('.c-container-header *', {
-      opacity: 0,
-      y: '+=30'
+        opacity: 0,
+        y: '+=30'
       })
 
       // Headers animation
       const titles = ['#header3', '#header4', '#header5']
       let pourcent = 0
       titles.forEach((title, i) => {
-      const trigger = {
-        trigger: '#freeze-wrapper',
-        start: `${pourcent}% top`,
-        end: '+=20%',
-        stagger: 1,
-        scrub: true
-      }
-
-      gsap.from('#freeze-wrapper', {
-        scrollTrigger: {
-        trigger: '#freeze-wrapper',
-        start: `${pourcent + 20}% top`,
-        end: '+=400%',
-        scrub: true,
-        toggleClass: {
-          targets: this.$refs.wrapper,
-          className: `graph-stage-${i}`
+        const trigger = {
+          trigger: '#freeze-wrapper',
+          start: `${pourcent}% top`,
+          end: '+=20%',
+          stagger: 1,
+          scrub: true
         }
-        }
-      })
 
-      gsap.to(`${title} *`, {
-        opacity: 1,
-        y: '0',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: trigger
-      })
-
-      pourcent += 80
-
-      trigger.start = `${pourcent}% top`
-
-      if (title !== '#header5') {
-        gsap.to(`${title} *`, {
-        immediateRender: false,
-        opacity: 0,
-        y: '-30px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: trigger
+        gsap.from('#freeze-wrapper', {
+          scrollTrigger: {
+            trigger: '#freeze-wrapper',
+            start: `${pourcent + 20}% top`,
+            end: '+=400%',
+            scrub: true,
+            toggleClass: {
+              targets: this.$refs.wrapper,
+              className: `graph-stage-${i}`
+            }
+          }
         })
-      }
 
-      pourcent += 20
+        gsap.to(`${title} *`, {
+          opacity: 1,
+          y: '0',
+          ease: 'Power1.easeInOut',
+          scrollTrigger: trigger
+        })
+
+        pourcent += 80
+
+        trigger.start = `${pourcent}% top`
+
+        if (title !== '#header5') {
+          gsap.to(`${title} *`, {
+            immediateRender: false,
+            opacity: 0,
+            y: '-30px',
+            ease: 'Power1.easeInOut',
+            scrollTrigger: trigger
+          })
+        }
+
+        pourcent += 20
       })
       this.tl = tl
     }
-    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
 
 @include desktop {
+
   #circle-graph .c-container-image,
   #container3 .c-container-image,
   #container4 .c-container-image,
   #container5 .c-container-image {
-  opacity: 0;
+    opacity: 0;
   }
 }
 
@@ -538,11 +569,11 @@ export default {
   // left: -15px;
 
   @include desktop {
-  display: block;
-  position: absolute;
-  z-index: -1;
-  left: -70px;
-  top: -59px;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    left: -70px;
+    top: -59px;
   }
 }
 
@@ -555,8 +586,8 @@ export default {
   fill: none;
 
   @include desktop {
-  left: 0px;
-  transform: translateX(0);
+    left: 0px;
+    transform: translateX(0);
   }
 }
 
@@ -579,7 +610,7 @@ export default {
   flex-direction: column;
 
   @include tablet {
-  padding: 6rem 1rem;
+    padding: 6rem 1rem;
   }
 }
 
@@ -595,8 +626,8 @@ export default {
   // }
 
   @include desktop {
-  padding-bottom: 2rem;
-  margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 }
 
@@ -610,7 +641,7 @@ export default {
   pointer-events: none;
 
   @include desktop {
-  width: 1280px;
+    width: 1280px;
   }
 }
 
@@ -626,184 +657,199 @@ export default {
 
   &::before,
   &::after {
-  content: '';
-  position: absolute;
-  transition: all ease-in .3s;
-  top: 100px;
+    content: '';
+    position: absolute;
+    transition: all ease-in .3s;
+    top: 100px;
   }
 
   &::before {
-  content: "$500";
-  background-image: url("data:image/svg+xml,%3Csvg width='56' height='24' viewBox='0 0 56 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M46.0002 23.9995L4.00024 23.9995C1.7911 23.9995 0.000244141 22.2087 0.000244141 19.9995V3.99951C0.000244141 1.79037 1.79111 -0.000488281 4.00024 -0.000488281L46.0002 -0.000488281L56.0002 11.9995L46.0002 23.9995Z' fill='%23D0DEEA'/%3E%3C/svg%3E");
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 56px;
-  height: 24px;
-  margin-top: -12px;
-  padding-right: 6px;
-  font-family: 'Poppins';
-  font-weight: 500;
-  font-size: 12px;
-  z-index: 2;
+    content: "$500";
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='24' viewBox='0 0 56 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M46.0002 23.9995L4.00024 23.9995C1.7911 23.9995 0.000244141 22.2087 0.000244141 19.9995V3.99951C0.000244141 1.79037 1.79111 -0.000488281 4.00024 -0.000488281L46.0002 -0.000488281L56.0002 11.9995L46.0002 23.9995Z' fill='%23D0DEEA'/%3E%3C/svg%3E");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 24px;
+    margin-top: -12px;
+    padding-right: 6px;
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 12px;
+    z-index: 2;
   }
 
   &::after {
-  background: #D0DEEA;
-  width: 0%;
-  height: 1px;
+    background: #D0DEEA;
+    width: 0%;
+    height: 1px;
   }
 }
 
 .graph-stage-0 {
   #face-1 {
-  &::before,
-  &::after {
-    height: 235px;
-  }
+
+    &::before,
+    &::after {
+      height: 235px;
+    }
   }
 
   #face-3 {
-  &::before,
-  &::after {
-    height: 235px;
-  }
+
+    &::before,
+    &::after {
+      height: 235px;
+    }
   }
 
   #face-4 {
-  &::before,
-  &::after {
-    height: 86px;
-  }
+
+    &::before,
+    &::after {
+      height: 86px;
+    }
   }
 
   #face-6 {
-  &::before,
-  &::after {
-    height: 12px;
-  }
+
+    &::before,
+    &::after {
+      height: 12px;
+    }
   }
 
   #face-8 {
-  &::before,
-  &::after {
-    height: 310px;
-  }
+
+    &::before,
+    &::after {
+      height: 310px;
+    }
   }
 
   .c-name {
-  opacity: 1;
+    opacity: 1;
   }
 }
 
 .graph-stage-1 {
   .c-line {
-  opacity: 1;
+    opacity: 1;
 
-  &::after {
-    width: 100%;
-  }
+    &::after {
+      width: 100%;
+    }
   }
 
   #face-4::before {
-  height: 102px;
-  transition-delay: .3s;
+    height: 102px;
+    transition-delay: .3s;
   }
 
   #face-6::before {
-  height: 102px;
-  transition-delay: .6s;
+    height: 102px;
+    transition-delay: .6s;
   }
 }
 
 .graph-stage-2 {
   .c-face {
-  transition-duration: 1s;
+    transition-duration: 1s;
   }
 
   #face-1::after,
   #face-3::after,
   #face-8::after {
-  border: 2px solid #fff;
-  margin-left: -2px;
-  width: 58px;
+    border: 2px solid #fff;
+    margin-left: -2px;
+    width: 58px;
   }
-  #face-1{
-  z-index: 5;
-  &::after {
-    height: 200px;
-    transition-delay: 5000ms;
+
+  #face-1 {
+    z-index: 5;
+
+    &::after {
+      height: 200px;
+      transition-delay: 5000ms;
+    }
   }
+
+  #face-3 {
+    z-index: 5;
+
+    &::after {
+      height: 200px;
+      transition-delay: 5000ms;
+    }
+
+    .c-pledge-card {
+      animation-delay: 1000ms;
+    }
   }
-  #face-3{
-  z-index: 5;
-  &::after {
-    height: 200px;
-    transition-delay: 5000ms;
+
+  #face-4 {
+    z-index: 5;
+
+    &::after {
+      height: 102px;
+      transition-delay: 5000ms;
+    }
+
+    .c-pledge-card {
+      animation-delay: 2000ms;
+    }
+  }
+
+  #face-8 {
+    z-index: 3;
+
+    &::after {
+      height: 270px;
+      transition-delay: 5000ms;
+    }
+
+    .c-pledge-card {
+      animation-delay: 3000ms;
+    }
+  }
+
+  #face-6 {
+    z-index: 5;
+
+    &::after {
+      height: 102px;
+      transition-delay: 5000ms;
+    }
+
+    .c-pledge-card {
+      animation-delay: 4000ms;
+    }
   }
 
   .c-pledge-card {
-    animation-delay: 1000ms;
-  }
-  }
-
-  #face-4{
-  z-index: 5;
-  &::after {
-    height: 102px;
-    transition-delay: 5000ms;
-  }
-
-  .c-pledge-card {
-    animation-delay: 2000ms;
-  }
-  }
-
-  #face-8{
-  z-index: 3;
-  &::after {
-    height: 270px;
-    transition-delay: 5000ms;
-  }
-
-  .c-pledge-card {
-    animation-delay: 3000ms;
-  }
-  }
-
-  #face-6{
-  z-index: 5;
-  &::after {
-    height: 102px;
-    transition-delay: 5000ms;
-  }
-
-  .c-pledge-card {
-    animation-delay: 4000ms;
-  }
-  }
-
-  .c-pledge-card {
-  animation: elevation 3s;
+    animation: elevation 3s;
   }
 }
 
 @keyframes elevation {
   0% {
-  opacity: 0;
-  transform: translate3d(-50%, 2rem, 0);
+    opacity: 0;
+    transform: translate3d(-50%, 2rem, 0);
   }
+
   20% {
-  opacity: 1;
-  transform: translate3d(-50%, 0, 0);
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
   }
+
   80% {
-  opacity: 0;
-  transform: translate3d(-50%, -2rem, 0);
+    opacity: 0;
+    transform: translate3d(-50%, -2rem, 0);
   }
+
   100% {
-  opacity: 0;
-  transform: translate3d(-50%, -2rem, 0);
+    opacity: 0;
+    transform: translate3d(-50%, -2rem, 0);
   }
 }
 
@@ -824,182 +870,183 @@ export default {
 #face-8,
 #face-3,
 #face-6 {
+
   &::before,
   &::after {
-  content: '';
-  position: absolute;
-  left: -27px;
-  bottom: 93px;
-  width: 54px;
-  height: 0;
-  border-radius: 4px;
-  transition: height ease-out .3s;
+    content: '';
+    position: absolute;
+    left: -27px;
+    bottom: 93px;
+    width: 54px;
+    height: 0;
+    border-radius: 4px;
+    transition: height ease-out .3s;
   }
 
   &::before {
-  background: #D0DEEA;
+    background: #D0DEEA;
   }
 }
 
-#face-1{
+#face-1 {
   top: 76vh;
   left: 17%;
 
   @include tablet {
-  top: 70vh;
-  left: 24%;
+    top: 70vh;
+    left: 24%;
   }
 
   @include desktop {
-  top: 72vh;
-  left: 19%;
-  transform: scale(.8);
+    top: 72vh;
+    left: 19%;
+    transform: scale(.8);
   }
 
   &::after {
-  background-color: #F48579;
+    background-color: #F48579;
   }
 }
 
-#face-2{
+#face-2 {
   top: 68vh;
   left: 1%;
 
   @include tablet {
-  top: 54vh;
-  left: 7%;
+    top: 54vh;
+    left: 7%;
   }
 
   @include desktop {
-  top: 59vh;
-  left: 4%;
+    top: 59vh;
+    left: 4%;
   }
 }
 
-#face-3{
+#face-3 {
   top: 6vh;
   left: 4%;
 
   @include tablet {
-  top: 13vh;
-  left: 8%;
+    top: 13vh;
+    left: 8%;
   }
 
   @include tall {
-  top: 20vh;
+    top: 20vh;
   }
 
   @include desktop {
-  top: 35vh;
-  left: 6%;
-  transform: scale(.8);
+    top: 35vh;
+    left: 6%;
+    transform: scale(.8);
   }
 
   &::after {
-  background-color: #FFD43D;
+    background-color: #FFD43D;
   }
 }
 
-#face-4{
+#face-4 {
   top: 74vh;
   left: 63%;
 
   @include tablet {
-  top: 65vh;
-  left: 73%;
+    top: 65vh;
+    left: 73%;
   }
 
   @include desktop {
-  top: 69vh;
-  left: 84%;
-  transform: scale(1.2);
+    top: 69vh;
+    left: 84%;
+    transform: scale(1.2);
   }
 
   &::after {
-  background-color: #A1D211;
+    background-color: #A1D211;
   }
 }
 
-#face-5{
+#face-5 {
   top: 3vh;
   left: 39%;
 
   @include tablet {
-  top: 5vh;
-  left: 29%;
+    top: 5vh;
+    left: 29%;
   }
 
   @include tall {
-  top: 24vh;
+    top: 24vh;
   }
 
   @include desktop {
-  top: 15vh;
-  left: 16%;
+    top: 15vh;
+    left: 16%;
   }
 }
 
-#face-6{
+#face-6 {
   top: 59vh;
   left: 80%;
 
   @include tablet {
-  top: 47vh;
-  left: 89%;
+    top: 47vh;
+    left: 89%;
   }
 
   @include desktop {
-  top: 45vh;
-  left: 97%;
+    top: 45vh;
+    left: 97%;
   }
 
   &::after {
-  background-color: #F99201;
+    background-color: #F99201;
   }
 }
 
-#face-7{
+#face-7 {
   top: 1.5vh;
   left: 61%;
 
   @include tablet {
-  top: 2vh;
-  left: 73%;
+    top: 2vh;
+    left: 73%;
   }
 
   @include tall {
-  top: 12vh;
-  left: 57%;
+    top: 12vh;
+    left: 57%;
   }
 
   @include desktop {
-  top: 46vh;
-  left: 85%;
+    top: 46vh;
+    left: 85%;
   }
 }
 
-#face-8{
+#face-8 {
   top: 8vh;
   left: 75%;
 
   @include tablet {
-  top: 4vh;
-  left: 87%;
+    top: 4vh;
+    left: 87%;
   }
 
   @include tall {
-  top: 22vh;
-  left: 79%;
+    top: 22vh;
+    left: 79%;
   }
 
   @include desktop {
-  top: 21vh;
-  left: 92%;
-  transform: scale(1.2);
+    top: 21vh;
+    left: 92%;
+    transform: scale(1.2);
   }
 
   &::after {
-  background-color: #5DC8F0;
+    background-color: #5DC8F0;
   }
 }
 
@@ -1007,7 +1054,7 @@ export default {
   position: absolute;
 
   @include phone {
-  transform: scale(.5);
+    transform: scale(.5);
   }
 }
 
@@ -1015,8 +1062,9 @@ export default {
   border-radius: 100%;
   margin-top: -50%;
   max-width: fit-content;
+
   @include desktop {
-  margin-left: -50%;
+    margin-left: -50%;
   }
 }
 
@@ -1025,7 +1073,7 @@ export default {
   text-align: center;
 
   @include desktop {
-  text-align: left;
+    text-align: left;
   }
 }
 
@@ -1043,11 +1091,11 @@ export default {
   cursor: pointer;
 
   &:hover {
-  background-color: #D0DEEA;
+    background-color: #D0DEEA;
   }
 
   @include phone {
-  display: none;
+    display: none;
   }
 }
 
@@ -1057,28 +1105,28 @@ export default {
   text-align: center;
 
   @include until($desktop) {
-  flex-direction: column-reverse;
+    flex-direction: column-reverse;
 
-  .c-container-title {
-    margin: 1rem auto 3rem auto;
-  }
+    .c-container-title {
+      margin: 1rem auto 3rem auto;
+    }
 
-  .c-container-image {
-    margin: 3rem auto 0 auto;
-  }
+    .c-container-image {
+      margin: 3rem auto 0 auto;
+    }
   }
 
   @include desktop {
-  text-align: left;
-  justify-content: space-between;
-  flex-direction: row-reverse;
+    text-align: left;
+    justify-content: space-between;
+    flex-direction: row-reverse;
   }
 
   &.span-reverse {
-  @include desktop {
-    margin-bottom: 10vh;
-    flex-direction: row;
-  }
+    @include desktop {
+      margin-bottom: 10vh;
+      flex-direction: row;
+    }
   }
 }
 
@@ -1100,58 +1148,63 @@ export default {
   position: relative;
 
   @include desktop {
-  width: 30rem;
+    width: 30rem;
   }
 }
 
 .sections-container {
   @include desktop {
-  position: relative;
-  height: 80vh;
+    position: relative;
+    height: 80vh;
 
-  section {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    section {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
 .c-container {
   &-image {
-  max-width: 80%;
-  margin: 0 auto 3rem auto;
-  @include desktop {
-    max-width: 100%;
-    margin: 0;
-  }
+    max-width: 80%;
+    margin: 0 auto 3rem auto;
+
+    @include desktop {
+      max-width: 100%;
+      margin: 0;
+    }
   }
 
   &-title {
-  margin: 1rem auto;
-  max-width: 34rem;
-  @include desktop {
-    margin: 1.2rem 0 1rem 0;
-  }
+    margin: 1rem auto;
+    max-width: 34rem;
+
+    @include desktop {
+      margin: 1.2rem 0 1rem 0;
+    }
   }
 
   &-posttitle {
-  color: $text_0;
+    color: $text_0;
   }
 
   &-para {
-  line-height: 1.5rem;
-  max-width: 34rem;
-  margin: 0 auto;
+    line-height: 1.5rem;
+    max-width: 34rem;
+    margin: 0 auto;
 
-  @include desktop {
-    margin-right: 25%;
-  }
+    @include desktop {
+      margin-right: 25%;
+    }
   }
 
   &-link {
-  margin-top: 1.6rem;
+    margin-top: 1.6rem;
   }
 }
 
@@ -1167,12 +1220,12 @@ export default {
   min-height: calc(100vh - #{$headerHeightMobile});
 
   @include tablet {
-  min-height: calc(100vh - #{$headerHeightTablet});
+    min-height: calc(100vh - #{$headerHeightTablet});
   }
 
   @include desktop {
-  min-height: calc(100vh - #{$headerHeight});
-  background-size: auto;
+    min-height: calc(100vh - #{$headerHeight});
+    background-size: auto;
   }
 }
 
@@ -1186,7 +1239,7 @@ export default {
   margin: 1.5rem auto;
 
   @include phone {
-  max-width: 30rem;
+    max-width: 30rem;
   }
 }
 
@@ -1197,36 +1250,37 @@ export default {
 
 .c-container-title-nav {
   i {
-  display: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #D0DEEA;
-  transition: all .2s ease-in-out;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 3rem;
-  height: 3rem;
+    display: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #D0DEEA;
+    transition: all .2s ease-in-out;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 3rem;
+    height: 3rem;
 
-  &.active {
-    color: initial;
+    &.active {
+      color: initial;
 
-    &:hover {
-    background: #D0DEEA;
-    transform: scale(1.1);
+      &:hover {
+        background: #D0DEEA;
+        transform: scale(1.1);
+      }
     }
   }
-  }
-  @include until($desktop) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
 
-  i {
+  @include until($desktop) {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-  }
+    width: 100%;
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -1236,122 +1290,122 @@ export default {
   align-items: center;
 
   @include desktop {
-  flex-direction: row;
-  justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .c-steps {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
-  overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    overflow: hidden;
 
-  @include tablet {
-    margin: 1rem 0;
-  }
+    @include tablet {
+      margin: 1rem 0;
+    }
 
-  @include desktop {
-    margin: 0;
-    width: 9.25rem;
-    padding-left: .2rem;
-    flex-direction: column;
-  }
+    @include desktop {
+      margin: 0;
+      width: 9.25rem;
+      padding-left: .2rem;
+      flex-direction: column;
+    }
   }
 
   .c-step {
-  display: flex;
-  height: 2.5rem;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
+    display: flex;
+    height: 2.5rem;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
 
-  span {
-    display: none;
+    span {
+      display: none;
 
-    @include desktop {
-    display: block;
-    white-space: nowrap;
+      @include desktop {
+        display: block;
+        white-space: nowrap;
+      }
     }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    background-color: #F99201;
-    width: 20rem;
-    height: 2px;
-    left: 7px;
-    top: calc(50% - 1px);
-    z-index: -2;
-
-    @include desktop {
-    width: 2px;
-    height: 20rem;
-    left: 3px;
-    top: 50%;
-    }
-  }
-
-  &::before {
-    content: '';
-    width: .5rem;
-    height: .5rem;
-    margin-right: 2rem;
-    border-radius: 50%;
-    border: 2px solid #F99201;
-    background-color: #fff;
-    z-index: 1;
-
-    @include desktop {
-    margin-right: 1rem;
-    }
-  }
-
-  &:hover::before {
-    transform: scale(1.5);
-  }
-
-  &.active {
-    font-weight: 600;
 
     &::after {
-    content: '';
-    position: absolute;
-    background-color: #F99201;
-    z-index: -1;
-    }
+      content: '';
+      position: absolute;
+      background-color: #F99201;
+      width: 20rem;
+      height: 2px;
+      left: 7px;
+      top: calc(50% - 1px);
+      z-index: -2;
 
-    ~ .c-step{
+      @include desktop {
+        width: 2px;
+        height: 20rem;
+        left: 3px;
+        top: 50%;
+      }
+    }
 
     &::before {
-      border: 2px solid #fff;
-      background-color: #D0DEEA;
+      content: '';
+      width: .5rem;
+      height: .5rem;
+      margin-right: 2rem;
+      border-radius: 50%;
+      border: 2px solid #F99201;
+      background-color: #fff;
+      z-index: 1;
+
+      @include desktop {
+        margin-right: 1rem;
+      }
     }
 
-    &:not(:last-child)::after {
-      background-color: #D0DEEA;
-      z-index: 0;
+    &:hover::before {
+      transform: scale(1.5);
     }
-    }
-  }
 
-  &:last-child {
-    // &::before {
-    //   margin-right: 0;
-    // }
+    &.active {
+      font-weight: 600;
 
-    &::after {
-    background-color: #fff;
-    z-index: 0;
-    left: 3px;
+      &::after {
+        content: '';
+        position: absolute;
+        background-color: #F99201;
+        z-index: -1;
+      }
 
-    @include desktop {
-      top: calc(50% + 4px);
+      ~.c-step {
+
+        &::before {
+          border: 2px solid #fff;
+          background-color: #D0DEEA;
+        }
+
+        &:not(:last-child)::after {
+          background-color: #D0DEEA;
+          z-index: 0;
+        }
+      }
     }
+
+    &:last-child {
+      // &::before {
+      //   margin-right: 0;
+      // }
+
+      &::after {
+        background-color: #fff;
+        z-index: 0;
+        left: 3px;
+
+        @include desktop {
+          top: calc(50% + 4px);
+        }
+      }
     }
-  }
   }
 }
 
@@ -1362,41 +1416,41 @@ export default {
   margin-bottom: -4rem;
 
   @include desktop {
-  padding-bottom: 0;
-  margin-bottom: 0;
-  background: url('/images/swoosh-dark-blue.svg') no-repeat center #fff;
-  background-size: cover;
-  background-size: 100% 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background: url('/images/swoosh-dark-blue.svg') no-repeat center #fff;
+    background-size: cover;
+    background-size: 100% 100%;
   }
 
   .span-container {
-  align-items: center;
-  padding-bottom: 0;
-  margin-top: 2rem;
+    align-items: center;
+    padding-bottom: 0;
+    margin-top: 2rem;
   }
 
   .is-outlined {
-  background: transparent;
-  border-color: $primary_0;
-  color: #fff;
+    background: transparent;
+    border-color: $primary_0;
+    color: #fff;
   }
 
   .c-container-posttitle {
-  color: #fff;
+    color: #fff;
   }
 
   .c-buttons {
-  .button {
-    margin: -2rem 1rem 4rem 1rem;
+    .button {
+      margin: -2rem 1rem 4rem 1rem;
 
-    @include desktop {
-    margin: 2rem 1rem;
-    }
+      @include desktop {
+        margin: 2rem 1rem;
+      }
 
-    &:first-child {
-    margin-left: 0;
+      &:first-child {
+        margin-left: 0;
+      }
     }
-  }
   }
 }
 
@@ -1409,8 +1463,8 @@ export default {
   margin-bottom: 3rem;
 
   @include desktop {
-  min-height: 44.6rem;
-  margin-bottom: 0;
+    min-height: 44.6rem;
+    margin-bottom: 0;
   }
 }
 
