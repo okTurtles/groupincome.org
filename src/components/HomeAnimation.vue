@@ -178,7 +178,10 @@ export default {
       steps: [
         'Create a group',
         'Set mincome',
-        'Voting System'
+        'Voting System',
+        'Chat',
+        'Contribute',
+        'Payments'
       ],
       name: {
         1: 'Jess',
