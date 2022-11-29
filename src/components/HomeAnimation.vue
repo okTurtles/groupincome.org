@@ -117,11 +117,12 @@
       <h3 class="is-title-2 c-container-title c-container-title-nav">
         <i class="icon-chevron-left"
           @click='activeStep = activeStep > 1 ? activeStep-1 : 0'
-          :class='{active: activeStep > 0}'
-        >{{steps[activeStep]}}</i>
+          :class='{"icon-active": activeStep > 0}'
+        ></i>
+        {{steps[activeStep]}}
         <i class="icon-chevron-right"
           @click='activeStep = activeStep < steps.length-1 ? activeStep+1 : steps.length-1'
-          :class='{active: activeStep < steps.length-1}'
+          :class='{"icon-active": activeStep < steps.length-1}'
         ></i>
       </h3>
       <div class="c-app-preview">
@@ -1263,7 +1264,7 @@ export default {
     width: 3rem;
     height: 3rem;
 
-    &.active {
+    &.icon-active {
       color: initial;
 
       &:hover {
