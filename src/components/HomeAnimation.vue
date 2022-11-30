@@ -73,7 +73,7 @@
         </section>
 
         <section class="container span-container" id="container4">
-          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel4.jpg" />
+          <div class="span-2"><img class="c-container-image" ref="gif" src="/images/temp/homepage-panel4.jpg" />
             <div class="c-line"></div>
           </div>
           <div class="span-2 c-container-header" id="header4">
@@ -86,7 +86,7 @@
         </section>
 
         <section class="container span-container" id="container5">
-          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel6.jpg" /></div>
+          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel6.jpg" ref="gif2"/></div>
           <div class="span-2 c-container-header" id="header5">
             <div class="is-title-3 c-container-posttitle">With Group Income</div>
             <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
@@ -96,7 +96,7 @@
         </section>
       </div>
 
-      <section class="container span-container span-reverse">
+      <section class="container span-container span-reverse" id="contribute">
         <div class="span-2">
           <img class="c-container-image" src="/images/temp/homepage-panel5.jpg" />
         </div>
@@ -224,6 +224,12 @@ export default {
         if (this.tl === null) {
           this.initAnimation()
           this.animateOnScroll()
+        }
+      }, 500)
+    } else {
+      setTimeout(() => {
+        if (this.tl === null) {
+          this.animateOnScrollMobile()
         }
       }, 500)
     }
@@ -539,6 +545,27 @@ export default {
         pourcent += 20
       })
       this.tl = tl
+    },
+    animateOnScrollMobile() {
+      ScrollTrigger.create({
+        trigger: "#container4",
+        // start: "top top",
+        endTrigger: "#container5",
+        // end: "bottom",
+        onToggle: self => {
+          this.$refs.gif.src="/images/temp/homepage-panel3.gif"
+        }
+      });
+
+      ScrollTrigger.create({
+        trigger: "#container5",
+        // start: "top top",
+        endTrigger: "#contribute",
+        // end: "bottom",
+        onToggle: self => {
+          this.$refs.gif2.src="/images/temp/homepage-panel5.gif"
+        }
+      });
     }
   }
 }
