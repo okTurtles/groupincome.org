@@ -553,7 +553,7 @@ export default {
         endTrigger: "#container5",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif.src="/images/temp/homepage-panel3.gif"
+          this.$refs.gif.src="/groupincome.org/temp/homepage-panel3.gif"
         }
       });
 
@@ -563,7 +563,7 @@ export default {
         endTrigger: "#contribute",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif2.src="/images/temp/homepage-panel5.gif"
+          this.$refs.gif2.src="/groupincome.org/images/temp/homepage-panel5.gif"
         }
       });
     }
