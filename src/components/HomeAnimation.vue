@@ -553,7 +553,7 @@ export default {
         endTrigger: "#container5",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif.src="/groupincome.org/temp/homepage-panel3.gif"
+          this.$refs.gif.src="/groupincome.org/images/temp/homepage-panel3.gif"
         }
       });
 
