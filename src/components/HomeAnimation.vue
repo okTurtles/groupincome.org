@@ -119,18 +119,18 @@
           @click='activeStep = activeStep > 1 ? activeStep-1 : 0'
           :class='{"icon-active": activeStep > 0}'
         ></i>
-        {{steps[activeStep]}}
+        {{steps[activeStep].title}}
         <i class="icon-chevron-right"
           @click='activeStep = activeStep < steps.length-1 ? activeStep+1 : steps.length-1'
           :class='{"icon-active": activeStep < steps.length-1}'
         ></i>
       </h3>
       <div class="c-app-preview">
-        <Browser :activeStep="activeStep" />
+        <Browser :activeStep="activeStep" :steps="steps"/>
 
         <div class="c-steps">
         <div class="c-step" v-for="(step, i) in steps" @click="activeStep = i" :class="{ active: activeStep === i }"
-            :key="i"><span>{{ step }}</span></div>
+            :key="i"><span>{{ step.title }}</span></div>
         </div>
       </div>
     </section>
@@ -176,14 +176,22 @@ export default {
   data() {
     return {
       activeStep: 0,
-      steps: [
-        'Create a group',
-        'Set mincome',
-        'Voting System',
-        'Chat',
-        'Contribute',
-        'Payments'
-      ],
+      steps: [{
+        title: 'Create a group',
+        image: 'create-a-group'
+      }, {
+        title: 'Set mincome',
+        image: 'set-mincome'
+      }, {
+        title: 'Contribute',
+        image: 'contribute'
+      }, {
+        title: 'Payments',
+        image: 'payments'
+      }, {
+        title: 'Chat',
+        image: 'chat'
+      }],
       name: {
         1: 'Jess',
         3: 'Matt',
