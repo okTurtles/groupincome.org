@@ -27,8 +27,14 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
 export default defineConfig({
   site: 'https://okturtles.github.io',
   base: '/groupincome.org',
-  integrations: [mdx(), sitemap(), vue()],
+  // integrations: [mdx(), sitemap(), vue()],
+  integrations: [sitemap(), vue()],
   markdown: {
-		remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks]
+		remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, 'remark-math'],
+    rehypePlugins: [
+      ['rehype-katex', {
+      // Katex plugin options
+      }]
+    ]
 	}
 });
