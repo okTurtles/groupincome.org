@@ -40,6 +40,13 @@ In our [previous post](/articles/what-makes-a-good-voting-system/), we explored 
 .sidenote b {
   color: #6C7E8F !important;
 }
+
+hr {
+  margin: 0;
+}
+hr + p {
+  text-align: center;
+}
 </style>
 
 - **[Voting Is Fairly New](#voting-is-fairly-new)**
@@ -111,54 +118,57 @@ To answer these questions, let's look at its context and then examine the four c
 <a name="context"></a>
 ### Context of May's Theorem
 
-May says the theorem is about a vote between "two alternatives" <span class="math-inline">x</span> and <span class="math-inline">y</span>. As we'll see, this isn't exactly true. More accurately, May's Theorem concerns itself with a _proposal_ <span class="math-inline">x</span>, the _status quo_ <span class="math-inline">y</span>,[^1] and a third option we'll call *z*.
+May says the theorem is about a vote between "two alternatives" $x$ and $y$. As we'll see, this isn't exactly true. More accurately, May's Theorem concerns itself with a _proposal_ $x$, the _status quo_ $y$,[^1] and a third option we'll call *z*.
 
-May considers various _group decision functions_ that could be used to decide between the choices <span class="math-inline">x</span> and <span class="math-inline">y</span>, and focuses on one with a 50% _threshold_ called "majority rule".
+May considers various _group decision functions_ that could be used to decide between the choices $x$ and $y$, and focuses on one with a 50% _threshold_ called "majority rule".
 
 Let's define these terms:
 
-- **Group decision function:** A voting rule that tallies votes in favor or against a proposition and outputs *1*, *-1*, or <span class="math-inline">0</span>.
-- **Threshold** or **turnout threshold:** The percentage of votes in favor _above which_ the motion will pass, when votes of <span class="math-inline">0</span> (indifference or abstention) are ignored.
-- **Abstention threshold:** Like threshold, except votes of <span class="math-inline">0</span> are counted and are used to increase the likelihood of impasse. So, with a 50% abstention threshold and the votes <span class="math-inline">\small\\{1,1,-1,0,0\\}</span>, the outcome is not <span class="math-inline">x</span> but either <span class="math-inline">y</span> or <span class="math-inline">z</span>, depending on the decision function. Abstention thresholds are similar to _supermajority rules_ but are specifically useful when it makes sense to encourage a high _turnout_.
+- **Group decision function:** A voting rule that tallies votes in favor or against a proposition and outputs *1*, *-1*, or $0$.
+- **Threshold** or **turnout threshold:** The percentage of votes in favor _above which_ the motion will pass, when votes of $0$ (indifference or abstention) are ignored.
+- **Abstention threshold:** Like threshold, except votes of $0$ are counted and are used to increase the likelihood of impasse. So, with a 50% abstention threshold and the votes $\small\\{1,1,-1,0,0\\}$, the outcome is not $x$ but either $y$ or $z$, depending on the decision function. Abstention thresholds are similar to _supermajority rules_ but are specifically useful when it makes sense to encourage a high _turnout_.
 - **Turnout:** The percentage (or number) of voters who did not abstain from voting.
 - **Unweighted:** 1-person-1-vote style voting (as opposed to 1-dollar-1-vote style voting).
 - **Majority rule:** Unweighted voting rule with a threshold of 50%.
 - **Supermajority rule:** Unweighted voting rule with a threshold >50%. Typically, [2/3 or more](https://en.wikipedia.org/w/index.php?title=Supermajority&oldid=723462259#Common_supermajorities).
 - **Submajority rule:** Unweighted voting rule with a threshold of <50%.[^2]
 
-[^1]: May did not explicitly state that <span class="math-inline">y</span> refers to the status quo, but it is indicated by his four conditions and the implications (and problems) surrounding his theorem. If <span class="math-inline">y</span> were something other than the ["status quo"](#confusion-over-status-quo), his theorem would fall apart because majority rule's ["neutrality"](#condition-iii-neutrality) would no longer be at all believable (it would be exactly _not neutral_, resulting in a move away from the status quo almost every time).
+[^1]: May did not explicitly state that $y$ refers to the status quo, but it is indicated by his four conditions and the implications (and problems) surrounding his theorem. If $y$ were something other than the ["status quo"](#confusion-over-status-quo), his theorem would fall apart because majority rule's ["neutrality"](#condition-iii-neutrality) would no longer be at all believable (it would be exactly _not neutral_, resulting in a move away from the status quo almost every time).
 
 [^2]: Submajority rules are rare, but some argue there are [good reasons](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=495569) to use them, and you'll notice the well-known [plurality rule](https://en.wikipedia.org/wiki/Plurality_(voting)) fits our definition. Note also that using an abstention threshold makes less sense in the context of submajority rules.
 
 May assigns meaning to the output of the group decision function like so:
 
-> We assume *n* individuals and two alternatives <span class="math-inline">x</span> and <span class="math-inline">y</span>. Symbolizing "the <span class="math-inline">i</span>th individual prefers <span class="math-inline">x</span> to <span class="math-inline">y</span>" by <span class="math-inline">xP_iy</span> and "the <span class="math-inline">i</span>th individual is indifferent to <span class="math-inline">x</span> and <span class="math-inline">y</span>" by <span class="math-inline">xl_iy</span>, we assume that for each <span class="math-inline">i</span> one and only one of the following holds: <span class="math-inline">yP_ix</span>, <span class="math-inline">yI_ix</span>, or <span class="math-inline">xP_iy</span>. With each individual we associate a variable <span class="math-inline">D_i</span> that takes the values <span class="math-inline">-1, 0, 1</span> respectively for each of these situations. Similarly, for the group, we write <span class="math-inline">D = -1, 0, 1</span> according as <span class="math-inline">yPx</span>, <span class="math-inline">yIx</span>, or <span class="math-inline">xPy</span>, i.e., according as the group decision is in favor of <span class="math-inline">y</span>, indifference, or in favor of <span class="math-inline">x</span>.
+> We assume *n* individuals and two alternatives $x$ and $y$. Symbolizing "the $i$th individual prefers $x$ to $y$" by $xP_iy$ and "the $i$th individual is indifferent to $x$ and $y$" by $xl_iy$, we assume that for each $i$ one and only one of the following holds: $yP_ix$, $yI_ix$, or $xP_iy$. With each individual we associate a variable $D_i$ that takes the values $-1, 0, 1$ respectively for each of these situations. Similarly, for the group, we write $D = -1, 0, 1$ according as $yPx$, $yIx$, or $xPy$, i.e., according as the group decision is in favor of $y$, indifference, or in favor of $x$.
 
 **In plain English:** the individual votes and the group decision can have one of three values:
 
-<div class="math-display">
+$$
 \begin{aligned}-1 &= against \\ 0 &= indifferent, indifference \\ 1 &= in favor \end{aligned}
-</div>
+$$
 
-Had May recognized the significance of <span class="math-inline">0</span> as an outcome, the world might have turned out differently.
+Had May recognized the significance of $0$ as an outcome, the world might have turned out differently.
 
 <a name="z-the-missing-third-alternative"></a>
-#### <span class="math-inline">Z</span> — The Missing Third Alternative
+#### $Z$ — The Missing Third Alternative
 
-May mapped <span class="math-inline">D=1</span> to mean "in favor of <span class="math-inline">x</span>", <span class="math-inline">D=-1</span> to "in favor of <span class="math-inline">y</span>" (against <span class="math-inline">x</span>), but did not map an outcome for <span class="math-inline">D=0</span>. Instead, he simply referred to it as "indifference" or a "tie".
+May mapped $D=1$ to mean "in favor of $x$", $D=-1$ to "in favor of $y$" (against $x$), but did not map an outcome for $D=0$. Instead, he simply referred to it as "indifference" or a "tie".
 
-What is the outcome in this situation? In the real world, different groups have different answers. They might proceed with a tie breaker, arbitration, negotiation, or some other procedure. These are often very meaningful and important activities, and their result is not always represented by <span class="math-inline">x</span> or <span class="math-inline">y</span>. Furthermore, _the "tie" itself as an outcome_, is neither <span class="math-inline">x</span> nor <span class="math-inline">y</span>. If it were, it would imply <span class="math-inline">0 = -1</span> or <span class="math-inline">0 = 1</span>, which is nonsense in both English and math.
+What is the outcome in this situation? In the real world, different groups have different answers. They might proceed with a tie breaker, arbitration, negotiation, or some other procedure. These are often very meaningful and important activities, and their result is not always represented by $x$ or $y$. Furthermore, _the "tie" itself as an outcome_, is neither $x$ nor $y$. If it were, it would imply $0 = -1$ or $0 = 1$, which is nonsense in both English and math.
 
-May's confusion around <span class="math-inline">D=0</span> results in an even more serious problem, for it can be used to represent semantically *opposite* concepts:
+May's confusion around $D=0$ results in an even more serious problem, for it can be used to represent semantically *opposite* concepts:
 
 <table>
 <tr><th>Votes</th><th>Possible meaning</th></tr>
-<tr><td><span class="math-inline"><0,0,0,0></span>   </td><td> "Nobody cares" aka "Indifference"</td></tr>
-<tr><td><span class="math-inline"><1,1,-1,-1></span> </td><td> "Everybody cares"                </td></tr>
-<tr><td><span class="math-inline"><0,1,-1,0></span>  </td><td> "Some care"                      </td></tr>
+<tr><td><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span></td>
+
+<td> "Nobody cares" aka "Indifference"</td></tr>
+<tr><td><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span> </td>
+<td> "Everybody cares"                </td></tr>
+<tr><td><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span></td><td> "Some care"                      </td></tr>
 </table>
 
-Our [previous post](/articles/what-makes-a-good-voting-system/) explains why <span class="math-inline">D=0</span> does not (typically) mean "indifference" but is indicative of disagreement:
+Our [previous post](/articles/what-makes-a-good-voting-system/) explains why $D=0$ does not (typically) mean "indifference" but is indicative of disagreement:
 
 <img src="https://groupincome.org/wp-content/uploads/2016/06/voting-v6.2.png" alt="What &quot;Voting&quot; Means" style="box-shadow:1px 1px 3px rgba(1, 1, 1, 0.25); width: 80%;" class="aligncenter size-full wp-image-119" />
 
@@ -177,13 +187,14 @@ Here's a screenshot of Condition I from May's paper:
 
 That may sound fancy, but all it says is: "A _group decision function_ is a [function](https://en.wikipedia.org/w/index.php?title=Function_(mathematics)&oldid=735355683) _[that outputs -1, 0, or 1]_."[^3]
 
-[^3]: That last part comes from the definition of <span class="math-inline">\footnotesize{U}</span>, found earlier in the paper: _"It seems appropriate to call it a group decision function.<sup>4</sup> It maps the <span class="math-inline">\footnotesize{n}</span>-fold cartesian product <span class="math-inline">\footnotesize{U \times U \times \cdots \times U}</span> onto <span class="math-inline">\footnotesize{U}</span>, where <span class="math-inline">\footnotesize{U = \\{-1, 0, 1\\}}</span>."_
+[^3]: That last part comes from the definition of $\footnotesize{U}$, found earlier in the paper: _"It seems appropriate to call it a group decision function.<sup>4</sup> It maps the $\footnotesize{n}$-fold cartesian product $\footnotesize{U \times U \times \cdots \times U}$ onto $\footnotesize{U}$, where $\footnotesize{U = \\{-1, 0, 1\\}}$."_
 
 May gives the following example of "something" that does not satisfy this condition:
 
-<center><span class="math-inline">D = 1</span> for <span class="math-inline">N(1)-N(-1) \geq 0, D =-1</span> for <span class="math-inline">N(1)-N(-1) \leq 0</span></center>
+___
+  $D = 1$ for $N(1)-N(-1) \geq 0, D =-1$ for $N(1)-N(-1) \leq 0$
 
-We say "something" because the above, having multiple values for <span class="math-inline">0</span>, is called a _[multivalued function](https://en.wikipedia.org/w/index.php?title=Multivalued_function&oldid=711620746)_, which is not a function:
+We say "something" because the above, having multiple values for $0$, is called a _[multivalued function](https://en.wikipedia.org/w/index.php?title=Multivalued_function&oldid=711620746)_, which is not a function:
 
 > In the strict sense, a well-defined function associates one, and only one, output to any particular input. The term "multivalued function" is, therefore, a misnomer because functions are single-valued.
 
@@ -193,8 +204,10 @@ As we'll see, each one of May's conditions comes with an _English description_ t
 
 Consider May's example of a jury decision rule, which he says is "always decisive":
 
-<center><span class="math-inline">D = -1, 1,</span> or <span class="math-inline">0</span> according as <span class="math-inline">N(-1)=n,N(1)=n,</span> or otherwise.</center>
-<p>Is a <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung jury</a> therefore "decisive" when it <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103"><i>cannot agree upon a verdict"</i></a>? We'll forgive May this one time and say they're "decisive about their indecision."</p>
+___
+$D = -1, 1,$ or $0$ according as $N(-1)=n,N(1)=n,$ or otherwise.
+
+Is a <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung jury</a> therefore "decisive" when it <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103"><i>cannot agree upon a verdict"</i></a>? We'll forgive May this one time and say they're "decisive about their indecision."
 
 ## Condition II: "egalitarian" or "anonymity"
 
@@ -214,7 +227,7 @@ Clearly, it does not matter whether or not majority rule is used in these situat
 
 Therefore, the math of Condition II is not represented by the English.[^5]
 
-[^5]: This "trick"—that of mapping misleading terms to math that works out—is considered by some mathematicians to be sufficient to declare the resulting misleading English of a theorem to be "true". In our opinion, allowing lay persons to then walk away with an entirely _untrue_ understanding, especially when it results in _real harm_ to their lives (and then <span class="math-inline">blaming them!</span>), is severe professional negligence. Besides, if this were acceptable, one would be able to "mathematically prove" literally any English statement, no matter how absurd.
+[^5]: This "trick"—that of mapping misleading terms to math that works out—is considered by some mathematicians to be sufficient to declare the resulting misleading English of a theorem to be "true". In our opinion, allowing lay persons to then walk away with an entirely _untrue_ understanding, especially when it results in _real harm_ to their lives (and then $blaming them!$), is severe professional negligence. Besides, if this were acceptable, one would be able to "mathematically prove" literally any English statement, no matter how absurd.
 
 <a name="condition-iii-neutrality"></a>
 ## Condition III: "neutrality"
@@ -231,14 +244,14 @@ But is that true?
 
 Again we find May's English betraying a far more complicated reality.
 
-In the following two scenarios, the status quo starts out as "America in 2016". Consider how the status quo changes after proposal <span class="math-inline">x</span> passes via majority rule:
+In the following two scenarios, the status quo starts out as "America in 2016". Consider how the status quo changes after proposal $x$ passes via majority rule:
 
-- **Scenario 1:** A vote is held on proposal <span class="math-inline">x</span> to "Make America Great Again by giving everyone a free makeover." After <span class="math-inline">x</span> passes, everyone looks slightly better for a day.
-- **Scenario 2:** Now suppose <span class="math-inline">x</span> is a proposal to "Make America Great Again by forcibly sterilizing half the population." Again, we use majority rule because of all of its supposed wonderful mathematical properties, and, thanks to a heaping of state propaganda, <span class="math-inline">x</span> passes and in doing so radically changes the course of history.
+- **Scenario 1:** A vote is held on proposal $x$ to "Make America Great Again by giving everyone a free makeover." After $x$ passes, everyone looks slightly better for a day.
+- **Scenario 2:** Now suppose $x$ is a proposal to "Make America Great Again by forcibly sterilizing half the population." Again, we use majority rule because of all of its supposed wonderful mathematical properties, and, thanks to a heaping of state propaganda, $x$ passes and in doing so radically changes the course of history.
 
-It seems silly to suggest that in both scenarios the status quo and proposal <span class="math-inline">x</span> are "equally privileged". We note the following factors, all of which can play a more significant role in determining the status quo than the voting threshold:
+It seems silly to suggest that in both scenarios the status quo and proposal $x$ are "equally privileged". We note the following factors, all of which can play a more significant role in determining the status quo than the voting threshold:
 
-- **The difference between the existing status quo and the proposal.** Compared to mandatory castration, few would object to a free makeover (today, at least). Therefore, whether the threshold is 30% or 60%, _Scenario 1_ seems far more likely to pass than _Scenario 2_. Even if the proposal in _Scenario 2_ passed, if it did so outside the context of a fair vote in a [direct democracy](https://en.wikipedia.org/wiki/Direct_democracy) that would not necessarily mean _the reality_ of <span class="math-inline">x</span> would pass. Instead, it's possible the new status quo would be neither <span class="math-inline">x</span> nor <span class="math-inline">y</span>, but <span class="math-inline">z=\text{Civil War 2}</span>.
+- **The difference between the existing status quo and the proposal.** Compared to mandatory castration, few would object to a free makeover (today, at least). Therefore, whether the threshold is 30% or 60%, _Scenario 1_ seems far more likely to pass than _Scenario 2_. Even if the proposal in _Scenario 2_ passed, if it did so outside the context of a fair vote in a [direct democracy](https://en.wikipedia.org/wiki/Direct_democracy) that would not necessarily mean _the reality_ of $x$ would pass. Instead, it's possible the new status quo would be neither $x$ nor $y$, but $z=\text{Civil War 2}$.
 - **Who chooses the proposal, who votes on it, and who is affected by it.** "Majority rule" is supposedly used in Congress to decide whether or not a law passes, but a Congress majority is [only 0.00008%](https://fixingtao.com/2016/04/lets-end-hotdog-worship-in-america/) of the population. Laws, however, affect not only Congress but all 300+ million Americans. It does not matter, therefore, what the "options before the group" are or what the voting threshold is — the outcome, and therefore the status quo, will still be biased in favor of the interests of a microscopic fraction of the population.
 
 Increasing the voting threshold obviously makes it more difficult for proposals to pass, but as we've seen, that does not mean a 50% threshold ensures a voting rule does not privilege some outcome over another.
@@ -268,24 +281,27 @@ That probably sounds very sensible. However, as [noted earlier](#z-the-missing-t
 
 > Condition 4. If the group decision was 0 or 1 and a voter raises a vote from −1 to 0 or 1 or from 0 to 1, the group decision is 1. (positive responsiveness)
 
-We can piece together a better understanding of **Condition IV** by returning to our [discussion](#z-the-missing-third-alternative) about the misunderstood <span class="math-inline">D=0</span> result, and by considering the examples May gives for voting rules satisfying all but one of the four conditions:
+We can piece together a better understanding of **Condition IV** by returning to our [discussion](#z-the-missing-third-alternative) about the misunderstood $D=0$ result, and by considering the examples May gives for voting rules satisfying all but one of the four conditions:
 
 - May's so-called ["always decisive"](condition-i-always-decisive) jury decision rule violates only **Condition IV**:
 
-<center><span class="math-inline">D = -1, 1,</span> or <span class="math-inline">0</span> according as <span class="math-inline">N(-1)=n,N(1)=n,</span> or otherwise.</center>
+___
+  $D = -1, 1,$ or $0$ according as $N(-1)=n,N(1)=n,$ or otherwise.
 
 - What May calls the "familiar two-thirds majority rule" violates only **Condition III**:
 
-<center><span class="math-inline">D = -1, 0, 1</span> according as <span class="math-inline">N(1)-2N(-1)</span> is less than, equal to, or greater than zero.</center>
-In neither example does <span class="math-inline">D=0</span> represent "indifference". A jury is not "indifferent" when it is <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung</a>, nor is a group that's split 2 to 3.
+___
+  $D = -1, 0, 1$ according as $N(1)-2N(-1)$ is less than, equal to, or greater than zero.
 
-So what to make of <span class="math-inline">D=0</span>?
+In neither example does $D=0$ represent "indifference". A jury is not "indifferent" when it is <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung</a>, nor is a group that's split 2 to 3.
 
-Stanford's Encyclopedia of Philosophy <a href="http://plato.stanford.edu/entries/social-choice/#ProArgForMajRul">makes a distinction</a> between two kinds of supermajority rules, referring to the type May gives as "asymmetrical" because <span class="math-inline">D=0</span> occurs only at the voting threshold. The other type, "symmetrical", is more like the jury voting rule because it increases the likelihood of a "no-win" outcome where _there is no winning side._
+So what to make of $D=0$?
 
-The movie <a href="https://en.wikipedia.org/wiki/12_Angry_Men_(1957_film)">12 Angry Men</a> explores the significance of the "no-win" situation and how, thanks to the emphasis unanimity places on <span class="math-inline">D=0</span> (and the related principle of [reasonable doubt](https://en.wikipedia.org/wiki/Reasonable_doubt)), a single obstinate juror is able to persuade the rest into making the correct decision — thereby saving the life of an innocent man.
+Stanford's Encyclopedia of Philosophy <a href="http://plato.stanford.edu/entries/social-choice/#ProArgForMajRul">makes a distinction</a> between two kinds of supermajority rules, referring to the type May gives as "asymmetrical" because $D=0$ occurs only at the voting threshold. The other type, "symmetrical", is more like the jury voting rule because it increases the likelihood of a "no-win" outcome where _there is no winning side._
 
-The effect of **Condition IV** is to reduce the opportunity for the "no-win" outcome that <span class="math-inline">D=0</span> represents, and therefore it reduces opportunities for [options](#z-the-missing-third-alternative) like honest debate, negotiation, and arbitration. A successful bribe to a single member can be enough to declare half the group "the winner" and the other half "the loser", even though there's little difference between 50-50 and 49-51.
+The movie <a href="https://en.wikipedia.org/wiki/12_Angry_Men_(1957_film)">12 Angry Men</a> explores the significance of the "no-win" situation and how, thanks to the emphasis unanimity places on $D=0$ (and the related principle of [reasonable doubt](https://en.wikipedia.org/wiki/Reasonable_doubt)), a single obstinate juror is able to persuade the rest into making the correct decision — thereby saving the life of an innocent man.
+
+The effect of **Condition IV** is to reduce the opportunity for the "no-win" outcome that $D=0$ represents, and therefore it reduces opportunities for [options](#z-the-missing-third-alternative) like honest debate, negotiation, and arbitration. A successful bribe to a single member can be enough to declare half the group "the winner" and the other half "the loser", even though there's little difference between 50-50 and 49-51.
 
 <a name="even-academics-are-misled-by-mays-theorem"></a>
 ## Even Academics Are Misled By May's Theorem
@@ -303,7 +319,7 @@ Although that [is untrue](#condition-ii-egalitarian-or-anonymity), it's still a 
 
 The word "status quo" is frequently misunderstood in discussions about voting rules, and especially in discussions about May's Theorem. Though it may certainly play a contributing role, the [status quo](https://en.wikipedia.org/wiki/Status_quo) has never been _contingent_ solely on the threshold of some voting rule.
 
-It is incorrect to imply that if <span class="math-inline">x</span> does or does not pass, some static thing called <span class="math-inline">y</span> (the "status quo") remains or changes in the prescribed way.
+It is incorrect to imply that if $x$ does or does not pass, some static thing called $y$ (the "status quo") remains or changes in the prescribed way.
 
 Whether you live in a dictatorship or a ["democracy"](https://fixingtao.com/2016/04/lets-end-hotdog-worship-in-america/), the status quo is always changing—by itself. Today's reality might include a fearsome dictator who tomorrow chokes on a pretzel, ending years of oppression without any voting involved. Likewise, just because a law is on the books [doesn't mean](https://duckduckgo.com/?q=weird+laws+still+on+the+books) that it has meaningful influence over the status quo. Most people have approximately zero awareness of [the laws](https://twitter.com/CrimeADay) they supposedly should be following, and the few who are aware frequently [choose to ignore them](http://www.mit.edu/~jfc/laws.html#tolerance). When prohibition passed, alcohol abuse not disappear, in [some cases the problem got worse](http://www.druglibrary.org/Prohibitionresults.htm).
 
