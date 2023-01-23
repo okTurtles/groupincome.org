@@ -15,7 +15,7 @@
           <span class="c-name" v-if="name[i]">{{ name[i] }}</span>
           <div class="c-pledge-card" v-if="contribution[i]"
               :style="{'box-shadow': `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image"
-              :src="`/images/faces/${i}.jpg`" />
+              :src="`/groupincome.org/images/faces/${i}.jpg`" />
             <div class="c-pledge-content">
               <div class="c-pledge-name">{{ name[i] }} Pledge</div>
               <div class="c-pledge-price">{{ contribution[i] }}</div>
@@ -739,7 +739,7 @@ export default {
 .graph-stage-0 {
   #header3 {
     opacity: 1;
-    // transform: translateY(0);
+    transform: translateY(0);
   }
 
   #face-1 {
@@ -790,12 +790,12 @@ export default {
 .graph-stage-1 {
   #header3 {
     opacity: 0;
-    // transform: translateY(-2rem);
+    transform: translateY(-2rem);
   }
   #header4 {
     opacity: 1;
     transition-delay: .5s;
-    // transform: translateY(0);
+    transform: translateY(0);
   }
 
   .c-line {
@@ -820,8 +820,8 @@ export default {
 .graph-stage-2 {
   #header4 {
     opacity: 0;
-    transition-delay: 0;
-    // transform: translateY(-2rem);
+    // transition-delay: 0;
+    transform: translateY(-2rem);
   }
   #header5 {
     opacity: 1;
@@ -1085,7 +1085,7 @@ export default {
   left: 61%;
 
   @include tablet {
-    top: 2vh;
+    top: 4vh;
     left: 73%;
   }
 
@@ -1105,7 +1105,7 @@ export default {
   left: 75%;
 
   @include tablet {
-    top: 4vh;
+    top: 6vh;
     left: 87%;
   }
 

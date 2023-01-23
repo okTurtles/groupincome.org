@@ -15,15 +15,16 @@
     "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/vue": "^1.2.2",
+    "@nanostores/vue": "^0.6.1",
     "@remark-embedder/core": "3.0.1",
     "@remark-embedder/transformer-oembed": "3.0.0",
     "gsap": "^3.11.4",
+    "nanostores": "^0.7.1",
     "rehype-katex": "^6.0.2",
     "remark-breaks": "3.0.2",
     "remark-gfm": "3.0.1",
     "remark-math": "^5.1.1",
-    "vue": "^3.2.39",
-    "vuex": "^4.1.0"
+    "vue": "^3.2.39"
   },
   "devDependencies": {
     "astro": "^1.9.2",
