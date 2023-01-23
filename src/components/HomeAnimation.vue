@@ -499,22 +499,22 @@ export default {
         }
       })
 
-      gsap.set('.c-container-header *', {
-        opacity: 0,
-        y: '+=30'
-      })
+      // gsap.set('.c-container-header *', {
+      //   opacity: 0,
+      //   y: '+=30'
+      // })
 
       // Headers animation
       const titles = ['#header3', '#header4', '#header5']
       let pourcent = 0
       titles.forEach((title, i) => {
-        const trigger = {
-          trigger: '#freeze-wrapper',
-          start: `${pourcent}% top`,
-          end: '+=20%',
-          stagger: 1,
-          scrub: true
-        }
+        // const trigger = {
+        //   trigger: '#freeze-wrapper',
+        //   start: `${pourcent}% top`,
+        //   end: '+=20%',
+        //   stagger: 1,
+        //   scrub: true
+        // }
 
         gsap.from('#freeze-wrapper', {
           scrollTrigger: {
@@ -529,28 +529,29 @@ export default {
           }
         })
 
-        gsap.to(`${title} *`, {
-          opacity: 1,
-          y: '0',
-          ease: 'Power1.easeInOut',
-          scrollTrigger: trigger
-        })
+        // gsap.to(`${title} *`, {
+        //   opacity: 1,
+        //   y: '0',
+        //   ease: 'Power1.easeInOut',
+        //   scrollTrigger: trigger
+        // })
 
-        pourcent += 80
+        // pourcent += 80
 
-        trigger.start = `${pourcent}% top`
+        // trigger.start = `${pourcent}% top`
 
-        if (title !== '#header5') {
-          gsap.to(`${title} *`, {
-            immediateRender: false,
-            opacity: 0,
-            y: '-30px',
-            ease: 'Power1.easeInOut',
-            scrollTrigger: trigger
-          })
-        }
+        // if (title !== '#header5') {
+        //   gsap.to(`${title} *`, {
+        //     immediateRender: false,
+        //     opacity: 0,
+        //     y: '-30px',
+        //     ease: 'Power1.easeInOut',
+        //     scrollTrigger: trigger
+        //   })
+        // }
 
-        pourcent += 20
+        // pourcent += 20
+        pourcent += 100
       })
       this.tl = tl
     },
@@ -725,7 +726,22 @@ export default {
   }
 }
 
+#header5,
+#header4,
+#header3 {
+  @include desktop {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity ease-out .3s, transform ease-out .3s;
+  }
+}
+
 .graph-stage-0 {
+  #header3 {
+    opacity: 1;
+    // transform: translateY(0);
+  }
+
   #face-1 {
 
     &::before,
@@ -772,6 +788,16 @@ export default {
 }
 
 .graph-stage-1 {
+  #header3 {
+    opacity: 0;
+    // transform: translateY(-2rem);
+  }
+  #header4 {
+    opacity: 1;
+    transition-delay: .5s;
+    // transform: translateY(0);
+  }
+
   .c-line {
     opacity: 1;
 
@@ -792,6 +818,16 @@ export default {
 }
 
 .graph-stage-2 {
+  #header4 {
+    opacity: 0;
+    transition-delay: 0;
+    // transform: translateY(-2rem);
+  }
+  #header5 {
+    opacity: 1;
+    transition-delay: .5s;
+    transform: translateY(0);
+  }
   .c-face {
     transition-duration: 1s;
   }
@@ -1200,7 +1236,7 @@ export default {
       position: absolute;
       top: 0;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
       height: 100%;
       display: flex;
       align-items: center;
