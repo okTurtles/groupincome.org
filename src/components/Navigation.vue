@@ -1,5 +1,5 @@
 <template>
-  <nav class="c-navbar" role="navigation" aria-label="main navigation" @click="$emit('toggleNav')">
+  <nav class="c-navbar" role="navigation" aria-label="main navigation" @click="isNavigationOpen.set(false)">
     <div class="c-navbar-main">
       <a class="c-navbar-item" href="/groupincome.org/" data-test="homeLink">Home</a>
       <a class="c-navbar-item" href="/groupincome.org/about-us" data-test="aboutUsLink">About us</a>
@@ -13,13 +13,9 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: "Navigation",
-  model: {
-    event: "toggleNav"
-  }
-}
+<script setup>
+import { isNavigationOpen } from '../store.js';
+import { useStore } from '@nanostores/vue';
 </script>
 
 <style lang="scss" scoped>

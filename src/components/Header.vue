@@ -1,43 +1,31 @@
 <template>
 <header class="c-header">
-    <div class="c-wrapper" @click="toggleNav(true)" role="banner">
+    <div class="c-wrapper" @click="isNavigationOpen.set(true)" role="banner">
       <a class="c-logo" href="/groupincome.org/">
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" src="/images/logo-transparent.svg" />
       </a>
-      <Navigation @closeNav="toggleNav(true)"></Navigation>
+      <Navigation></Navigation>
     </div>
-    <Hamburger @toggleNav="toggleNav()"></Hamburger>
+    <Hamburger></Hamburger>
 </header>
 </template>
 
-<script>
-import { mapActions } from 'vuex'
+<script setup>
+import { isNavigationOpen } from '../store.js';
 import Navigation from './Navigation.vue'
 import Hamburger from './Hamburger.vue'
-
-export default {
-  name: 'Header',
-  methods: {
-    ...mapActions(['toggleNav'])
-  },
-  components: {
-    Navigation,
-    Hamburger
-  }
-}
 </script>
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
 .c-header {
   display: flex;
-  // position: fixed;
-  position: absolute;
+  position: fixed;
+  // position: absolute;
   width: 100%;
   top: 0;
   justify-content: center;
-  align-items: center;
   background-color: #fff;
   z-index: $zindex-header;
 

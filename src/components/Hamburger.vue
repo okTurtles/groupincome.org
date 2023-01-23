@@ -1,14 +1,12 @@
 <template>
-  <button class="c-hamburger hide-desktop" @click="$emit('toggleNav')">Toggle menu</button>
+  <button class="c-hamburger hide-desktop" @click="isNavigationOpen.set(!$isNavigationOpen)">Toggle menu</button>
 </template>
 
-<script>
-export default {
-  name: 'Hamburger',
-  model: {
-    event: 'toggleNav'
-  }
-}
+<script setup>
+import { isNavigationOpen } from '../store.js';
+import { useStore } from '@nanostores/vue';
+
+const $isNavigationOpen = useStore(isNavigationOpen);
 </script>
 
 <style lang="scss" scoped>
