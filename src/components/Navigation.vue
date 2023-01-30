@@ -7,7 +7,7 @@
       <a class="c-navbar-item" href="/groupincome.org/faq" data-test="faqsLink">FAQS</a>
       <a class="c-navbar-item" href="/groupincome.org/hiring" data-test="hiringLink">Hiring</a>
       <!-- <a class="c-navbar-item" href="/hiring" data-test="hiringLink">Volunter</a> -->
-      <a class="c-navbar-item" href="/groupincome.org/donate" data-test="donateLink">Donate</a>
+      <a class="c-navbar-item" href="/groupincome.org/sponsor" data-test="donateLink">Sponsor</a>
       <a class="c-navbar-item button is-primary" href="/groupincome.org/get-started">Get started</a>
     </div>
   </nav>

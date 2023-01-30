@@ -109,28 +109,53 @@
         </div>
       </section>
 
+      <section class="container span-container c-container" id="container6">
+        <div class="span-2">
+          <img class="c-container-image" ref="gif" src="/images/temp/homepage-panel8.jpg" />
+        </div>
+        <div class="span-2 c-container-header" id="header6">
+          <div class="is-title-3 c-container-posttitle">Stay Safe</div>
+          <p class="is-title-2 c-container-title">Security & Privacy</p>
+          <p class="c-container-para">
+            Group Income is built on top of an end-to-end encrypted protocol called 
+            <a class="is-link" href="">Shelter Protocol</a>.
+            Your data is stored in encrypted form on servers, and decrypted locally on your device.
+            The keys to decrypt that data are derived from your password and are also stored on your device. 
+          </p>
+          <a class="c-container-link is-link" href="/privacy-security">Read more about our privacy and security</a>
+        </div>
+      </section>
+
       <Swoosh />
     </div>
 
-    <section class="container full-container">
-      <div class="is-title-3 c-container-posttitle">How it Works</div>
-      <h3 class="is-title-2 c-container-title c-container-title-nav">
-        <i class="icon-chevron-left"
-          @click='activeStep = activeStep > 1 ? activeStep-1 : 0'
-          :class='{"icon-active": activeStep > 0}'
-        ></i>
-        {{steps[activeStep].title}}
-        <i class="icon-chevron-right"
-          @click='activeStep = activeStep < steps.length-1 ? activeStep+1 : steps.length-1'
-          :class='{"icon-active": activeStep < steps.length-1}'
-        ></i>
-      </h3>
-      <div class="c-app-preview">
-        <Browser :activeStep="activeStep" :steps="steps"/>
+    <section class="container c-get-started">
+      <h3 class="is-title-2 c-container-title">Group Income is end-to-end encrypted and self-hosted.</h3>
+      <div class="is-title-3 c-container-posttitle">Here’s how to get started:</div>
 
-        <div class="c-steps">
-        <div class="c-step" v-for="(step, i) in steps" @click="activeStep = i" :class="{ active: activeStep === i }"
-            :key="i"><span>{{ step.title }}</span></div>
+      <div class="c-feature-boxes">
+        <div class="c-feature-box">
+          <div class="c-feature-box-title">Choose a Server</div>
+          <div class="c-feature-box-para">
+            Use 
+            <a href="#" class="is-link">our official server</a>
+            , choose from a community of independently operated servers, or run your own!
+          </div>
+        </div>
+
+        <div class="c-feature-box">
+          <div class="c-feature-box-title">Create an account</div>
+          <div class="c-feature-box-para">
+            Group Income doesn't use cookies to manage user accounts.
+            <a href="#" class="is-link">Read more about our technology</a>
+          </div>
+        </div>
+
+        <div class="c-feature-box">
+          <div class="c-feature-box-title">Join a Group and Start Sharing!</div>
+          <div class="c-feature-box-para">
+            Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.
+          </div>
         </div>
       </div>
     </section>
@@ -147,7 +172,7 @@
 
           <div class="c-buttons">
             <a class="c-navbar-item button is-big is-primary" href="/get-started">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" href="/donate">Donate</a>
+            <a class="c-navbar-item button is-big is-outlined" href="/sponsor">Sponsor</a>
           </div>
         </div>
       </section>
@@ -175,23 +200,6 @@ export default {
 
   data() {
     return {
-      activeStep: 0,
-      steps: [{
-        title: 'Create a group',
-        image: 'create-a-group'
-      }, {
-        title: 'Set mincome',
-        image: 'set-mincome'
-      }, {
-        title: 'Contribute',
-        image: 'contribute'
-      }, {
-        title: 'Payments',
-        image: 'payments'
-      }, {
-        title: 'Chat',
-        image: 'chat'
-      }],
       name: {
         1: 'Jess',
         3: 'Matt',
@@ -494,7 +502,7 @@ export default {
         scrollTrigger: {
           trigger: '.main-wrapper',
           pin: true,
-          start: '28%',
+          start: '25%',
           end: '70%'
         }
       })
@@ -601,6 +609,11 @@ export default {
 #circle-graph {
   position: relative;
   margin: 0 auto;
+
+  @include desktop {
+    margin-top: 2rem;
+    margin-bottom: -4rem;
+  }
 }
 
 .c-graph-circle {
@@ -1224,6 +1237,9 @@ export default {
 
   @include desktop {
     width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -1280,6 +1296,7 @@ export default {
 
   &-link {
     margin-top: 1.6rem;
+    display: block;
   }
 }
 
@@ -1321,167 +1338,6 @@ export default {
 .c-main-para {
   max-width: 34rem;
   margin: 0 auto 1rem auto;
-}
-
-.c-container-title-nav {
-  i {
-    display: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: #D0DEEA;
-    transition: all .2s ease-in-out;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 3rem;
-    height: 3rem;
-
-    &.icon-active {
-      color: initial;
-
-      &:hover {
-        background: #D0DEEA;
-        transform: scale(1.1);
-      }
-    }
-  }
-
-  @include until($desktop) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-
-    i {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-.c-app-preview {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-
-  @include desktop {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .c-steps {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-    overflow: hidden;
-
-    @include tablet {
-      margin: 1rem 0;
-    }
-
-    @include desktop {
-      margin: 0;
-      width: 9.25rem;
-      padding-left: .2rem;
-      flex-direction: column;
-    }
-  }
-
-  .c-step {
-    display: flex;
-    height: 2.5rem;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-
-    span {
-      display: none;
-
-      @include desktop {
-        display: block;
-        white-space: nowrap;
-      }
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      background-color: #F99201;
-      width: 20rem;
-      height: 2px;
-      left: 7px;
-      top: calc(50% - 1px);
-      z-index: -2;
-
-      @include desktop {
-        width: 2px;
-        height: 20rem;
-        left: 3px;
-        top: 50%;
-      }
-    }
-
-    &::before {
-      content: '';
-      width: .5rem;
-      height: .5rem;
-      margin-right: 2rem;
-      border-radius: 50%;
-      border: 2px solid #F99201;
-      background-color: #fff;
-      z-index: 1;
-
-      @include desktop {
-        margin-right: 1rem;
-      }
-    }
-
-    &:hover::before {
-      transform: scale(1.5);
-    }
-
-    &.active {
-      font-weight: 600;
-
-      &::after {
-        content: '';
-        position: absolute;
-        background-color: #F99201;
-        z-index: -1;
-      }
-
-      ~.c-step {
-
-        &::before {
-          border: 2px solid #fff;
-          background-color: #D0DEEA;
-        }
-
-        &:not(:last-child)::after {
-          background-color: #D0DEEA;
-          z-index: 0;
-        }
-      }
-    }
-
-    &:last-child {
-      // &::before {
-      //   margin-right: 0;
-      // }
-
-      &::after {
-        background-color: #fff;
-        z-index: 0;
-        left: 3px;
-
-        @include desktop {
-          top: calc(50% + 4px);
-        }
-      }
-    }
-  }
 }
 
 .swoosh-dark-blue {
@@ -1530,8 +1386,8 @@ export default {
 }
 
 .c-phone-wrapper {
-  background: url('/images/phone.svg') no-repeat center;
-  background-size: contain;
+  // background: url('/images/phone.svg') no-repeat center;
+  // background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1582,5 +1438,66 @@ export default {
   line-height: 24px;
 
   color: #000000;
+}
+
+.c-get-started {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .c-container-title {
+    max-width: 46rem;
+    margin-bottom: 2rem;
+  }
+
+  .c-feature-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+  .c-feature-box {
+    max-width: 24.5rem;
+    margin: 1rem;
+    position: relative;
+    background-color: rgba(#E7EFF4, 0.5);
+    border-radius: 1rem;
+    padding: 3.3rem 1.5rem 2rem 1.5rem;
+    margin-top: 2rem;
+
+    &::after {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      color: #fff;
+    }
+
+    &:nth-child(1)::after {
+      content: '1';
+      background: #0288D1;
+      box-shadow: 0 0 0 0.4rem  rgba(#0288D1, 0.4);
+    }
+
+    &:nth-child(2)::after {
+      content: '2';
+      background: #F99201;
+      box-shadow: 0 0 0 0.4rem  rgba(#F99201, 0.4);
+    }
+
+    &:nth-child(3)::after {
+      content: '3';
+      background: #A1D10E;
+      box-shadow: 0 0 0 0.4rem  rgba(#A1D10E, 0.4);
+    }
+  }
 }
 </style>
