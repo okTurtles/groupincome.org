@@ -172,7 +172,7 @@
 
           <div class="c-buttons">
             <a class="c-navbar-item button is-big is-primary" href="/get-started">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" href="/donate">Donate</a>
+            <a class="c-navbar-item button is-big is-outlined" href="/sponsor">Sponsor</a>
           </div>
         </div>
       </section>

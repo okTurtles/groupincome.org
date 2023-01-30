@@ -11,16 +11,16 @@
         <div class="c-links">
             <div class="c-links-group">
                 <h4 class="is-title-6">GROUPINCOME</h4>
-                <a href="/home">Home</a>
-                <a href="/about-us">About us</a>
-                <a href="/articles">Blog</a>
-                <a href="/faq">FAQ</a>
+                <a href="/groupincome.org/">Home</a>
+                <a href="/groupincome.org/about-us">About us</a>
+                <a href="/groupincome.org/articles">Blog</a>
+                <a href="/groupincome.org/faq">FAQ</a>
             </div>
             <div class="c-links-group">
                 <h4 class="is-title-6">CONTRIBUTE</h4>
-                <a href="/volunteer">Volunteer</a>
-                <a href="/join-our-team">Join our team</a>
-                <a href="/donate">Donate</a>
+                <a href="/groupincome.org/volunteer">Volunteer</a>
+                <a href="/groupincome.org/join-our-team">Join our team</a>
+                <a href="/groupincome.org/sponsor">Sponsor</a>
             </div>
             <div class="c-links-group">
                 <h4 class="is-title-6">SOCIAL</h4><a href="https://www.twitter.com/group-income" target="_blank" alt="Twitter">Twitter</a><a href="https://www.mastodon.com/group-income" target="_blank" alt="Mastodon">Mastodon</a><a href="https://www.youtube.com/group-income" target="_blank" alt="Youtube">YouTube</a><a href="https://www.reddit.com/group-income" target="_blank" alt="Reddit">Reddit</a>
@@ -29,8 +29,8 @@
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <a href="/terms-and-conditions">Term & Conditons</a>
-            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/groupincome.org/terms-and-conditions">Term & Conditons</a>
+            <a href="/groupincome.org/privacy-policy">Privacy Policy</a>
         </div>
         <p class="copyright">Copyright © 2015-2021 okTurtles Foundation</p>
     </div>
