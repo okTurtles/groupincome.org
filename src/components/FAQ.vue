@@ -197,7 +197,6 @@ export default {
 
   methods: {
     openTab (index, qindex) {
-      console.log('werewrerwer')
       const i = [index, qindex]
       const p0 = this.previous[0]
       const p1 = this.previous[1]
