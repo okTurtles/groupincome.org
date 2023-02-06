@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/DefaultLayout.astro';
+import Accordion from '../components/Accordion.vue'
+---
+
+<Layout>
+  <section class="container c-main-container">
+    <div class="is-posttitle">Donate</div>
+    <h1 class="is-title-1 c-main-title">Other Ways Support</h1>
+  </section>
+  <div class="c-container-middle">
+    <Accordion client:load/>
+  </div>
+  <div class="c-container-center c-container-middle">
+    <img src="/images/avatar-group.jpg" />
+    <h3>Still have questions?</h3>
+    <p>
+      Please get in touch to our friendly team.
+    </p>
+    <a href="https://groupincome.org/community/" class="button primary">Get in touch</a>
+  </div>
+</Layout>
+
+<style lang="scss">
+@import "../styles/_variables";
+@import "../styles/_mixins";
+
+.c-main-container {
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 2rem);
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+
+  @include phone {
+    max-width: 100%;
+  }
+}
+
+.c-wrapper {
+  padding-bottom: 2rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 4rem 1rem;
+  }
+
+  @include desktop {
+    padding: 6rem 1rem;
+  }
+}
+
+.c-container-middle {
+  width: 70rem;
+  max-width: 100%;
+  margin: -2rem auto 0 auto;
+}
+
+.c-container-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6rem auto 4rem auto;
+  padding: 4rem;
+  background-color: #FBFCFD;
+
+  img {
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    margin-bottom: .5rem;
+  }
+
+  p {
+    color: #667085;
+  }
+}
+
+.c-main-title {
+  max-width: 47rem;
+  margin: 1.5rem auto;
+
+  @include phone {
+    max-width: 30rem;
+  }
+}
+</style>
