@@ -88,6 +88,7 @@ export default {
 .panel {
   display: grid;
   justify-content: center;
+  padding: 0 2rem;
 }
 
 .c-collapse-title {
