@@ -1,0 +1,145 @@
+---
+import Layout from './DefaultLayout.astro';
+import Sides from '../components/graphics/Sides.vue';
+import { sortedPosts } from '@/utils/sort'
+
+const jobs =  sortedPosts(await Astro.glob('../jobs/*.{md,mdx}'));
+
+const pathname = new URL(Astro.request.url).pathname;
+const path = pathname.split("/");
+const currentPath = path[path.length - 2];
+---
+<Layout>
+<div class="c-wrapper">
+  <Sides color="#5DC9F1" styles="top: 40rem; right: 0; transform: rotate(-180deg)"></Sides>
+  <Sides color="#F89202" styles="top: 120rem"></Sides>
+
+  <section class="container grey-container">
+    <div class="is-posttitle">
+      JOBS
+    </div>
+    <h1 class="is-title-1 c-main-title">Join our team.</h1>
+    <p class="is-subtitle c-main-para">
+      We’re always looking for passionate people who share our vision and excitement for what’s possible.
+      If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.
+    </p>
+  </section>
+  <div class="c-container-middle">
+    <section class="container c-container-top">
+      <h2 class="is-title-2 c-container-title">Open Positions</h2>
+      <div class="c-job-links">
+        {jobs.map((job) => (
+          <a href={"/groupincome.org/hiring"+job.frontmatter.permalink} class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}>
+            {job.frontmatter.title}
+            <span>{job.frontmatter.type}</span>
+          </a>
+        ))}
+      </div>
+
+      <article class="l-job">
+        <slot />
+      </article>
+    </section>
+  </div>
+</div>
+</Layout>
+  
+<style lang="scss">
+@import "../styles/_variables";
+.c-wrapper {
+  padding-bottom: 2rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 4rem 1rem;
+  }
+
+  @include desktop {
+    padding: 6rem 1rem;
+  }
+}
+
+.c-container-top {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.c-container-middle {
+  width: 46rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.c-main-title {
+  max-width: 47rem;
+  margin: 1.5rem auto;
+
+  @include phone {
+    max-width: 30rem;
+  }
+}
+
+.c-container-title {
+  text-align: center;
+}
+
+.c-main-para {
+  max-width: 46rem;
+  margin: 0 auto 1rem auto;
+}
+
+.grey-container {
+  text-align: center;
+}
+
+.c-line {
+  margin: 3rem 0;
+  border-bottom: 1px solid #D0DEEA;
+}
+
+.c-job-links {
+  margin-top: 2rem;
+
+  a {
+    width: 100%;
+    color: initial;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-items: space-around;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    font-weight: 500;
+    flex-wrap: wrap;
+
+    @include phone {
+      flex-wrap: wrap-reverse;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+
+    span {
+      color: #939393;
+    }
+
+    &.active-link {
+      background: $primary_0;
+      color: #fff;
+
+      span {
+        color: #fff;
+      }
+    }
+  }
+}
+</style>

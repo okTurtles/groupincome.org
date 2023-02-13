@@ -1,0 +1,28 @@
+---
+import { sortedPosts } from '@/utils/sort'
+export async function getStaticPaths() {
+  const jobs =  sortedPosts(await Astro.glob('../../jobs/*.{md,mdx}'));
+  return jobs.map(job => {
+    return {
+      params: {
+        // these `.slice` calls are necessary and remove
+        // the `/` from the beginning and end of the permalink
+        job: job.frontmatter.permalink.slice(1).slice(0, -1)
+      },
+      props: job
+    }
+  })
+}
+const { Content } = Astro.props
+---
+
+<Content />
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  window.scrollTo({
+      top: 900,
+      behavior: "smooth"
+  });
+});
+</script>
