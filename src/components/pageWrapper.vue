@@ -13,13 +13,15 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
+$bannerHeight: 2.75rem;
+
 .main-wrapper {
-	padding-top: $headerHeightMobile;
+	padding-top: calc($headerHeightMobile + $bannerHeight);
 	@include tablet {
-		padding-top: $headerHeightTablet;
+		padding-top: calc($headerHeightTablet + $bannerHeight);
 	}
 	@include desktop {
-		padding-top: $headerHeight;
+		padding-top: calc($headerHeight + $bannerHeight);
 	}
 
   &.open-nav {
