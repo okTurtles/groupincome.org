@@ -122,7 +122,7 @@
             Your data is stored in encrypted form on servers, and decrypted locally on your device.
             The keys to decrypt that data are derived from your password and are also stored on your device. 
           </p>
-          <a class="c-container-link is-link" href="/privacy-security">Read more about our privacy and security</a>
+          <a class="c-container-link is-link" href="/groupincome.org/privacy-policy">Read more about our privacy and security</a>
         </div>
       </section>
 

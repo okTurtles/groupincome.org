@@ -1,5 +1,7 @@
 <template>
 <header class="c-header">
+  <Fundraiser></Fundraiser>
+  <div class="c-header-wrapper">
     <div class="c-wrapper" @click="isNavigationOpen.set(true)" role="banner">
       <a class="c-logo" href="/groupincome.org/">
         <span class="is-hidden">Group Income</span>
@@ -8,26 +10,32 @@
       <Navigation></Navigation>
     </div>
     <Hamburger></Hamburger>
+  </div>
 </header>
 </template>
 
 <script setup>
 import { isNavigationOpen } from '../store.js';
+import Fundraiser from './Fundraiser.vue';
 import Navigation from './Navigation.vue'
 import Hamburger from './Hamburger.vue'
 </script>
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
+
 .c-header {
-  display: flex;
-  position: fixed;
-  // position: absolute;
   width: 100%;
+  // position: absolute;
+  position: fixed;
+  z-index: $zindex-header;
   top: 0;
+}
+
+.c-header-wrapper {
+  display: flex;
   justify-content: center;
   background-color: #fff;
-  z-index: $zindex-header;
 
   .c-wrapper {
     display: flex;
