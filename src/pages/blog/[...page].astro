@@ -1,10 +1,15 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro';
-const posts = (await Astro.glob('../posts/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
-);
-
-// const posts = posts.slice(2, 4)
+export async function getStaticPaths({ paginate }) {
+	const posts = (await Astro.glob('../../posts/*.{md,mdx}')).sort(
+		(a, b) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
+	);
+  // Generate pages from our array of blog post, with 2 to a page
+  return paginate(posts, { pageSize: 4 });
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+const { data, lastPage, url } = page
 ---
 
 <Layout>
@@ -13,9 +18,9 @@ const posts = (await Astro.glob('../posts/*.{md,mdx}')).sort(
 	</section>
 
 	<section class="blog-wrapper" v-if="posts">
-		{posts.map((article) => (
+		{data.map((article) => (
 			<article class="c-article">
-				<a href={"/groupincome.org/"+article.frontmatter.permalink}>
+				<a href={"/groupincome.org"+article.frontmatter.permalink}>
 					<img class="c-article-image" src={'/groupincome.org/'+article.frontmatter.image || '/groupincome.org/images/' + article.frontmatter.permalink + '.jpeg'}/>
 					<h2 class="c-blog-title">{article.frontmatter.title}</h2>
 					<p>{article.frontmatter.description || 'TODO'}</p>
@@ -24,15 +29,13 @@ const posts = (await Astro.glob('../posts/*.{md,mdx}')).sort(
 			</article>
 		))}
 		<div class="pagination">
-			<a class="inactive" href="#">
+			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? '/groupincome.org' + url.prev : null}>
 				<i class="icon-chevron-left"></i>
 			</a>
-			<a class="active" href="#">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">...</a>
-			<a href="#">99</a>
-			<a href="#">
+			{[...Array(lastPage)].map((x, i) =>
+				<a class={url.current === i ? 'active' : ''} href={`/groupincome.org/blog${i > 0 ? '/' + (i + 1) : ''}`}>{i+1}</a>
+			)}
+			<a href={url.next ? '/groupincome.org' + url.next : null} class={ url.next ? '' : 'inactive' }>
 				<i class="icon-chevron-right"></i>
 			</a>
 		</div>
@@ -40,8 +43,8 @@ const posts = (await Astro.glob('../posts/*.{md,mdx}')).sort(
 </Layout>
 
 <style lang="scss" is:global>
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
 .c-blog-wrapper {
 	.icon-link {
 		display: none;
@@ -141,8 +144,8 @@ const posts = (await Astro.glob('../posts/*.{md,mdx}')).sort(
 </style>
 	
 <style lang="scss" scoped>
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
 .c-header {
 	display: flex;
 	justify-content: center;
