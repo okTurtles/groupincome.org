@@ -23,10 +23,10 @@
                 <a href="/groupincome.org/sponsor">Sponsor</a>
             </div>
             <div class="c-links-group">
-                <h4 class="is-title-6">SOCIAL</h4><a href="https://www.twitter.com/group-income" target="_blank" alt="Twitter">Twitter</a>
+                <h4 class="is-title-6">SOCIAL</h4><a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
                 <a href="https://mstdn.io/@okturtles" target="_blank" alt="Mastodon">Mastodon</a>
-                <a href="https://www.youtube.com/group-income" target="_blank" alt="Youtube">YouTube</a>
-                <a href="https://www.reddit.com/group-income" target="_blank" alt="Reddit">Reddit</a>
+                <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
+                <a href="https://www.reddit.com/r/groupincome/" target="_blank" alt="Reddit">Reddit</a>
             </div>
         </div>
     </div>
