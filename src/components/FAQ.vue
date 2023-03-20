@@ -198,6 +198,7 @@ export default {
   methods: {
     openTab (index, qindex) {
       const i = [index, qindex]
+      console.log(index, qindex)
       const p0 = this.previous[0]
       const p1 = this.previous[1]
       if ((p0 !== undefined && p0 !== index) || (p1 !== undefined && p1 !== qindex)) {
@@ -208,6 +209,7 @@ export default {
 
       this.refreshScrollTrigger()
       setTimeout(() => {
+        console.log(`#q_${index}${qindex}`)
         this.scrollTo(`#q_${index}${qindex}`)
       }, 1000)
     },
@@ -276,13 +278,7 @@ export default {
     },
 
     scrollTo (el, offesetY = 60) {
-      gsap.to(window, {
-        duration: 0.5,
-        scrollTo: {
-          y: el,
-          offsetY: offesetY
-        }
-      })
+      gsap.to(window, {duration: 2, scrollTo: {y: 400, x: 250}});
     }
   }
 }
