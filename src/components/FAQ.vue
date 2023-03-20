@@ -34,8 +34,10 @@
 <script>
 import { gsap } from "gsap/dist/gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import ScrollTo from 'gsap/dist/ScrollToPlugin'
 
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTo)
 
 export default {
   name: 'FAQ',
@@ -198,7 +200,6 @@ export default {
   methods: {
     openTab (index, qindex) {
       const i = [index, qindex]
-      console.log(index, qindex)
       const p0 = this.previous[0]
       const p1 = this.previous[1]
       if ((p0 !== undefined && p0 !== index) || (p1 !== undefined && p1 !== qindex)) {
@@ -209,13 +210,12 @@ export default {
 
       this.refreshScrollTrigger()
       setTimeout(() => {
-        console.log(`#q_${index}${qindex}`)
         this.scrollTo(`#q_${index}${qindex}`)
       }, 1000)
     },
 
     refreshScrollTrigger () {
-      const scrollTriggersInstances = this.$ScrollTrigger.getAll()
+      const scrollTriggersInstances = ScrollTrigger.getAll()
 
       setTimeout(() => {
         scrollTriggersInstances.forEach((el) => {
@@ -245,7 +245,7 @@ export default {
         scrollTrigger: {
           trigger: '#faqNav',
           pin: true,
-          start: '2 top',
+          start: `2 ${document.getElementsByClassName("c-header")[0].offsetHeight}`,
           pinSpacing: false,
           pinReparent: true,
           end: 'bottom 308',
@@ -265,20 +265,26 @@ export default {
             navLinks.forEach((e) => {
               e.classList.remove('active-nav')
             })
-            navLinks[i].classList.add('active-nav')
+            if (navLinks.length < i) navLinks[i].classList.add('active-nav')
           },
           onEnterBack: () => {
             navLinks.forEach((e) => {
               e.classList.remove('active-nav')
             })
-            navLinks[i].classList.add('active-nav')
+            if (navLinks.length < i) navLinks[i].classList.add('active-nav')
           }
         })
       })
     },
 
-    scrollTo (el, offesetY = 60) {
-      gsap.to(window, {duration: 2, scrollTo: {y: 400, x: 250}});
+    scrollTo (el, offesetY = 300) {
+      gsap.to(window, {
+        duration: 0.5,
+        scrollTo: {
+          y: el,
+          offsetY: offesetY
+        }
+      })
     }
   }
 }
