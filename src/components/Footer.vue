@@ -1,7 +1,7 @@
 <template>
 <footer class="c-footer">
     <div class="c-top">
-        <div class="c-wrapper"><img class="c-logo-img" src="/images/group-income-icon-transparent.png" />
+        <div class="c-wrapper"><img class="c-logo-img" src="/groupincome.org/images/group-income-icon-transparent.png" />
             <form class="c-form">
                 <h4 class="is-title-6">STAY UP TO DATE</h4>
                 <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
