@@ -34,10 +34,10 @@
 <script>
 import { gsap } from "gsap/dist/gsap";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import ScrollTo from 'gsap/dist/ScrollToPlugin'
+// import ScrollTo from 'gsap/dist/ScrollToPlugin'
 
 gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(ScrollTo)
+// gsap.registerPlugin(ScrollTo)
 
 export default {
   name: 'FAQ',
@@ -210,7 +210,7 @@ export default {
 
       this.refreshScrollTrigger()
       setTimeout(() => {
-        this.scrollTo(`#q_${index}${qindex}`)
+        // this.scrollTo(`#q_${index}${qindex}`)
       }, 1000)
     },
 
@@ -278,13 +278,13 @@ export default {
     },
 
     scrollTo (el, offesetY = 300) {
-      gsap.to(window, {
-        duration: 0.5,
-        scrollTo: {
-          y: el,
-          offsetY: offesetY
-        }
-      })
+      // gsap.to(window, {
+      //   duration: 0.5,
+      //   scrollTo: {
+      //     y: el,
+      //     offsetY: offesetY
+      //   }
+      // })
     }
   }
 }
