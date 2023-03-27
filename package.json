@@ -11,7 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.11.6",
+    "@astrojs/mdx": "^0.18.2",
     "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/vue": "^1.2.2",
@@ -27,7 +27,7 @@
     "vue": "^3.2.39"
   },
   "devDependencies": {
-    "astro": "^1.9.2",
+    "astro": "^2.1.7",
     "sass": "^1.57.1"
   }
 }
