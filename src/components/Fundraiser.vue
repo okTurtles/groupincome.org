@@ -40,6 +40,10 @@ const pourcent = `${progress}%`
   padding: 1.375rem;
 }
 
+.open-nav .fundraiser {
+  display: none;
+}
+
 b {
   font-size: 1.125rem;
 }
