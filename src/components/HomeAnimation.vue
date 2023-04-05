@@ -184,14 +184,10 @@
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
-import { gsap } from "gsap/dist/gsap"
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import MotionPathPlugin from 'gsap/dist/MotionPathPlugin'
-
-gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(MotionPathPlugin)
+import GSAP from '../mixins/gsap.js'
 
 export default {
+  mixins: [GSAP],
   components: {
     Swoosh,
     Browser,
@@ -253,7 +249,7 @@ export default {
 
   methods: {
     scrollTo(el) {
-      gsap.to(window, {
+      this.gsap.to(window, {
         duration: 0.5,
         scrollTo: {
           y: el,
@@ -323,7 +319,7 @@ export default {
       }
     },
     animateOnScroll() {
-      gsap.to('.parallax-bg', {
+      this.gsap.to('.parallax-bg', {
         scrollTrigger: {
           scrub: true
         },
@@ -331,7 +327,7 @@ export default {
       })
 
       // Header 1 animation
-      gsap.to('#header1 *', {
+      this.gsap.to('#header1 *', {
         opacity: 0,
         y: '-30px',
         ease: 'Power1.easeInOut',
@@ -346,7 +342,7 @@ export default {
       })
 
       // Header 2 animation
-      gsap.from('#header2 *', {
+      this.gsap.from('#header2 *', {
         opacity: 0,
         y: '+30px',
         ease: 'Power1.easeInOut',
@@ -360,7 +356,7 @@ export default {
       })
 
       // Circles animations
-      gsap.from('.circleGraphCircle', {
+      this.gsap.from('.circleGraphCircle', {
         opacity: '0',
         'stroke-dashoffset': '-400px',
         ease: 'Power1.easeInOut',
@@ -374,7 +370,7 @@ export default {
       })
 
       let faces = ['#face-1', '#face-4', '#face-8', '#face-3', '#face-6']
-      const tl = gsap.timeline()
+      const tl = this.gsap.timeline()
       faces.forEach((face, i) => {
         // Faces animation from hero page to panel 1
         tl.to(face, {
@@ -447,7 +443,7 @@ export default {
 
       faces = ['#face-5', '#face-7']
       faces.forEach((face, i) => {
-        gsap.to(face, {
+        this.gsap.to(face, {
           ease: 'Power1.easeInOut',
           motionPath: {
             path: [{
@@ -477,7 +473,7 @@ export default {
       })
 
       faces = ['#face-2']
-      gsap.to(faces, {
+      this.gsap.to(faces, {
         ease: 'Power1.easeInOut',
         motionPath: {
           path: [{
@@ -507,7 +503,7 @@ export default {
         }
       })
 
-      // gsap.set('.c-container-header *', {
+      // this.gsap.set('.c-container-header *', {
       //   opacity: 0,
       //   y: '+=30'
       // })
@@ -524,7 +520,7 @@ export default {
         //   scrub: true
         // }
 
-        gsap.from('#freeze-wrapper', {
+        this.gsap.from('#freeze-wrapper', {
           scrollTrigger: {
             trigger: '#freeze-wrapper',
             start: `${pourcent + 20}% top`,
@@ -537,7 +533,7 @@ export default {
           }
         })
 
-        // gsap.to(`${title} *`, {
+        // this.gsap.to(`${title} *`, {
         //   opacity: 1,
         //   y: '0',
         //   ease: 'Power1.easeInOut',
@@ -549,7 +545,7 @@ export default {
         // trigger.start = `${pourcent}% top`
 
         // if (title !== '#header5') {
-        //   gsap.to(`${title} *`, {
+        //   this.gsap.to(`${title} *`, {
         //     immediateRender: false,
         //     opacity: 0,
         //     y: '-30px',
