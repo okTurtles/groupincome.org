@@ -32,15 +32,12 @@
 </template>
 
 <script>
-import { gsap } from "gsap/dist/gsap";
+import GSAP from '../mixins/gsap.js'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import ScrollTo from 'gsap/dist/ScrollToPlugin'
-
-gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(ScrollTo)
 
 export default {
   name: 'FAQ',
+  mixins: [GSAP],
   data () {
     return {
       faqs: [{
@@ -241,7 +238,7 @@ export default {
     },
 
     scrollAnimation () {
-      gsap.to('#faqNav', {
+      this.gsap.to('#faqNav', {
         scrollTrigger: {
           trigger: '#faqNav',
           pin: true,
@@ -253,8 +250,8 @@ export default {
         }
       })
 
-      const navLinks = gsap.utils.toArray('.scrollingLink')
-      const panels = gsap.utils.toArray('.panel')
+      const navLinks = this.gsap.utils.toArray('.scrollingLink')
+      const panels = this.gsap.utils.toArray('.panel')
 
       panels.forEach((panel, i) => {
         ScrollTrigger.create({
@@ -278,7 +275,7 @@ export default {
     },
 
     scrollTo (el, offesetY = 300) {
-      gsap.to(window, {
+      this.gsap.to(window, {
         duration: 0.5,
         scrollTo: {
           y: el,
