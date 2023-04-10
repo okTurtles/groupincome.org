@@ -225,7 +225,7 @@ export default {
 
     toggleExpand () {
       this.expandAll = !this.expandAll
-      this.previous = [null, null]
+      this.previous = [undefined, undefined]
       this.faqs.map((el) => {
         el.qa.map((elq) => {
           elq.active = this.expandAll
