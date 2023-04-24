@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/DefaultLayout.astro';
+import GetStarted from '../components/GetStarted.vue';
+---
+
+<Layout>
+  <div class="c-wrapper">
+    <section class="container grey-container">
+      <div class="c-main-wrapper">
+        <div class="is-posttitle">GET STARTED</div>
+        <h1 class="is-title-1 c-main-title">Join a GI server</h1>
+        <p class="is-subtitle c-main-para">GroupIncome is not a single website, is more like email, anyone can run it on their own. You need to make an account with a provider—we call them servers—that lets you connect with other people and groups.</p>
+      </div>
+    </section>
+    <section class="container span-container">
+      <GetStarted />
+    </section>
+    <section class="container dark-container">
+      <p class="c-container-para">All servers listed have a commitment to GroupIncome server agreement.</p>
+      
+    </section>
+  </div>
+</Layout>
+
+<style lang="scss">
+@import "../styles/_variables";
+@import "../styles/_mixins";
+
+.c-wrapper {
+  padding-bottom: 2rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 4rem 1rem;
+  }
+}
+
+.span-container {
+  flex-direction: column;
+  text-align: center;
+
+  @include phone {
+    padding: 4rem 1rem;
+  }
+
+  .is-title-2 {
+    margin-bottom: 1rem;
+
+    @include desktop {
+      max-width: 31rem;
+    }
+  }
+
+  @include desktop {
+    p {
+      max-width: 27rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.c-main-title {
+  max-width: 47rem;
+  margin: 1.5rem auto;
+
+  @include phone {
+    max-width: 30rem;
+  }
+}
+
+.c-main-para {
+  max-width: 34rem;
+  margin: 0 auto 1rem auto;
+}
+
+.dark-container {
+  background: url('/images/about/blue-background.svg') no-repeat center #fff;
+  background-size: 100%;
+  color: #fff;
+
+  @include phone {
+    background-size: 200% 100%;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    margin-top: -4rem;
+  }
+
+  .c-container-para {
+    text-align: center;
+  }
+}
+
+.grey-container {
+  background: url('/images/about/grey-background.svg') no-repeat center bottom #fff;
+  background-size: 100%;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+</style>
