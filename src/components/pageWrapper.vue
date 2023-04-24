@@ -16,12 +16,12 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 $bannerHeight: 2.75rem;
 
 .main-wrapper {
-	padding-top: calc($headerHeightMobile + $bannerHeight);
+	padding-top: calc($headerHeightMobile + 14rem);
 	@include tablet {
-		padding-top: calc($headerHeightTablet + $bannerHeight);
+		padding-top: calc($headerHeightTablet + 10rem);
 	}
 	@include desktop {
-		padding-top: calc($headerHeight + $bannerHeight);
+		padding-top: calc($headerHeight + 8rem);
 	}
 
   &.open-nav {
