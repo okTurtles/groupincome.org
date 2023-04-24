@@ -39,8 +39,8 @@
       </section>
 
       <section class="container span-container c-container" id="container2">
-        <div class="span-2" id="circle-graph"><img class="c-container-image" src="/images/temp/homepage-panel2.jpg"
-            ref="panel1Circle" /><img class="c-graph-circle" src="/images/temp/graph-circle.jpg" /><svg
+        <div class="span-2" id="circle-graph"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel2.jpg"
+            ref="panel1Circle" /><img class="c-graph-circle" src="/groupincome.org/images/temp/graph-circle.jpg" /><svg
             id="circle-graph-circle" :height="panel1CirclePos.width" :width="panel1CirclePos.width">
             <circle class="circleGraphCircle" id="circleGraphCircle" :cx="`${panel1CirclePos.middle}`"
               :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.middle" stroke="D0DEEA" stroke-width="1.5"></circle>
@@ -60,7 +60,7 @@
 
       <div class="sections-container" id="freeze-wrapper">
         <section class="container span-container" id="container3">
-          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel3.jpg" ref="graph1" />
+          <div class="span-2"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel3.jpg" ref="graph1" />
           </div>
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">Why it matters?</div>
@@ -73,7 +73,7 @@
         </section>
 
         <section class="container span-container" id="container4">
-          <div class="span-2"><img class="c-container-image" ref="gif" src="/images/temp/homepage-panel4.jpg" />
+          <div class="span-2"><img class="c-container-image" ref="gif" src="/groupincome.org/images/temp/homepage-panel4.jpg" />
             <div class="c-line"></div>
           </div>
           <div class="span-2 c-container-header" id="header4">
@@ -86,7 +86,7 @@
         </section>
 
         <section class="container span-container" id="container5">
-          <div class="span-2"><img class="c-container-image" src="/images/temp/homepage-panel6.jpg" ref="gif2"/></div>
+          <div class="span-2"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel6.jpg" ref="gif2"/></div>
           <div class="span-2 c-container-header" id="header5">
             <div class="is-title-3 c-container-posttitle">With Group Income</div>
             <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
@@ -98,7 +98,7 @@
 
       <section class="container span-container span-reverse" id="contribute">
         <div class="span-2">
-          <img class="c-container-image" src="/images/temp/homepage-panel5.jpg" />
+          <img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel5.jpg" />
         </div>
 
         <div class="span-2">
@@ -111,7 +111,7 @@
 
       <section class="container span-container c-container" id="container6">
         <div class="span-2">
-          <img class="c-container-image" ref="gif" src="/images/temp/homepage-panel8.jpg" />
+          <img class="c-container-image" ref="gif" src="/groupincome.org/images/temp/homepage-panel8.jpg" />
         </div>
         <div class="span-2 c-container-header" id="header6">
           <div class="is-title-3 c-container-posttitle">Stay Safe</div>
@@ -163,7 +163,7 @@
     <div class="graphic-wrapper swoosh-dark-blue">
       <section class="container span-container">
         <div class="span-2">
-          <div class="c-phone-wrapper"><img class="c-container-image" src="/images/temp/homepage-panel7.png" /></div>
+          <div class="c-phone-wrapper"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel7.png" /></div>
         </div>
 
         <div class="span-2">
@@ -1298,8 +1298,8 @@ export default {
 
 .c-main-container {
   text-align: center;
-  // background: url('/images/temp/homepage-panel1.jpg') no-repeat center #fff;
-  background: url('/images/faces/shapes.png') no-repeat center #fff;
+  // background: url('/groupincome.org/images/temp/homepage-panel1.jpg') no-repeat center #fff;
+  background: url('/groupincome.org/images/faces/shapes.png') no-repeat center #fff;
   background-size: 100% auto;
   flex-direction: row;
   align-items: center;
@@ -1345,7 +1345,7 @@ export default {
   @include desktop {
     padding-bottom: 0;
     margin-bottom: 0;
-    background: url('/images/swoosh-dark-blue.svg') no-repeat center #fff;
+    background: url('/groupincome.org/images/swoosh-dark-blue.svg') no-repeat center #fff;
     background-size: cover;
     background-size: 100% 100%;
   }
@@ -1382,7 +1382,7 @@ export default {
 }
 
 .c-phone-wrapper {
-  // background: url('/images/phone.svg') no-repeat center;
+  // background: url('/groupincome.org/images/phone.svg') no-repeat center;
   // background-size: contain;
   display: flex;
   justify-content: center;
