@@ -206,9 +206,6 @@ export default {
       this.faqs[index].qa[qindex].active = !this.faqs[index].qa[qindex].active
 
       this.refreshScrollTrigger()
-      setTimeout(() => {
-        this.scrollTo(`#q_${index}${qindex}`)
-      }, 1000)
     },
 
     refreshScrollTrigger () {
