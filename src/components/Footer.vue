@@ -54,7 +54,7 @@ export default {
   margin: 2rem auto 0 auto;
   padding: 2rem;
   text-align: center;
-  border-top: 1px solid #D0DEEA;
+  // border-top: 1px solid #D0DEEA;
 
   @include desktop {
     margin: 4rem auto 2rem auto;
