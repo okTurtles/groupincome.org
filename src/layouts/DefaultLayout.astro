@@ -25,19 +25,5 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 			</main>
 			<Footer />
 		</PageWrapper>
-		<script>
-			import Swup from 'swup'
-			import SwupA11yPlugin from '@swup/a11y-plugin'
-			import SwupHeadPlugin from '@swup/head-plugin'
-			import SwupFadeTheme from '@swup/fade-theme'
-			import SwupScript from '@swup/scripts-plugin'
-
-			const swup = new Swup({
-				plugins: [new SwupA11yPlugin(), new SwupHeadPlugin(), new SwupFadeTheme(), new SwupScript()],
-			})
-			swup.on('willReplaceContent', () => {
-				window.scrollTo(0, 0)
-			})
-		</script>
 	</body>
 </html>
