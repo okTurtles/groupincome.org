@@ -36,6 +36,8 @@ export default defineConfig({
   integrations: [sitemap(), vue(), turbolinks()],
   markdown: {
     remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, 'remark-math'],
-    rehypePlugins: [['rehype-katex']]
+    rehypePlugins: [['rehype-katex', {
+      // Katex plugin options
+    }]]
   }
 });
