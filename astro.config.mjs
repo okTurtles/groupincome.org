@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm'; // support rendering tables in markdown file
 import remarkEmbedder from '@remark-embedder/core';
 import oembedTransformer from '@remark-embedder/transformer-oembed';
 import vue from "@astrojs/vue";
-import turbolinks from "@astrojs/turbolinks";
+
 const remarkEmbedPlugin = [remarkEmbedder.default, {
   transformers: [oembedTransformer.default],
   // https://github.com/remark-embedder/transformer-oembed/issues/25#issuecomment-888613740
@@ -33,7 +33,7 @@ export default defineConfig({
   site: 'https://okturtles.github.io',
   base: '/groupincome.org',
   // integrations: [mdx(), sitemap(), vue()],
-  integrations: [sitemap(), vue(), turbolinks()],
+  integrations: [sitemap(), vue()],
   markdown: {
     remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, 'remark-math'],
     rehypePlugins: [['rehype-katex', {

@@ -14,7 +14,6 @@
     "@astrojs/mdx": "^0.18.2",
     "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/turbolinks": "^0.2.2",
     "@astrojs/vue": "^1.2.2",
     "@nanostores/vue": "^0.6.1",
     "@remark-embedder/core": "3.0.1",
@@ -28,7 +27,12 @@
     "vue": "^3.2.39"
   },
   "devDependencies": {
+    "@swup/a11y-plugin": "^3.0.0",
+    "@swup/fade-theme": "^1.0.5",
+    "@swup/head-plugin": "^1.3.0",
+    "@swup/slide-theme": "^1.0.5",
     "astro": "^2.1.7",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "swup": "^3.0.6"
   }
 }
