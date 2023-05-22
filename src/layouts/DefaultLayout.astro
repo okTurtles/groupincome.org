@@ -17,9 +17,9 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<PageWrapper client:load>
+		<PageWrapper>
 			<AppStyles/>
-			<Header client:load/>
+			<Header/>
 			<main>
 				<slot />
 			</main>
