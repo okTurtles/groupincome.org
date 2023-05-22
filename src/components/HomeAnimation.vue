@@ -209,6 +209,7 @@ export default {
   },
 
   mounted() {
+    console.log('home mounted', this.tl)
     if (window.innerWidth >= '1200') {
       setTimeout(() => {
         if (this.tl === null) {
