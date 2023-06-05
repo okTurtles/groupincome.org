@@ -209,7 +209,6 @@ export default {
   },
 
   mounted() {
-    console.log('home mounted', this.tl)
     if (window.innerWidth >= '1200') {
       setTimeout(() => {
         if (this.tl === null) {
@@ -224,9 +223,15 @@ export default {
         }
       }, 500)
     }
+    setTimeout(() => {
+      window.addEventListener('resize', this.reset);
+    }, 1000)
   },
 
   methods: {
+    reset () {
+      location.reload()
+    },
     scrollTo(el) {
       this.gsap.to(window, {
         duration: 0.5,
