@@ -33,7 +33,7 @@
           </h1>
           <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
             voluntarily provide a financial safety net for their members.</p>
-          <a class="c-navbar-item button is-big is-primary" href="/get-started" data-test="getStartedLink">Get
+          <a class="c-navbar-item button is-big is-primary" href="/groupincome.org/get-started" data-test="getStartedLink">Get
             started</a><i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
         </div>
       </section>
@@ -54,7 +54,7 @@
           <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
           <p class="c-container-para">The goal of Basic Income is to guarantee that everyone gets access to enough money
             to meet their fundamental needs, independent of their life circumstances.</p>
-          <div class="c-container-link is-link">Learn more about Basic Income</div>
+          <a class="c-container-link is-link" href="/groupincome.org/faq">Learn more about Basic Income</a>
         </div>
       </section>
 
@@ -63,7 +63,7 @@
           <div class="span-2"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel3.jpg" ref="graph1" />
           </div>
           <div class="span-2 c-container-header" id="header3">
-            <div class="is-title-3 c-container-posttitle">Why it matters?</div>
+            <div class="is-title-3 c-container-posttitle">Why it matters</div>
             <p class="is-title-2 c-container-title">Every individual is valuable.</p>
             <p class="c-container-para">Many people contribute to our lives and our society, but are often not
               financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed
@@ -105,7 +105,7 @@
           <div class="is-title-3 c-container-posttitle">Contribute</div>
           <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
           <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
-            securing everyone in your group with an basic income, independet of employment.</p>
+            securing everyone in your group with an basic income, independent of employment.</p>
         </div>
       </section>
 
@@ -118,7 +118,7 @@
           <p class="is-title-2 c-container-title">Security & Privacy</p>
           <p class="c-container-para">
             Group Income is built on top of an end-to-end encrypted protocol called 
-            <a class="is-link" href="">Shelter Protocol</a>.
+            <a class="is-link" href="https://shelterprotocol.net" target="_blank">Shelter Protocol</a>.
             Your data is stored in encrypted form on servers, and decrypted locally on your device.
             The keys to decrypt that data are derived from your password and are also stored on your device. 
           </p>
@@ -147,8 +147,8 @@
           <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
           <div class="c-buttons">
-            <a class="c-navbar-item button is-big is-primary" href="/get-started">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" href="/sponsor">Sponsor</a>
+            <a class="c-navbar-item button is-big is-primary" href="/groupincome.org/get-started">Get started</a>
+            <a class="c-navbar-item button is-big is-outlined" href="/groupincome.org/sponsor">Sponsor</a>
           </div>
         </div>
       </section>
