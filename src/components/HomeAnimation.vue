@@ -54,7 +54,7 @@
           <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
           <p class="c-container-para">The goal of Basic Income is to guarantee that everyone gets access to enough money
             to meet their fundamental needs, independent of their life circumstances.</p>
-          <div class="c-container-link is-link">Learn more about Basic Income</div>
+            <a href="./faq" ><div class="c-container-link is-link">Learn more about Basic Income</div></a>
         </div>
       </section>
 
