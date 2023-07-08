@@ -11,11 +11,11 @@
     <div class="graphic-wrapper">
       <div class="c-faces" ref="faces">
         <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-          <img class="c-face-img" :src="`/groupincome.org/images/faces/${i}.jpg`" />
+          <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
           <span class="c-name" v-if="name[i]">{{ name[i] }}</span>
           <div class="c-pledge-card" v-if="contribution[i]"
               :style="{'box-shadow': `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image"
-              :src="`/groupincome.org/images/faces/${i}.jpg`" />
+              v-src="`/images/faces/${i}.jpg`" />
             <div class="c-pledge-content">
               <div class="c-pledge-name">{{ name[i] }} Pledge</div>
               <div class="c-pledge-price">{{ contribution[i] }}</div>
@@ -33,14 +33,14 @@
           </h1>
           <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
             voluntarily provide a financial safety net for their members.</p>
-          <a class="c-navbar-item button is-big is-primary" href="/groupincome.org/get-started" data-test="getStartedLink">Get
+          <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'" data-test="getStartedLink'">Get
             started</a><i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
         </div>
       </section>
 
       <section class="container span-container c-container" id="container2">
-        <div class="span-2" id="circle-graph"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel2.jpg"
-            ref="panel1Circle" /><img class="c-graph-circle" src="/groupincome.org/images/temp/graph-circle.jpg" /><svg
+        <div class="span-2" id="circle-graph"><img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'"
+            ref="panel1Circle" /><img class="c-graph-circle" v-src="'/images/temp/graph-circle.jpg'" /><svg
             id="circle-graph-circle" :height="panel1CirclePos.width" :width="panel1CirclePos.width">
             <circle class="circleGraphCircle" id="circleGraphCircle" :cx="`${panel1CirclePos.middle}`"
               :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.middle" stroke="D0DEEA" stroke-width="1.5"></circle>
@@ -54,13 +54,13 @@
           <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
           <p class="c-container-para">The goal of Basic Income is to guarantee that everyone gets access to enough money
             to meet their fundamental needs, independent of their life circumstances.</p>
-          <a class="c-container-link is-link" href="/groupincome.org/faq">Learn more about Basic Income</a>
+          <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income</a>
         </div>
       </section>
 
       <div class="sections-container" id="freeze-wrapper">
         <section class="container span-container" id="container3">
-          <div class="span-2"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel3.jpg" ref="graph1" />
+          <div class="span-2"><img class="c-container-image" v-src="'/images/temp/homepage-panel3.jpg'" ref="graph1" />
           </div>
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">Why it matters</div>
@@ -73,7 +73,7 @@
         </section>
 
         <section class="container span-container" id="container4">
-          <div class="span-2"><img class="c-container-image" ref="gif" src="/groupincome.org/images/temp/homepage-panel4.jpg" />
+          <div class="span-2"><img class="c-container-image" ref="gif" v-src="'/images/temp/homepage-panel4.jpg'" />
             <div class="c-line"></div>
           </div>
           <div class="span-2 c-container-header" id="header4">
@@ -86,7 +86,7 @@
         </section>
 
         <section class="container span-container" id="container5">
-          <div class="span-2"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel6.jpg" ref="gif2"/></div>
+          <div class="span-2"><img class="c-container-image" v-src="'/images/temp/homepage-panel6.jpg'" ref="gif2"/></div>
           <div class="span-2 c-container-header" id="header5">
             <div class="is-title-3 c-container-posttitle">With Group Income</div>
             <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
@@ -98,7 +98,7 @@
 
       <section class="container span-container span-reverse" id="contribute">
         <div class="span-2">
-          <img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel5.jpg" />
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel5.jpg'" />
         </div>
 
         <div class="span-2">
@@ -111,7 +111,7 @@
 
       <section class="container span-container c-container" id="container6">
         <div class="span-2">
-          <img class="c-container-image" ref="gif" src="/groupincome.org/images/temp/homepage-panel8.jpg" />
+          <img class="c-container-image" ref="gif" v-src="'/images/temp/homepage-panel8.jpg'" />
         </div>
         <div class="span-2 c-container-header" id="header6">
           <div class="is-title-3 c-container-posttitle">Stay Safe</div>
@@ -122,7 +122,7 @@
             Your data is stored in encrypted form on servers, and decrypted locally on your device.
             The keys to decrypt that data are derived from your password and are also stored on your device. 
           </p>
-          <a class="c-container-link is-link" href="/groupincome.org/privacy-policy">Read more about our privacy and security</a>
+          <a class="c-container-link is-link" v-href="'/privacy-policy'">Read more about our privacy and security</a>
         </div>
       </section>
 
@@ -139,7 +139,7 @@
     <div class="graphic-wrapper swoosh-dark-blue">
       <section class="container span-container">
         <div class="span-2">
-          <div class="c-phone-wrapper"><img class="c-container-image" src="/groupincome.org/images/temp/homepage-panel7.png" /></div>
+          <div class="c-phone-wrapper"><img class="c-container-image" v-src="'/images/temp/homepage-panel7.png'" /></div>
         </div>
 
         <div class="span-2">
@@ -147,8 +147,8 @@
           <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
           <div class="c-buttons">
-            <a class="c-navbar-item button is-big is-primary" href="/groupincome.org/get-started">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" href="/groupincome.org/sponsor">Sponsor</a>
+            <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
+            <a class="c-navbar-item button is-big is-outlined" v-href="'/sponsor'">Sponsor</a>
           </div>
         </div>
       </section>
@@ -550,7 +550,7 @@ export default {
         endTrigger: "#container5",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif.src="/groupincome.org/images/temp/homepage-panel3.gif"
+          this.$refs.gif.src=this.resolvePath("/images/temp/homepage-panel3.gif")
         }
       });
 
@@ -560,7 +560,7 @@ export default {
         endTrigger: "#contribute",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif2.src="/groupincome.org/images/temp/homepage-panel5.gif"
+          this.$refs.gif2.src=this.resolvePath("/images/temp/homepage-panel5.gif")
         }
       });
     }
@@ -1282,8 +1282,8 @@ export default {
 
 .c-main-container {
   text-align: center;
-  // background: url('/groupincome.org/images/temp/homepage-panel1.jpg') no-repeat center #fff;
-  background: url('/groupincome.org/images/faces/shapes.png') no-repeat center #fff;
+  // background: url('/images/temp/homepage-panel1.jpg') no-repeat center #fff;
+  background: url('/images/faces/shapes.png') no-repeat center #fff;
   background-size: 100% auto;
   flex-direction: row;
   align-items: center;
@@ -1329,7 +1329,7 @@ export default {
   @include desktop {
     padding-bottom: 0;
     margin-bottom: 0;
-    background: url('/groupincome.org/images/swoosh-dark-blue.svg') no-repeat center #fff;
+    background: url('/images/swoosh-dark-blue.svg') no-repeat center #fff;
     background-size: cover;
     background-size: 100% 100%;
   }
@@ -1366,7 +1366,7 @@ export default {
 }
 
 .c-phone-wrapper {
-  // background: url('/groupincome.org/images/phone.svg') no-repeat center;
+  // background: url('/images/phone.svg') no-repeat center;
   // background-size: contain;
   display: flex;
   justify-content: center;

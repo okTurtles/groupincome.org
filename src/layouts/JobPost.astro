@@ -2,6 +2,7 @@
 import Layout from './DefaultLayout.astro';
 import Sides from '../components/graphics/Sides.vue';
 import { sortedPosts } from '@/utils/sort'
+import { resolvePath } from '@/utils/helpers.js'
 
 const jobs =  sortedPosts(await Astro.glob('../jobs/*.{md,mdx}'));
 
@@ -29,7 +30,7 @@ const currentPath = path[path.length - 2];
       <h2 class="is-title-2 c-container-title">Open Positions</h2>
       <div class="c-job-links">
         {jobs.map((job) => (
-          <a href={"/groupincome.org/hiring"+job.frontmatter.permalink} class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}>
+          <a href={resolvePath("/hiring"+job.frontmatter.permalink)} class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}>
             {job.frontmatter.title}
             <span>{job.frontmatter.type}</span>
           </a>

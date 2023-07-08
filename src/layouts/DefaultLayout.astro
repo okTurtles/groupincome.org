@@ -14,16 +14,16 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead client:load title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
 		<PageWrapper>
 			<AppStyles/>
-			<Header/>
+			<Header client:load />
 			<main id="swup">
 				<slot />
 			</main>
-			<Footer />
+			<Footer client:load />
 		</PageWrapper>
 	</body>
 </html>

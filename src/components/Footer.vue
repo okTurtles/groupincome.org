@@ -1,7 +1,7 @@
 <template>
 <footer class="c-footer">
     <div class="c-top">
-        <div class="c-wrapper"><img class="c-logo-img" src="/groupincome.org/images/group-income-icon-transparent.png" />
+        <div class="c-wrapper"><img class="c-logo-img" v-src="'/images/group-income-icon-transparent.png'" />
             <form class="c-form">
                 <h4 class="is-title-6">STAY UP TO DATE</h4>
                 <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
@@ -11,16 +11,16 @@
         <div class="c-links">
             <div class="c-links-group">
                 <h4 class="is-title-6">GROUPINCOME</h4>
-                <a href="/groupincome.org/">Home</a>
-                <a href="/groupincome.org/about-us">About us</a>
-                <a href="/groupincome.org/articles">Blog</a>
-                <a href="/groupincome.org/faq">FAQ</a>
+                <a v-href="'/'">Home</a>
+                <a v-href="'/about-us'">About us</a>
+                <a v-href="'/articles'">Blog</a>
+                <a v-href="'/faq'">FAQ</a>
             </div>
             <div class="c-links-group">
                 <h4 class="is-title-6">CONTRIBUTE</h4>
-                <a href="/groupincome.org/volunteer">Volunteer</a>
-                <a href="/groupincome.org/join-our-team">Join our team</a>
-                <a href="/groupincome.org/sponsor">Sponsor</a>
+                <a v-href="'/volunteer'">Volunteer</a>
+                <a v-href="'/join-our-team'">Join our team</a>
+                <a v-href="'/sponsor'">Sponsor</a>
             </div>
             <div class="c-links-group">
                 <h4 class="is-title-6">SOCIAL</h4><a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
@@ -32,8 +32,8 @@
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <a href="/groupincome.org/terms-and-conditions">Term & Conditons</a>
-            <a href="/groupincome.org/privacy-policy">Privacy Policy</a>
+            <a v-href="'/terms-and-conditions'">Term & Conditons</a>
+            <a v-href="'/privacy-policy'">Privacy Policy</a>
         </div>
         <p class="copyright">Copyright © 2015-2021 okTurtles Foundation</p>
     </div>

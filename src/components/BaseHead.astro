@@ -1,5 +1,6 @@
 ---
 import '../styles/main.scss';
+import { resolvePath } from '@/utils/helpers.js'
 
 export interface Props {
 	title: string;
@@ -7,13 +8,13 @@ export interface Props {
 	image?: string;
 }
 
-const { title, description, image = '/groupincome.org/placeholder-social.jpg' } = Astro.props;
+const { title, description, image = resolvePath('/placeholder-social.jpg') } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/groupincome.org/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href={resolvePath("/favicon.svg")} />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Primary Meta Tags -->

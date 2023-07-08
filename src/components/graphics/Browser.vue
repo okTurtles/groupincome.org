@@ -163,7 +163,7 @@
       </linearGradient>
     </defs>
   </svg>
-  <div v-for="i in 6" :key="i" :class="{active: i === activeStep+1}"><img :src="`/groupincome.org/images/create-group/${steps[activeStep].image}.jpg`"/></div>
+  <div v-for="i in 6" :key="i" :class="{active: i === activeStep+1}"><img v-src="`/images/create-group/${steps[activeStep].image}.jpg`"/></div>
 </div>
 </template>
 

@@ -33,7 +33,10 @@ export default defineConfig({
   site: 'https://okturtles.github.io',
   base: '/groupincome.org',
   // integrations: [mdx(), sitemap(), vue()],
-  integrations: [sitemap(), vue()],
+  integrations: [
+    sitemap(),
+    vue({ appEntrypoint: '/src/_app' })
+  ],
   markdown: {
     remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, 'remark-math'],
     rehypePlugins: [['rehype-katex', {
