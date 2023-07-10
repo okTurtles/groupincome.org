@@ -1,8 +1,7 @@
 'use strict'
 
 export function resolvePath (relPath) {
-  // used to resolve any assets or page index file paths with the baseUrl configured in
-  // 'base' option in astro.config.mjs
+  // used to resolve any assets or page index file paths with the baseUrl configured by 'base' option in astro.config.mjs
   // (reference: https://docs.astro.build/en/reference/configuration-reference/#base)
 
   relPath = relPath.startsWith('/') ? relPath.slice(1) : relPath
