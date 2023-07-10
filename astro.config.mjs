@@ -27,11 +27,12 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
   }
 }];
 
+const { IS_PROD_BUILD } = process.env
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://okturtles.github.io',
-  base: '/groupincome.org',
+  site: IS_PROD_BUILD === 'true' ? "https://our_prod_website_url.org" : 'https://okturtles.github.io',
+  base: IS_PROD_BUILD === 'true' ? "/" : '/groupincome.org',
   // integrations: [mdx(), sitemap(), vue()],
   integrations: [
     sitemap(),
