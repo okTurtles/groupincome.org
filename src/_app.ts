@@ -2,7 +2,6 @@ import type { App } from 'vue'
 import { resolvePath } from '@/utils/helpers.js'
 
 const updateAttr = (attrName, el, relPath) => {
-  console.log('el, attrName, val: ', el, attrName, relPath)
   el.setAttribute(attrName, resolvePath(relPath))
 }
 

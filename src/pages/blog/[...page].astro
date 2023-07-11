@@ -21,7 +21,7 @@ const { data, lastPage, url } = page
 	<section class="blog-wrapper" v-if="posts">
 		{data.map((article) => (
 			<article class="c-article">
-				<a href={"/groupincome.org"+article.frontmatter.permalink}>
+				<a href={resolvePath(article.frontmatter.permalink)}>
 					<img class="c-article-image" src={resolvePath(article.frontmatter.image) || resolvePath('/images/' + article.frontmatter.permalink + '.jpeg')}/>
 					<h2 class="c-blog-title">{article.frontmatter.title}</h2>
 					<p>{article.frontmatter.description || 'TODO'}</p>

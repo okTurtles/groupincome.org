@@ -13,7 +13,7 @@
                 <h4 class="is-title-6">GROUPINCOME</h4>
                 <a v-href="'/'">Home</a>
                 <a v-href="'/about-us'">About us</a>
-                <a v-href="'/articles'">Blog</a>
+                <a v-href="'/blog'">Blog</a>
                 <a v-href="'/faq'">FAQ</a>
             </div>
             <div class="c-links-group">
