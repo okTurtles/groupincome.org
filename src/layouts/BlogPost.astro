@@ -1,5 +1,6 @@
 ---
 import Layout from './DefaultLayout.astro';
+import { resolvePath } from '@/utils/helpers.js'
 export interface Props {
 	content: {
 		title: string;
@@ -16,7 +17,7 @@ export interface Props {
 const {
 	content: { title, author, description, date, image, url },
 } = Astro.props;
-
+const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 ---
 
 <Layout>
@@ -27,7 +28,7 @@ const {
 				<h1 class="is-title-1 c-main-title">{title}</h1>
 				<p class="c-main-para">{author} • { date }</p>
 			</div>
-			<img class="c-header-image" src={"/groupincome.org/" + image || '/groupincome.org//images/' + url + '.jpeg'}/>
+			<img class="c-header-image" src={imgSrc}/>
 		</div>
 	</section>
 

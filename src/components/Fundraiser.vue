@@ -10,7 +10,7 @@
         <p class="progress-label">${{ current }} ({{ pourcent }})</p>
       </div>
     </div>
-    <a href="/groupincome.org/sponsor" class="button">Donate now</a>
+    <a :href="resolvePath('/sponsor')" class="button">Donate now</a>
   </div>
 </div>
 </template>
@@ -18,6 +18,7 @@
 <script setup>
 import { isFundraiserOpen } from '../store.js';
 import { useStore } from '@nanostores/vue';
+import { resolvePath } from '@/utils/helpers.js'
 
 const $isFundraiserOpen = useStore(isFundraiserOpen);
 

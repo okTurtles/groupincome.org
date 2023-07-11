@@ -3,9 +3,9 @@
   <Fundraiser></Fundraiser>
   <div class="c-header-wrapper">
     <div class="c-wrapper" @click="isNavigationOpen.set(true)" role="banner">
-      <a class="c-logo" href="/groupincome.org/">
+      <a class="c-logo" v-href="'/'">
         <span class="is-hidden">Group Income</span>
-        <img class="c-logo-img" src="/groupincome.org/images/logo-transparent.svg" />
+        <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>
       <Navigation></Navigation>
     </div>

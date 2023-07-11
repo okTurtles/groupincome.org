@@ -27,13 +27,19 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
   }
 }];
 
+const { IS_PROD_BUILD } = process.env
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://okturtles.github.io',
-  base: '/groupincome.org',
+  site: IS_PROD_BUILD === 'true'
+    ? "https://our_prod_website_url.org" // !!NOTE!!: when the time comes and we deploy this project to our own website, replace this with the correct URL.
+    : 'https://okturtles.github.io',
+  base: IS_PROD_BUILD === 'true' ? "/" : '/groupincome.org',
   // integrations: [mdx(), sitemap(), vue()],
-  integrations: [sitemap(), vue()],
+  integrations: [
+    sitemap(),
+    vue({ appEntrypoint: '/src/_app' })
+  ],
   markdown: {
     remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, 'remark-math'],
     rehypePlugins: [['rehype-katex', {

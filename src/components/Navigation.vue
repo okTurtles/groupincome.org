@@ -1,14 +1,14 @@
 <template>
   <nav class="c-navbar" role="navigation" aria-label="main navigation" @click="isNavigationOpen.set(false)">
     <div class="c-navbar-main">
-      <a class="c-navbar-item" href="/groupincome.org/" data-test="homeLink">Home</a>
-      <a class="c-navbar-item" href="/groupincome.org/about-us" data-test="aboutUsLink">About us</a>
-      <a class="c-navbar-item" href="/groupincome.org/blog" data-test="blogLink">Blog</a>
-      <a class="c-navbar-item" href="/groupincome.org/faq" data-test="faqsLink">FAQS</a>
-      <a class="c-navbar-item" href="/groupincome.org/hiring" data-test="hiringLink">Hiring</a>
-      <!-- <a class="c-navbar-item" href="/hiring" data-test="hiringLink">Volunter</a> -->
-      <a class="c-navbar-item" href="/groupincome.org/sponsor" data-test="donateLink">Sponsor</a>
-      <a class="c-navbar-item button is-primary" href="/groupincome.org/get-started">Get started</a>
+      <a class="c-navbar-item" v-href="'/'" data-test="homeLink">Home</a>
+      <a class="c-navbar-item" v-href="'/about-us'" data-test="aboutUsLink">About us</a>
+      <a class="c-navbar-item" v-href="'/blog'" data-test="blogLink">Blog</a>
+      <a class="c-navbar-item" v-href="'/faq'" data-test="faqsLink">FAQS</a>
+      <a class="c-navbar-item" v-href="'/hiring'" data-test="hiringLink">Hiring</a>
+      <!-- <a class="c-navbar-item" v-href="'/hiring'" data-test="hiringLink">Volunter</a> -->
+      <a class="c-navbar-item" v-href="'/sponsor'" data-test="donateLink">Sponsor</a>
+      <a class="c-navbar-item button is-primary" v-href="'/get-started'">Get started</a>
     </div>
   </nav>
 </template>
