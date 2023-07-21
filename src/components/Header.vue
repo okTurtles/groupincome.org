@@ -2,7 +2,7 @@
 <header class="c-header">
   <Fundraiser></Fundraiser>
   <div class="c-header-wrapper">
-    <div class="c-wrapper" @click="isNavigationOpen.set(true)" role="banner">
+    <div class="c-wrapper" role="banner">
       <a class="c-logo" v-href="'/'">
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
@@ -15,8 +15,6 @@
 </template>
 
 <script setup>
-import { isNavigationOpen } from '../store.js';
-import Fundraiser from './Fundraiser.vue';
 import Navigation from './Navigation.vue'
 import Hamburger from './Hamburger.vue'
 </script>

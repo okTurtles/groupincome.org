@@ -1,9 +1,11 @@
 <template>
-  <button class="c-hamburger hide-desktop" @click="isNavigationOpen.set(!$isNavigationOpen)">Toggle menu</button>
+  <button class="c-hamburger hide-desktop"
+    :class="{ 'is-nav-open': $isNavigationOpen }"
+    @click="toggleNavigation">Toggle menu</button>
 </template>
 
 <script setup>
-import { isNavigationOpen } from '../store.js';
+import { isNavigationOpen, toggleNavigation } from '../store.js';
 import { useStore } from '@nanostores/vue';
 
 const $isNavigationOpen = useStore(isNavigationOpen);
