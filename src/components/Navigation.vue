@@ -6,6 +6,10 @@
     <div class="c-navbar-backdrop hide-desktop" @click="closeNavigation"></div>
 
     <div class="c-navbar-main">
+      <button class="c-navbar-close-btn hide-desktop"
+        :class="{ 'is-nav-open': $isNavigationOpen }"
+        @click="closeNavigation">Close Navigation Menu</button>
+
       <a v-for="entry in menuList"
         :key="entry.id"
         :data-test="entry.id"
@@ -79,7 +83,6 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
     background-color: rgba(237,237, 237, 0.425);
   }
 }
-
 .c-navbar-main {
   display: flex;
   flex-direction: row;
@@ -112,6 +115,10 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
       transform: translateX(0%);
     }
   }
+
+  @include phone {
+    width: 100%;
+  }
 }
 
 .c-navbar-item {
@@ -141,6 +148,51 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
       background-color: $general_2;
       border-color: $general_1;
     }
+  }
+}
+
+.c-navbar-close-btn {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  min-height: unset;
+  cursor: pointer;
+  right: 1rem;
+  top: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid $general_0;
+
+  &:hover,
+  &:focus {
+    border-color: $text_1;
+  }
+
+  // accessibility
+  overflow: hidden;
+  text-indent: -9999px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 1.25rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    background-color: $text_1;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 }
 

@@ -7,7 +7,7 @@
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>
-      <Navigation></Navigation>
+      <Navigation client:load></Navigation>
     </div>
     <Hamburger></Hamburger>
   </div>
@@ -16,6 +16,7 @@
 
 <script setup>
 import Navigation from './Navigation.vue'
+import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
 </script>
 
