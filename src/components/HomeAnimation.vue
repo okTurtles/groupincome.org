@@ -162,6 +162,7 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 export default {
   mixins: [GSAP],
