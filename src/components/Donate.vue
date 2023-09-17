@@ -1,8 +1,12 @@
 <template>
   <ul>
-    <li class="c-crypto-item" v-for="crypto in cryptos" @click="copyToClipBoard(crypto.id)" :key="crypto.id">
+    <li class="c-crypto-item" v-for="(crypto, index) in cryptos" @click="copyToClipBoard(crypto.id, index)" :key="crypto.id">
       <label class="c-crypto-label">{{crypto.name}} ({{crypto.abreviation}})</label>
-      <div class="c-crypto-field">{{crypto.id}}</div>
+      <div class="c-crypto-field">
+        <span>{{crypto.id}}</span>
+
+        <div class="c-copied-feedback" :class="{ 'is-active': copied.id === crypto.id && copied.index === index }">Copied to clipboard!</div>
+      </div>
     </li>
   </ul>
 </template>
@@ -38,13 +42,21 @@ export default {
           abreviation: 'ZEC',
           id: 't1bMQVWoLt65uc9tRQn3eirQMPzAh8SDcfS'
         }
-      ]
+      ],
+      copied: {}
     }
   },
 
   methods: {
-    copyToClipBoard (value) {
+    copyToClipBoard (value, index) {
       navigator.clipboard.writeText(value)
+
+      clearTimeout(this.timeoutId)
+      this.copied = { id: value, index }
+
+      this.timeoutId = setTimeout(() => {
+        this.copied = {}
+      }, 1600)
     }
   }
 }
@@ -55,6 +67,7 @@ export default {
 @import "../styles/_mixins";
 
 .c-crypto-item {
+  position: relative;
   display: flex;
   height: 2.5rem;
   justify-content: space-between;
@@ -86,7 +99,6 @@ $bg: #eceef0;
   align-items: center;
   position: relative;
   background: $bg;
-  overflow: hidden;
   border: 1px solid #D0DEEA;
   border-radius: 0.5rem;
   height: 100%;
@@ -119,4 +131,29 @@ $bg: #eceef0;
   }
 }
 
+.c-copied-feedback {
+  position: absolute;
+  display: block;
+  width: max-content;
+  height: auto;
+  padding: 0.5rem;
+  top: -0.5rem;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  border-radius: 0.5rem;
+  background-color: #3B405C;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  pointer-events: none;
+  opacity: 0;
+
+  &.is-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+  }
+
+  @include phone {
+    font-size: 0.8em;
+  }
+}
 </style>
