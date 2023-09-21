@@ -15,7 +15,10 @@
         :data-test="entry.id"
         v-href="entry.path"
         @click="closeNavigation"
-        class="c-navbar-item">{{ entry.name }}</a>
+        class="c-navbar-item">
+        <span>{{ entry.name }}</span>
+        <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
+      </a>
 
       <a class="c-get-started-btn button is-primary" v-href="'/get-started'" @click="closeNavigation">Get started</a>
     </div>
@@ -33,7 +36,7 @@ const menuList = [
   { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
   { name: 'Blog', id: 'blogLink', path: '/blog' },
   { name: 'FAQS', id: 'blogLink', path: '/faq' },
-  { name: 'Hiring', id: 'hiringLink', path: '/hiring' },
+  { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
   { name: 'Sponsor', id: 'donateLink', path: '/sponsor' }
 ]
 </script>
@@ -122,6 +125,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
 }
 
 .c-navbar-item {
+  position: relative;
   display: inline-block;
   white-space: nowrap;
   text-decoration: none;
@@ -129,6 +133,23 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
+
+  .c-badge {
+    $badge-side: 16px;
+
+    position: relative;
+    display: inline-block;
+    width: $badge-side;
+    height: $badge-side;
+    font-size: 10px;
+    line-height: $badge-side;
+    text-align: center;
+    border-radius: $badge-side;
+    background-color: $primary_0;
+    color: #fff;
+    transform: translateY(-3px);
+    margin-left: 2px;
+  }
 
   @include desktop {
     &:first-child {
