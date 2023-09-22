@@ -12,8 +12,8 @@ const currentPath = path[path.length - 2];
 ---
 <Layout>
 <div class="c-wrapper">
-  <Sides color="#5DC9F1" styles="top: 40rem; right: 0; transform: rotate(-180deg)"></Sides>
-  <Sides color="#F89202" styles="top: 120rem"></Sides>
+  <Sides color="#5DC9F1" :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"></Sides>
+  <Sides color="#F89202" :styles="{ top: 120rem }"></Sides>
 
   <section class="container grey-container">
     <div class="is-posttitle">
