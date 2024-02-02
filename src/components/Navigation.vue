@@ -28,7 +28,6 @@
 <script setup>
 import { isNavigationOpen, closeNavigation } from '../store.js';
 import { useStore } from '@nanostores/vue';
-import { resolvePath } from '@/utils/helpers.js'
 
 const $isNavigationOpen = useStore(isNavigationOpen);
 const menuList = [

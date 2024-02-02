@@ -157,6 +157,7 @@
 </template>
 
 <script>
+import { resolvePath } from '@/utils/helpers.js'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
@@ -551,7 +552,7 @@ export default {
         endTrigger: "#container5",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif.src=this.resolvePath("/images/temp/homepage-panel3.gif")
+          this.$refs.gif.src= resolvePath("/images/temp/homepage-panel3.gif")
         }
       });
 
@@ -561,7 +562,7 @@ export default {
         endTrigger: "#contribute",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif2.src=this.resolvePath("/images/temp/homepage-panel5.gif")
+          this.$refs.gif2.src= resolvePath("/images/temp/homepage-panel5.gif")
         }
       });
     }
