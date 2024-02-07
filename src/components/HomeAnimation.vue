@@ -157,7 +157,7 @@
 </template>
 
 <script>
-import { resolvePath } from '@/utils/helpers.js'
+import { resolvePath, debounceSimple } from '@/utils/helpers.js'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
@@ -176,6 +176,9 @@ export default {
 
   data() {
     return {
+      config: {
+        resizeHandler: debounceSimple(this.reset, 50)
+      },
       name: {
         1: 'Jess',
         3: 'Matt',
@@ -225,9 +228,12 @@ export default {
         }
       }, 500)
     }
-    setTimeout(() => {
-      window.addEventListener('resize', this.reset);
-    }, 1000)
+
+    window.addEventListener('resize', this.config.resizeHandler);
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.config.resizeHandler);
   },
 
   methods: {
