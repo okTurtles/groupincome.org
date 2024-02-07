@@ -1,12 +1,13 @@
 <template>
   <ul>
-    <li class="c-crypto-item" v-for="(crypto, index) in cryptos" @click="copyToClipBoard(crypto.id, index)" :key="crypto.id">
+    <li class="c-crypto-item" v-for="crypto in cryptos" @click="copyToClipBoard(crypto.id)" :key="crypto.id">
       <label class="c-crypto-label">{{crypto.name}} ({{crypto.abreviation}})</label>
-      <div class="c-crypto-field">
-        <span>{{crypto.id}}</span>
 
-        <div class="c-copied-feedback" :class="{ 'is-active': copied.id === crypto.id && copied.index === index }">Copied to clipboard!</div>
+      <div class="c-crypto-field">
+        <span class="c-address-text">{{crypto.id}}</span>
       </div>
+
+      <div class="c-copied-feedback" :class="{ 'is-active': copied === crypto.id }">Copied to clipboard!</div>
     </li>
   </ul>
 </template>
@@ -28,34 +29,34 @@ export default {
         }, {
           name: 'Etherium',
           abreviation: 'ETH',
-          id: 'bc1qs4l0y8x6z5nqfm240jadxwps5epvsshy6uaw8h'
+          id: '0x62992467ecd54d45fe5a028b4ccd082486ccc9a8'
         }, {
           name: 'Litecoin',
           abreviation: 'LTC',
-          id: 'LXE6qeUw6f9eALb31X31S6TheTNZ6XkduT'
+          id: 'LSsNWEcXUMrx5pZcMJBfywMmHT4UJBDHqD'
         }, {
           name: 'Monero',
           abreviation: 'XMR',
-          id: 'LXE6qeUw6f9eALb31X31S6TheTNZ6XkduT'
+          id: '899WAZkTAHv71bxeVu3coHcyCynEpbKWvhSfAxpRu41qXCfrMPz9cae7jzMS7mVAFb63mVxCm64NdVSFZ7Aey1nvE1Dgb7E'
         }, {
           name: 'Zcash',
           abreviation: 'ZEC',
-          id: 't1bMQVWoLt65uc9tRQn3eirQMPzAh8SDcfS'
+          id: 't1Vk6YJK4g7YYPPD8ENMoHBeNDqoQ67mCHx'
         }
       ],
-      copied: {}
+      copied: ''
     }
   },
 
   methods: {
-    copyToClipBoard (value, index) {
+    copyToClipBoard (value) {
       navigator.clipboard.writeText(value)
 
       clearTimeout(this.timeoutId)
-      this.copied = { id: value, index }
+      this.copied = value
 
       this.timeoutId = setTimeout(() => {
-        this.copied = {}
+        this.copied = ''
       }, 1600)
     }
   }
@@ -68,15 +69,23 @@ export default {
 
 .c-crypto-item {
   position: relative;
-  display: flex;
-  height: 2.5rem;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto 1fr;
+  height: auto;
   align-items: center;
   margin-bottom: 1rem;
+  width: 100%;
+  max-width: 100%;
 
   @include phone {
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+  }
+
+  @include desktop {
+    max-width: 31.25rem;
   }
 }
 
@@ -95,17 +104,17 @@ export default {
 $bg: #eceef0;
 .c-crypto-field {
   display: flex;
-  flex-grow: 1;
   align-items: center;
   position: relative;
   background: $bg;
   border: 1px solid #D0DEEA;
   border-radius: 0.5rem;
-  height: 100%;
+  height: 2.5rem;
   padding: 0 .5rem;
   font-family: Lato;
   letter-spacing: -0.3px;
   color: #363636;
+  overflow-x: hidden;
 
   &::before,
   &::after {
@@ -137,15 +146,16 @@ $bg: #eceef0;
   width: max-content;
   height: auto;
   padding: 0.5rem;
-  top: -0.5rem;
+  bottom: -0.5rem;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, 100%);
   border-radius: 0.5rem;
   background-color: #3B405C;
   color: #FFFFFF;
   font-size: 0.9em;
   pointer-events: none;
   opacity: 0;
+  z-index: 2;
 
   &.is-active {
     opacity: 1;
