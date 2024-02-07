@@ -552,7 +552,7 @@ export default {
         endTrigger: "#container5",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif.src= resolvePath("/images/temp/homepage-panel3.gif")
+          this.$refs.gif.src = resolvePath("/images/temp/homepage-panel3.gif")
         }
       });
 
@@ -562,7 +562,7 @@ export default {
         endTrigger: "#contribute",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif2.src= resolvePath("/images/temp/homepage-panel5.gif")
+          this.$refs.gif2.src = resolvePath("/images/temp/homepage-panel5.gif")
         }
       });
     }
