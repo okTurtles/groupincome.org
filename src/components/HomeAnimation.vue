@@ -238,6 +238,11 @@ export default {
 
   methods: {
     reset () {
+      // before performing browser reload, snap everything back to the initial scroll condition.
+      // so that the following execution of this.animateOnScroll() in mounted() hook can set up this animations properly. 
+      document.body.classList.add('is-resetting')
+      window.scrollTo({ top: 0, behavior: 'instant' })
+
       location.reload()
     },
     scrollTo(el) {
@@ -1131,6 +1136,13 @@ export default {
 
   @include phone {
     transform: scale(.5);
+  }
+}
+
+.is-resetting {
+  .c-face::after,
+  .c-face::before {
+    opacity: 0;
   }
 }
 
