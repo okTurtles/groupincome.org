@@ -163,6 +163,7 @@ import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import { resolvePath } from '@/utils/helpers.js'
 
 export default {
   mixins: [GSAP],
@@ -304,13 +305,6 @@ export default {
       }
     },
     animateOnScroll() {
-      this.gsap.to('.parallax-bg', {
-        scrollTrigger: {
-          scrub: true
-        },
-        y: (i, target) => -2000, ease: 'none'
-      })
-
       // Header 1 animation
       this.gsap.to('#header1 *', {
         opacity: 0,
@@ -488,22 +482,10 @@ export default {
         }
       })
 
-      // this.gsap.set('.c-container-header *', {
-      //   opacity: 0,
-      //   y: '+=30'
-      // })
-
       // Headers animation
       const titles = ['#header3', '#header4', '#header5']
       let pourcent = 0
       titles.forEach((title, i) => {
-        // const trigger = {
-        //   trigger: '#freeze-wrapper',
-        //   start: `${pourcent}% top`,
-        //   end: '+=20%',
-        //   stagger: 1,
-        //   scrub: true
-        // }
 
         this.gsap.from('#freeze-wrapper', {
           scrollTrigger: {
@@ -518,28 +500,6 @@ export default {
           }
         })
 
-        // this.gsap.to(`${title} *`, {
-        //   opacity: 1,
-        //   y: '0',
-        //   ease: 'Power1.easeInOut',
-        //   scrollTrigger: trigger
-        // })
-
-        // pourcent += 80
-
-        // trigger.start = `${pourcent}% top`
-
-        // if (title !== '#header5') {
-        //   this.gsap.to(`${title} *`, {
-        //     immediateRender: false,
-        //     opacity: 0,
-        //     y: '-30px',
-        //     ease: 'Power1.easeInOut',
-        //     scrollTrigger: trigger
-        //   })
-        // }
-
-        // pourcent += 20
         pourcent += 100
       })
       this.tl = tl
@@ -551,7 +511,7 @@ export default {
         endTrigger: "#container5",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif.src=this.resolvePath("/images/temp/homepage-panel3.gif")
+          this.$refs.gif.src = resolvePath("/images/temp/homepage-panel3.gif")
         }
       });
 
@@ -561,7 +521,7 @@ export default {
         endTrigger: "#contribute",
         // end: "bottom",
         onToggle: self => {
-          this.$refs.gif2.src=this.resolvePath("/images/temp/homepage-panel5.gif")
+          this.$refs.gif2.src = resolvePath("/images/temp/homepage-panel5.gif")
         }
       });
     }

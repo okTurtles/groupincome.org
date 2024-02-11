@@ -1,13 +1,11 @@
 <template>
-<svg class="parallax-bg"
-     width="82" 
-     height="563"
-     viewbox="0 0 82 563"
-     fill="none"
-     xmlns="http://www.w3.org/2000/svg"
-     preserveAspectRatio="xMaxYMin slice"
-     :style="styles"
->
+<svg width="82" 
+  height="563"
+  viewbox="0 0 82 563"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  preserveAspectRatio="xMaxYMin slice"
+  :style="styles">
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"
