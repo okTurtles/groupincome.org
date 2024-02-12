@@ -12,15 +12,6 @@
       <div class="c-faces" ref="faces">
         <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
           <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
-          <span class="c-name" v-if="name[i]">{{ name[i] }}</span>
-          <div class="c-pledge-card" v-if="contribution[i]"
-              :style="{'box-shadow': `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image"
-              v-src="`/images/faces/${i}.jpg`" />
-            <div class="c-pledge-content">
-              <div class="c-pledge-name">{{ name[i] }} Pledge</div>
-              <div class="c-pledge-price">{{ contribution[i] }}</div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -39,14 +30,8 @@
       </section>
 
       <section class="container span-container c-container" id="container2">
-        <div class="span-2" id="circle-graph"><img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'"
-            ref="panel1Circle" /><img class="c-graph-circle" v-src="'/images/temp/graph-circle.jpg'" /><svg
-            id="circle-graph-circle" :height="panel1CirclePos.width" :width="panel1CirclePos.width">
-            <circle class="circleGraphCircle" id="circleGraphCircle" :cx="`${panel1CirclePos.middle}`"
-              :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.middle" stroke="D0DEEA" stroke-width="1.5"></circle>
-            <circle class="circleGraphCircle" :cx="`${panel1CirclePos.middle}`" :cy="`${panel1CirclePos.middle}`"
-              :r="panel1CirclePos.width / 4" stroke="D0DEEA" stroke-width="1.5"></circle>
-          </svg>
+        <div class="span-2" id="circle-graph">
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'" ref="panel1Circle" />
         </div>
 
         <div class="span-2" id="header2">
@@ -211,29 +196,14 @@ export default {
   },
 
   mounted() {
-    if (window.innerWidth >= '1200') {
-      setTimeout(() => {
-        if (this.tl === null) {
-          this.initAnimation()
-          this.animateOnScroll()
-        }
-      }, 500)
-    } else {
-      setTimeout(() => {
-        if (this.tl === null) {
-          this.animateOnScrollMobile()
-        }
-      }, 500)
-    }
     setTimeout(() => {
-      window.addEventListener('resize', this.reset);
-    }, 1000)
+      if (this.tl === null) {
+        this.animateOnScrollMobile()
+      }
+    }, 500)
   },
 
   methods: {
-    reset () {
-      location.reload()
-    },
     scrollTo(el) {
       this.gsap.to(window, {
         duration: 0.5,
@@ -244,267 +214,7 @@ export default {
       })
     },
 
-    getPos(name) {
-      const { top, left, width, height } = this.$refs[name].getBoundingClientRect()
-      return { top, left, width, height }
-    },
-
-    initAnimation() {
-      // Get top and left offset
-      const toptop = this.getPos('wrapper').top
-      const wrapperLeft = this.getPos('faces').left
-
-      // Get first panel positions
-      let { top, left, width, height } = this.getPos('panel1Circle')
-      // Factor just make the size smaller compare to original graph
-      const factor = 0.77
-      width = width * factor
-      height = height * factor
-
-      // Remove offset wrapper
-      left -= wrapperLeft
-      // Remove offset menu
-      top -= toptop
-
-      // Save position to create circles
-      this.panel1CirclePos = { top, left, width, height, middle: width / 2 }
-      let r = width / 2
-      const middleX = left + r
-      const middleY = top + r
-
-      for (let i = 0; i < 5; i++) {
-        const angle = 5 / 4
-        const position = {
-          left: r * Math.cos(i * angle) + middleX,
-          top: r * Math.sin(i * angle) + middleY,
-          left2: r * Math.cos((i - angle) * angle) + middleX,
-          top2: r * Math.sin((i - angle) * angle) + middleY
-        }
-        this.positions.push(position)
-      }
-
-      r = width / 4
-      for (let i = 0; i < 2; i++) {
-        const angle = 3
-        const position = {
-          left: r * Math.cos(i * angle) + middleX,
-          top: r * Math.sin(i * angle) + middleY,
-          left2: r * Math.cos((i - angle) * angle) + middleX,
-          top2: r * Math.sin((i - angle) * angle) + middleY
-        }
-        this.positions2.push(position)
-      }
-
-      const graph1 = this.getPos('graph1')
-
-      for (let i = 0; i < 5; i++) {
-        this.positions[i].top3 = graph1.top
-        this.positions[i].left3 = graph1.left
-        this.positions[i].top4 = graph1.top + graph1.height - toptop - 52
-        this.positions[i].left4 = i * graph1.width / 5 - wrapperLeft + graph1.left + 100
-      }
-    },
-    animateOnScroll() {
-      // Header 1 animation
-      this.gsap.to('#header1 *', {
-        opacity: 0,
-        y: '-30px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: {
-          trigger: '.main-wrapper',
-          stagger: 1,
-          pin: true,
-          start: '0',
-          end: '+=100',
-          scrub: true
-        }
-      })
-
-      // Header 2 animation
-      this.gsap.from('#header2 *', {
-        opacity: 0,
-        y: '+30px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: {
-          trigger: '#container2',
-          stagger: 1,
-          start: '-150%',
-          end: '0',
-          scrub: true
-        }
-      })
-
-      // Circles animations
-      this.gsap.from('.circleGraphCircle', {
-        opacity: '0',
-        'stroke-dashoffset': '-400px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: {
-          trigger: '#container2',
-          stagger: 1,
-          start: '-500',
-          end: '0',
-          scrub: true
-        }
-      })
-
-      let faces = ['#face-1', '#face-4', '#face-8', '#face-3', '#face-6']
-      const tl = this.gsap.timeline()
-      faces.forEach((face, i) => {
-        // Faces animation from hero page to panel 1
-        tl.to(face, {
-          ease: 'Power1.easeInOut',
-          motionPath: {
-            path: [{
-              left: this.positions[i].left,
-              top: this.panel1CirclePos.top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions[i].left,
-              top: this.positions[i].top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions[i].left2,
-              top: this.positions[i].top2,
-              scale: 1
-            }],
-            curviness: 1.2,
-            alignOrigin: [0.5, 0.5]
-          },
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            start: '0%',
-            end: '9%',
-            scrub: true
-          }
-        })
-
-        // Faces animation from panel 1 page to panel 2
-        tl.fromTo(face, {
-          left: this.positions[i].left2,
-          top: this.positions[i].top2,
-          scale: 1
-        }, {
-          immediateRender: false,
-          ease: 'Power1.easeInOut',
-          motionPath: {
-            path: [{
-              left: this.positions[i].left3,
-              top: this.positions[i].top3
-              // scale: 0.3
-            }, {
-              left: this.positions[i].left4,
-              top: this.positions[i].top4
-              // scale: 0.5
-            }],
-            curviness: 1.2
-          },
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            start: '18%',
-            end: '30%',
-            scrub: true
-          }
-        })
-
-        tl.to(face + ' img', {
-          immediateRender: false,
-          ease: 'Power1.easeInOut',
-          width: 50,
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            start: '18%',
-            end: '30%',
-            scrub: true
-          }
-        })
-      })
-
-      faces = ['#face-5', '#face-7']
-      faces.forEach((face, i) => {
-        this.gsap.to(face, {
-          ease: 'Power1.easeInOut',
-          motionPath: {
-            path: [{
-              left: this.positions2[i].left,
-              top: this.panel1CirclePos.top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions2[i].left,
-              top: this.positions2[i].top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions2[i].left2,
-              top: this.positions2[i].top2,
-              scale: 1
-            }],
-            curviness: 1.2,
-            alignOrigin: [0.5, 0.5]
-          },
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            stagger: 1,
-            start: '0%',
-            end: '8%',
-            scrub: true
-          }
-        })
-      })
-
-      faces = ['#face-2']
-      this.gsap.to(faces, {
-        ease: 'Power1.easeInOut',
-        motionPath: {
-          path: [{
-            left: this.positions2[1].left,
-            top: this.panel1CirclePos.top,
-            scale: 0
-          }],
-          curviness: 1.2,
-          alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-          trigger: '.main-wrapper',
-          stagger: 1,
-          start: '0%',
-          end: '8%',
-          scrub: true
-        }
-      })
-
-      tl.to('#freeze-wrapper', {
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.main-wrapper',
-          pin: true,
-          start: '25%',
-          end: '70%'
-        }
-      })
-
-      // Headers animation
-      const titles = ['#header3', '#header4', '#header5']
-      let pourcent = 0
-      titles.forEach((title, i) => {
-
-        this.gsap.from('#freeze-wrapper', {
-          scrollTrigger: {
-            trigger: '#freeze-wrapper',
-            start: `${pourcent + 20}% top`,
-            end: '+=400%',
-            scrub: true,
-            toggleClass: {
-              targets: this.$refs.wrapper,
-              className: `graph-stage-${i}`
-            }
-          }
-        })
-
-        pourcent += 100
-      })
-      this.tl = tl
-    },
-    animateOnScrollMobile() {
+    animateOnScrollMobile () {
       ScrollTrigger.create({
         trigger: "#container4",
         // start: "top top",
@@ -532,16 +242,6 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/_variables";
 
-@include desktop {
-
-  #circle-graph .c-container-image,
-  #container3 .c-container-image,
-  #container4 .c-container-image,
-  #container5 .c-container-image {
-    opacity: 0;
-  }
-}
-
 // Rpevent rendering glitch
 .right-side {
   right: 0;
@@ -554,34 +254,6 @@ export default {
   @include desktop {
     margin-top: 2rem;
     margin-bottom: -4rem;
-  }
-}
-
-.c-graph-circle {
-  display: none;
-  // top: -100px;
-  // left: -15px;
-
-  @include desktop {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    left: -70px;
-    top: -59px;
-  }
-}
-
-#circle-graph-circle {
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  fill: none;
-
-  @include desktop {
-    left: 0px;
-    transform: translateX(0);
   }
 }
 
