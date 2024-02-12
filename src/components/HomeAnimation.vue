@@ -5,7 +5,7 @@
       class="right-side"></Sides>
     <Sides color="#F89202" :styles="{ 'top': '120rem' }"></Sides>
     <Sides color="#A1D10E"
-      :styles="{ 'top': '250rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
+      :styles="{ 'top': '180rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
       class="right-side"></Sides>
 
     <div class="graphic-wrapper">
@@ -30,10 +30,6 @@
       </section>
 
       <section class="container span-container c-container" id="container2">
-        <div class="span-2" id="circle-graph">
-          <img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'" ref="panel1Circle" />
-        </div>
-
         <div class="span-2" id="header2">
           <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
           <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
@@ -41,12 +37,14 @@
             to meet their fundamental needs, independent of their life circumstances.</p>
           <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income</a>
         </div>
+
+        <div class="span-2" id="circle-graph">
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'" ref="panel1Circle" />
+        </div>
       </section>
 
       <div class="sections-container" id="freeze-wrapper">
         <section class="container span-container" id="container3">
-          <div class="span-2"><img class="c-container-image" v-src="'/images/temp/homepage-panel3.jpg'" ref="graph1" />
-          </div>
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">Why it matters</div>
             <p class="is-title-2 c-container-title">Every individual is valuable.</p>
@@ -55,12 +53,13 @@
               people to unwell.<br />Basic Income can improve the quality of life for millions of people, simply through
               providing them with basic financial security and the peace of mind that goes with it.</p>
           </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel3.jpg'" ref="graph1" />
+          </div>
         </section>
 
         <section class="container span-container" id="container4">
-          <div class="span-2"><img class="c-container-image" ref="gif" v-src="'/images/temp/homepage-panel4.jpg'" />
-            <div class="c-line"></div>
-          </div>
           <div class="span-2 c-container-header" id="header4">
             <div class="is-title-3 c-container-posttitle">Mincome</div>
             <p class="is-title-2 c-container-title">The minimum amount each one should receive.</p>
@@ -68,36 +67,41 @@
               needs to live a productive and healthy life. Each month, group members contribute to help those who
               haven't crossed the mincome threshold.</p>
           </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel4.jpg'" />
+            <div class="c-line"></div>
+          </div>
+        </section>
+
+        <section class="container span-container span-reverse" id="contribute">
+          <div class="span-2">
+            <div class="is-title-3 c-container-posttitle">Contribute</div>
+            <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
+            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
+              securing everyone in your group with an basic income, independent of employment.</p>
+          </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel5.jpg'" />
+          </div>
         </section>
 
         <section class="container span-container" id="container5">
-          <div class="span-2"><img class="c-container-image" v-src="'/images/temp/homepage-panel6.jpg'" ref="gif2"/></div>
           <div class="span-2 c-container-header" id="header5">
             <div class="is-title-3 c-container-posttitle">With Group Income</div>
             <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
             <p class="c-container-para">Create stronger communities and ensure basic financial security for the people
               you care about.</p>
           </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel6.jpg'" ref="gif2"/>
+          </div>
         </section>
       </div>
 
-      <section class="container span-container span-reverse" id="contribute">
-        <div class="span-2">
-          <img class="c-container-image" v-src="'/images/temp/homepage-panel5.jpg'" />
-        </div>
-
-        <div class="span-2">
-          <div class="is-title-3 c-container-posttitle">Contribute</div>
-          <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
-          <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
-            securing everyone in your group with an basic income, independent of employment.</p>
-        </div>
-      </section>
-
-      <section class="container span-container c-container" id="container6">
-        <div class="span-2">
-          <img class="c-container-image" ref="gif" v-src="'/images/temp/homepage-panel8.jpg'" />
-        </div>
+      <section class="container span-container c-container span-reverse" id="container6">
         <div class="span-2 c-container-header" id="header6">
           <div class="is-title-3 c-container-posttitle">Stay Safe</div>
           <p class="is-title-2 c-container-title">Security & Privacy</p>
@@ -108,6 +112,10 @@
             The keys to decrypt that data are derived from your password and are also stored on your device. 
           </p>
           <a class="c-container-link is-link" v-href="'/privacy-policy'">Read more about our privacy and security</a>
+        </div>
+
+        <div class="span-2">
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel8_2x.jpg'" />
         </div>
       </section>
 
@@ -124,10 +132,6 @@
     <div class="graphic-wrapper swoosh-dark-blue">
       <section class="container span-container">
         <div class="span-2">
-          <div class="c-phone-wrapper"><img class="c-container-image" v-src="'/images/temp/homepage-panel7.png'" /></div>
-        </div>
-
-        <div class="span-2">
           <div class="is-title-3 c-container-posttitle">Contribute</div>
           <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
@@ -135,6 +139,10 @@
             <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
             <a class="c-navbar-item button is-big is-outlined" v-href="'/sponsor'">Sponsor</a>
           </div>
+        </div>
+
+        <div class="span-2">
+          <div class="c-phone-wrapper"><img class="c-container-image" v-src="'/images/temp/homepage-panel7.png'" /></div>
         </div>
       </section>
     </div>
@@ -195,14 +203,6 @@ export default {
     }
   },
 
-  mounted() {
-    setTimeout(() => {
-      if (this.tl === null) {
-        this.animateOnScrollMobile()
-      }
-    }, 500)
-  },
-
   methods: {
     scrollTo(el) {
       this.gsap.to(window, {
@@ -212,28 +212,6 @@ export default {
           offsetY: 170
         }
       })
-    },
-
-    animateOnScrollMobile () {
-      ScrollTrigger.create({
-        trigger: "#container4",
-        // start: "top top",
-        endTrigger: "#container5",
-        // end: "bottom",
-        onToggle: self => {
-          this.$refs.gif.src = resolvePath("/images/temp/homepage-panel3.gif")
-        }
-      });
-
-      ScrollTrigger.create({
-        trigger: "#container5",
-        // start: "top top",
-        endTrigger: "#contribute",
-        // end: "bottom",
-        onToggle: self => {
-          this.$refs.gif2.src = resolvePath("/images/temp/homepage-panel5.gif")
-        }
-      });
     }
   }
 }
@@ -257,14 +235,6 @@ export default {
   }
 }
 
-.circleGraphCircle {
-  fill: none;
-  stroke: #D0DEEA;
-  stroke-width: 1.5;
-  stroke-dasharray: 12;
-  transform-origin: 50%;
-}
-
 .c-wrapper {
   padding-bottom: 2rem;
 }
@@ -286,10 +256,6 @@ export default {
   margin-bottom: 4rem;
   overflow: hidden;
 
-  // @include tablet {
-  //   padding-bottom: 8rem;
-  //   margin-bottom: 8rem;
-  // }
 
   @include desktop {
     padding-bottom: 2rem;
@@ -349,208 +315,6 @@ export default {
     background: #D0DEEA;
     width: 0%;
     height: 1px;
-  }
-}
-
-#header5,
-#header4,
-#header3 {
-  @include desktop {
-    opacity: 0;
-    transform: translateY(2rem);
-    transition: opacity ease-out .3s, transform ease-out .3s;
-  }
-}
-
-.graph-stage-0 {
-  #header3 {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  #face-1 {
-
-    &::before,
-    &::after {
-      height: 235px;
-    }
-  }
-
-  #face-3 {
-
-    &::before,
-    &::after {
-      height: 235px;
-    }
-  }
-
-  #face-4 {
-
-    &::before,
-    &::after {
-      height: 86px;
-    }
-  }
-
-  #face-6 {
-
-    &::before,
-    &::after {
-      height: 12px;
-    }
-  }
-
-  #face-8 {
-
-    &::before,
-    &::after {
-      height: 310px;
-    }
-  }
-
-  .c-name {
-    opacity: 1;
-  }
-}
-
-.graph-stage-1 {
-  #header3 {
-    opacity: 0;
-    transform: translateY(-2rem);
-  }
-  #header4 {
-    opacity: 1;
-    transition-delay: .5s;
-    transform: translateY(0);
-  }
-
-  .c-line {
-    opacity: 1;
-
-    &::after {
-      width: 100%;
-    }
-  }
-
-  #face-4::before {
-    height: 102px;
-    transition-delay: .3s;
-  }
-
-  #face-6::before {
-    height: 102px;
-    transition-delay: .6s;
-  }
-}
-
-.graph-stage-2 {
-  #header4 {
-    opacity: 0;
-    // transition-delay: 0;
-    transform: translateY(-2rem);
-  }
-  #header5 {
-    opacity: 1;
-    transition-delay: .5s;
-    transform: translateY(0);
-  }
-  .c-face {
-    transition-duration: 1s;
-  }
-
-  #face-1::after,
-  #face-3::after,
-  #face-8::after {
-    border: 2px solid #fff;
-    margin-left: -2px;
-    width: 58px;
-  }
-
-  #face-1 {
-    z-index: 5;
-
-    &::after {
-      height: 200px;
-      transition-delay: 5000ms;
-    }
-  }
-
-  #face-3 {
-    z-index: 5;
-
-    &::after {
-      height: 200px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 1000ms;
-    }
-  }
-
-  #face-4 {
-    z-index: 5;
-
-    &::after {
-      height: 102px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 2000ms;
-    }
-  }
-
-  #face-8 {
-    z-index: 3;
-
-    &::after {
-      height: 270px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 3000ms;
-    }
-  }
-
-  #face-6 {
-    z-index: 5;
-
-    &::after {
-      height: 102px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 4000ms;
-    }
-  }
-
-  .c-pledge-card {
-    animation: elevation 3s;
-  }
-}
-
-@keyframes elevation {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, 2rem, 0);
-  }
-
-  20% {
-    opacity: 1;
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  80% {
-    opacity: 0;
-    transform: translate3d(-50%, -2rem, 0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(-50%, -2rem, 0);
   }
 }
 
@@ -769,15 +533,6 @@ export default {
   }
 }
 
-.full-container {
-  max-width: $maxDesktop;
-  text-align: center;
-
-  @include desktop {
-    text-align: left;
-  }
-}
-
 .icon-chevron-bottom {
   height: 2.5rem;
   width: 2.5rem;
@@ -806,8 +561,6 @@ export default {
   text-align: center;
 
   @include until($desktop) {
-    flex-direction: column-reverse;
-
     .c-container-title {
       margin: 1rem auto 3rem auto;
     }
@@ -820,30 +573,15 @@ export default {
   @include desktop {
     text-align: left;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   &.span-reverse {
     @include desktop {
-      margin-bottom: 10vh;
-      flex-direction: row;
+      flex-direction: row-reverse;
     }
   }
 }
-
-// #container2 {
-//   @include until($desktop) {
-//   flex-direction: column-reverse;
-
-//   .c-container-title {
-//     margin: 3rem auto;
-//   }
-
-//   .c-container-image {
-//     margin: 3rem auto 0 auto;
-//   }
-//   }
-// }
 
 .span-2 {
   position: relative;
@@ -853,23 +591,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-}
-
-.sections-container {
-  @include desktop {
-    position: relative;
-    height: 80vh;
-
-    section {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate3d(-50%, 0, 0);
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
   }
 }
 
@@ -999,8 +720,6 @@ export default {
 }
 
 .c-phone-wrapper {
-  // background: url('/images/phone.svg') no-repeat center;
-  // background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1010,47 +729,6 @@ export default {
     min-height: 44.6rem;
     margin-bottom: 0;
   }
-}
-
-.c-pledge-card {
-  position: absolute;
-  left: 0;
-  top: -22rem;
-  z-index: 2;
-  transform: translate3d(-50%, -3rem, 0);
-  display: flex;
-  align-items: center;
-  padding: 6px 12px 6px 7px;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #D0DEEA;
-  box-shadow: 4px 4px 0px #5DC8F0;
-  width: max-content;
-  opacity: 0;
-}
-
-.c-pledge-image {
-  width: 42px;
-  margin-right: 7px;
-}
-
-.c-pledge-name {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 15px;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.c-pledge-price {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-
-  color: #000000;
 }
 
 .c-get-started {
