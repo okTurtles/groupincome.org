@@ -567,6 +567,7 @@ export default {
 
     .c-container-image {
       margin: 3rem auto 0 auto;
+      max-width: 30rem;
     }
   }
 
