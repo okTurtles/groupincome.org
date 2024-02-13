@@ -5,22 +5,13 @@
       class="right-side"></Sides>
     <Sides color="#F89202" :styles="{ 'top': '120rem' }"></Sides>
     <Sides color="#A1D10E"
-      :styles="{ 'top': '250rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
+      :styles="{ 'top': '180rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
       class="right-side"></Sides>
 
     <div class="graphic-wrapper">
       <div class="c-faces" ref="faces">
         <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
           <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
-          <span class="c-name" v-if="name[i]">{{ name[i] }}</span>
-          <div class="c-pledge-card" v-if="contribution[i]"
-              :style="{'box-shadow': `4px 4px 0px ${color[i]}`}"><img class="c-pledge-image"
-              v-src="`/images/faces/${i}.jpg`" />
-            <div class="c-pledge-content">
-              <div class="c-pledge-name">{{ name[i] }} Pledge</div>
-              <div class="c-pledge-price">{{ contribution[i] }}</div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -39,16 +30,6 @@
       </section>
 
       <section class="container span-container c-container" id="container2">
-        <div class="span-2" id="circle-graph"><img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'"
-            ref="panel1Circle" /><img class="c-graph-circle" v-src="'/images/temp/graph-circle.jpg'" /><svg
-            id="circle-graph-circle" :height="panel1CirclePos.width" :width="panel1CirclePos.width">
-            <circle class="circleGraphCircle" id="circleGraphCircle" :cx="`${panel1CirclePos.middle}`"
-              :cy="`${panel1CirclePos.middle}`" :r="panel1CirclePos.middle" stroke="D0DEEA" stroke-width="1.5"></circle>
-            <circle class="circleGraphCircle" :cx="`${panel1CirclePos.middle}`" :cy="`${panel1CirclePos.middle}`"
-              :r="panel1CirclePos.width / 4" stroke="D0DEEA" stroke-width="1.5"></circle>
-          </svg>
-        </div>
-
         <div class="span-2" id="header2">
           <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
           <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
@@ -56,12 +37,14 @@
             to meet their fundamental needs, independent of their life circumstances.</p>
           <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income</a>
         </div>
+
+        <div class="span-2" id="circle-graph">
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel2_2x.jpg'" ref="panel1Circle" />
+        </div>
       </section>
 
       <div class="sections-container" id="freeze-wrapper">
         <section class="container span-container" id="container3">
-          <div class="span-2"><img class="c-container-image" v-src="'/images/temp/homepage-panel3.jpg'" ref="graph1" />
-          </div>
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">Why it matters</div>
             <p class="is-title-2 c-container-title">Every individual is valuable.</p>
@@ -70,12 +53,13 @@
               people to unwell.<br />Basic Income can improve the quality of life for millions of people, simply through
               providing them with basic financial security and the peace of mind that goes with it.</p>
           </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel3_2x.jpg'" ref="graph1" />
+          </div>
         </section>
 
         <section class="container span-container" id="container4">
-          <div class="span-2"><img class="c-container-image" ref="gif" v-src="'/images/temp/homepage-panel4.jpg'" />
-            <div class="c-line"></div>
-          </div>
           <div class="span-2 c-container-header" id="header4">
             <div class="is-title-3 c-container-posttitle">Mincome</div>
             <p class="is-title-2 c-container-title">The minimum amount each one should receive.</p>
@@ -83,36 +67,41 @@
               needs to live a productive and healthy life. Each month, group members contribute to help those who
               haven't crossed the mincome threshold.</p>
           </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel4_2x.jpg'" />
+            <div class="c-line"></div>
+          </div>
+        </section>
+
+        <section class="container span-container span-reverse" id="contribute">
+          <div class="span-2">
+            <div class="is-title-3 c-container-posttitle">Contribute</div>
+            <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
+            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
+              securing everyone in your group with an basic income, independent of employment.</p>
+          </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel5_2x.jpg'" />
+          </div>
         </section>
 
         <section class="container span-container" id="container5">
-          <div class="span-2"><img class="c-container-image" v-src="'/images/temp/homepage-panel6.jpg'" ref="gif2"/></div>
           <div class="span-2 c-container-header" id="header5">
             <div class="is-title-3 c-container-posttitle">With Group Income</div>
             <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
             <p class="c-container-para">Create stronger communities and ensure basic financial security for the people
               you care about.</p>
           </div>
+
+          <div class="span-2">
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel6_2x.jpg'" ref="gif2"/>
+          </div>
         </section>
       </div>
 
-      <section class="container span-container span-reverse" id="contribute">
-        <div class="span-2">
-          <img class="c-container-image" v-src="'/images/temp/homepage-panel5.jpg'" />
-        </div>
-
-        <div class="span-2">
-          <div class="is-title-3 c-container-posttitle">Contribute</div>
-          <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
-          <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
-            securing everyone in your group with an basic income, independent of employment.</p>
-        </div>
-      </section>
-
-      <section class="container span-container c-container" id="container6">
-        <div class="span-2">
-          <img class="c-container-image" ref="gif" v-src="'/images/temp/homepage-panel8.jpg'" />
-        </div>
+      <section class="container span-container c-container span-reverse" id="container6">
         <div class="span-2 c-container-header" id="header6">
           <div class="is-title-3 c-container-posttitle">Stay Safe</div>
           <p class="is-title-2 c-container-title">Security & Privacy</p>
@@ -123,6 +112,10 @@
             The keys to decrypt that data are derived from your password and are also stored on your device. 
           </p>
           <a class="c-container-link is-link" v-href="'/privacy-policy'">Read more about our privacy and security</a>
+        </div>
+
+        <div class="span-2">
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel8_2x.jpg'" />
         </div>
       </section>
 
@@ -139,10 +132,6 @@
     <div class="graphic-wrapper swoosh-dark-blue">
       <section class="container span-container">
         <div class="span-2">
-          <div class="c-phone-wrapper"><img class="c-container-image" v-src="'/images/temp/homepage-panel7.png'" /></div>
-        </div>
-
-        <div class="span-2">
           <div class="is-title-3 c-container-posttitle">Contribute</div>
           <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
@@ -150,6 +139,10 @@
             <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
             <a class="c-navbar-item button is-big is-outlined" v-href="'/sponsor'">Sponsor</a>
           </div>
+        </div>
+
+        <div class="span-2">
+          <div class="c-phone-wrapper"><img class="c-container-image" v-src="'/images/temp/homepage-panel7.png'" /></div>
         </div>
       </section>
     </div>
@@ -163,6 +156,7 @@ import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import { resolvePath } from '@/utils/helpers.js'
 
 export default {
   mixins: [GSAP],
@@ -173,66 +167,7 @@ export default {
     GetStarted
   },
 
-  data() {
-    return {
-      name: {
-        1: 'Jess',
-        3: 'Matt',
-        4: 'William',
-        6: 'Alice',
-        8: 'Rachel'
-      },
-      contribution: {
-        1: '$350 🤑',
-        3: '$100 + Dog Walks! 🐶',
-        4: '$150 📈',
-        6: 'French Lessons 🥖🇫🇷',
-        8: 'Homemade cookies 🍪'
-      },
-      color: {
-        1: '#F48579',
-        3: '#FFD43D',
-        4: '#A1D211',
-        6: '#F99201',
-        8: '#5DC8F0'
-      },
-      panel1CirclePos: {
-        top: 0,
-        left: 0,
-        width: 0,
-        height: 0,
-        middle: 0
-      },
-      positions: [],
-      positions2: [],
-      tl: null
-    }
-  },
-
-  mounted() {
-    if (window.innerWidth >= '1200') {
-      setTimeout(() => {
-        if (this.tl === null) {
-          this.initAnimation()
-          this.animateOnScroll()
-        }
-      }, 500)
-    } else {
-      setTimeout(() => {
-        if (this.tl === null) {
-          this.animateOnScrollMobile()
-        }
-      }, 500)
-    }
-    setTimeout(() => {
-      window.addEventListener('resize', this.reset);
-    }, 1000)
-  },
-
   methods: {
-    reset () {
-      location.reload()
-    },
     scrollTo(el) {
       this.gsap.to(window, {
         duration: 0.5,
@@ -241,329 +176,6 @@ export default {
           offsetY: 170
         }
       })
-    },
-
-    getPos(name) {
-      const { top, left, width, height } = this.$refs[name].getBoundingClientRect()
-      return { top, left, width, height }
-    },
-
-    initAnimation() {
-      // Get top and left offset
-      const toptop = this.getPos('wrapper').top
-      const wrapperLeft = this.getPos('faces').left
-
-      // Get first panel positions
-      let { top, left, width, height } = this.getPos('panel1Circle')
-      // Factor just make the size smaller compare to original graph
-      const factor = 0.77
-      width = width * factor
-      height = height * factor
-
-      // Remove offset wrapper
-      left -= wrapperLeft
-      // Remove offset menu
-      top -= toptop
-
-      // Save position to create circles
-      this.panel1CirclePos = { top, left, width, height, middle: width / 2 }
-      let r = width / 2
-      const middleX = left + r
-      const middleY = top + r
-
-      for (let i = 0; i < 5; i++) {
-        const angle = 5 / 4
-        const position = {
-          left: r * Math.cos(i * angle) + middleX,
-          top: r * Math.sin(i * angle) + middleY,
-          left2: r * Math.cos((i - angle) * angle) + middleX,
-          top2: r * Math.sin((i - angle) * angle) + middleY
-        }
-        this.positions.push(position)
-      }
-
-      r = width / 4
-      for (let i = 0; i < 2; i++) {
-        const angle = 3
-        const position = {
-          left: r * Math.cos(i * angle) + middleX,
-          top: r * Math.sin(i * angle) + middleY,
-          left2: r * Math.cos((i - angle) * angle) + middleX,
-          top2: r * Math.sin((i - angle) * angle) + middleY
-        }
-        this.positions2.push(position)
-      }
-
-      const graph1 = this.getPos('graph1')
-
-      for (let i = 0; i < 5; i++) {
-        this.positions[i].top3 = graph1.top
-        this.positions[i].left3 = graph1.left
-        this.positions[i].top4 = graph1.top + graph1.height - toptop - 52
-        this.positions[i].left4 = i * graph1.width / 5 - wrapperLeft + graph1.left + 100
-      }
-    },
-    animateOnScroll() {
-      this.gsap.to('.parallax-bg', {
-        scrollTrigger: {
-          scrub: true
-        },
-        y: (i, target) => -2000, ease: 'none'
-      })
-
-      // Header 1 animation
-      this.gsap.to('#header1 *', {
-        opacity: 0,
-        y: '-30px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: {
-          trigger: '.main-wrapper',
-          stagger: 1,
-          pin: true,
-          start: '0',
-          end: '+=100',
-          scrub: true
-        }
-      })
-
-      // Header 2 animation
-      this.gsap.from('#header2 *', {
-        opacity: 0,
-        y: '+30px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: {
-          trigger: '#container2',
-          stagger: 1,
-          start: '-150%',
-          end: '0',
-          scrub: true
-        }
-      })
-
-      // Circles animations
-      this.gsap.from('.circleGraphCircle', {
-        opacity: '0',
-        'stroke-dashoffset': '-400px',
-        ease: 'Power1.easeInOut',
-        scrollTrigger: {
-          trigger: '#container2',
-          stagger: 1,
-          start: '-500',
-          end: '0',
-          scrub: true
-        }
-      })
-
-      let faces = ['#face-1', '#face-4', '#face-8', '#face-3', '#face-6']
-      const tl = this.gsap.timeline()
-      faces.forEach((face, i) => {
-        // Faces animation from hero page to panel 1
-        tl.to(face, {
-          ease: 'Power1.easeInOut',
-          motionPath: {
-            path: [{
-              left: this.positions[i].left,
-              top: this.panel1CirclePos.top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions[i].left,
-              top: this.positions[i].top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions[i].left2,
-              top: this.positions[i].top2,
-              scale: 1
-            }],
-            curviness: 1.2,
-            alignOrigin: [0.5, 0.5]
-          },
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            start: '0%',
-            end: '9%',
-            scrub: true
-          }
-        })
-
-        // Faces animation from panel 1 page to panel 2
-        tl.fromTo(face, {
-          left: this.positions[i].left2,
-          top: this.positions[i].top2,
-          scale: 1
-        }, {
-          immediateRender: false,
-          ease: 'Power1.easeInOut',
-          motionPath: {
-            path: [{
-              left: this.positions[i].left3,
-              top: this.positions[i].top3
-              // scale: 0.3
-            }, {
-              left: this.positions[i].left4,
-              top: this.positions[i].top4
-              // scale: 0.5
-            }],
-            curviness: 1.2
-          },
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            start: '18%',
-            end: '30%',
-            scrub: true
-          }
-        })
-
-        tl.to(face + ' img', {
-          immediateRender: false,
-          ease: 'Power1.easeInOut',
-          width: 50,
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            start: '18%',
-            end: '30%',
-            scrub: true
-          }
-        })
-      })
-
-      faces = ['#face-5', '#face-7']
-      faces.forEach((face, i) => {
-        this.gsap.to(face, {
-          ease: 'Power1.easeInOut',
-          motionPath: {
-            path: [{
-              left: this.positions2[i].left,
-              top: this.panel1CirclePos.top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions2[i].left,
-              top: this.positions2[i].top,
-              scale: (i + 1) * 0.1 * (Math.random() < 0.5 ? -1 : 1) + 1
-            }, {
-              left: this.positions2[i].left2,
-              top: this.positions2[i].top2,
-              scale: 1
-            }],
-            curviness: 1.2,
-            alignOrigin: [0.5, 0.5]
-          },
-          scrollTrigger: {
-            trigger: '.main-wrapper',
-            stagger: 1,
-            start: '0%',
-            end: '8%',
-            scrub: true
-          }
-        })
-      })
-
-      faces = ['#face-2']
-      this.gsap.to(faces, {
-        ease: 'Power1.easeInOut',
-        motionPath: {
-          path: [{
-            left: this.positions2[1].left,
-            top: this.panel1CirclePos.top,
-            scale: 0
-          }],
-          curviness: 1.2,
-          alignOrigin: [0.5, 0.5]
-        },
-        scrollTrigger: {
-          trigger: '.main-wrapper',
-          stagger: 1,
-          start: '0%',
-          end: '8%',
-          scrub: true
-        }
-      })
-
-      tl.to('#freeze-wrapper', {
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: '.main-wrapper',
-          pin: true,
-          start: '25%',
-          end: '70%'
-        }
-      })
-
-      // this.gsap.set('.c-container-header *', {
-      //   opacity: 0,
-      //   y: '+=30'
-      // })
-
-      // Headers animation
-      const titles = ['#header3', '#header4', '#header5']
-      let pourcent = 0
-      titles.forEach((title, i) => {
-        // const trigger = {
-        //   trigger: '#freeze-wrapper',
-        //   start: `${pourcent}% top`,
-        //   end: '+=20%',
-        //   stagger: 1,
-        //   scrub: true
-        // }
-
-        this.gsap.from('#freeze-wrapper', {
-          scrollTrigger: {
-            trigger: '#freeze-wrapper',
-            start: `${pourcent + 20}% top`,
-            end: '+=400%',
-            scrub: true,
-            toggleClass: {
-              targets: this.$refs.wrapper,
-              className: `graph-stage-${i}`
-            }
-          }
-        })
-
-        // this.gsap.to(`${title} *`, {
-        //   opacity: 1,
-        //   y: '0',
-        //   ease: 'Power1.easeInOut',
-        //   scrollTrigger: trigger
-        // })
-
-        // pourcent += 80
-
-        // trigger.start = `${pourcent}% top`
-
-        // if (title !== '#header5') {
-        //   this.gsap.to(`${title} *`, {
-        //     immediateRender: false,
-        //     opacity: 0,
-        //     y: '-30px',
-        //     ease: 'Power1.easeInOut',
-        //     scrollTrigger: trigger
-        //   })
-        // }
-
-        // pourcent += 20
-        pourcent += 100
-      })
-      this.tl = tl
-    },
-    animateOnScrollMobile() {
-      ScrollTrigger.create({
-        trigger: "#container4",
-        // start: "top top",
-        endTrigger: "#container5",
-        // end: "bottom",
-        onToggle: self => {
-          this.$refs.gif.src=this.resolvePath("/images/temp/homepage-panel3.gif")
-        }
-      });
-
-      ScrollTrigger.create({
-        trigger: "#container5",
-        // start: "top top",
-        endTrigger: "#contribute",
-        // end: "bottom",
-        onToggle: self => {
-          this.$refs.gif2.src=this.resolvePath("/images/temp/homepage-panel5.gif")
-        }
-      });
     }
   }
 }
@@ -571,16 +183,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
-
-@include desktop {
-
-  #circle-graph .c-container-image,
-  #container3 .c-container-image,
-  #container4 .c-container-image,
-  #container5 .c-container-image {
-    opacity: 0;
-  }
-}
 
 // Rpevent rendering glitch
 .right-side {
@@ -595,42 +197,6 @@ export default {
     margin-top: 2rem;
     margin-bottom: -4rem;
   }
-}
-
-.c-graph-circle {
-  display: none;
-  // top: -100px;
-  // left: -15px;
-
-  @include desktop {
-    display: block;
-    position: absolute;
-    z-index: -1;
-    left: -70px;
-    top: -59px;
-  }
-}
-
-#circle-graph-circle {
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  fill: none;
-
-  @include desktop {
-    left: 0px;
-    transform: translateX(0);
-  }
-}
-
-.circleGraphCircle {
-  fill: none;
-  stroke: #D0DEEA;
-  stroke-width: 1.5;
-  stroke-dasharray: 12;
-  transform-origin: 50%;
 }
 
 .c-wrapper {
@@ -654,10 +220,6 @@ export default {
   margin-bottom: 4rem;
   overflow: hidden;
 
-  // @include tablet {
-  //   padding-bottom: 8rem;
-  //   margin-bottom: 8rem;
-  // }
 
   @include desktop {
     padding-bottom: 2rem;
@@ -720,243 +282,6 @@ export default {
   }
 }
 
-#header5,
-#header4,
-#header3 {
-  @include desktop {
-    opacity: 0;
-    transform: translateY(2rem);
-    transition: opacity ease-out .3s, transform ease-out .3s;
-  }
-}
-
-.graph-stage-0 {
-  #header3 {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  #face-1 {
-
-    &::before,
-    &::after {
-      height: 235px;
-    }
-  }
-
-  #face-3 {
-
-    &::before,
-    &::after {
-      height: 235px;
-    }
-  }
-
-  #face-4 {
-
-    &::before,
-    &::after {
-      height: 86px;
-    }
-  }
-
-  #face-6 {
-
-    &::before,
-    &::after {
-      height: 12px;
-    }
-  }
-
-  #face-8 {
-
-    &::before,
-    &::after {
-      height: 310px;
-    }
-  }
-
-  .c-name {
-    opacity: 1;
-  }
-}
-
-.graph-stage-1 {
-  #header3 {
-    opacity: 0;
-    transform: translateY(-2rem);
-  }
-  #header4 {
-    opacity: 1;
-    transition-delay: .5s;
-    transform: translateY(0);
-  }
-
-  .c-line {
-    opacity: 1;
-
-    &::after {
-      width: 100%;
-    }
-  }
-
-  #face-4::before {
-    height: 102px;
-    transition-delay: .3s;
-  }
-
-  #face-6::before {
-    height: 102px;
-    transition-delay: .6s;
-  }
-}
-
-.graph-stage-2 {
-  #header4 {
-    opacity: 0;
-    // transition-delay: 0;
-    transform: translateY(-2rem);
-  }
-  #header5 {
-    opacity: 1;
-    transition-delay: .5s;
-    transform: translateY(0);
-  }
-  .c-face {
-    transition-duration: 1s;
-  }
-
-  #face-1::after,
-  #face-3::after,
-  #face-8::after {
-    border: 2px solid #fff;
-    margin-left: -2px;
-    width: 58px;
-  }
-
-  #face-1 {
-    z-index: 5;
-
-    &::after {
-      height: 200px;
-      transition-delay: 5000ms;
-    }
-  }
-
-  #face-3 {
-    z-index: 5;
-
-    &::after {
-      height: 200px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 1000ms;
-    }
-  }
-
-  #face-4 {
-    z-index: 5;
-
-    &::after {
-      height: 102px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 2000ms;
-    }
-  }
-
-  #face-8 {
-    z-index: 3;
-
-    &::after {
-      height: 270px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 3000ms;
-    }
-  }
-
-  #face-6 {
-    z-index: 5;
-
-    &::after {
-      height: 102px;
-      transition-delay: 5000ms;
-    }
-
-    .c-pledge-card {
-      animation-delay: 4000ms;
-    }
-  }
-
-  .c-pledge-card {
-    animation: elevation 3s;
-  }
-}
-
-@keyframes elevation {
-  0% {
-    opacity: 0;
-    transform: translate3d(-50%, 2rem, 0);
-  }
-
-  20% {
-    opacity: 1;
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  80% {
-    opacity: 0;
-    transform: translate3d(-50%, -2rem, 0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate3d(-50%, -2rem, 0);
-  }
-}
-
-.c-name {
-  opacity: 0;
-  margin-top: 10px;
-  margin-bottom: 0;
-  margin-left: -50px;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  font-weight: 500;
-  transition: opacity ease-out .3s;
-}
-
-#face-1,
-#face-4,
-#face-8,
-#face-3,
-#face-6 {
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: -27px;
-    bottom: 93px;
-    width: 54px;
-    height: 0;
-    border-radius: 4px;
-    transition: height ease-out .3s;
-  }
-
-  &::before {
-    background: #D0DEEA;
-  }
-}
-
 #face-1 {
   top: 76vh;
   left: 17%;
@@ -970,10 +295,6 @@ export default {
     top: 72vh;
     left: 19%;
     transform: scale(.8);
-  }
-
-  &::after {
-    background-color: #F48579;
   }
 }
 
@@ -1010,10 +331,6 @@ export default {
     left: 6%;
     transform: scale(.8);
   }
-
-  &::after {
-    background-color: #FFD43D;
-  }
 }
 
 #face-4 {
@@ -1029,10 +346,6 @@ export default {
     top: 69vh;
     left: 84%;
     transform: scale(1.2);
-  }
-
-  &::after {
-    background-color: #A1D211;
   }
 }
 
@@ -1067,10 +380,6 @@ export default {
   @include desktop {
     top: 45vh;
     left: 97%;
-  }
-
-  &::after {
-    background-color: #F99201;
   }
 }
 
@@ -1113,10 +422,6 @@ export default {
     left: 92%;
     transform: scale(1.2);
   }
-
-  &::after {
-    background-color: #5DC8F0;
-  }
 }
 
 .c-face {
@@ -1134,15 +439,6 @@ export default {
 
   @include desktop {
     margin-left: -50%;
-  }
-}
-
-.full-container {
-  max-width: $maxDesktop;
-  text-align: center;
-
-  @include desktop {
-    text-align: left;
   }
 }
 
@@ -1174,44 +470,29 @@ export default {
   text-align: center;
 
   @include until($desktop) {
-    flex-direction: column-reverse;
-
     .c-container-title {
       margin: 1rem auto 3rem auto;
     }
 
     .c-container-image {
       margin: 3rem auto 0 auto;
+      width: 100%;
+      max-width: 30rem;
     }
   }
 
   @include desktop {
     text-align: left;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   &.span-reverse {
     @include desktop {
-      margin-bottom: 10vh;
-      flex-direction: row;
+      flex-direction: row-reverse;
     }
   }
 }
-
-// #container2 {
-//   @include until($desktop) {
-//   flex-direction: column-reverse;
-
-//   .c-container-title {
-//     margin: 3rem auto;
-//   }
-
-//   .c-container-image {
-//     margin: 3rem auto 0 auto;
-//   }
-//   }
-// }
 
 .span-2 {
   position: relative;
@@ -1221,23 +502,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-}
-
-.sections-container {
-  @include desktop {
-    position: relative;
-    height: 80vh;
-
-    section {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate3d(-50%, 0, 0);
-      height: 100%;
-      display: flex;
-      align-items: center;
-    }
   }
 }
 
@@ -1367,8 +631,6 @@ export default {
 }
 
 .c-phone-wrapper {
-  // background: url('/images/phone.svg') no-repeat center;
-  // background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1378,47 +640,6 @@ export default {
     min-height: 44.6rem;
     margin-bottom: 0;
   }
-}
-
-.c-pledge-card {
-  position: absolute;
-  left: 0;
-  top: -22rem;
-  z-index: 2;
-  transform: translate3d(-50%, -3rem, 0);
-  display: flex;
-  align-items: center;
-  padding: 6px 12px 6px 7px;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #D0DEEA;
-  box-shadow: 4px 4px 0px #5DC8F0;
-  width: max-content;
-  opacity: 0;
-}
-
-.c-pledge-image {
-  width: 42px;
-  margin-right: 7px;
-}
-
-.c-pledge-name {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 15px;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.c-pledge-price {
-  font-family: Poppins;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 24px;
-
-  color: #000000;
 }
 
 .c-get-started {
