@@ -167,42 +167,6 @@ export default {
     GetStarted
   },
 
-  data() {
-    return {
-      name: {
-        1: 'Jess',
-        3: 'Matt',
-        4: 'William',
-        6: 'Alice',
-        8: 'Rachel'
-      },
-      contribution: {
-        1: '$350 🤑',
-        3: '$100 + Dog Walks! 🐶',
-        4: '$150 📈',
-        6: 'French Lessons 🥖🇫🇷',
-        8: 'Homemade cookies 🍪'
-      },
-      color: {
-        1: '#F48579',
-        3: '#FFD43D',
-        4: '#A1D211',
-        6: '#F99201',
-        8: '#5DC8F0'
-      },
-      panel1CirclePos: {
-        top: 0,
-        left: 0,
-        width: 0,
-        height: 0,
-        middle: 0
-      },
-      positions: [],
-      positions2: [],
-      tl: null
-    }
-  },
-
   methods: {
     scrollTo(el) {
       this.gsap.to(window, {
@@ -318,41 +282,6 @@ export default {
   }
 }
 
-.c-name {
-  opacity: 0;
-  margin-top: 10px;
-  margin-bottom: 0;
-  margin-left: -50px;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  font-weight: 500;
-  transition: opacity ease-out .3s;
-}
-
-#face-1,
-#face-4,
-#face-8,
-#face-3,
-#face-6 {
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: -27px;
-    bottom: 93px;
-    width: 54px;
-    height: 0;
-    border-radius: 4px;
-    transition: height ease-out .3s;
-  }
-
-  &::before {
-    background: #D0DEEA;
-  }
-}
-
 #face-1 {
   top: 76vh;
   left: 17%;
@@ -366,10 +295,6 @@ export default {
     top: 72vh;
     left: 19%;
     transform: scale(.8);
-  }
-
-  &::after {
-    background-color: #F48579;
   }
 }
 
@@ -406,10 +331,6 @@ export default {
     left: 6%;
     transform: scale(.8);
   }
-
-  &::after {
-    background-color: #FFD43D;
-  }
 }
 
 #face-4 {
@@ -425,10 +346,6 @@ export default {
     top: 69vh;
     left: 84%;
     transform: scale(1.2);
-  }
-
-  &::after {
-    background-color: #A1D211;
   }
 }
 
@@ -463,10 +380,6 @@ export default {
   @include desktop {
     top: 45vh;
     left: 97%;
-  }
-
-  &::after {
-    background-color: #F99201;
   }
 }
 
@@ -508,10 +421,6 @@ export default {
     top: 21vh;
     left: 92%;
     transform: scale(1.2);
-  }
-
-  &::after {
-    background-color: #5DC8F0;
   }
 }
 
