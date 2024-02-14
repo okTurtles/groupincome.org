@@ -4,7 +4,7 @@
     <div class="c-feature-box-title">Choose a Server</div>
     <div class="c-feature-box-para">
       Use 
-      <span class="is-link">our official server</span>
+      <a href="#" class="is-link">our official server</a>
       , choose from a community of independently operated servers, or run your own!
     </div>
   </div>
