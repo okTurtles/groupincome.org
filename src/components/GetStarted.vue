@@ -13,7 +13,7 @@
     <div class="c-feature-box-title">Create an account</div>
     <div class="c-feature-box-para">
       Group Income doesn't use cookies to manage user accounts.
-      <a href="#" class="is-display-block is-link">Read more about our technology</a>
+      <a v-href="'/privacy-policy'" class="is-display-block is-link">Read more about our technology</a>
     </div>
   </div>
 

@@ -24,8 +24,7 @@
           </h1>
           <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
             voluntarily provide a financial safety net for their members.</p>
-          <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'" data-test="getStartedLink'">Get
-            started</a><i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+          <i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
         </div>
       </section>
 
