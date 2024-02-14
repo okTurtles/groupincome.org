@@ -4,7 +4,7 @@
     <div class="c-feature-box-title">Choose a Server</div>
     <div class="c-feature-box-para">
       Use 
-      <a href="#" class="is-link">our official server</a>
+      <span class="is-link">our official server</span>
       , choose from a community of independently operated servers, or run your own!
     </div>
   </div>
@@ -13,7 +13,7 @@
     <div class="c-feature-box-title">Create an account</div>
     <div class="c-feature-box-para">
       Group Income doesn't use cookies to manage user accounts.
-      <a v-href="'/privacy-policy'" class="is-display-block is-link">Read more about our technology</a>
+      <a href="https://shelterprotocol.net" target="_blank" class="is-display-block is-link">Read more about our technology</a>
     </div>
   </div>
 
