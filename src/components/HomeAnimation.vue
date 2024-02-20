@@ -199,10 +199,13 @@ export default {
 }
 
 .c-wrapper {
+  position: relative;
   padding-bottom: 2rem;
 }
 
 .container {
+  position: relative;
+  z-index: 2; // A fix for the bug where Sides.vue covers the page content.
   margin: 0 auto;
   padding: 4rem 1rem;
   display: flex;
