@@ -2,20 +2,20 @@
   <div class="c-wrapper" ref="wrapper">
     <Sides color="#5DC9F1"
       :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"
-      class="right-side"></Sides>
+      class="right-side c-side-blue"></Sides>
     <Sides color="#F89202" :styles="{ 'top': '120rem' }"></Sides>
     <Sides color="#A1D10E"
       :styles="{ 'top': '180rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
       class="right-side"></Sides>
 
     <div class="graphic-wrapper">
-      <div class="c-faces" ref="faces">
-        <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-          <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
-        </div>
-      </div>
-
       <section class="container c-main-container">
+        <div class="c-faces" ref="faces">
+          <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
+            <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
+          </div>
+        </div>
+
         <div class="c-main-wrapper" id="header1">
           <div class="is-posttitle">GROUP INCOME</div>
           <h1 class="is-title-1 c-main-title">
@@ -181,6 +181,10 @@ export default {
   right: 0;
 }
 
+.c-side-blue {
+  z-index: 3;
+}
+
 #circle-graph {
   position: relative;
   margin: 0 auto;
@@ -192,10 +196,13 @@ export default {
 }
 
 .c-wrapper {
+  position: relative;
   padding-bottom: 2rem;
 }
 
 .container {
+  position: relative;
+  z-index: 2; // A fix for the bug where Sides.vue covers the page content.
   margin: 0 auto;
   padding: 4rem 1rem;
   display: flex;
