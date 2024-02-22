@@ -9,13 +9,13 @@
       class="right-side"></Sides>
 
     <div class="graphic-wrapper">
-      <div class="c-faces" ref="faces">
-        <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-          <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
-        </div>
-      </div>
-
       <section class="container c-main-container">
+        <div class="c-faces" ref="faces">
+          <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
+            <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
+          </div>
+        </div>
+
         <div class="c-main-wrapper" id="header1">
           <div class="is-posttitle">GROUP INCOME</div>
           <h1 class="is-title-1 c-main-title">
