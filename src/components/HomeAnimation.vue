@@ -31,10 +31,10 @@
       <section class="container span-container c-container" id="container2">
         <div class="span-2" id="header2">
           <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
-          <p class="is-title-2 c-container-title">A simple way to encourage basic financial security.</p>
-          <p class="c-container-para">The goal of Basic Income is to guarantee that everyone gets access to enough money
-            to meet their fundamental needs, independent of their life circumstances.</p>
-          <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income</a>
+          <p class="is-title-2 c-container-title">A safe space to financially support each other.</p>
+          <p class="c-container-para">Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.</p>
+          <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income.</a>
+          <a class="is-link" v-href="'/privacy-policy'">Read more about our privacy and security.</a>
         </div>
 
         <div class="span-2" id="circle-graph">
@@ -47,10 +47,9 @@
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">Why it matters</div>
             <p class="is-title-2 c-container-title">Every individual is valuable.</p>
-            <p class="c-container-para">Many people contribute to our lives and our society, but are often not
-              financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed
-              people to unwell.<br />Basic Income can improve the quality of life for millions of people, simply through
-              providing them with basic financial security and the peace of mind that goes with it.</p>
+            <p class="c-container-para">Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.</p>
+            <p class="c-container-para c-mt-16">Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.</p>
+            <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income.</a>
           </div>
 
           <div class="span-2">
@@ -60,11 +59,9 @@
 
         <section class="container span-container" id="container4">
           <div class="span-2 c-container-header" id="header4">
-            <div class="is-title-3 c-container-posttitle">Mincome</div>
-            <p class="is-title-2 c-container-title">The minimum amount each one should receive.</p>
-            <p class="c-container-para">The mincome is the agreed value that a group sets as the amount each member
-              needs to live a productive and healthy life. Each month, group members contribute to help those who
-              haven't crossed the mincome threshold.</p>
+            <div class="is-title-3 c-container-posttitle">Set a "mincome" floor</div>
+            <p class="is-title-2 c-container-title">Create your own financial safety net.</p>
+            <p class="c-container-para">Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (“mincome”). Each month, group members help those who haven't crossed the mincome threshold.</p>
           </div>
 
           <div class="span-2">
@@ -75,10 +72,9 @@
 
         <section class="container span-container span-reverse" id="contribute">
           <div class="span-2">
-            <div class="is-title-3 c-container-posttitle">Contribute</div>
-            <p class="is-title-2 c-container-title">Each member can contribute to the group.</p>
-            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations,
-              securing everyone in your group with an basic income, independent of employment.</p>
+            <div class="is-title-3 c-container-posttitle">Non-monetary Contributions</div>
+            <p class="is-title-2 c-container-title">Everyone has something to offer.</p>
+            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independet of employment.</p>
           </div>
 
           <div class="span-2">
@@ -88,10 +84,9 @@
 
         <section class="container span-container" id="container5">
           <div class="span-2 c-container-header" id="header5">
-            <div class="is-title-3 c-container-posttitle">With Group Income</div>
-            <p class="is-title-2 c-container-title">Share your income with your friends and family.</p>
-            <p class="c-container-para">Create stronger communities and ensure basic financial security for the people
-              you care about.</p>
+            <div class="is-title-3 c-container-posttitle">Empower Your Community</div>
+            <p class="is-title-2 c-container-title">The best private chat for your community.</p>
+            <p class="c-container-para">A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.</p>
           </div>
 
           <div class="span-2">
@@ -131,12 +126,12 @@
     <div class="graphic-wrapper swoosh-dark-blue">
       <section class="container span-container">
         <div class="span-2">
-          <div class="is-title-3 c-container-posttitle">Contribute</div>
+          <div class="is-title-3 c-container-posttitle">GROUP INCOME</div>
           <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
           <div class="c-buttons">
             <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" v-href="'/sponsor'">Sponsor</a>
+            <a class="c-navbar-item button is-big is-outlined" v-href="'/sponsor'">Donate</a>
           </div>
         </div>
 
@@ -154,8 +149,6 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-import { resolvePath } from '@/utils/helpers.js'
 
 export default {
   mixins: [GSAP],
@@ -651,5 +644,9 @@ export default {
     max-width: 46rem;
     margin-bottom: 2rem;
   }
+}
+
+.c-mt-16 {
+  margin-top: 1.6rem;
 }
 </style>

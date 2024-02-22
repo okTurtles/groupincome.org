@@ -5,7 +5,9 @@
             <form class="c-form">
                 <h4 class="is-title-6">STAY UP TO DATE</h4>
                 <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
-                <div class="c-input"><input class="input" type="email" placeholder="Your email address" /></div>
+                <div class="c-input">
+                  <input class="input" type="email" placeholder="Your email address" />
+                </div>
             </form>
         </div>
         <div class="c-links">
@@ -35,7 +37,7 @@
             <a v-href="'/terms-and-conditions'">Term & Conditons</a>
             <a v-href="'/privacy-policy'">Privacy Policy</a>
         </div>
-        <p class="copyright">Copyright © 2015-2021 okTurtles Foundation</p>
+        <p class="copyright">Copyright © 2015-2024 okTurtles Foundation</p>
     </div>
 </footer>
 
