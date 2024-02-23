@@ -25,7 +25,7 @@
                 <h4 class="is-title-6">CONTRIBUTE</h4>
                 <a v-href="'/volunteer'">Volunteer</a>
                 <a v-href="'/join-our-team'">Join our team</a>
-                <a v-href="'/sponsor'">Donate</a>
+                <a v-href="'/donate'">Donate</a>
                 <a href="https://github.com/okTurtles/group-income" target="_blank" alt="Github">Github</a>
             </div>
             <div class="c-links-group">

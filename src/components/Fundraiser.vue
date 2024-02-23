@@ -10,7 +10,7 @@
         <p class="progress-label">${{ current }} ({{ pourcent }})</p>
       </div>
     </div>
-    <a :href="resolvePath('/sponsor')" class="button">Donate now</a>
+    <a :href="resolvePath('/donate')" class="button">Donate now</a>
   </div>
 </div>
 </template>

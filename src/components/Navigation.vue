@@ -42,7 +42,7 @@ onMounted(() => {
     { name: 'Blog', id: 'blogLink', path: '/blog' },
     { name: 'FAQS', id: 'blogLink', path: '/faq' },
     { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
-    { name: 'Sponsor', id: 'donateLink', path: '/sponsor' }
+    { name: 'Donate', id: 'donateLink', path: '/donate' }
   ].filter(Boolean)
 })
 </script>

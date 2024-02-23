@@ -131,7 +131,7 @@
 
           <div class="c-buttons">
             <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" v-href="'/sponsor'">Donate</a>
+            <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">Donate</a>
           </div>
         </div>
 
