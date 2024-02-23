@@ -5,10 +5,6 @@ import AppStyles from '../components/AppStyles.vue';
 import Footer from '../components/Footer.vue';
 import PageWrapper from '../components/pageWrapper.vue';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import { isNavigationOpen } from '../store';
-import { useStore } from '@nanostores/vue';
-
-const $isNavigationOpen = useStore(isNavigationOpen);
 ---
 
 <!DOCTYPE html>
@@ -19,7 +15,7 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 	<body>
 		<PageWrapper>
 			<AppStyles/>
-			<Header client:load />
+			<Header client:load :randomStr="currentPath" />
 			<main>
 				<slot />
 			</main>
