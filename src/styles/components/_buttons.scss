@@ -221,6 +221,10 @@ button,
       }
     }
   }
+
+  &.is-unstyled {
+    @extend %reset-button;
+  }
 }
 
 @keyframes loadSpin {
