@@ -82,15 +82,15 @@
           </div>
         </section>
 
-        <section class="container span-container" id="container5">
+        <section class="container span-container c-chat-section" id="container5">
           <div class="span-2 c-container-header" id="header5">
             <div class="is-title-3 c-container-posttitle">Empower Your Community</div>
             <p class="is-title-2 c-container-title">The best private chat for your community.</p>
             <p class="c-container-para">A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.</p>
           </div>
 
-          <div class="span-2">
-            <img class="c-container-image" v-src="'/images/temp/homepage-panel6.png'" ref="gif2"/>
+          <div class="c-chat-img-container">
+            <img class="c-chat-image" v-src="'/images/temp/homepage-panel6.png'" />
           </div>
         </section>
       </div>
@@ -210,6 +210,52 @@ export default {
 
   @include tablet {
     padding: 6rem 1rem;
+  }
+}
+
+.span-container.c-chat-section {
+  .c-chat-img-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2.75rem;
+    transform: translateX(1rem);
+
+    .c-chat-image {
+      position: relative;
+      width: 90vw;
+      height: auto;
+      flex-shrink: 0;
+    }
+  }
+
+  @include desktop {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: max-content;
+    max-width: unset;
+    padding: 6rem 0;
+
+    .c-container-header {
+      width: max-content;
+      max-width: 38vw;
+      flex-shrink: 0;
+      margin-right: 2rem;
+    }
+
+    .c-chat-img-container {
+      display: block;
+      transform: translateX(3rem);
+      width: max-content;
+      margin-top: 0;
+
+      .c-chat-image {
+        width: 50vw;
+      }
+    }
   }
 }
 
