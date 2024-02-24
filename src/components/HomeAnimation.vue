@@ -241,9 +241,9 @@ export default {
 
     .c-container-header {
       width: max-content;
-      max-width: 38vw;
+      max-width: 36vw;
       flex-shrink: 0;
-      margin-right: 2rem;
+      margin-right: 1.25rem;
     }
 
     .c-chat-img-container {
