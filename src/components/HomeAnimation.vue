@@ -38,7 +38,7 @@
         </div>
 
         <div class="span-2" id="circle-graph">
-          <img class="c-container-image" v-src="'/images/temp/homepage-panel2_2x.jpg'" ref="panel1Circle" />
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'" ref="panel1Circle" />
         </div>
       </section>
 
@@ -53,7 +53,7 @@
           </div>
 
           <div class="span-2">
-            <img class="c-container-image" v-src="'/images/temp/homepage-panel3_2x.jpg'" ref="graph1" />
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel3.png'" ref="graph1" />
           </div>
         </section>
 
@@ -65,7 +65,7 @@
           </div>
 
           <div class="span-2">
-            <img class="c-container-image" v-src="'/images/temp/homepage-panel4_2x.jpg'" />
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel4.png'" />
             <div class="c-line"></div>
           </div>
         </section>
@@ -90,7 +90,7 @@
           </div>
 
           <div class="span-2">
-            <img class="c-container-image" v-src="'/images/temp/homepage-panel6_2x.jpg'" ref="gif2"/>
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel6.png'" ref="gif2"/>
           </div>
         </section>
       </div>
