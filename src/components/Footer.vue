@@ -5,7 +5,12 @@
             <form class="c-form">
                 <h4 class="is-title-6">STAY UP TO DATE</h4>
                 <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
-                <div class="c-input"><input class="input" type="email" placeholder="Your email address" /></div>
+                <div class="c-input">
+                  <input class="input" type="email" placeholder="Your email address" />
+                  <button class="is-unstyled c-send-btn" type="button" @click="onSendClick">
+                    <i class="icon-paper-plane"></i>
+                  </button>
+                </div>
             </form>
         </div>
         <div class="c-links">
@@ -20,13 +25,14 @@
                 <h4 class="is-title-6">CONTRIBUTE</h4>
                 <a v-href="'/volunteer'">Volunteer</a>
                 <a v-href="'/join-our-team'">Join our team</a>
-                <a v-href="'/sponsor'">Sponsor</a>
+                <a v-href="'/donate'">Donate</a>
+                <a href="https://github.com/okTurtles/group-income" target="_blank" alt="Github">Github</a>
             </div>
             <div class="c-links-group">
                 <h4 class="is-title-6">SOCIAL</h4><a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
                 <a href="https://mstdn.io/@okturtles" target="_blank" alt="Mastodon">Mastodon</a>
                 <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
-                <a href="https://www.reddit.com/r/groupincome/" target="_blank" alt="Reddit">Reddit</a>
+                <a href="https://forums.okturtles.com/index.php?board=9.0" target="_blank" alt="Forums">Forums</a>
             </div>
         </div>
     </div>
@@ -35,7 +41,7 @@
             <a v-href="'/terms-and-conditions'">Term & Conditons</a>
             <a v-href="'/privacy-policy'">Privacy Policy</a>
         </div>
-        <p class="copyright">Copyright © 2015-2021 okTurtles Foundation</p>
+        <p class="copyright">{{ copyRightText }}</p>
     </div>
 </footer>
 
@@ -43,7 +49,18 @@
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  computed: {
+    copyRightText () {
+      const thisYear = new Date().getFullYear()
+      return `Copyright © 2015-${thisYear} okTurtles Foundation`
+    }
+  },
+  methods: {
+    onSendClick () {
+      alert('Coming soon!')
+    }
+  }
 }
 </script>
 
@@ -96,7 +113,32 @@ export default {
 }
 
 .c-input {
+  position: relative;
   margin: 1.375rem 0;
+
+  input {
+    padding-right: 2.75rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.c-send-btn {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.5rem;
+  color: $text_0;
+
+  &:focus {
+    border: 1px solid $primary_0;
+    box-shadow: 0 0 0 2px $primary_1;
+  }
 }
 
 .c-logo-img {

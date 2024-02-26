@@ -26,19 +26,25 @@
 </template>
 
 <script setup>
+import { onMounted, ref } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.js';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
-
 const $isNavigationOpen = useStore(isNavigationOpen);
-const menuList = [
-  { name: 'Home', id: 'homeLink', path: '/' },
-  { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
-  { name: 'Blog', id: 'blogLink', path: '/blog' },
-  { name: 'FAQS', id: 'blogLink', path: '/faq' },
-  { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
-  { name: 'Sponsor', id: 'donateLink', path: '/sponsor' }
-]
+
+const isCurrentPathEqualTo = val => resolvePath(val) === window.location.pathname
+let menuList = ref([])
+
+onMounted(() => {
+  menuList.value = [
+    !isCurrentPathEqualTo('/') && {  name: 'Home', id: 'homeLink', path: '/' },
+    { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
+    { name: 'Blog', id: 'blogLink', path: '/blog' },
+    { name: 'FAQS', id: 'blogLink', path: '/faq' },
+    { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
+    { name: 'Donate', id: 'donateLink', path: '/donate' }
+  ].filter(Boolean)
+})
 </script>
 
 <style lang="scss" scoped>
