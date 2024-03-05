@@ -11,11 +11,12 @@ export interface Props {
 		updatedDate?: string;
 		image?: string;
 		url: string;
+		noImage?: boolean; 
 	},
 }
 
 const {
-	content: { title, author, description, date, image, url },
+	content: { title, author, description, date, image, url, noImage = false },
 } = Astro.props;
 const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 ---
@@ -28,7 +29,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 				<h1 class="is-title-1 c-main-title">{title}</h1>
 				<p class="c-main-para">{author} • { date }</p>
 			</div>
-			<img class="c-header-image" src={imgSrc}/>
+			{ !noImage && <img class="c-header-image" src={imgSrc}/> }
 		</div>
 	</section>
 
