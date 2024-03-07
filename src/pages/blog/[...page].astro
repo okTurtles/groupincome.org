@@ -24,7 +24,7 @@ const { data, lastPage, url } = page
 			return (
 				<article class="c-article">
 					<a href={resolvePath(article.frontmatter.permalink)}>
-						{ !article.frontmatter.noImage && <img class="c-article-image" src={imgSrc}/> }
+						<img class="c-article-image" src={imgSrc}/>
 						<h2 class="c-blog-title">{article.frontmatter.title}</h2>
 						<p>{article.frontmatter.description || 'TODO'}</p>
 						<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
