@@ -18,6 +18,32 @@ const { Content } = Astro.props
 
 <Content />
 
+<script>
+const footnoteEl = document.querySelector('section.footnotes')
+const setFloatingContentHeight = () => {
+  const rootEl = document.documentElement
+  const floatingEls = ['.fundraiser', '.c-header-wrapper']
+  let totalHeight = 0
+
+  floatingEls.forEach(sel => {
+    const el = document.querySelector(sel)
+
+    if (el) {
+      const bbox = el.getBoundingClientRect()
+      totalHeight += bbox.height
+    }
+  })
+
+  rootEl.style.setProperty('--floating-content-total-height', `${Math.ceil(totalHeight)}px`)
+  rootEl.style.setProperty('--floating-content-total-height_minus', `${Math.ceil(totalHeight) * -1}px`)
+}
+
+if (footnoteEl) {
+  window.addEventListener('resize', setFloatingContentHeight)
+  setFloatingContentHeight()
+}
+</script>
+
 <style lang="scss" is:global>
   @import "../styles/_variables";
   @import "../styles/_mixins";
@@ -102,10 +128,6 @@ const { Content } = Astro.props
       list-style-type: disc;
     }
   
-    .footnotes {
-      font-size: .8rem;
-    }
-  
     iframe {
       margin: 2rem auto;
       max-width: 100%;
@@ -130,6 +152,23 @@ const { Content } = Astro.props
         min-width: 1px;
         padding: .3rem;
       }
+    }
+
+    /* footnotes adjustment / styling */
+    .footnotes {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid $divider_0;
+      font-size: .8rem;
+    }
+
+    a[data-footnote-ref]::before,
+    [id^="user-content-fn"]::before {
+      content: "";
+      display: block;
+      height: var(--floating-content-total-height, 0px);
+      margin-top: var(--floating-content-total-height_minus, 0px);
+      visibility: hidden;
     }
   }
   </style>
@@ -284,4 +323,4 @@ const { Content } = Astro.props
       }
     }
   }
-  </style>
+</style>
