@@ -20,6 +20,7 @@ const { Content } = Astro.props
 
 <script>
 const footnoteEl = document.querySelector('section.footnotes')
+
 const setFloatingContentHeight = () => {
   const rootEl = document.documentElement
   const floatingEls = ['.fundraiser', '.c-header-wrapper']
@@ -39,6 +40,11 @@ const setFloatingContentHeight = () => {
 }
 
 if (footnoteEl) {
+  // NOTE:
+  //  below is a logic to resolve a foonotes related bug(https://github.com/okTurtles/groupincome.org/issues/92)
+  //  which is when links are clicked, the page is not scrolled to the correct positions.
+  //  This happens because the page currently has two 'position: fixed' components that float on top of the page content: 'fundraiser banner', 'toolbar menu'.
+  //  We need to measure the heights of these components and use this value in the css of the footnotes related link tags for the adjustment.  
   window.addEventListener('resize', setFloatingContentHeight)
   setFloatingContentHeight()
 }
@@ -162,6 +168,8 @@ if (footnoteEl) {
       font-size: .8rem;
     }
 
+    // NOTE: below is a fix for the issue (https://github.com/okTurtles/groupincome.org/issues/92)
+    //       whose solution was referenced from (https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header)
     a[data-footnote-ref]::before,
     [id^="user-content-fn"]::before {
       content: "";
