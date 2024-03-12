@@ -24,7 +24,7 @@ const { data, lastPage, url } = page
 			return (
 				<article class="c-article">
 					<a href={resolvePath(article.frontmatter.permalink)}>
-						<img class="c-article-image" src={imgSrc}/>
+						<img class="c-article-image has-deep-box-shadow" src={imgSrc}/>
 						<h2 class="c-blog-title">{article.frontmatter.title}</h2>
 						<p>{article.frontmatter.description || 'TODO'}</p>
 						<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
@@ -190,6 +190,7 @@ section {
 .blog-wrapper {
 	max-width: 45rem;
   margin: 0 auto;
+
 	.c-article-image {
 		background-color: #D0DEEA;
 		border-radius: .5rem;
