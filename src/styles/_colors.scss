@@ -41,7 +41,7 @@ $colors: "primary", "success", "warning", "danger", "general";
 $divider_0: #D0DEEA;
 $divider_1: #DDD;
 
-$box-shadow_deep: rgba(50, 50, 93, 0.2) 0px 30px 60px -12px, rgba(0, 0, 0, 0.25) 0px 18px 36px -18px;
+$drop-shadow_deep: drop-shadow(0 0 2rem #00000033);
 
 .text-orange {
   color: $orange;
@@ -68,5 +68,5 @@ $box-shadow_deep: rgba(50, 50, 93, 0.2) 0px 30px 60px -12px, rgba(0, 0, 0, 0.25)
 }
 
 .has-deep-box-shadow {
-  box-shadow: $box-shadow_deep;
+  filter: $drop-shadow_deep;
 }
