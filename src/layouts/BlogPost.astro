@@ -30,7 +30,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 				<p class="c-main-para">{author} • { date }</p>
 			</div>
 		
-			<div class='c-header-img-container'>
+			<div class='c-header-img-container has-deep-box-shadow'>
 				<img class="c-header-image" src={imgSrc}/>
 			</div>
 		</div>
@@ -63,31 +63,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 	width: 100%;
 	height: max-content;
 	border-radius: 0.5rem;
-
-	&::after {
-		content: '';
-		position: absolute;
-		display: block;
-		z-index: 0;
-		width: 80%;
-		height: 80%;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		background-image: linear-gradient(
-			-60deg, 
-			#5DC9F1, #5DC9F1 30%, 
-			#F89202 30%, #F89202 70%, 
-			#A1D10E 70%, #A1D10E
-		);
-		filter: blur(2rem);
-	}
-
-	img {
-		position: relative;
-		border-radius: inherit;
-		z-index: 1;
-	}
+	overflow: hidden;
 }
 
 .c-header-image {
