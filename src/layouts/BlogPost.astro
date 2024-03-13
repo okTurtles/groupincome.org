@@ -18,6 +18,7 @@ const {
 	content: { title, author, description, date, image, url },
 } = Astro.props;
 const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
+
 ---
 
 <Layout>
@@ -28,7 +29,10 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 				<h1 class="is-title-1 c-main-title">{title}</h1>
 				<p class="c-main-para">{author} • { date }</p>
 			</div>
-			<img class="c-header-image" src={imgSrc}/>
+		
+			<div class='c-header-img-container has-deep-box-shadow'>
+				<img class="c-header-image" src={imgSrc}/>
+			</div>
 		</div>
 	</section>
 
@@ -54,6 +58,14 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 	}
 }
 
+.c-header-img-container {
+	position: relative;
+	width: 100%;
+	height: max-content;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
 .c-header-image {
 	width: 100%;
 	height: 20rem;
@@ -66,6 +78,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 
 	@include until($tablet) {
 		margin-bottom: 2rem;
+		padding-bottom: 2rem;
 	}
 }
 

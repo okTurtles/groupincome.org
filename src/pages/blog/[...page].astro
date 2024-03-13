@@ -19,16 +19,19 @@ const { data, lastPage, url } = page
 	</section>
 
 	<section class="blog-wrapper" v-if="posts">
-		{data.map((article) => (
-			<article class="c-article">
-				<a href={resolvePath(article.frontmatter.permalink)}>
-					<img class="c-article-image" src={resolvePath(article.frontmatter.image) || resolvePath('/images/' + article.frontmatter.permalink + '.jpeg')}/>
-					<h2 class="c-blog-title">{article.frontmatter.title}</h2>
-					<p>{article.frontmatter.description || 'TODO'}</p>
-					<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
-				</a>
-			</article>
-		))}
+		{data.map((article: any) => {
+			const imgSrc = resolvePath(article.frontmatter.image) || resolvePath('/images/' + article.frontmatter.permalink + '.jpeg')
+			return (
+				<article class="c-article">
+					<a href={resolvePath(article.frontmatter.permalink)}>
+						<img class="c-article-image has-deep-box-shadow" src={imgSrc}/>
+						<h2 class="c-blog-title">{article.frontmatter.title}</h2>
+						<p>{article.frontmatter.description || 'TODO'}</p>
+						<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
+					</a>
+				</article>
+			)
+		})}
 		<div class="pagination">
 			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? '/groupincome.org' + url.prev : null}>
 				<i class="icon-chevron-left"></i>
@@ -187,19 +190,15 @@ section {
 .blog-wrapper {
 	max-width: 45rem;
   margin: 0 auto;
-	.c-article-image {
+}
+
+.c-article-image {
 		background-color: #D0DEEA;
 		border-radius: .5rem;
 		width: 100%;
 		aspect-ratio: 2 / 1;
 		object-fit: cover;
 	}
-}
-
-.c-article-image {
-	background-color: #D0DEEA;
-	border-radius: .5rem;
-}
 
 .c-blog-title {
 	margin: 1rem 0 1rem 0;
