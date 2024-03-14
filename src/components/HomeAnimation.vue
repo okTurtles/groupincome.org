@@ -90,7 +90,7 @@
           </div>
 
           <div class="c-chat-img-container">
-            <img class="c-chat-image" v-src="'/images/temp/homepage-panel6.png'" />
+            <img class="c-chat-image has-deep-box-shadow" v-src="'/images/temp/groupincome-chat-screenshot.jpeg'" />
           </div>
         </section>
       </div>
@@ -226,6 +226,7 @@ export default {
       width: 90vw;
       height: auto;
       flex-shrink: 0;
+      border-radius: 0.5rem;
     }
   }
 

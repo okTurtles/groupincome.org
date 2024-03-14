@@ -104,6 +104,14 @@ if (footnoteEl) {
   
     ul, ol {
       margin: 1rem 0 1.5rem 1rem;
+
+      li {
+        margin-left: 1.5rem;
+
+        @include phone {
+          margin-left: 1rem;
+        }
+      }
     }
   
     h1, h2, h3, h4, h5, h6 {
@@ -119,18 +127,27 @@ if (footnoteEl) {
     }
   
     a {
-      color: $primary_0;
-  
+      --link-color: #{$primary_0};
+
+      color: var(--link-color);
       background: linear-gradient(to right, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0)),
-                  linear-gradient(to right, $primary_0, $primary_0);
-      background-size: 100% 0.1em, 0 0.1em;
+                  linear-gradient(to right, var(--link-color), var(--link-color));
       background-position: 100% 100%, 0 100%;
       background-repeat: no-repeat;
-      transition: background-size 400ms;
+      background-size: 0 0.1em, 100% 0.1em;
+      transition: color 200ms;
+
       &:hover,
       &:focus {
-        background-size: 0 0.1em, 100% 0.1em;
+        --link-color: #{$green};
+        animation: link-hover-ani 300ms linear forwards;
+        outline: none;
       }
+    }
+
+    @keyframes link-hover-ani {
+      0% { background-size: 100% 0.1em, 0 0.1em; }
+      100% { background-size: 0 0.1em, 100% 0.1em; }
     }
   
     img {
@@ -191,6 +208,10 @@ if (footnoteEl) {
       padding-top: 2rem;
       border-top: 1px solid $divider_0;
       font-size: .8rem;
+
+      ol {
+        margin-left: 0;
+      }
     }
   }
   </style>
