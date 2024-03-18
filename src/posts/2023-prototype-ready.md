@@ -17,7 +17,7 @@ It's been quite a journey, but we're finally here. A [new kind of software](http
 
 If you have a group of friends/family that's interested in supporting one another using monetary and non-monetary means, you're a perfect fit to try out the Group Income prototype, and we want to hear from you!
 
-### What makes Group Income unique
+## What makes Group Income unique
 
 - Group Income is a simple tool to calculate and distribute a minimum income for a group of friends.
 - A voluntary approach that provides a social safety net that requires no political campaigning.
@@ -32,11 +32,11 @@ If you have a group of friends/family that's interested in supporting one anothe
 
 [^2]: The beta will have encryption disabled. End-to-end encryption is working for 80% of the app's features. We are putting on the final touches.
 
-### 🚨 How To Apply 🙋‍♂️🙋‍♀️
+## 🚨 How To Apply 🙋‍♂️🙋‍♀️
 
 👉 Fill out **[this form](https://cryptpad.fr/form/#/2/form/view/n9QRSIXMUAngi--YTM7ne5SPRsonKJtV-fezUPGocUs/)** and click "Submit". 👈
 
-### What's Next For Group Income
+## What's Next For Group Income
 
 This week we will be in Chicago demoing Group Income to attendees of [the BIG Conference](https://www.thebigconference.org/). If you're there in person you'll have the opportunity to try out Group Income first-hand.
 

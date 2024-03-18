@@ -83,7 +83,9 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 }
 
 section {
-	@include until($desktop) {
+	padding: 0 1rem;
+
+	@include from ($tablet) {
 		padding: 0 2rem;
 	}
 }
