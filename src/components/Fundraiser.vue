@@ -1,5 +1,5 @@
 <template>
-<div class="fundraiser" v-if="$isFundraiserOpen" @click="isFundraiserOpen.set(false)">
+<div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
     <b>Help us reach our goal! 🙏</b>
     <div class="progress-wrapper">
@@ -11,6 +11,10 @@
       </div>
     </div>
     <a :href="resolvePath('/donate')" class="button">Donate now</a>
+    <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
+      tabindex="0"
+      @click="closeBanner"
+    ></i>
   </div>
 </div>
 </template>
@@ -26,6 +30,9 @@ const total = 10000
 const current = 5405
 const progress = Math.round((current / total) * 100)
 const pourcent = `${progress}%`
+
+// methods
+const closeBanner = () => isFundraiserOpen.set(false)
 </script>
 
 <style lang="scss" scoped>
@@ -59,6 +66,7 @@ b {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,6 +83,16 @@ b {
     padding-top: 0;
     padding-bottom: 0;
   }
+}
+
+.c-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  transform: translate(35%, -35%);
 }
 
 progress {

@@ -284,3 +284,18 @@ button.link {
     }
   }
 }
+
+.icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: $icon-button-bg;
+  color: $text_0;
+  transition: background-color 200ms;
+
+  &:hover,
+  &:focus {
+    background-color: $icon-button-bg_on-focus;
+  }
+}

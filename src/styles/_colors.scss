@@ -38,9 +38,13 @@ $green: var(--green);
 
 $colors: "primary", "success", "warning", "danger", "general";
 
+// misc sass variables
+
 $divider_0: #D0DEEA;
 $divider_1: #DDD;
-
+$icon-button-bg: #EFF2F5;
+$icon-button-bg_on-focus: #D0DEEA;
+$drop-shadow_shallow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 $drop-shadow_deep: rgba(50, 50, 93, 0.2) 0px 30px 60px -12px, rgba(0, 0, 0, 0.25) 0px 18px 36px -18px;
 
 .text-orange {
@@ -69,4 +73,8 @@ $drop-shadow_deep: rgba(50, 50, 93, 0.2) 0px 30px 60px -12px, rgba(0, 0, 0, 0.25
 
 .has-deep-box-shadow {
   box-shadow: $drop-shadow_deep;
+}
+
+.has-shallow-box-shadow {
+  box-shadow: $drop-shadow_shallow;
 }

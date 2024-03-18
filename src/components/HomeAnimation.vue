@@ -24,7 +24,7 @@
           </h1>
           <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
             voluntarily provide a financial safety net for their members.</p>
-          <i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+          <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
         </div>
       </section>
 
@@ -489,21 +489,13 @@ export default {
 }
 
 .icon-chevron-bottom {
+  display: flex;
   height: 2.5rem;
   width: 2.5rem;
-  display: flex;
-  background-color: #EFF2F5;
   border-radius: 4rem;
   margin-left: calc(50% - 1.25rem);
-  justify-content: center;
-  align-items: center;
   margin-top: 3rem;
   margin-bottom: -3rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #D0DEEA;
-  }
 
   @include phone {
     display: none;
