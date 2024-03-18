@@ -76,5 +76,10 @@
     background: #A1D10E;
     box-shadow: 0 0 0 0.4rem  rgba(#A1D10E, 0.4);
   }
+
+  .is-link.is-display-block {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

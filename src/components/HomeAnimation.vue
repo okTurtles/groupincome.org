@@ -580,6 +580,16 @@ export default {
   &-link {
     margin-top: 1.6rem;
     display: block;
+    width: max-content;
+
+    @include until($desktop) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    + .is-link {
+      width: max-content;
+    }
   }
 }
 

@@ -18,23 +18,6 @@
   }
 }
 
-.is-link {
-  font-size: $size_extra_small;
-  color: $primary_0;
-}
-
-.is-link-inherit {
-  color: inherit;
-  cursor: pointer;
-  text-decoration: underline;
-
-  &:hover,
-  &:focus {
-    color: $primary_0;
-    border-bottom: 1px solid;
-  }
-}
-
 .is-hidden {
   display: none !important;
 }
