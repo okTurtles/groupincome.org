@@ -330,7 +330,7 @@ export default {
 
 #face-1 {
   top: 76vh;
-  left: 17%;
+  left: 22%;
 
   @include tablet {
     top: 70vh;
@@ -380,8 +380,8 @@ export default {
 }
 
 #face-4 {
-  top: 74vh;
-  left: 63%;
+  top: 73vh;
+  left: 52%;
 
   @include tablet {
     top: 65vh;
@@ -415,8 +415,8 @@ export default {
 }
 
 #face-6 {
-  top: 59vh;
-  left: 80%;
+  top: 69vh;
+  left: 75%;
 
   @include tablet {
     top: 47vh;
@@ -615,6 +615,7 @@ export default {
 .c-main-wrapper {
   margin-top: -1.6rem;
   position: relative;
+  z-index: 2;
 }
 
 .c-main-title {
