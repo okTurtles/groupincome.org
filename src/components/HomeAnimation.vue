@@ -450,11 +450,11 @@ export default {
 }
 
 #face-8 {
-  top: 8vh;
+  top: 10vh;
   left: 75%;
 
   @include tablet {
-    top: 6vh;
+    top: 12vh;
     left: 87%;
   }
 
@@ -464,7 +464,7 @@ export default {
   }
 
   @include desktop {
-    top: 21vh;
+    top: 24vh;
     left: 92%;
     transform: scale(1.2);
   }
