@@ -15,7 +15,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 	<body>
 		<PageWrapper>
 			<AppStyles/>
-			<Header client:load :randomStr="currentPath" />
+			<Header client:only="vue"  />
 			<main>
 				<slot />
 			</main>
