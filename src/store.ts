@@ -1,11 +1,7 @@
 import { atom, StoreValue } from 'nanostores'
-import { persistentAtom } from '@nanostores/persistent'
 
 export const isNavigationOpen = atom<boolean>(false)
-export const isFundraiserOpen = persistentAtom<boolean>('groupincome.org_fundraiser_banner', true, {
-  encode: JSON.stringify,
-  decode: JSON.parse
-})
+export const isFundraiserOpen = atom<boolean>(true)
 
 // manipulate navigation menu
 export const openNavigation = (): StoreValue<typeof isNavigationOpen> => {
