@@ -13,14 +13,14 @@
     <a :href="resolvePath('/donate')" class="button">Donate now</a>
     <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
       tabindex="0"
-      @click="closeBanner"
+      @click="closeFundraiser"
     ></i>
   </div>
 </div>
 </template>
 
 <script setup>
-import { isFundraiserOpen } from '../store.js';
+import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
 
@@ -30,9 +30,6 @@ const total = 10000
 const current = 5405
 const progress = Math.round((current / total) * 100)
 const pourcent = `${progress}%`
-
-// methods
-const closeBanner = () => isFundraiserOpen.set(false)
 </script>
 
 <style lang="scss" scoped>

@@ -27,7 +27,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import { isNavigationOpen, closeNavigation } from '../store.js';
+import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
 const $isNavigationOpen = useStore(isNavigationOpen);
