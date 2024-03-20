@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { isNavigationOpen, toggleNavigation } from '../store.js';
+import { isNavigationOpen, toggleNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 
 const $isNavigationOpen = useStore(isNavigationOpen);

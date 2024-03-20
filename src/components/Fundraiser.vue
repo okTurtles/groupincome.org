@@ -1,5 +1,5 @@
 <template>
-<div class="fundraiser" v-if="$isFundraiserOpen" @click="isFundraiserOpen.set(false)">
+<div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
     <b>Help us reach our goal! 🙏</b>
     <div class="progress-wrapper">
@@ -11,12 +11,16 @@
       </div>
     </div>
     <a :href="resolvePath('/donate')" class="button">Donate now</a>
+    <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
+      tabindex="0"
+      @click="closeFundraiser"
+    ></i>
   </div>
 </div>
 </template>
 
 <script setup>
-import { isFundraiserOpen } from '../store.js';
+import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
 
@@ -59,6 +63,7 @@ b {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,6 +80,16 @@ b {
     padding-top: 0;
     padding-bottom: 0;
   }
+}
+
+.c-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  transform: translate(35%, -35%);
 }
 
 progress {

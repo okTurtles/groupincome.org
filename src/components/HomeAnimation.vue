@@ -24,7 +24,7 @@
           </h1>
           <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
             voluntarily provide a financial safety net for their members.</p>
-          <i class="icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+          <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
         </div>
       </section>
 
@@ -330,7 +330,7 @@ export default {
 
 #face-1 {
   top: 76vh;
-  left: 17%;
+  left: 22%;
 
   @include tablet {
     top: 70vh;
@@ -380,8 +380,8 @@ export default {
 }
 
 #face-4 {
-  top: 74vh;
-  left: 63%;
+  top: 73vh;
+  left: 52%;
 
   @include tablet {
     top: 65vh;
@@ -415,8 +415,8 @@ export default {
 }
 
 #face-6 {
-  top: 59vh;
-  left: 80%;
+  top: 69vh;
+  left: 75%;
 
   @include tablet {
     top: 47vh;
@@ -450,11 +450,11 @@ export default {
 }
 
 #face-8 {
-  top: 8vh;
+  top: 10vh;
   left: 75%;
 
   @include tablet {
-    top: 6vh;
+    top: 12vh;
     left: 87%;
   }
 
@@ -464,7 +464,7 @@ export default {
   }
 
   @include desktop {
-    top: 21vh;
+    top: 24vh;
     left: 92%;
     transform: scale(1.2);
   }
@@ -489,21 +489,13 @@ export default {
 }
 
 .icon-chevron-bottom {
+  display: flex;
   height: 2.5rem;
   width: 2.5rem;
-  display: flex;
-  background-color: #EFF2F5;
   border-radius: 4rem;
   margin-left: calc(50% - 1.25rem);
-  justify-content: center;
-  align-items: center;
   margin-top: 3rem;
   margin-bottom: -3rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #D0DEEA;
-  }
 
   @include phone {
     display: none;
@@ -588,6 +580,16 @@ export default {
   &-link {
     margin-top: 1.6rem;
     display: block;
+    width: max-content;
+
+    @include until($desktop) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    + .is-link {
+      width: max-content;
+    }
   }
 }
 
@@ -615,6 +617,7 @@ export default {
 .c-main-wrapper {
   margin-top: -1.6rem;
   position: relative;
+  z-index: 2;
 }
 
 .c-main-title {
