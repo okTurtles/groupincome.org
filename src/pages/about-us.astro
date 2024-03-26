@@ -13,28 +13,34 @@ import { resolvePath } from '@/utils/helpers.js'
       <div class="c-main-wrapper" id="header1">
         <div class="is-posttitle">ABOUT GROUP INCOME</div>
         <h1 class="is-title-1 c-main-title">On a mission to ensure<span class="text-orange"> basic</span><span class="text-green"> income</span> security for<span class="text-blue"> everyone</span>.</h1>
-        <p class="is-subtitle c-main-para">Group Income is an open-source project of the OkTurtles Foundation, a non-profit organization that supports beneficial decentralization technologies.</p>
+        <p class="is-subtitle c-main-para">Group Income is an open-source project of the <a class="is-link" href="https://okturtles.org" target="_blank">okTurtles Foundation</a>, a non-profit organization that supports beneficial decentralization technologies.</p>
       </div>
     </section>
     <section class="container span-container c-container">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph1.png")} /></div>
       <div class="span-2">
         <h2 class="is-title-2">Open Protocol</h2>
-        <p class="c-container-para">Our software is non proprietary and is not owned by any particular company. The protocols in the Internet stack are open so that any computing device can follow the protocol to join the global network.</p>
+        <p class="c-container-para">
+          Group Income is built on top of an <a class="is-link" href="https://shelterprotocol.net" target="_blank">open protocol</a>, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.
+        </p>
       </div>
     </section>
     <section class="container span-container c-container span-reverse">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph2.png")} /></div>
       <div class="span-2">
         <h2 class="is-title-2">Decentralized</h2>
-        <p class="c-container-para">We believe decentralized software development is vital for the future of society and that groups should be able to make decisions for themselves and not depend on a single service provider.</p>
+        <p class="c-container-para">
+          Group Income is decentralized through <a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">federation</a>. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers.
+        </p>
       </div>
     </section>
     <section class="container span-container c-container">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph3.png")} /></div>
       <div class="span-2">
         <h2 class="is-title-2">End-to-end Encrypted</h2>
-        <p class="c-container-para">We want you to be in control of your security and privacy online.  We recognize that your data belongs to you, and we are not entitled to it, our software is end-to-end encrypted.</p>
+        <p class="c-container-para">
+          Enjoy a safe and private environment to support your community with Group Income. All your chats and group interactions are protected by state-of-the art end-to-end encryption.
+        </p>
       </div>
     </section>
     <section class="container dark-container">
@@ -247,8 +253,6 @@ import { resolvePath } from '@/utils/helpers.js'
   margin-left: 0;
   margin-right: 0;
 
-  pointer-events: none;
-
   @include phone {
     max-width: 100%;
   }
@@ -367,10 +371,6 @@ import { resolvePath } from '@/utils/helpers.js'
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 3rem;
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 }
 
