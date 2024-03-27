@@ -22,13 +22,13 @@ import Donate from '../components/Donate.vue'
         Our team of information security veterans spent several years designing and implementing a completely different approach to building web-based software.
       </p>
       <p>
-        Group Income does not have a traditional database to speak of. We do not use <a href="https://en.wikipedia.org/wiki/HTTP_cookie">cookies</a>. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.
+        Group Income does not have a traditional database to speak of. We do not use <a class="is-link" href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">cookies</a>. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.
       </p>
       <p>
         Your data is encrypted on your device with a key that doesn't leave your device. It's stored encrypted on our servers. We do not have access to your keys. Data is decrypted locally, by your device. This means we cannot read your encrypted data.
       </p>
       <p>
-        To do this, we created a brand new end-to-end encrypted, federated protocol called <a href="https://shelterprotocol.net">Shelter Protocol</a>.* 
+        To do this, we created a brand new end-to-end encrypted, federated protocol called <a class="is-link" href="https://shelterprotocol.net" target="_blank">Shelter Protocol</a>.* 
       </p>
       <p>
         * For the geeks in the audience: Shelter Protocol is what would happen if Git and Ethereum had a baby.
@@ -42,20 +42,20 @@ import Donate from '../components/Donate.vue'
 
       <h3>We use end-to-end encryption</h3>
       <p>
-        <ul>
-          <li>In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see <a href="https://en.wikipedia.org//wiki/Surveillance_capitalism">"surveillance capitalism"</a>).</li>
-          <li>In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the <a href="https://shelterprotocol.net">Shelter Protocol</a> for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.</li>
+        <ul class="indented-list">
+          <li>In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see <a class="is-link" href="https://en.wikipedia.org//wiki/Surveillance_capitalism" target="_blank">"surveillance capitalism"</a>).</li>
+          <li>In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the <a class="is-link" href="https://shelterprotocol.net" target="_blank">Shelter Protocol</a> for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.</li>
         </ul>
       </p>
-      <p>Every part of Group Income, not just the frontend, is open-source. Because the protocol is a federated protocol, anyone can run a Group Income server if they do not trust ours.</p>
+      <p>Every part of Group Income, not just the frontend, is open-source. Because the protocol is a <a class='is-link' href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">federated protocol</a>, anyone can run a Group Income server if they do not trust ours (and still interact with users on other servers).</p>
       <p>In addition to the end-to-end encryption offered by the Shelter Protocol, our server for Group Income uses full-disk encryption. Please note, full-disk encryption may not exist on other community-run servers.</p>
       <p>By default, all chatrooms in Group Income are end-to-end encrypted. However, we provide the option for users to create public chatrooms to give communities options when it comes to building open and inclusive communities. As their name suggests, public chatrooms are not end-to-end encrypted to make it easy for users of Group Income to bridge them with other services, should they choose to do so. Please see the section titled "Note On Public Chatrooms" below for more details.</p>
 
-      <h3>We do not have Third Party Service Agreements in place</h3>
+      <h3>We do <i>not</i> have Third Party Service Agreements in place</h3>
 
       <p>Group Income does not share your data with any third-party service, and therefore we have no need of such agreements.</p>
       <p>As mentioned in previous sections, the data in public unencrypted chatrooms is public and should be treated with the same care and expectations of privacy that you should have with normal social media: that is, you should have zero expectation of any privacy for the content you post to public chatrooms. By default, chatrooms are non-public, and like direct messages, they are end-to-end encrypted.</p>
-      <p>Certain possible future features might necessarily require some of your data passing through third-party servers. For example, certain types of notifications (mobile push notifications and emails) require that data travel from our server to another before it reaches you, and in the process this data could be read by those servers. As far as we are aware, no end-to-encrypted alternatives to such services exist. If you are aware of any, <a href="https://github.com/okTurtles/group-income/discussions">please let us know</a>.</p>
+      <p>Certain possible future features might necessarily require some of your data passing through third-party servers. For example, certain types of notifications (mobile push notifications and emails) require that data travel from our server to another before it reaches you, and in the process this data could be read by those servers. As far as we are aware, no end-to-encrypted alternatives to such services exist. If you are aware of any, <a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">please let us know</a>.</p>
 
       <h3>Note On Public Chatrooms</h3>
 
@@ -65,20 +65,22 @@ import Donate from '../components/Donate.vue'
     
       <h3>Note On Metadata</h3>
       <p>The following metadata is visible to us and not anyone else:</p>
-      <p><ul>
-        <li><p>Usernames registered</p></li>
-        <li><p>IP addresses (useful in case our servers come under DoS attack)</p></li>
-        <li><p>How many groups are on a server</p></li>
-      </ul></p>
+      <ul class="indented-list less-item-gap">
+        <li>Usernames registered</li>
+        <li>IP addresses (useful in case our servers come under DoS attack)</li>
+        <li>How many groups are on a server</li>
+        <li>Server log information such as the URL requested, time of request, and user agent</li>
+        <li>Any billing relevant information</li>
+      </ul>
       <p>The following metadata is public:</p>
       <p>
-        <ul>
+        <ul class="indented-list">
           <li>If you already know the username of someone on a server, you can get their identity contractID. This doesn't tell you anything about them (as the contents of an identity contract are encrypted by default), but perhaps it could be useful for something.</p></li>
         </ul>
       <p>If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), access our website over a VPN or Tor, and avoid exposing any information about yourself in an unencrypted, public chatroom.</p>
 
       <h3>Additional notes on emails, password, and billing details</h3>
-      <ul>
+      <ul class="indented-list">
         <li>Currently, we do not use your email for anything. In the future, we might use it to send you notifications that you've requested (e.g. "please let me know when a new group member has joined").</li>
         <li>Your password is used to decrypt your data locally on your device. We combine your password with a random server-generated salt, and a password strengthening algorithm (scrypt) to encrypt your data.</li>
         <li>We do not have billing implemented. We plan to use the Bitcoin Lightning Network for billing and user-to-user payments in the future. Other payment options are possible, but our focus is on Bitcoin at the moment.</li>
@@ -87,7 +89,7 @@ import Donate from '../components/Donate.vue'
       <h3>Note On Analytics</h3>
       <p>Group Income is a federated system with multiple independently run servers. As far as our server goes, we have access to basic analytics like how many groups and how many users our server is hosting. We know how much space the data takes up. Like all web servers, we know the IP address that is used to access our servers. The IP address is useful in case our servers come under DoS attack (that way we can block malicious IPs).</p>
       <p>As far as independent federated servers go, we have no access to the data stored on them at all. If and when analytics are implemented (to collect basic information about the health and size of the federation), then server operators might be able to share that information with us. Such information sharing will be up to the discretion of each server administrator. This page will be updated with information about any such analytics if and when they are implemented. Any such hypothetical analytics features will be managed and stored by us only — the first-party — and never by a third-party (e.g. "Google Analytics", etc.).</p>
-      <p>Currently, we do not have any federated usage statistics, so we only know what you tell us via our <a href="https://github.com/okTurtles/group-income/discussions">community forums</a>. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.</p>
+      <p>Currently, we do not have any federated usage statistics, so we only know what you tell us via our <a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">community forums</a>. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.</p>
     
       <hr class="c-line"/>
 
@@ -97,7 +99,7 @@ import Donate from '../components/Donate.vue'
 
       <p>Nobody. If we are forced by a court to share information with a government body, the data we can share with them is described above in the section "Note On Metadata".</p>
       <p>Future features that cannot avoid using third-party services (e.g. email or mobile push notifications) may necessarily expose limited data to some third-party providers should users choose to enable such features. See the section above on third-party agreements for more details.</p>
-      <p>Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them, and information share in public chatrooms is… public (see section "Note On Public Chatrooms").</p>
+      <p>Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them, and information shared in public chatrooms is… public (see section "Note On Public Chatrooms").</p>
       <p>Group members can read the information in the group because they share a secret key. Again, this secret key is available only to group members, not us. Similarly, direct messages can only be read by sender and recipient.</p>
 
       <hr class="c-line"/>
@@ -105,7 +107,7 @@ import Donate from '../components/Donate.vue'
         Data Risks
       </h2>
 
-      <p>Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — <a href="https://shelterprotocol.net/en/security/">attacks that cannot be protected against</a>.</p>
+      <p>Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — <a class="is-link" href="https://shelterprotocol.net/en/security/" target="_blank">attacks that cannot be protected against</a>.</p>
       <p>The same is true of our service. While we have significantly raised the burden necessary to achieve data disclosure, we have not eliminated it. Potential security holes in the software that we use, or bugs in our software, may exist that would allow a determined attacker to break the security and exfiltrate data. To the best of our ability we have mitigated against this. We can say that Group Income protects your data better than the vast majority of software services out there, but we cannot guarantee that your data will never be exposed, and anyone who does give you such guarantees is deceiving you.</p>
       <p>The only real way to guarantee data safety is to avoid using online services entirely. Even better would be to avoid using computers altogether.</p>
       
@@ -114,7 +116,7 @@ import Donate from '../components/Donate.vue'
         Questions
       </h2>
 
-      <p>If your question wasn't answered on this page, please ask it on <a href="https://github.com/okTurtles/group-income/discussions">our community forums</a>.</p>
+      <p>If your question wasn't answered on this page, please ask it on <a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">our community forums</a>.</p>
     </section>
   </div>
 </Layout>

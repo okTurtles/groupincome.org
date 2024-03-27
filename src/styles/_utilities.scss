@@ -75,3 +75,29 @@ $fills: (
     display: none;
   }
 }
+
+.indented-list {
+  margin: 1rem 0 1.5rem 0;
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    margin-left: 1.5rem;
+
+    @include phone {
+      margin-left: 1rem;
+    }
+  }
+
+  &.less-item-gap {
+    li {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+
+ul.indented-list {
+  list-style-type: disc;
+}
