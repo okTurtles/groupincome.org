@@ -20,6 +20,9 @@ const { Content } = Astro.props
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
+  // When this script is executed for any blog posts that are written as .mdx format, the logic inside prepFootnotes() does not work for some reason.
+  // But giving it a reasonable amount of delay ensures it consistently works for both .md and .mdx blog posts.
+  // (reference: https://github.com/okTurtles/groupincome.org/pull/107#discussion_r1547356061)
   setTimeout(prepFootnotes, 100)
 })
 
