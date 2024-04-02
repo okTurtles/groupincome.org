@@ -13,6 +13,7 @@ permalink: /2017/03/basic-security-our-real-goal/
 categories:
     - Uncategorized
 ---
+import { resolvePath } from '@/utils/helpers.js'
 
 Money is simply a tool that exists in circumstances when there is scarcity within an economy. It is a way of measuring the scarcity-demand for something. It is therefore a way of restricting access to that something. But when a lot of people choose to charge for scarce items using money, it gives money itself value -- value it otherwise would not have.
 
@@ -22,7 +23,7 @@ Confused, you'd ask, _"Kindness? What's that, and where do I get some?"_
 
 _"Well,"_ the shopkeep would say, _"You have to have a homeless person vouch for you. Their word is the currency that we take."_
 
-<img src="https://groupincome.org/wp-content/uploads/2017/03/kindness.jpg" alt="visual depiction of surrounding text" width="1420" height="569" class="alignnone size-full wp-image-943" />
+<img src={resolvePath('/wp-content/uploads/2017/03/kindness.jpg')} alt="visual depiction of surrounding text" width="1420" height="569" class="alignnone size-full wp-image-943" />
 
 You can imagine that would create an interesting situation. Suddenly, the value of simply being a homeless person would go up. These people would also have more power over society. The same thing happens with any currency, even dollars. If the creation of dollars is controlled by a small group (as it is), and those dollars are what shopkeeps around the country ask for, then that group suddenly becomes very powerful over society.
 

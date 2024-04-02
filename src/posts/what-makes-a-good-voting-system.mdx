@@ -15,6 +15,7 @@ categories:
 tags:
     - voting
 ---
+import { resolvePath } from '@/utils/helpers.js'
 
 It's not completely clear how this happened, but somewhere in our history it was decided that, _"A majority voting in favor of something indicates the presence of agreement, and we should proceed ahead."_
 
@@ -38,7 +39,7 @@ However, that is only partially true if the group decided—formally and beforeh
 
 Even then, the "We" of "We're in agreement" only refers to half the group. From the outside, it appears as if _two_ groups are in discord with one another:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/06/voting-v6.2.png" alt="What &quot;Voting&quot; Means" style="box-shadow:1px 1px 3px rgba(1, 1, 1, 0.25); width: 80%;" class="aligncenter size-full wp-image-119" />
+<img src={resolvePath('/wp-content/uploads/2016/06/voting-v6.2.png')} alt="What &quot;Voting&quot; Means" style="box-shadow:1px 1px 3px rgba(1, 1, 1, 0.25); width: 80%;" class="aligncenter size-full wp-image-119" />
 
 Perhaps this method of making collective decisions is not always the best way to go?
 
@@ -111,7 +112,7 @@ In Group Income, voting plays at least four important roles:
 
 Here is one of our mockups for the UI that we'll be experimenting with when users create a group. You can think of it as setting up the _Group Constitution:_
 
-<img src="https://groupincome.org/wp-content/uploads/2016/06/group-setup-sm-v1.png" alt="Group Creation Screen" class="aligncenter size-full wp-image-114" />
+<img src={resolvePath('/wp-content/uploads/2016/06/group-setup-sm-v1.png')} alt="Group Creation Screen" class="aligncenter size-full wp-image-114" />
 
 A few notes:
 

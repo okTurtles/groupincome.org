@@ -19,59 +19,65 @@ const { Content } = Astro.props
 <Content />
 
 <script>
-const footnoteEl = document.querySelector('section.footnotes')
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(prepFootnotes, 100)
+})
 
-// NOTE:
-//  below is a logic to resolve a foonotes related bug(https://github.com/okTurtles/groupincome.org/issues/92)
-//  which is when links are clicked, the page is not scrolled to the correct positions.
-if (footnoteEl) {
-  const footnoteAnchorSel = 'a[data-footnote-ref]' // selector for an anchor tag linked to a footnote.
-  const footnoteBackSel = 'a[data-footnote-backref]' // selector for the 'back' anchor tag within a footnote.
-  const footnoteAnchors = Array.from(document.querySelectorAll(footnoteAnchorSel)) as HTMLAnchorElement[]
-  const footnoteBackEls = Array.from(document.querySelectorAll(footnoteBackSel)) as HTMLAnchorElement[]
-  const calcFloatingContents = (): number => {
-    // calculate the total height of the 'position: fixed' contents of the page.
-    // currently there is two UI components like that:  'fundraiser-banner', 'header-toolbar'
-    const floatingEls = ['.fundraiser', '.c-header-wrapper']
-    let totalHeight = 0
+function prepFootnotes () {
+  const footnoteEl = document.querySelector('section.footnotes')
 
-    floatingEls.forEach(sel => {
-      const el = document.querySelector(sel)
+  // NOTE:
+  //  below is a logic to resolve a foonotes related bug(https://github.com/okTurtles/groupincome.org/issues/92)
+  //  which is when links are clicked, the page is not scrolled to the correct positions.
+  if (footnoteEl) {
+    const footnoteAnchorSel = 'a[data-footnote-ref]' // selector for an anchor tag linked to a footnote.
+    const footnoteBackSel = 'a[data-footnote-backref]' // selector for the 'back' anchor tag within a footnote.
+    const footnoteAnchors = Array.from(document.querySelectorAll(footnoteAnchorSel)) as HTMLAnchorElement[]
+    const footnoteBackEls = Array.from(document.querySelectorAll(footnoteBackSel)) as HTMLAnchorElement[]
+    const calcFloatingContents = (): number => {
+      // calculate the total height of the 'position: fixed' contents of the page.
+      // currently there is two UI components like that:  'fundraiser-banner', 'header-toolbar'
+      const floatingEls = ['.fundraiser', '.c-header-wrapper']
+      let totalHeight = 0
 
-      if (el) {
-        const bbox = el.getBoundingClientRect()
-        totalHeight += bbox.height
-      }
-    })
+      floatingEls.forEach(sel => {
+        const el = document.querySelector(sel)
 
-    return totalHeight
-  }
-  const getAdjustedTargetScrollPosition = (targetId: string): number => {
-    // get adjusted scroll-Y value of the target element of an anchor tag.
-    // 'adjusted' here means subtracting the total heights of the floating contents of the page.
-    const targetEl = document.querySelector(`#${targetId}`)
-    if (targetEl) {
-      const bbox = targetEl.getBoundingClientRect()
-      return bbox.top + document.documentElement.scrollTop - calcFloatingContents()
+        if (el) {
+          const bbox = el.getBoundingClientRect()
+          totalHeight += bbox.height
+        }
+      })
+
+      return totalHeight
     }
-    return 0
-  }
-  const addClickHandlerWithAdjustment = (aTag: HTMLAnchorElement) => {
-    const href = aTag.href as string
-    const targetId = href ? href.split('#')[1] : ''
-
-    aTag.addEventListener('click', e => {
-      e.preventDefault()
-
-      const targetPositionY = getAdjustedTargetScrollPosition(targetId)
-      if (targetPositionY > 0) {
-        window.scrollTo({ top: targetPositionY, behavior: 'instant' })
+    const getAdjustedTargetScrollPosition = (targetId: string): number => {
+      // get adjusted scroll-Y value of the target element of an anchor tag.
+      // 'adjusted' here means subtracting the total heights of the floating contents of the page.
+      const targetEl = document.querySelector(`#${targetId}`)
+      if (targetEl) {
+        const bbox = targetEl.getBoundingClientRect()
+        return bbox.top + document.documentElement.scrollTop - calcFloatingContents()
       }
-    })
-  }
+      return 0
+    }
+    const addClickHandlerWithAdjustment = (aTag: HTMLAnchorElement) => {
+      const href = aTag.href as string
+      const targetId = href ? href.split('#')[1] : ''
 
-  footnoteAnchors.forEach(addClickHandlerWithAdjustment)
-  footnoteBackEls.forEach(addClickHandlerWithAdjustment)
+      aTag.addEventListener('click', e => {
+        e.preventDefault()
+
+        const targetPositionY = getAdjustedTargetScrollPosition(targetId)
+        if (targetPositionY > 0) {
+          window.scrollTo({ top: targetPositionY, behavior: 'instant' })
+        }
+      })
+    }
+
+    footnoteAnchors.forEach(addClickHandlerWithAdjustment)
+    footnoteBackEls.forEach(addClickHandlerWithAdjustment)
+  }
 }
 </script>
 
