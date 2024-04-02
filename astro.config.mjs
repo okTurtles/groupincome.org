@@ -3,6 +3,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import remarkBreaks from 'remark-breaks'; // improves support for newlines in markdown files
 import remarkGfm from 'remark-gfm'; // support rendering tables in markdown files
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 // twitter & youtube auto-embed via remark
 import remarkEmbedder from '@remark-embedder/core';
 import oembedTransformer from '@remark-embedder/transformer-oembed';
@@ -37,13 +39,12 @@ export default defineConfig({
   base: IS_PROD_BUILD === 'true' ? "/" : '/groupincome.org',
   // integrations: [mdx(), sitemap(), vue()],
   integrations: [
+    mdx(),
     sitemap(),
     vue({ appEntrypoint: '/src/_app' })
   ],
   markdown: {
-    remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, 'remark-math'],
-    rehypePlugins: [['rehype-katex', {
-      // Katex plugin options
-    }]]
+    remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, remarkMath],
+    rehypePlugins: [[rehypeKatex, {}]]
   }
 });
