@@ -15,38 +15,41 @@ categories:
 tags:
     - voting
 ---
+import { resolvePath } from '@/utils/helpers.js'
 
-<!--
+{/*
 FYI, this is another example of academia gone wrong:
 http://www-groups.dcs.st-and.ac.uk/history/PrintHT/Voting.html
 
 - [ ] Post followup two days later.
 - [ ] post job listing to: https://govuejs.com/jobs/1/full-stack-engineer
--->
+*/}
 
 In our [previous post](/articles/what-makes-a-good-voting-system/), we explored the meaning of voting and what it takes to make a good voting system. In this _Part 2_, we hope to convince you that what you've been told about [majority rule](https://en.wikipedia.org/wiki/Majority_rule) is not only untrue, but harmful.
 
 <style>
-.sidenote {
-  display: block;
-  overflow-x: auto;
-  padding: 1em 1em;
-  border-radius: 6px;
-  background-color: #ebebeb;
-  color: #6C7E8F;
-  margin: 2em 1.5em 2em 1.5em;
-  font-size: 90%;
-}
-.sidenote b {
-  color: #6C7E8F !important;
-}
+  {`
+  .sidenote {
+    display: block;
+    overflow-x: auto;
+    padding: 1em 1em;
+    border-radius: 6px;
+    background-color: #ebebeb;
+    color: #6C7E8F;
+    margin: 2em 1.5em 2em 1.5em;
+    font-size: 90%;
+  }
+  .sidenote b {
+    color: #6C7E8F !important;
+  }
 
-hr {
-  margin: 0;
-}
-hr + p {
-  text-align: center;
-}
+  hr {
+    margin: 0;
+  }
+  hr + p {
+    text-align: center;
+  }
+  `}
 </style>
 
 - **[Voting Is Fairly New](#voting-is-fairly-new)**
@@ -95,7 +98,7 @@ Most descriptions of the theorem look something like this:
 
 However, the [original](http://www.eecs.harvard.edu/cs286r/courses/fall11/papers/May52.pdf) [theorem](https://sci-hub.tw/10.2307/1907651), as written by Kenneth May in 1952, looks like this:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/07/mays-theorem-1024x134.jpg" alt="THEOREM: A group decision function is the method of simple majority decision if and only if it is always decisive, egalitarian, neutral, and positively responsive." width="1024" height="134" class="size-large wp-image-217" />
+<img src={resolvePath('/wp-content/uploads/2016/07/mays-theorem-1024x134.jpg')} alt="THEOREM: A group decision function is the method of simple majority decision if and only if it is always decisive, egalitarian, neutral, and positively responsive." width="1024" height="134" class="size-large wp-image-217" />
 
 Are either of these expressions of the theorem true?
 
@@ -131,7 +134,7 @@ Let's define these terms:
 - **Unweighted:** 1-person-1-vote style voting (as opposed to 1-dollar-1-vote style voting).
 - **Majority rule:** Unweighted voting rule with a threshold of 50%.
 - **Supermajority rule:** Unweighted voting rule with a threshold >50%. Typically, [2/3 or more](https://en.wikipedia.org/w/index.php?title=Supermajority&oldid=723462259#Common_supermajorities).
-- **Submajority rule:** Unweighted voting rule with a threshold of <50%.[^2]
+- **Submajority rule:** Unweighted voting rule with a threshold of {'<'}50%.[^2]
 
 [^1]: May did not explicitly state that $y$ refers to the status quo, but it is indicated by his four conditions and the implications (and problems) surrounding his theorem. If $y$ were something other than the ["status quo"](#confusion-over-status-quo), his theorem would fall apart because majority rule's ["neutrality"](#condition-iii-neutrality) would no longer be at all believable (it would be exactly _not neutral_, resulting in a move away from the status quo almost every time).
 
@@ -160,17 +163,29 @@ May's confusion around $D=0$ results in an even more serious problem, for it can
 
 <table>
 <tr><th>Votes</th><th>Possible meaning</th></tr>
-<tr><td><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span></td>
-
-<td> "Nobody cares" aka "Indifference"</td></tr>
-<tr><td><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span> </td>
-<td> "Everybody cares"                </td></tr>
-<tr><td><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span></td><td> "Some care"                      </td></tr>
+<tr>
+  <td>
+    <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span>
+  </td>
+  <td>"Nobody cares" aka "Indifference"</td>
+</tr>
+<tr>
+  <td>
+    <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span>
+  </td>
+  <td>"Everybody cares"</td>
+</tr>
+<tr>
+  <td>
+    <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span>
+  </td>
+  <td>"Some care"</td>
+</tr>
 </table>
 
 Our [previous post](/articles/what-makes-a-good-voting-system/) explains why $D=0$ does not (typically) mean "indifference" but is indicative of disagreement:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/06/voting-v6.2.png" alt="What &quot;Voting&quot; Means" style="box-shadow:1px 1px 3px rgba(1, 1, 1, 0.25); width: 80%;" class="aligncenter size-full wp-image-119" />
+<img src={resolvePath('/wp-content/uploads/2016/06/voting-v6.2.png')} alt="What &quot;Voting&quot; Means" style="box-shadow:1px 1px 3px rgba(1, 1, 1, 0.25); width: 80%;" class="aligncenter size-full wp-image-119" />
 
 However, even if we used the turnout to measure "indifference", that is also not necessarily a reliable way of representing indifference. For example, a low turnout in a presidential election *might* mean that people do not care, or it could mean that they care but do not approve of either option.
 
@@ -183,7 +198,7 @@ Onward!
 
 Here's a screenshot of Condition I from May's paper:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/07/condition1-always-decisive-e1472518395474-1024x248.jpg" alt="CONDITION I: The group decision function is defined and single valued for every element of U X U X ... X U. We might describe this condition by saying that the method must be decisive and universally applicable, or more briefly always decisive, since it must specify a unique decision (even if this decision is to be indifferent) for any individual preferences." width="1024" height="248" class="aligncenter size-large wp-image-236" />
+<img src={resolvePath('/wp-content/uploads/2016/07/condition1-always-decisive-e1472518395474-1024x248.jpg')} alt="CONDITION I: The group decision function is defined and single valued for every element of U X U X ... X U. We might describe this condition by saying that the method must be decisive and universally applicable, or more briefly always decisive, since it must specify a unique decision (even if this decision is to be indifferent) for any individual preferences." width="1024" height="248" class="aligncenter size-large wp-image-236" />
 
 That may sound fancy, but all it says is: "A _group decision function_ is a [function](https://en.wikipedia.org/w/index.php?title=Function_(mathematics)&oldid=735355683) _[that outputs -1, 0, or 1]_."[^3]
 
@@ -215,7 +230,7 @@ The term "egalitarian" only appears once in the entire paper: in the [theorem st
 
 [^4]: Note that **this is sloppy, bad math.** Mathematical theorems must define terms precisely and then use them in a consistent manner. Instead, May plays word games with the reader, misleading them into believing Condition II implies majority rule is ["egalitarian"](http://www.thefreedictionary.com/egalitarian) or ["anonymous"](http://www.thefreedictionary.com/anonymous) when the math implies neither.
 
-<img src="https://groupincome.org/wp-content/uploads/2016/07/condition2-anonymity-e1472519254126-1024x399.jpg" alt="The second condition is that each individual be treated the same as far as his influence on the outcome is concerned. This means that in f(D1, D2, ---, Dn) we could interchange any two of the variables without changing the result. CONDITION II: The group decision function is a symmetricfunction of its arguments. This condition might well be termed anonymity, since it means that D is determined only by the values of the Di that appear, regardless of how they are assigned to individuals as indicated by subscripts (names). A more usual label is equality." width="1024" height="399" class="aligncenter size-large wp-image-222" />
+<img src={resolvePath('/wp-content/uploads/2016/07/condition2-anonymity-e1472519254126-1024x399.jpg')} alt="The second condition is that each individual be treated the same as far as his influence on the outcome is concerned. This means that in f(D1, D2, ---, Dn) we could interchange any two of the variables without changing the result. CONDITION II: The group decision function is a symmetricfunction of its arguments. This condition might well be termed anonymity, since it means that D is determined only by the values of the Di that appear, regardless of how they are assigned to individuals as indicated by subscripts (names). A more usual label is equality." width="1024" height="399" class="aligncenter size-large wp-image-222" />
 
 This simply says votes are _unweighted_ and their order doesn't matter. That is, we're focusing on decision rules of the [1-person-1-vote](https://en.wikipedia.org/wiki/One_man,_one_vote) variety (and not, e.g., the [1-share-1-vote variety](https://en.wikipedia.org/wiki/One_share,_one_vote)).
 
@@ -234,7 +249,7 @@ Therefore, the math of Condition II is not represented by the English.[^5]
 
 Condition III is the most [frequently](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) [cited](http://www.libertylawsite.org/2014/01/22/more-on-supermajority-rules-mays-theorem/) justification of the four conditions:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/07/condition3-neutrality-1024x257.jpg" alt="Another way of justifying this is by considering that we might have decided in the first place to assign the values -1 and 1 in the opposite way, and we do not want this to make any difference. Accordingly: CONDITION III: f(-D1, -D2, *. *,Dn) = - f(D1 , D2, ...* Dn) For obvious reasons the mathematical term &quot;odd&quot; does not seem con- venient in this context, and we describe this property as neutrality." width="1024" height="257" class="aligncenter size-large wp-image-233" />
+<img src={resolvePath('/wp-content/uploads/2016/07/condition3-neutrality-1024x257.jpg')} alt="Another way of justifying this is by considering that we might have decided in the first place to assign the values -1 and 1 in the opposite way, and we do not want this to make any difference. Accordingly: CONDITION III: f(-D1, -D2, *. *,Dn) = - f(D1 , D2, ...* Dn) For obvious reasons the mathematical term &quot;odd&quot; does not seem con- venient in this context, and we describe this property as neutrality." width="1024" height="257" class="aligncenter size-large wp-image-233" />
 
 It is Condition III that's referenced when someone says majority rule is "neutral with respect to the status quo". For example, Adrian Vermeule's [review](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) of a book on Social Choice Theory says:
 
@@ -264,7 +279,7 @@ If we care at all about the status quo, we have no choice but to pay attention t
 
 It's nice that May somewhat acknowledges this, although few seem to have noticed his footnote:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/07/footnote7-1024x137.jpg" alt="7 There are many situations where this neutrality is not desirable. It goes without saying that our purpose here is to illuminate the formal characteristics of simple majority decision and not to assert any special value or universality for the stated conditions." width="1024" height="137" class="aligncenter size-large wp-image-253" />
+<img src={resolvePath('/wp-content/uploads/2016/07/footnote7-1024x137.jpg')} alt="7 There are many situations where this neutrality is not desirable. It goes without saying that our purpose here is to illuminate the formal characteristics of simple majority decision and not to assert any special value or universality for the stated conditions." width="1024" height="137" class="aligncenter size-large wp-image-253" />
 
 [^6]: We maintain [a giant list](/2016/06/what-makes-a-good-voting-system/#considerations) of important considerations.
 
@@ -273,7 +288,7 @@ It's nice that May somewhat acknowledges this, although few seem to have noticed
 
 The final condition is a nice segue to understanding the real difference between _majority rule_ and other voting rules, although it is by understanding _the misunderstanding_ of the condition that we get there:
 
-<img src="https://groupincome.org/wp-content/uploads/2016/07/condition4-positive-responsiveness-e1472612112472-1024x325.jpg" alt="The final condition that we place on the decision function is that it respond to changes in individual preferences in a &quot;positive&quot; way. By this we mean that if the group decision is indifference or favorable to x, and if the individual preferences remain the same except that a single individual changes in a way favorable to x, then the group decision becomes favorable to x. More precisely: CONDITION IV : If D=f(D1,D2, ... ,Dn) = 0 or 1, and D&#039;i=Di for all i != i0, and Di0 &gt; Dio, then D&#039; = f(D&#039;1, ... ,D&#039;n) = 1." width="1024" height="325" class="aligncenter size-large wp-image-235" />
+<img src={resolvePath('/wp-content/uploads/2016/07/condition4-positive-responsiveness-e1472612112472-1024x325.jpg')} alt="The final condition that we place on the decision function is that it respond to changes in individual preferences in a &quot;positive&quot; way. By this we mean that if the group decision is indifference or favorable to x, and if the individual preferences remain the same except that a single individual changes in a way favorable to x, then the group decision becomes favorable to x. More precisely: CONDITION IV : If D=f(D1,D2, ... ,Dn) = 0 or 1, and D&#039;i=Di for all i != i0, and Di0 &gt; Dio, then D&#039; = f(D&#039;1, ... ,D&#039;n) = 1." width="1024" height="325" class="aligncenter size-large wp-image-235" />
 
 In other words, if a group is initially "indifferent" towards a proposition and someone changes their vote to be more favorable, the proposition succeeds.
 
@@ -370,7 +385,7 @@ Day after tomorrow we'll cover the final topics:
 - **Avoiding May's Mistake**
 - **Repeating May's Mistake For Great Profit**
 
-_Thanks to [Simon Grondin](http://simongrondin.name/), [Andrea Devers](https://twitter.com/dotmacro), and [Jason Krueger](https://twitter.com/grandcamel) for reviewing this post, and to the members of `r/math` and `r/askmath` for their insightful feedback, with special thanks to RosaDecidua and wonkey_monkey. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter.<!--Want to work on basic income with us? <a href="/positions" class="orange">We're hiring!</a>-->_
+_Thanks to [Simon Grondin](http://simongrondin.name/), [Andrea Devers](https://twitter.com/dotmacro), and [Jason Krueger](https://twitter.com/grandcamel) for reviewing this post, and to the members of `r/math` and `r/askmath` for their insightful feedback, with special thanks to RosaDecidua and wonkey_monkey. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter.
 
 ## A note
 
