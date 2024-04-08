@@ -9,7 +9,7 @@ pubDate: '2016-12-08T10:04:23+00:00'
 layout: '../layouts/BlogPost.astro'
 id: 660
 guid: 'https://groupincome.org/?p=660'
-permalink: /2016/12/group-income-shorts/
+permalink: /posts/group-income-shorts/
 categories:
     - Uncategorized
 ---

@@ -9,14 +9,15 @@ pubDate: '2016-09-28T09:53:18+00:00'
 layout: '../layouts/BlogPost.astro'
 id: 547
 guid: 'https://groupincome.org/?p=547'
-permalink: /2016/09/deprecating-mays-theorem/
+permalink: /posts/deprecating-mays-theorem/
 categories:
     - Uncategorized
 tags:
     - voting
 ---
+import { resolvePath } from '@/utils/helpers.js'
 
-_This is a followup to ["Misconceptions About Majority Rule"](/articles/misconceptions-about-majority-rule/). We recommend reading that first._
+_This is a followup to <a href={resolvePath('/posts/misconceptions-about-majority-rule')}>"Misconceptions About Majority Rule"</a>. We recommend reading that first._
 
 Previously, we left off with the following conclusion about May's Theorem:
 
@@ -25,6 +26,7 @@ Previously, we left off with the following conclusion about May's Theorem:
 Today, we'll look at situations where using majority rule can help or harm, and we'll show how simple it is to both commit and avoid May's mistake.
 
 <style>
+{`
 .sidenote {
   display: block;
   overflow-x: auto;
@@ -38,6 +40,7 @@ Today, we'll look at situations where using majority rule can help or harm, and 
 .sidenote b {
   color: #6C7E8F !important;
 }
+`}
 </style>
 
 - **[When Majority Rule Can Harm](#when-majority-rule-can-harm)**
@@ -54,7 +57,7 @@ Today, we'll look at situations where using majority rule can help or harm, and 
 <a name="when-majority-rule-can-harm"></a>
 ## When Majority Rule Can Harm
 
-As we [discussed previously](/articles/misconceptions-about-majority-rule/#z-the-missing-third-alternative), a 50% threshold can indicate _perfect disagreement_, but we can also think of it in terms of _(un)certainty_.
+As we <a href={resolvePath('/posts/misconceptions-about-majority-rule/#z-the-missing-third-alternative')}>discussed previously</a>, a 50% threshold can indicate _perfect disagreement_, but we can also think of it in terms of _(un)certainty_.
 
 Doctors are willing to take some actions $x$ if they are "50% certain", but not others. To determine the level of certainty needed, they [weigh the potential consequences](https://en.wikipedia.org/wiki/Prospect_theory) of making the wrong choice.
 
@@ -62,7 +65,7 @@ Decisions that can significantly affect lives are called **"high stakes"** decis
 
 If a _large number_ of lives are affected in a _small way_, that could be called a _medium_ stake decision. However, it only takes the potential ruin of a single life to make something a _high stake_ decision.
 
-Therefore, it is dangerous to use majority rule whenever supermajority rule should be used instead, e.g. [passing laws](/articles/what-makes-a-good-voting-system/#representatives). That is why we plan on making _supermajority_ the default threshold for removing members in Group Income, since doing so can have a potentially significant impact on a person's life.
+Therefore, it is dangerous to use majority rule whenever supermajority rule should be used instead, e.g. <a href={resolvePath('/posts/what-makes-a-good-voting-system/#representatives')}>passing laws</a>. That is why we plan on making _supermajority_ the default threshold for removing members in Group Income, since doing so can have a potentially significant impact on a person's life.
 
 Other inappropriate situations for majority rule (or any other rule) include those where there isn't enough time to have a vote, as in military conflicts. In those situations, [chain-of-command](https://en.wikipedia.org/wiki/Command_hierarchy#Chain_of_command) is more appropriate. Hopefully, a better understanding of voting can help us avoid such situations in the first place.
 
@@ -73,10 +76,10 @@ Earlier [we asked](#terms-and-conditions) whether May's Theorem helps in decidin
 
 However, contemplating the four conditions _with_ their limitations, may still prove useful:
 
-- **[Condition I](/articles/misconceptions-about-majority-rule/#condition-i-always-decisive)**, though more of a misleading redundancy than a condition, can help us remember that the answer to our problems is not always found through a yes/no vote on a single proposal.
-- **[Condition II](/articles/misconceptions-about-majority-rule/#condition-ii-egalitarian-or-anonymity)**, though not about "anonymity" and not really about "equality", encourages us to consider whether or not votes should be weighted (whether by how invested someone is in a project, how knowledgeable they are about an issue, etc.).
-- **[Condition III](/articles/misconceptions-about-majority-rule/#condition-iii-neutrality)**, though not about "neutrality", nevertheless encourages us to consider what an appropriate _voting threshold_ for any given situation might be.
-- **[Condition IV](/articles/misconceptions-about-majority-rule/#condition-iv-positive-responsiveness)**, and its confusion over $D=0$, encourages us to consider what to do in the event of a tie, as well as what to do when most in a group are in favor of a proposal, but not enough to definitively pass a supermajority threshold.
+- <a class='has-text-bold' href={resolvePath('/posts/misconceptions-about-majority-rule/#condition-i-always-decisive')}>Condition I</a>, though more of a misleading redundancy than a condition, can help us remember that the answer to our problems is not always found through a yes/no vote on a single proposal.
+- <a class='has-text-bold' href={resolvePath('/posts/misconceptions-about-majority-rule/#condition-ii-egalitarian-or-anonymity')}>Condition II</a>, though not about "anonymity" and not really about "equality", encourages us to consider whether or not votes should be weighted (whether by how invested someone is in a project, how knowledgeable they are about an issue, etc.).
+- <a class='has-text-bold' href={resolvePath('/posts/misconceptions-about-majority-rule/#condition-iii-neutrality')}>Condition III</a>, though not about "neutrality", nevertheless encourages us to consider what an appropriate _voting threshold_ for any given situation might be.
+- <a class='has-text-bold' href={resolvePath('/posts/misconceptions-about-majority-rule/#condition-iv-positive-responsiveness')}>Condition IV</a>, and its confusion over $D=0$, encourages us to consider what to do in the event of a tie, as well as what to do when most in a group are in favor of a proposal, but not enough to definitively pass a supermajority threshold.
 
 We think majority rule is appropriate for **regularly (or semi-regularly) occurring, medium-to-low-stakes reversible decisions that affect a small group.**
 
@@ -89,13 +92,13 @@ But remember: the voting threshold is only one of [many important levers](#beyon
 <a name="minority-rights"></a>
 ## Minority Rights
 
-It is [sometimes asserted](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) that majority rule's [Condition III](/articles/misconceptions-about-majority-rule/#condition-iii-neutrality) makes it a good choice for protecting minority rights. In truth, different situations call for different voting thresholds.
+It is [sometimes asserted](https://newrepublic.com/article/116172/against-filibusters-super-majorities-melissa-schwartzberg-reviewed) that majority rule's <a href={resolvePath('/posts/misconceptions-about-majority-rule/#condition-iii-neutrality')}>Condition III</a> makes it a good choice for protecting minority rights. In truth, different situations call for different voting thresholds.
 
 Submajority rules make it easier (than majority rule) for anyone to pass a proposal, and supermajority rules make it more difficult.
 
 #### Submajority rules and the "status quo"
 
-Making assertions about [the "status quo" is tricky business](/articles/misconceptions-about-majority-rule/#confusion-over-status-quo)—especially the "status quo" of an entire country.
+Making assertions about <a href={resolvePath('/posts/misconceptions-about-majority-rule/#confusion-over-status-quo')}>the "status quo" is tricky business</a> —especially the "status quo" of an entire country.
 
 Like a ship, the larger the "scope" of a status quo, the more energy it takes to change its course. This means that if a large country used submajority rule to pass laws, they would likely be ineffective because any competing group could quickly override them. Even if, miraculously, laws were not overturned, the "status quo on paper" would quickly cease to represent the "status quo in reality".
 
@@ -113,7 +116,7 @@ Although supermajority rules are great for preserving good decisions, that prope
 
 It's possible to compensate for this property by [considering more than just the voting threshold](#beyond-voting-thresholds):
 
-- Ensure that [*real* supermajority rules are used](/articles/misconceptions-about-majority-rule/#confusion-over-majority) by involving everyone affected by the decision.
+- Ensure that <a href={resolvePath('/posts/misconceptions-about-majority-rule/#confusion-over-majority')}><em>real</em> supermajority rules are used</a> by involving everyone affected by the decision.
 - Consider requiring some decisions be re-authorized after a period of time.
 - Disallow consideration of _highly specific and detailed laws_ that apply to large populations.
 
@@ -122,7 +125,7 @@ It's possible to compensate for this property by [considering more than just the
 
 Although we've spent significant time discussing the implications of _voting thresholds_, a message that deserves re-emphasis is: *when designing voting systems, there are far more important factors to consider than just the threshold.*
 
-Voting thresholds are important; however, their relevance can be completely nullified by [other](/articles/what-makes-a-good-voting-system/#considerations) [factors](/articles/misconceptions-about-majority-rule/#condition-iii-neutrality), and sometimes no amount of "voting systems engineering" is enough.
+Voting thresholds are important; however, their relevance can be completely nullified by <a href={resolvePath('/posts/what-makes-a-good-voting-system/#considerations')}>other</a> <a href={resolvePath('/posts/misconceptions-about-majority-rule/#condition-iii-neutrality')}>factors</a>, and sometimes no amount of "voting systems engineering" is enough.
 
 <a name="when-voting-is-not-enough"></a>
 ## When Voting Is Not Enough
@@ -206,17 +209,17 @@ Now, we're having a bit of fun at May's expense. To be clear, we're not aware of
 
 Thank you and congratulations on making it this far! 🎉
 
-We'll attempt an answer to the final question [we asked](/articles/misconceptions-about-majority-rule/#context) at the beginning: _What is the real significance of May's Theorem?_
+We'll attempt an answer to the final question <a href={resolvePath('/posts/misconceptions-about-majority-rule/#context')}>we asked</a> at the beginning: _What is the real significance of May's Theorem?_
 
-For the author, it is the troubling ease with which anyone can be mislead through the (ab)use of math and English. To this day, what is ultimately [just a definition](#repeating-mays-mistake-for-great-profit) of majority rule, is instead used as an [inappropriate justification](/articles/misconceptions-about-majority-rule/).
+For the author, it is the troubling ease with which anyone can be mislead through the (ab)use of math and English. To this day, what is ultimately [just a definition](#repeating-mays-mistake-for-great-profit) of majority rule, is instead used as an <a href={resolvePath('/posts/misconceptions-about-majority-rule')}>inappropriate justification</a>.
 
 The words and labels that we use to describe our math **matter a great deal.** Especially when politics are involved.
 
 Through a better and more accurate understanding of how collective decisions are made, how they are manipulated, and how the world reacts in response to them, it is possible to build a better society.
 
-If there's only one thing you take away from these posts, let it be this: **always use an [appropriate voting threshold](#when-majority-rule-can-harm), and always consider [the other important factors](/articles/what-makes-a-good-voting-system/#considerations).**
+If there's only one thing you take away from these posts, let it be this: <span class='has-text-bold'>always use an [appropriate voting threshold](#when-majority-rule-can-harm), and always consider <a href={resolvePath('/posts/what-makes-a-good-voting-system/#considerations')}>the other important factors</a>.</span>
 
-_Thanks to [Simon Grondin](http://simongrondin.name/) and [Andrea Devers](https://twitter.com/dotmacro) for reviewing this post, and to the members of `r/math` and `r/askmath` for their valuable and insightful feedback. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter.<!-- Want to work on basic income with us? <a href="/positions" class="orange">We're hiring!</a>-->_
+_Thanks to [Simon Grondin](http://simongrondin.name/) and [Andrea Devers](https://twitter.com/dotmacro) for reviewing this post, and to the members of `r/math` and `r/askmath` for their valuable and insightful feedback. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter. {/* Want to work on basic income with us? <a href="/positions" class="orange">We're hiring!</a> */}
 
 ## A note
 
@@ -226,7 +229,7 @@ This post is the result of months of research and work involving 300+ revisions 
 Please <a href="/donate/">support our work</a> by donating.
 <span style="font-size:70%">(USD, BTC and ETH accepted!)</span></center>
 
-<!--
+{/*
 #### Compensating For Status Quo Bias In Supermajority Rule
 
 For whatever reason, the critics of supermajority do not seem to consider that it might be possible to eliminate its bias toward the status quo by taking into consideration the favor of _time_.
@@ -280,5 +283,4 @@ These are things the supreme court felt were "wrong decisions".
 - 1986 -- *Bowers v. Hardwick* (sodomy laws ok... overruled by *Lawrence v. Texas)*
 - *Citizens United*
 - Check out the rest of the [Overruled SCOTUS decisions (w/ overruling decision)](https://en.wikipedia.org/wiki/List_of_overruled_United_States_Supreme_Court_decisions)
-
--->
+*/}
