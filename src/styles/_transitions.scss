@@ -173,3 +173,9 @@
     animation: none !important;
   }
 }
+
+// link underline animation
+@keyframes link-hover-ani {
+  0% { background-size: 100% 0.1em, 0 0.1em; }
+  100% { background-size: 0 0.1em, 100% 0.1em; }
+}

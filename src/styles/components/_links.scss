@@ -1,29 +1,4 @@
 .is-link,
 .link {
-  --link-color: #{$primary_0};
-
-  font-size: $size_extra_small;
-  color: var(--link-color);
-  background: linear-gradient(to right, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0)),
-              linear-gradient(to right, var(--link-color), var(--link-color));
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0 0.1em, 100% 0.1em;
-  transition: color 200ms;
-
-  &:hover,
-  &:focus {
-    --link-color: #{$green};
-    animation: link-hover-ani 300ms linear forwards;
-    outline: none;
-  }
-
-  &.is-display-block {
-    width: max-content;
-  }
-}
-
-@keyframes link-hover-ani {
-  0% { background-size: 100% 0.1em, 0 0.1em; }
-  100% { background-size: 0 0.1em, 100% 0.1em; }
+  @extend %link-style;
 }
