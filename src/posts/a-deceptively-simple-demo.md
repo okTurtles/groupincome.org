@@ -10,7 +10,7 @@ layout: "../layouts/BlogPost.astro"
 
 id: 1381
 guid: 'https://groupincome.org/?p=1381'
-permalink: /posts/a-deceptively-simple-demo/
+permalink: /2020/05/a-deceptively-simple-demo/
 categories:
     - Uncategorized
 ---

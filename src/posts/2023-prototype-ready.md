@@ -9,7 +9,7 @@ pubDate: '2023-06-08T07:00:00+00:00'
 layout: "../layouts/BlogPost.astro"
 id: 1539
 guid: 'https://groupincome.org/?p=1539'
-permalink: /posts/the-prototype-is-ready/
+permalink: /2023/06/the-prototype-is-ready/
 categories:
     - Uncategorized
 ---
