@@ -1,5 +1,6 @@
-import type { LanguageEntry, LanguageOptions } from './types.ts'
+// reference: https://docs.astro.build/en/recipes/i18n/
 
+import type { LanguageEntry, LanguageOptions } from './types.ts'
 
 // tables
 import englishTable from './translation-tables/english.js'
