@@ -28,7 +28,7 @@
     "vue": "^3.2.39"
   },
   "devDependencies": {
-    "astro": "^2.1.7",
+    "astro": "^2.7.0",
     "sass": "^1.57.1"
   }
 }
