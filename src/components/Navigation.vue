@@ -30,6 +30,9 @@ import { onMounted, ref } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
+import { useTranslation } from '@/i18n/utils.ts';
+
+const t = useTranslation()
 const $isNavigationOpen = useStore(isNavigationOpen);
 
 const isCurrentPathEqualTo = val => resolvePath(val) === window.location.pathname
@@ -38,11 +41,11 @@ let menuList = ref([])
 onMounted(() => {
   menuList.value = [
     !isCurrentPathEqualTo('/') && {  name: 'Home', id: 'homeLink', path: '/' },
-    { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
-    { name: 'Blog', id: 'blogLink', path: '/blog' },
-    { name: 'FAQS', id: 'blogLink', path: '/faq' },
-    { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
-    { name: 'Donate', id: 'donateLink', path: '/donate' }
+    { name: t('About us'), id: 'aboutUsLink', path: '/about-us' },
+    { name: t('Blog'), id: 'blogLink', path: '/blog' },
+    { name: t('FAQS'), id: 'blogLink', path: '/faq' },
+    { name: t('Hiring'), id: 'hiringLink', path: '/hiring', badge: 3 },
+    { name: t('Donate'), id: 'donateLink', path: '/donate' }
   ].filter(Boolean)
 })
 </script>

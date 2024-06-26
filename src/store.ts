@@ -1,10 +1,7 @@
 import { atom, StoreValue } from 'nanostores'
-import type { LanguageOptions } from './i18n/types.ts'
-import { initProjectLanguage } from './i18n/utils.ts'
 
 export const isNavigationOpen = atom<boolean>(false)
 export const isFundraiserOpen = atom<boolean>(true)
-export const currentLanguage = atom<LanguageOptions>(initProjectLanguage())
 
 // manipulate navigation menu
 export const openNavigation = (): StoreValue<typeof isNavigationOpen> => {
@@ -24,10 +21,4 @@ export const toggleNavigation = (): StoreValue<typeof isNavigationOpen> => {
 export const closeFundraiser = (): StoreValue<typeof isFundraiserOpen> => {
   isFundraiserOpen.set(false)
   return isFundraiserOpen.get()
-}
-
-// language selection
-export const selectLanguage = (id: LanguageOptions): StoreValue<typeof currentLanguage> => {
-  currentLanguage.set(id)
-  return currentLanguage.get()
 }
