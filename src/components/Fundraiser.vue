@@ -1,7 +1,7 @@
 <template>
 <div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
-    <b>Help us reach our goal! 🙏</b>
+    <b>{{ t('Help us reach our goal!') }} 🙏</b>
     <div class="progress-wrapper">
       <div class="progress-element">
         <div class="progress-container">
@@ -10,7 +10,7 @@
         <p class="progress-label">${{ current }} ({{ pourcent }})</p>
       </div>
     </div>
-    <a :href="resolvePath('/donate')" class="button">Donate now</a>
+    <a :href="resolvePath('/donate')" class="button">{{ t('Donate now') }}</a>
     <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
       tabindex="0"
       @click="closeFundraiser"
@@ -23,7 +23,9 @@
 import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
+import { useTranslation } from '@/i18n/utils.ts';
 
+const t = useTranslation('fundraiser')
 const $isFundraiserOpen = useStore(isFundraiserOpen);
 
 const total = 10000

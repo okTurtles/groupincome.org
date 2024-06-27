@@ -20,7 +20,7 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <a class="c-get-started-btn button is-primary" v-href="'/get-started'" @click="closeNavigation">Get started</a>
+      <a class="c-get-started-btn button is-primary" v-href="'/get-started'" @click="closeNavigation">{{ t('Get started') }}</a>
     </div>
   </nav>
 </template>
@@ -32,7 +32,7 @@ import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
 import { useTranslation } from '@/i18n/utils.ts';
 
-const t = useTranslation()
+const t = useTranslation('navigation')
 const $isNavigationOpen = useStore(isNavigationOpen);
 
 const isCurrentPathEqualTo = val => resolvePath(val) === window.location.pathname

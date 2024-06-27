@@ -19,11 +19,11 @@
         <div class="c-main-wrapper" id="header1">
           <div class="is-posttitle">GROUP INCOME</div>
           <h1 class="is-title-1 c-main-title">
-            Basic Income for your
-            friends and family.
+            {{ t('Basic Income for your friends and family.') }}
           </h1>
-          <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
-            voluntarily provide a financial safety net for their members.</p>
+          <p class="is-subtitle c-main-para">
+            {{ t('Group income makes it easy for small communities to voluntarily provide a financial safety net for their members.') }}
+          </p>
           <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
         </div>
       </section>
@@ -149,6 +149,7 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
+import { useTranslation } from '@/i18n/utils.ts';
 
 export default {
   mixins: [GSAP],
@@ -158,7 +159,11 @@ export default {
     Sides,
     GetStarted
   },
-
+  computed: {
+    t () {
+      return useTranslation('home')
+    }
+  },
   methods: {
     scrollTo(el) {
       this.gsap.to(window, {

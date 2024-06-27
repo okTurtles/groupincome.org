@@ -23,8 +23,12 @@ export function getProjectLanguage (): LanguageOptions {
   return stored || defaultLanguage
 }
 
-export function useTranslation () {
-  const table = translationTables[getProjectLanguage()] || defaultTable
+export function useTranslation (componentName: string = '') {
+  const table = (translationTables[getProjectLanguage()] || defaultTable)
 
-  return (key: string) => table[key] || key
+  return (key: string) => {
+    return componentName && componentName in table
+      ? table[componentName][key] || key
+      : table[key] || key
+  }
 }
