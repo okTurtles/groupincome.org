@@ -4,13 +4,20 @@ import Header from '../components/Header.vue';
 import AppStyles from '../components/AppStyles.vue';
 import Footer from '../components/Footer.vue';
 import PageWrapper from '../components/pageWrapper.vue';
+import { defaultLanguage, useTranslation } from '@/i18n/utils';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+const { lang } = Astro.props
+const t = useTranslation(lang)
+
+const siteTitle = t('siteTitle') || SITE_TITLE
+const siteDescription = t('siteDescription') || SITE_DESCRIPTION
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang || defaultLanguage}>
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={siteTitle} description={siteDescription} />
 	</head>
 	<body>
 		<PageWrapper client:only="vue">

@@ -127,7 +127,7 @@
       <section class="container span-container">
         <div class="span-2">
           <div class="is-title-3 c-container-posttitle">GROUP INCOME</div>
-          <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
+          <p class="is-title-2 c-container-title">{{ t('Basic Income for your friends and family.') }}</p>
 
           <div class="c-buttons">
             <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
@@ -149,7 +149,7 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
-import { useTranslation } from '@/i18n/utils.ts';
+import { useTranslation, getSiteLanguageCode } from '@/i18n/utils.ts';
 
 export default {
   mixins: [GSAP],
@@ -159,9 +159,16 @@ export default {
     Sides,
     GetStarted
   },
+  props: {
+    lang: {
+      type: String,
+      default: ''
+    }
+  },
   computed: {
     t () {
-      return useTranslation('home')
+      const query = useTranslation(getSiteLanguageCode())
+      return key => query(key, 'home')
     }
   },
   methods: {

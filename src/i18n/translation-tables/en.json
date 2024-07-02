@@ -1,0 +1,20 @@
+{
+  "siteTitle": "Group Income",
+  "siteDescription": "Group Income is an efficient, fair, decentralized Basic Income system for you and your friends.",
+  "navigation": {
+    "About us": "About us",
+    "Blog": "Blog",
+    "FAQS": "FAQS",
+    "Hiring": "Hiring",
+    "Donate": "Donate",
+    "Get started": "Get started"
+  },
+  "fundraiser": {
+    "Donate now": "Donate now",
+    "Help us reach our goal!": "Help us reach our goal!"
+  },
+  "home": {
+    "Basic Income for your friends and family.": "Basic Income for your friends and family.",
+    "Group income makes it easy for small communities to voluntarily provide a financial safety net for their members.": "Group income makes it easy for small communities to voluntarily provide a financial safety net for their members."
+  }
+}
