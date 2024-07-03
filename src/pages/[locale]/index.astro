@@ -1,12 +1,10 @@
 ---
 import Layout from '../../layouts/DefaultLayout.astro';
 import HomeAnimation from '../../components/HomeAnimation.vue';
-import { supportedLanguageCodes } from '@/i18n/utils'
+import { dynamicRoutes } from '@/i18n/utils'
 
 export async function getStaticPaths() {
-  return supportedLanguageCodes.map((langCode: string) => {
-    return { params: { locale: langCode } }
-  })
+  return dynamicRoutes
 }
 
 const { locale } = Astro.params
