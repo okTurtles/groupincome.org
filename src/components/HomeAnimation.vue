@@ -30,11 +30,15 @@
 
       <section class="container span-container c-container" id="container2">
         <div class="span-2" id="header2">
-          <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
-          <p class="is-title-2 c-container-title">A safe space to financially support each other.</p>
-          <p class="c-container-para">Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.</p>
-          <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income.</a>
-          <a class="is-link" v-href="'/privacy-policy'">Read more about our privacy and security.</a>
+          <div class="is-title-3 c-container-posttitle">{{ t('What is Group Income?') }}</div>
+          <p class="is-title-2 c-container-title">
+            {{ t('A safe space to financially support each other.') }}
+          </p>
+          <p class="c-container-para">
+            {{ t('Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.') }}
+          </p>
+          <a class="c-container-link is-link" v-href="'/faq'">{{ t('Learn more about Basic Income.') }}</a>
+          <a class="is-link" v-href="'/privacy-policy'">{{ t('Read more about our privacy and security.') }}</a>
         </div>
 
         <div class="span-2" id="circle-graph">
@@ -45,11 +49,11 @@
       <div class="sections-container" id="freeze-wrapper">
         <section class="container span-container" id="container3">
           <div class="span-2 c-container-header" id="header3">
-            <div class="is-title-3 c-container-posttitle">Why it matters</div>
-            <p class="is-title-2 c-container-title">Every individual is valuable.</p>
-            <p class="c-container-para">Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.</p>
-            <p class="c-container-para c-mt-16">Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.</p>
-            <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income.</a>
+            <div class="is-title-3 c-container-posttitle">{{ t('Why it matters') }}</div>
+            <p class="is-title-2 c-container-title">{{ t('Every individual is valuable.') }}</p>
+            <p class="c-container-para">{{ t('Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.') }}</p>
+            <p class="c-container-para c-mt-16">{{ t('Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.') }}</p>
+            <a class="c-container-link is-link" v-href="'/faq'">{{ t('Learn more about Basic Income.') }}</a>
           </div>
 
           <div class="span-2">
@@ -59,9 +63,9 @@
 
         <section class="container span-container" id="container4">
           <div class="span-2 c-container-header" id="header4">
-            <div class="is-title-3 c-container-posttitle">Set a "mincome" floor</div>
-            <p class="is-title-2 c-container-title">Create your own financial safety net.</p>
-            <p class="c-container-para">Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (“mincome”). Each month, group members help those who haven't crossed the mincome threshold.</p>
+            <div class="is-title-3 c-container-posttitle">{{ t('Set a "mincome" floor') }}</div>
+            <p class="is-title-2 c-container-title">{{ t('Create your own financial safety net.') }}</p>
+            <p class="c-container-para">{{ t("Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.") }}</p>
           </div>
 
           <div class="span-2">
