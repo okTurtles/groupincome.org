@@ -20,22 +20,25 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
 import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
-import { useTranslation, getSiteLanguageCode } from '@/i18n/utils.ts';
+import { useTranslation } from '@/i18n/utils.ts';
 
-const t = computed(() => {
-  const query = useTranslation(getSiteLanguageCode(), 'fundraiser')
-  return key => query(key)
+const props = defineProps({
+  lang: {
+    type: String,
+    default: ''
+  }
 })
+const t = useTranslation(props.lang, 'fundraiser')
 const $isFundraiserOpen = useStore(isFundraiserOpen);
 
 const total = 10000
 const current = 5405
 const progress = Math.round((current / total) * 100)
 const pourcent = `${progress}%`
+
 </script>
 
 <style lang="scss" scoped>

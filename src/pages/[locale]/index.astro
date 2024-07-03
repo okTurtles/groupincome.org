@@ -12,5 +12,5 @@ export async function getStaticPaths() {
 const { locale } = Astro.params
 ---
 <Layout lang={locale}>
-  <HomeAnimation client:only="vue"/>
+  <HomeAnimation client:load lang={locale} />
 </Layout>

@@ -12,7 +12,7 @@ const translationTables: { [index: string]: any } = {
   'en': englishTable,
   'ko': koreanTable
 }
-export const defaultLanguage = 'ko'
+export const defaultLanguage = 'en'
 export const defaultTable = translationTables[defaultLanguage]
 
 export const supportedLanguages: Array<LanguageEntry> = [

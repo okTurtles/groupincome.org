@@ -22,11 +22,11 @@ const siteDescription = t('siteDescription') || SITE_DESCRIPTION
 	<body>
 		<PageWrapper client:only="vue">
 			<AppStyles/>
-			<Header client:only="vue"  />
+			<Header client:only="vue" lang={lang}  />
 			<main>
 				<slot />
 			</main>
-			<Footer client:only="vue" />
+			<Footer client:only lang={lang} />
 		</PageWrapper>
 	</body>
 </html>

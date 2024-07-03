@@ -49,17 +49,23 @@
 </template>
 
 <script>
-import { useTranslation, getSiteLanguageCode } from '@/i18n/utils.ts';
+import { useTranslation } from '@/i18n/utils.ts';
 
 export default {
   name: 'Footer',
+  props: {
+    lang: {
+      type: String,
+      default: ''
+    }
+  },
   computed: {
     copyRightText () {
       const thisYear = new Date().getFullYear()
       return `Copyright © 2015-${thisYear} okTurtles Foundation`
     },
     t () {
-      const query = useTranslation(getSiteLanguageCode(), 'footer')
+      const query = useTranslation(this.lang, 'footer')
       return key => query(key)
     }
   },

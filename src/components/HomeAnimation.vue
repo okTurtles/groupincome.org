@@ -153,7 +153,7 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import GSAP from '../mixins/gsap.js'
-import { useTranslation, getSiteLanguageCode } from '@/i18n/utils.ts';
+import { useTranslation } from '@/i18n/utils.ts';
 
 export default {
   mixins: [GSAP],
@@ -171,7 +171,7 @@ export default {
   },
   computed: {
     t () {
-      const query = useTranslation(getSiteLanguageCode(), 'home')
+      const query = useTranslation(this.lang, 'home')
       return key => query(key)
     }
   },

@@ -1,13 +1,13 @@
 <template>
 <header class="c-header">
-  <Fundraiser></Fundraiser>
+  <Fundraiser :lang="lang"></Fundraiser>
   <div class="c-header-wrapper">
     <div class="c-wrapper" role="banner">
       <a class="c-logo" v-href="'/'">
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>
-      <Navigation client:load></Navigation>
+      <Navigation :lang="lang" client:load></Navigation>
     </div>
     <Hamburger></Hamburger>
   </div>
@@ -18,6 +18,13 @@
 import Navigation from './Navigation.vue'
 import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
+
+defineProps({
+  lang: {
+    type: String,
+    default: ''
+  }
+})
 </script>
 
 <style lang="scss" scoped>
