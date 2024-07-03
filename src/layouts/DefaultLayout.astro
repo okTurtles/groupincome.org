@@ -26,7 +26,7 @@ const siteDescription = t('siteDescription') || SITE_DESCRIPTION
 			<main>
 				<slot />
 			</main>
-			<Footer client:load />
+			<Footer client:only="vue" />
 		</PageWrapper>
 	</body>
 </html>

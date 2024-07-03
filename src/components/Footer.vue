@@ -3,10 +3,10 @@
     <div class="c-top">
         <div class="c-wrapper"><img class="c-logo-img" v-src="'/images/group-income-icon-transparent.png'" />
             <form class="c-form">
-                <h4 class="is-title-6">STAY UP TO DATE</h4>
-                <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
+                <h4 class="is-title-6">{{ t('STAY UP TO DATE') }}</h4>
+                <p>{{ t('Subscribe to our newsletter to be the first to know when the prototype is ready.') }}</p>
                 <div class="c-input">
-                  <input class="input" type="email" placeholder="Your email address" />
+                  <input class="input" type="email" :placeholder="t('Your email address')" />
                   <button class="is-unstyled c-send-btn" type="button" @click="onSendClick">
                     <i class="icon-paper-plane"></i>
                   </button>
@@ -16,20 +16,21 @@
         <div class="c-links">
             <div class="c-links-group">
                 <h4 class="is-title-6">GROUPINCOME</h4>
-                <a v-href="'/'">Home</a>
-                <a v-href="'/about-us'">About us</a>
-                <a v-href="'/blog'">Blog</a>
-                <a v-href="'/faq'">FAQ</a>
+                <a v-href="'/'">{{ t('Home') }}</a>
+                <a v-href="'/about-us'">{{ t('About us') }}</a>
+                <a v-href="'/blog'">{{ t('Blog') }}</a>
+                <a v-href="'/faq'">{{ t('FAQ') }}</a>
             </div>
             <div class="c-links-group">
-                <h4 class="is-title-6">CONTRIBUTE</h4>
-                <a v-href="'/volunteer'">Volunteer</a>
-                <a v-href="'/join-our-team'">Join our team</a>
-                <a v-href="'/donate'">Donate</a>
+                <h4 class="is-title-6">{{ t('CONTRIBUTE') }}</h4>
+                <a v-href="'/volunteer'">{{ t('Volunteer') }}</a>
+                <a v-href="'/join-our-team'">{{ t('Join our team') }}</a>
+                <a v-href="'/donate'">{{ t('Donate') }}</a>
                 <a href="https://github.com/okTurtles/group-income" target="_blank" alt="Github">Github</a>
             </div>
             <div class="c-links-group">
-                <h4 class="is-title-6">SOCIAL</h4><a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
+                <h4 class="is-title-6">{{ t('SOCIAL') }}</h4>
+                <a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
                 <a href="https://mstdn.io/@okturtles" target="_blank" alt="Mastodon">Mastodon</a>
                 <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
                 <a href="https://forums.okturtles.com/index.php?board=9.0" target="_blank" alt="Forums">Forums</a>
@@ -38,8 +39,8 @@
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <a v-href="'/terms-and-conditions'">Term & Conditons</a>
-            <a v-href="'/privacy-policy'">Privacy Policy</a>
+            <a v-href="'/terms-and-conditions'">{{ t('Term & Conditons') }}</a>
+            <a v-href="'/privacy-policy'">{{ t('Privacy Policy') }}</a>
         </div>
         <p class="copyright">{{ copyRightText }}</p>
     </div>
@@ -48,12 +49,18 @@
 </template>
 
 <script>
+import { useTranslation, getSiteLanguageCode } from '@/i18n/utils.ts';
+
 export default {
   name: 'Footer',
   computed: {
     copyRightText () {
       const thisYear = new Date().getFullYear()
       return `Copyright © 2015-${thisYear} okTurtles Foundation`
+    },
+    t () {
+      const query = useTranslation(getSiteLanguageCode(), 'footer')
+      return key => query(key)
     }
   },
   methods: {

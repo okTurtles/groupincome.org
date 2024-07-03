@@ -134,8 +134,8 @@
           <p class="is-title-2 c-container-title">{{ t('Basic Income for your friends and family.') }}</p>
 
           <div class="c-buttons">
-            <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">Donate</a>
+            <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">{{ t('Get started') }}</a>
+            <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">{{ t('Donate') }}</a>
           </div>
         </div>
 
@@ -171,8 +171,8 @@ export default {
   },
   computed: {
     t () {
-      const query = useTranslation(getSiteLanguageCode())
-      return key => query(key, 'home')
+      const query = useTranslation(getSiteLanguageCode(), 'home')
+      return key => query(key)
     }
   },
   methods: {

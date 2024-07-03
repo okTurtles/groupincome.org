@@ -1,7 +1,7 @@
 <template>
 <div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
-    <b>{{ t('Help us reach our goal!') }} 🙏</b>
+    <b class="c-help">{{ t('Help us reach our goal!') }} 🙏</b>
     <div class="progress-wrapper">
       <div class="progress-element">
         <div class="progress-container">
@@ -20,12 +20,16 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
-import { useTranslation } from '@/i18n/utils.ts';
+import { useTranslation, getSiteLanguageCode } from '@/i18n/utils.ts';
 
-const t = useTranslation('fundraiser')
+const t = computed(() => {
+  const query = useTranslation(getSiteLanguageCode(), 'fundraiser')
+  return key => query(key)
+})
 const $isFundraiserOpen = useStore(isFundraiserOpen);
 
 const total = 10000
@@ -82,6 +86,10 @@ b {
     padding-top: 0;
     padding-bottom: 0;
   }
+}
+
+.c-help {
+  padding-right: 1rem;
 }
 
 .c-close-btn {

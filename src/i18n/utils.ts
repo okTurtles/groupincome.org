@@ -21,10 +21,10 @@ export const supportedLanguages: Array<LanguageEntry> = [
 ]
 export const supportedLanguageCodes: Array<string> = Object.keys(translationTables)
 
-export function useTranslation (lang: string = '') {
+export function useTranslation (lang: string = '', componentName: string = '') {
   const table = lang in translationTables ?  translationTables[lang] : defaultTable
 
-  return (key: string, componentName: string = '') => {
+  return (key: string) => {
     return componentName in table
       ? table[componentName][key] || key
       : table[key] || key
