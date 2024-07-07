@@ -2,12 +2,16 @@
 <footer class="c-footer">
     <div class="c-top">
         <div class="c-wrapper"><img class="c-logo-img" v-src="'/images/group-income-icon-transparent.png'" />
-            <form class="c-form">
+            <form class="c-form"
+              action="https://buttondown.email/api/emails/embed-subscribe/okturtles"
+              method="post"
+              target="popupwindow"
+              @submit="onFormSubmit">
                 <h4 class="is-title-6">{{ t('STAY UP TO DATE') }}</h4>
                 <p>{{ t('Subscribe to our newsletter to be the first to know when the prototype is ready.') }}</p>
                 <div class="c-input">
                   <input class="input" type="email" :placeholder="t('Your email address')" />
-                  <button class="is-unstyled c-send-btn" type="button" @click="onSendClick">
+                  <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
                     <i class="icon-paper-plane"></i>
                   </button>
                 </div>
@@ -70,8 +74,8 @@ export default {
     }
   },
   methods: {
-    onSendClick () {
-      alert('Coming soon!')
+    onFormSubmit () {
+      window.open('https://buttondown.email/okturtles', 'popupwindow')
     }
   }
 }

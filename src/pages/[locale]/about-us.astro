@@ -2,6 +2,11 @@
 import Layout from '../../layouts/DefaultLayout.astro';
 import Sides from '../../components/graphics/Sides.vue'
 import { resolvePath } from '@/utils/helpers.js'
+import { dynamicRoutes } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return dynamicRoutes
+}
 ---
 
 <Layout>
