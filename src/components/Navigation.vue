@@ -47,13 +47,15 @@ let menuList = ref([])
 onMounted(() => {
   // NOTE: isCurrentPathEqualTo() above cannot be used in the compile time. (window is undefined in node)
   //       So populating menuList in the mounted hook like this.
+
+  const prefixWithLang = (path) => props.lang ? `/${props.lang}${path}` : path
   menuList.value = [
-    !isCurrentPathEqualTo('/') && {  name: 'Home', id: 'homeLink', path: '/' },
-    { name: t('About us'), id: 'aboutUsLink', path: '/about-us' },
-    { name: t('Blog'), id: 'blogLink', path: '/blog' },
-    { name: t('FAQS'), id: 'blogLink', path: '/faq' },
-    { name: t('Hiring'), id: 'hiringLink', path: '/hiring', badge: 3 },
-    { name: t('Donate'), id: 'donateLink', path: '/donate' }
+    !isCurrentPathEqualTo('/') && {  name: 'Home', id: 'homeLink', path: prefixWithLang('/') },
+    { name: t('About us'), id: 'aboutUsLink', path: prefixWithLang('/about-us') },
+    { name: t('Blog'), id: 'blogLink', path: prefixWithLang('/blog') },
+    { name: t('FAQS'), id: 'blogLink', path: prefixWithLang('/faq') },
+    { name: t('Hiring'), id: 'hiringLink', path: prefixWithLang('/hiring'), badge: 3 },
+    { name: t('Donate'), id: 'donateLink', path: prefixWithLang('/donate') }
   ].filter(Boolean)
 })
 </script>

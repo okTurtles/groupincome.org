@@ -7,9 +7,11 @@ import { dynamicRoutes } from '@/i18n/utils'
 export async function getStaticPaths() {
   return dynamicRoutes
 }
+
+const { locale } = Astro.params
 ---
 
-<Layout>
+<Layout lang={locale}>
   <div class="c-wrapper">
     <Sides color="#5DC9F1" styles={{'top': '40rem'}}></Sides>
     <Sides color="#A1D10E" styles={{'top': '110rem', 'right': 0, 'transform': 'rotate(-180deg)'}}></Sides>
@@ -136,8 +138,8 @@ export async function getStaticPaths() {
 </Layout>
 
 <style lang="scss">
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
 
 .c-wrapper {
   padding-bottom: 2rem;

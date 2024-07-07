@@ -3,8 +3,8 @@
 type LanguageEntry = { id: string, name: string }
 
 // tables
-import englishTable from './translation-tables/en.json'
-import koreanTable from './translation-tables/ko.json'
+import englishTable from './translation-tables/en.js'
+import koreanTable from './translation-tables/ko.js'
 
 
 const translationTables: { [index: string]: any } = {
