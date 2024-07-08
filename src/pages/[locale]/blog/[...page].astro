@@ -1,0 +1,306 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro';
+import { resolvePath } from '@/utils/helpers.js'
+import { supportedLangCodes } from '@/i18n/utils.ts';
+
+export async function getStaticPaths({ paginate }) {
+	const posts = (await Astro.glob('../../../posts/*.{md,mdx}')).sort(
+		(a: any, b: any) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
+	);
+
+  return supportedLangCodes.flatMap((langCode: string) => {
+    // Generate pages from our array of blog post, with 4 to a page
+    return paginate(posts, {
+      params: { locale: langCode },
+      pageSize: 4
+    })
+  })
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+const { data, lastPage, url } = page
+---
+
+<Layout>
+	<section class="c-header">
+		<h1>Blog</h1>
+	</section>
+
+	<section class="blog-wrapper" v-if="posts">
+		{data.map((article: any) => {
+			const imgSrc = resolvePath(article.frontmatter.image) || resolvePath('/images/' + article.frontmatter.permalink + '.jpeg')
+			return (
+				<article class="c-article">
+					<a href={resolvePath(article.frontmatter.permalink)}>
+						<img class="c-article-image has-deep-box-shadow" src={imgSrc}/>
+						<h2 class="c-blog-title">{article.frontmatter.title}</h2>
+						<p>{article.frontmatter.description || 'TODO'}</p>
+						<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
+					</a>
+				</article>
+			)
+		})}
+		<div class="pagination">
+			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? '/groupincome.org' + url.prev : null}>
+				<i class="icon-chevron-left"></i>
+			</a>
+			{[...Array(lastPage)].map((x, i) =>
+				<a class={url.current === i ? 'active' : ''} href={resolvePath(`/blog${i > 0 ? '/' + (i + 1) : ''}`)}>{i+1}</a>
+			)}
+			<a href={url.next ? '/groupincome.org' + url.next : null} class={ url.next ? '' : 'inactive' }>
+				<i class="icon-chevron-right"></i>
+			</a>
+		</div>
+	</section>
+</Layout>
+
+<style lang="scss" is:global>
+@import "../../../styles/_variables";
+@import "../../../styles/_mixins";
+.c-blog-wrapper {
+	.icon-link {
+		display: none;
+	}
+
+	.icon-link::before {
+		font-family: "Font Awesome 5 Free";
+	}
+
+	ul, ol {
+		margin: 1rem 0 1.5rem 1rem;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: bold;
+	}
+
+	h1, h2{
+		margin-top: 4rem;
+	}
+
+	h1, h2, h3, h4, h5, h6, p, li {
+		margin-bottom: 1rem;
+	}
+
+	a {
+		color: $primary_0;
+
+		background: linear-gradient(to right, rgba(256, 256, 256, 0), rgba(256, 256, 256, 0)),
+								linear-gradient(to right, $primary_0, $primary_0);
+		background-size: 100% 0.1em, 0 0.1em;
+		background-position: 100% 100%, 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size 400ms;
+		&:hover,
+		&:focus {
+			background-size: 0 0.1em, 100% 0.1em;
+		}
+	}
+
+	img {
+		margin: 2rem 0;
+	}
+
+	table {
+		margin: 1rem 0 3rem 0;
+	}
+
+	th {
+		padding: 1rem;
+		border-bottom: 2px solid #ddd;
+	}
+
+	td {
+		padding: 1rem;
+		border-bottom: 1px solid #ddd;
+	}
+
+	center {
+		margin-bottom: 1rem;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	.footnotes {
+		font-size: .8rem;
+	}
+
+	iframe {
+		margin: 2rem auto;
+		max-width: 100%;
+	}
+
+	blockquote {
+		border-left: 5px solid rgba(0, 0, 0, .15);
+		padding: 10px 18px;
+		font-style: italic;
+		margin: 0 0 1.5em;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.gallery {
+		display: flex;
+		justify-content: space-around;
+
+		img {
+			min-width: 1px;
+			padding: .3rem;
+		}
+	}
+}
+</style>
+	
+<style lang="scss" scoped>
+@import "../../../styles/_variables";
+@import "../../../styles/_mixins";
+.c-header {
+	display: flex;
+	justify-content: center;
+
+	h1 {
+		text-transform: uppercase;
+		font-size: 1.125rem;
+		font-weight: bold;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+
+		@include desktop {
+			padding-top: 6rem;
+		}
+	}
+}
+
+section {
+	@include until($desktop) {
+		padding: 0 2rem;
+	}
+}
+
+.c-info {
+	color: #939393;
+}
+
+.l-1-2 {
+	min-height: 32rem;
+
+	@include until($tablet) {
+		display: flex;
+		flex-direction: column-reverse;
+		margin-top: 2rem;
+	}
+}
+
+.blog-wrapper {
+	max-width: 45rem;
+  margin: 0 auto;
+}
+
+.c-article-image {
+		background-color: #D0DEEA;
+		border-radius: .5rem;
+		width: 100%;
+		aspect-ratio: 2 / 1;
+		object-fit: cover;
+	}
+
+.c-blog-title {
+	margin: 1rem 0 1rem 0;
+}
+
+.c-blog-title {
+	font-weight: 600;
+
+	@include phone {
+		line-height: 1.4;
+	}
+}
+
+.c-info {
+	font-weight: .5rem;
+	margin: 1rem 0 3rem 0;
+
+	time::before {
+		content: ' • ';
+	}
+}
+
+.c-article {
+	border-bottom: 1px solid #D0DEEA;
+	margin-bottom: 5rem;
+
+	p {
+		margin-bottom: 1.5rem;
+	}
+
+	img {
+		margin: 2rem auto;
+	}
+
+	h2 {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+}
+
+.c-article-link {
+	display: flex;
+	align-items: flex-start;
+
+	strong {
+		color: #0AA5DE;
+		size: $size_4;
+	}
+
+	img {
+		width: 16rem;
+		height: auto;
+		max-width: 100%;
+		margin-right: 2rem;
+		object-fit: cover;
+	}
+
+	.c-blog-title {
+		max-width: 21rem;
+		margin-top: .2rem;
+		margin-bottom: -.5rem;
+	}
+
+	@include phone {
+		flex-direction: column;
+
+		img {
+			width: 100%;
+			margin-right: 0;
+			margin-bottom: 2rem;
+		}
+	}
+}
+
+.pagination {
+	display: flex;
+	gap: .5rem;
+
+	a {
+		width: 2rem;
+		text-align: center;
+
+		&.active {
+			color: $primary_0;
+		}
+
+		&.inactive {
+			opacity: .3;
+			cursor: default;
+		}
+
+		i {
+			font-size: .7rem;
+		}
+	}
+}
+</style>

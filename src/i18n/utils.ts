@@ -14,6 +14,7 @@ const translationTables: { [index: string]: any } = {
 export const defaultLanguage = 'en'
 export const defaultTable = translationTables[defaultLanguage]
 
+export const supportedLangCodes = Object.keys(translationTables)
 export const supportedLanguages: Array<LanguageEntry> = [
   { id: 'en', name: 'English' },
   { id: 'ko', name: 'Korean' }
@@ -21,15 +22,15 @@ export const supportedLanguages: Array<LanguageEntry> = [
 
 // dynamic route definitions to be used in getStaticPaths() function of each page
 // (reference: https://docs.astro.build/en/reference/api-reference/#getstaticpaths)
-export const dynamicRoutes: Array<any> = Object.keys(translationTables).map((langCode: string) => {
+export const dynamicRoutes: Array<any> = supportedLangCodes.map((langCode: string) => {
   return { params: { locale: langCode } }
 })
-export function useTranslation (lang: string = '', componentName: string = '') {
+export function useTranslation (lang: string = '', area: string = '') {
   const table = lang in translationTables ?  translationTables[lang] : defaultTable
 
   return (key: string) => {
-    return componentName in table
-      ? table[componentName][key] || key
+    return area in table
+      ? table[area][key] || key
       : table[key] || key
   }
 }
