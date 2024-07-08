@@ -6,7 +6,6 @@ type LanguageEntry = { id: string, name: string }
 import englishTable from './translation-tables/en.js'
 import koreanTable from './translation-tables/ko.js'
 
-
 const translationTables: { [index: string]: any } = {
   // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp
   'en': englishTable,
