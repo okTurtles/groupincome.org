@@ -41,6 +41,7 @@ onMounted(() => {
     { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
     { name: 'Blog', id: 'blogLink', path: '/blog' },
     { name: 'FAQS', id: 'blogLink', path: '/faq' },
+    // TODO: figure out how to calculate this badge number based on the number of files in the jobs folder
     { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
     { name: 'Donate', id: 'donateLink', path: '/donate' }
   ].filter(Boolean)

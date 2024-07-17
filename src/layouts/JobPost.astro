@@ -4,7 +4,9 @@ import Sides from '../components/graphics/Sides.vue';
 import { sortedPosts } from '@/utils/sort'
 import { resolvePath } from '@/utils/helpers.js'
 
-const jobs =  sortedPosts(await Astro.glob('../jobs/*.{md,mdx}'));
+const jobs =  sortedPosts(await Astro.glob('../jobs/*.{md,mdx}')).filter(job => {
+  return !job.file.split('/').pop().startsWith('_')
+})
 
 const pathname = new URL(Astro.request.url).pathname;
 const path = pathname.split("/");
