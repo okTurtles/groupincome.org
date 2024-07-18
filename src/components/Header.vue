@@ -1,6 +1,6 @@
 <template>
 <header class="c-header">
-  <!-- <Fundraiser></Fundraiser> -->
+  <Fundraiser></Fundraiser>
   <div class="c-header-wrapper">
     <div class="c-wrapper" role="banner">
       <a class="c-logo" v-href="'/'">
