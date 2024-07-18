@@ -16,16 +16,16 @@ Are you an expert at JavaScript with an interest in infosec? Been programming fo
 - Understanding of basic infosec concepts.
 - Minimum 4 years of programming experience using more than one programming language.
 - Excited to learn new tools and new ways of programming.
-- Are able to get up and running with Group Income development because you find [the instructions](https://github.com/okTurtles/group-income-simple/blob/master/README.md) trivial to follow.
+- Are able to get up and running with Group Income development because you find [the instructions](https://github.com/okTurtles/group-income/blob/master/README.md) trivial to follow.
 - Know how to submit pull requests.
 - Are self-taught and are constantly pushing yourself to expand your knowledge and skillset.
 - You are not intimidated by anything written above.
-- Able to commit at least 15 hours per week for the next 6 months or so. We do weekly video chats on Monday at 8am Pacific Time.
+- Able to commit at least 15 hours per week for the next 6 months or so
 - Are excited by what we're creating.
 
 #### What to expect
 
-Have a look at our [Github Project](https://github.com/okTurtles/group-income-simple/) and [existing pull requests](https://github.com/okTurtles/group-income-simple/pulls?q=is%3Apr+is%3Aclosed+is%3Amerged). Our development process involves in-depth review and testing to catch as many bugs as we can before any code makes its way into user's hands to ensure the highest level of quality. Be prepared for potentially multiple rounds of PR reviews, and be prepared to also review other people's code.
+Have a look at our [Github Project](https://github.com/okTurtles/group-income/) and [merged pull requests](https://github.com/okTurtles/group-income/pulls?q=is%3Apr+is%3Aclosed+is%3Amerged). Our development process involves in-depth review and testing to catch as many bugs as we can before any code makes its way into user's hands to ensure the highest level of quality. Be prepared for potentially multiple rounds of PR reviews, and be prepared to also review other people's code.
 
 #### Compensation
 

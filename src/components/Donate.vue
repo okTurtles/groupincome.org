@@ -23,17 +23,9 @@ export default {
           abreviation: 'BTC',
           id: '39ekronaSx3pBUuftNYfuwoWbGipnFrBv6'
         }, {
-          name: 'Bitcoin',
-          abreviation: 'segwit',
-          id: 'bc1qs4l0y8x6z5nqfm240jadxwps5epvsshy6uaw8h'
-        }, {
           name: 'Etherium',
           abreviation: 'ETH',
           id: '0x62992467ecd54d45fe5a028b4ccd082486ccc9a8'
-        }, {
-          name: 'Litecoin',
-          abreviation: 'LTC',
-          id: 'LSsNWEcXUMrx5pZcMJBfywMmHT4UJBDHqD'
         }, {
           name: 'Monero',
           abreviation: 'XMR',
