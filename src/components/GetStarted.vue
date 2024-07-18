@@ -4,7 +4,7 @@
     <div class="c-feature-box-title">Choose a Server</div>
     <div class="c-feature-box-para">
       Use 
-      <a href="#" class="is-link">our official server</a>
+      <a href="https://groupincome.app" class="is-link">our official server</a>
       , choose from a community of independently operated servers, or run your own!
     </div>
   </div>

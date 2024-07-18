@@ -54,6 +54,7 @@ onMounted(() => {
     { name: t('About us'), id: 'aboutUsLink', path: prefixWithLang('/about-us') },
     { name: t('Blog'), id: 'blogLink', path: prefixWithLang('/blog') },
     { name: t('FAQS'), id: 'blogLink', path: prefixWithLang('/faq') },
+    // TODO: figure out how to calculate this badge number based on the number of files in the jobs folder
     { name: t('Hiring'), id: 'hiringLink', path: prefixWithLang('/hiring'), badge: 3 },
     { name: t('Donate'), id: 'donateLink', path: prefixWithLang('/donate') }
   ].filter(Boolean)

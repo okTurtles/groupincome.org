@@ -1,13 +1,6 @@
 ---
 import Layout from '../../layouts/JobPost.astro';
-import { sortedPosts } from '@/utils/sort'
 
-const jobs =  sortedPosts(await Astro.glob('../../jobs/*.{md,mdx}'));
 ---
 
-<Layout>
-  {jobs.map((job) => (
-    <article set:html={job.compiledContent()} />
-  ))}
-
-</Layout>
+<Layout/>
