@@ -135,9 +135,6 @@ dt {
 
   &.active {
     font-weight: bold;
-    &:hover {
-      cursor: initial;
-    }
 
     .close::before,
     .close::after {
