@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Distribution Simulation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+        #controls {
+            margin: 10px 0;
+        }
+        #stats {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button id="playPause">Play/Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div id="stats">Gini Coefficient: 0.000 | Round: 0 | Epoch: 0</div>
+    <canvas id="simulationCanvas" width="800" height="650"></canvas>
+
+    <script>
+        const canvas = document.getElementById('simulationCanvas');
+        const ctx = canvas.getContext('2d');
+        const playPauseBtn = document.getElementById('playPause');
+        const resetBtn = document.getElementById('reset');
+        const statsDisplay = document.getElementById('stats');
+
+        const numIndividuals = 100;
+        const EPOCH_LENGTH = 200;
+        let individuals = [];
+        let isRunning = false;
+        let animationId;
+        let roundCount = 0;
+        let wealthiestIndividual = null;
+
+        function initializeSimulation() {
+            individuals = Array(numIndividuals).fill().map((_, i) => ({ id: i, wealth: 100 }));
+            roundCount = 0;
+            wealthiestIndividual = null;
+        }
+
+        function runSimulation() {
+            for (let i = 0; i < numIndividuals; i++) {
+                const giver = i;
+                let receiver;
+                do {
+                    receiver = Math.floor(Math.random() * numIndividuals);
+                } while (receiver === giver);
+
+                const amount = Math.floor(individuals[giver].wealth * 0.05);
+                if (amount > 0) {
+                    individuals[giver].wealth -= amount;
+                    individuals[receiver].wealth += amount;
+                }
+            }
+            individuals.sort((a, b) => a.wealth - b.wealth);
+            roundCount++;
+
+            if (roundCount % EPOCH_LENGTH === 0 || wealthiestIndividual === null) {
+                wealthiestIndividual = individuals[individuals.length - 1];
+            } else {
+                wealthiestIndividual = individuals.find(ind => ind.id === wealthiestIndividual.id);
+            }
+        }
+
+        function calculateGini() {
+            const totalWealth = individuals.reduce((sum, ind) => sum + ind.wealth, 0);
+            const lorenzPoints = [];
+            let sumSoFar = 0;
+            for (let i = 0; i < numIndividuals; i++) {
+                sumSoFar += individuals[i].wealth;
+                lorenzPoints.push(sumSoFar / totalWealth);
+            }
+            
+            let areaUnderLorenz = 0;
+            for (let i = 0; i < numIndividuals; i++) {
+                areaUnderLorenz += lorenzPoints[i] / numIndividuals;
+            }
+            
+            const gini = (0.5 - areaUnderLorenz) / 0.5;
+            return gini;
+        }
+
+        function drawBarGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const barWidth = canvas.width / numIndividuals;
+            const maxMoney = Math.max(...individuals.map(ind => ind.wealth));
+
+            for (let i = 0; i < numIndividuals; i++) {
+                const barHeight = (individuals[i].wealth / maxMoney) * (canvas.height - 50);
+                ctx.fillStyle = `hsl(${(individuals[i].wealth / maxMoney) * 120}, 100%, 50%)`;
+                ctx.fillRect(i * barWidth, canvas.height - 50 - barHeight, barWidth, barHeight);
+            }
+
+            // Draw arrow pointing to wealthiest individual
+            if (wealthiestIndividual) {
+                const wealthiestIndex = individuals.findIndex(ind => ind.id === wealthiestIndividual.id);
+                const arrowX = (wealthiestIndex + 0.5) * barWidth;
+                ctx.beginPath();
+                ctx.moveTo(arrowX, canvas.height - 40);
+                ctx.lineTo(arrowX - 10, canvas.height - 20);
+                ctx.lineTo(arrowX + 10, canvas.height - 20);
+                ctx.closePath();
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+
+            const gini = calculateGini();
+            const currentEpoch = Math.floor(roundCount / EPOCH_LENGTH);
+            statsDisplay.textContent = `Gini Coefficient: ${gini.toFixed(3)} | Round: ${roundCount} | Epoch: ${currentEpoch}`;
+        }
+
+        function animate() {
+            if (isRunning) {
+                runSimulation();
+                drawBarGraph();
+                animationId = requestAnimationFrame(animate);
+            }
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            isRunning = !isRunning;
+            if (isRunning) {
+                animate();
+            } else {
+                cancelAnimationFrame(animationId);
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            isRunning = false;
+            cancelAnimationFrame(animationId);
+            initializeSimulation();
+            drawBarGraph();
+        });
+
+        initializeSimulation();
+        drawBarGraph();
+    </script>
+</body>
+</html>
