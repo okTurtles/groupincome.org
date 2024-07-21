@@ -23,7 +23,7 @@
             <p v-html="q.question"></p><i class="icon-chevron-up" v-if="q.active === true"></i><i class="icon-chevron-right" v-else></i>
           </dt>
           <dd :class="{active: q.active === true}">
-            <div v-html="q.answer"></div>
+            <div v-html="q.answer" class="l-faq"></div>
           </dd>
         </div>
       </dl>
@@ -166,7 +166,7 @@ export default {
             <strong>That is the goal. Group Income is one of the steps on the way to that goal.</strong>`,
           active: false
         }]
-      }, {
+      }/*, {
         title: 'Dev Support',
         id: 'dev-support',
         qa: [{
@@ -177,7 +177,7 @@ export default {
             If you believe Group Income is a project that should succeed, you can reflect that in the amount you choose. The money earned will be put directly back into development and support of Group Income so we can continue providing the tools you need to just set it and forget it!`,
           active: false
         }]
-      }],
+      }*/],
       previous: [0, 0],
       expandAll: false
     }
