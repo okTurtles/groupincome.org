@@ -65,7 +65,7 @@ export default {
           active: false
         }, {
           question: 'Who determines what the mincome is?',
-          answer: 'When the group is created, the group members will set the group\'s mincome, as well as the % of votes needed to change the group\'s mincome. The group members may vote to change the group\'s mincome at any point, according to the voting thresholds set up when the group was created.',
+          answer: 'When the group is created, the group members will set the group\'s mincome, as well as the percentage of votes needed to change the group\'s mincome. The group members may vote to change the group\'s mincome at any point, according to the voting thresholds set up when the group was created.',
           active: false
         }]
       }, {
@@ -93,7 +93,7 @@ export default {
           active: false
         }, {
           question: "What if I don't have money to contribute?",
-          answer: 'Everyone has something to contribute, money isn\'t the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There\'s value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.<br><br>There\'s immeasurable value in non-monetary contributions.',
+          answer: 'Everyone has something to contribute; money isn\'t the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There\'s value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.<br><br>There\'s immeasurable value in non-monetary contributions.',
           active: false
         }, {
           question: 'What is the minimum size for a group?',
@@ -101,7 +101,7 @@ export default {
           active: false
         }, {
           question: 'What is the maximum size for a group?',
-          answer: `The maximum number of participants in monetary and non-monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether or not they're doing group income) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
+          answer: `150. The maximum number of participants in monetary and non-monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether they're actively participating in exchange) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
           active: false
         }]
       }, {
@@ -114,7 +114,7 @@ export default {
           active: false
         }, {
           question: 'Why is Group Income a voluntary system?',
-          answer: `One of the primary arguments for Basic Income is the notion that it is <a class="link" href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">better to give people money than vouchers</a> because <a class="link" href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">people make better decisions about what they can and should do with their money</a> than the state (or donor) can make for them. However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with it.<br><br>When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others. These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.<br><br>These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:<br>
+          answer: `One of the primary arguments for Basic Income is the notion that it is <a class="link" href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">better to give people money than vouchers</a> because <a class="link" href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">people make better decisions about what they can and should do with their money</a> than the state (or donor) can make for them. However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money.<br><br>When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others. These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.<br><br>These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:<br>
           <ul>
             <li><a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund" class="link" target="_blank">Alaska Permanent Fund Dividend</a> (resource-based)</li>
             <li><a href="https://en.wikipedia.org/wiki/Land_value_tax" class="link" target="_blank">Land value tax</a> (resource-based)</li>
@@ -131,7 +131,7 @@ export default {
           active: false
         }, {
           question: 'Why would people who earn more than a basic income want to give any of it away?',
-          answer: `Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving. Group members want to help each other reach the mincome threshold because groups are better when people support each other. When other group members are miserable and struggling, that impacts the quality of life of each group member. Likewise, when the society around you is miserable, that will impact your quality of life as well.
+          answer: `Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving. Group members want to help each other reach the mincome threshold because groups are better when people support each other. When other group members are miserable and struggling, that impacts the quality of life of each group member. Likewise, when the society around you is miserable, that will impact your quality of life as well.<br><br>
             Let's take the example of <a class="link" href="https://www.simplypsychology.org/maslow.html" target="_blank">Maslow's Hierarchy of Needs</a>. It argues that the needs lower in the hierarchy (like food, water, warmth, security, or safety) need to be satisfied before individuals can attempt to focus on needs higher up. If basic needs aren't met, individuals will never move to the next level of needs. When someone decides to contribute to a group and help members achieve basic security, they're helping their loved ones climb the ladder and attempt to reach their full potential. This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?`,
           active: false
         }, {
