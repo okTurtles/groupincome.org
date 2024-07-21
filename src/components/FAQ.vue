@@ -92,7 +92,7 @@ export default {
           answer: 'Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others\' mincome. This ensures that the pledge will not cause the pledger\'s income to fall below the mincome. This can provide predictability and stability for all members.',
           active: false
         }, {
-          question: 'What if I don\'t have money to contribute?',
+          question: "What if I don't have money to contribute?",
           answer: 'Everyone has something to contribute, money isn\'t the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There\'s value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.<br><br>There\'s immeasurable value in non-monetary contributions.',
           active: false
         }, {
@@ -101,7 +101,7 @@ export default {
           active: false
         }, {
           question: 'What is the maximum size for a group?',
-          answer: 'The maximum size for a group is 150 members, a decision based on Dunbar\'s Number. We recommend that members form groups with those they have a stable social relationship.',
+          answer: `The maximum number of participants in monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether or not they're doing group income) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
           active: false
         }]
       }, {
