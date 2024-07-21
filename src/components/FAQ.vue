@@ -101,7 +101,7 @@ export default {
           active: false
         }, {
           question: 'What is the maximum size for a group?',
-          answer: `The maximum number of participants in monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether or not they're doing group income) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
+          answer: `The maximum number of participants in monetary and non-monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether or not they're doing group income) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
           active: false
         }]
       }, {
@@ -151,8 +151,8 @@ export default {
           active: false
         }, {
           question: 'How do you protect against Sybil attacks?',
-          answer: `The groups will be limited in size (up to 60 members). This was a decision based on Dunbar's Number as a way to prevent Sybil attacks. (link to Dunbar's Number/Sybil Attack blog post)
-            Rather than forming a single larger group, multiple groups should be linked together to ensure safety.`,
+          answer: `The members engaging in monetary and non-monetary exchange will be limited in size based to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's Number</a> (150) as a way to prevent Sybil attacks.
+            In the future, multiple groups may be linked together.`,
           active: false
         }, {
           question: 'If the size of groups is limited, how does Group Income scale?',
