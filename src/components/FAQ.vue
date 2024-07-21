@@ -101,12 +101,7 @@ export default {
           active: false
         }, {
           question: 'What is the maximum size for a group?',
-          answer: 'The maximum size for a group is 60 members. This is a decision based on Dunbar\'s Number (link to Dunbar\'s Number/Sybil Attack blog post), whose concept states that the average size of a social group is 150 members. To ensure safety, we recommend that members form groups with those they have a stable social relationship.',
-          active: false
-        }, {
-          question: 'What will Group Income be released?',
-          answer: `We're working on realising the prototype first, which we’re calling <a class="link" href="https://github.com/okTurtles/group-income-simple" target="_blank">Group Income Simple</a>. It is a not-quite-fully-decentralized version of Group Income that will be released first. The prototype will only be released once we can assure it will run as smoothly and problem-free as possible.<br><br>Once the prototype is launched, we'll have the possibility of hosting up to 60 groups who want to try Group Income. We'll closely monitor how the app performs to detect possible flaws.
-            Group members will be encouraged to send feedback, report any problems, or make new suggestions so that we can continue to develop an even better and fully-decentralized version of Group Income.`,
+          answer: 'The maximum size for a group is 150 members, a decision based on Dunbar\'s Number. We recommend that members form groups with those they have a stable social relationship.',
           active: false
         }]
       }, {
