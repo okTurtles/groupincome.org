@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Distribution Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .simulation-header {
+            text-align: center;
+        }
+        .simulation-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .canvas-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        #gini {
+            min-height: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid black;
+            max-width: 100%;
+            height: auto;
+        }
+        #controls {
+            margin: 10px 0;
+        }
+        .parameters {
+            flex: 0 0 200px;
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 25px; /* Same as #gini height */
+        }
+        .parameter {
+            margin-bottom: 15px;
+        }
+        .parameter-value {
+            font-weight: bold;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="simulation-header">
+            <h1>5% exchange ("realistic")</h1>
+            <div id="controls">
+                <button id="playPause">Play/Pause</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+        <div class="simulation-content">
+            <div class="canvas-container">
+                <div id="gini">Gini Coefficient: 0.000</div>
+                <canvas id="simulationCanvas" width="800" height="650"></canvas>
+            </div>
+            <div class="parameters">
+                <h2>Parameters</h2>
+                <div class="parameter">
+                    <div>Transaction %: <span id="transactionValue" class="parameter-value"></span></div>
+                    <input type="range" id="transactionSlider" min="0" max="1" step="0.05">
+                </div>
+                <div class="parameter">
+                    <div>Investment %: <span id="investmentValue" class="parameter-value"></span></div>
+                    <input type="range" id="investmentSlider" min="0" max="1" step="0.05">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('simulationCanvas');
+        const ctx = canvas.getContext('2d');
+        const playPauseBtn = document.getElementById('playPause');
+        const resetBtn = document.getElementById('reset');
+        const giniDisplay = document.getElementById('gini');
+
+        const numIndividuals = 100;
+        const EPOCH_LENGTH = 200;
+        let TRANSACTION_CHANCE;
+        let INVESTMENT_CHANCE;
+        let individuals = [];
+        let isRunning = false;
+        let animationId;
+        let roundCount = 0;
+        let wealthiestIndividual = null;
+
+        // Add event listeners for sliders
+        document.getElementById('transactionSlider').addEventListener('input', updateTransactionChance);
+        document.getElementById('investmentSlider').addEventListener('input', updateInvestmentChance);
+
+        function updateTransactionChance(e) {
+            TRANSACTION_CHANCE = parseFloat(e.target.value);
+            document.getElementById('transactionValue').textContent = (TRANSACTION_CHANCE * 100).toFixed(0);
+        }
+
+        function updateInvestmentChance(e) {
+            INVESTMENT_CHANCE = parseFloat(e.target.value);
+            document.getElementById('investmentValue').textContent = (INVESTMENT_CHANCE * 100).toFixed(0);
+        }
+
+        function gaussianRandom(mean = 0.5, stdev = 0.15) {
+            const u = 1 - Math.random();
+            const v = Math.random();
+            const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+            return Math.min(Math.max(z * stdev + mean, 0), 1);
+        }
+
+        function initializeSliders() {
+            TRANSACTION_CHANCE = 0.20;
+            INVESTMENT_CHANCE = 1;
+            document.getElementById('transactionSlider').value = TRANSACTION_CHANCE;
+            document.getElementById('transactionValue').textContent = (TRANSACTION_CHANCE * 100).toFixed(0);
+            document.getElementById('investmentSlider').value = INVESTMENT_CHANCE;
+            document.getElementById('investmentValue').textContent = (INVESTMENT_CHANCE * 100).toFixed(0);
+        }
+
+        function initializeSimulation() {
+            individuals = Array(numIndividuals).fill().map((_, i) => ({
+                id: i,
+                wealth: 100,
+                moneySkill: gaussianRandom(),
+                generosity: gaussianRandom()
+            }));
+            roundCount = 0;
+            wealthiestIndividual = null;
+        }
+
+        function runSimulation() {
+            // Sort individuals by wealth
+            individuals.sort((a, b) => a.wealth - b.wealth);
+            // Calculate total wealth
+            const totalWealth = individuals.reduce((sum, individual) => sum + individual.wealth, 0)
+            const maxDonation = totalWealth * .01
+            const medianIndex = Math.floor(numIndividuals / 2);
+
+            for (let i = 0; i < numIndividuals; i++) {
+                // Random transaction
+                if (Math.random() < TRANSACTION_CHANCE) {
+                    const giver = i;
+                    let receiver;
+                    do {
+                        receiver = Math.floor(Math.random() * numIndividuals);
+                    } while (receiver === giver);
+
+                    const amount = Math.floor(individuals[giver].wealth * 0.05);
+                    if (amount > 0) {
+                        individuals[giver].wealth -= amount;
+                        individuals[receiver].wealth += amount;
+                    }
+                }
+
+                if (Math.random() < INVESTMENT_CHANCE) {
+                    // Apply investment based on money skill and 10% of wealth
+                    const investment = 0.1 * individuals[i].wealth;
+                    individuals[i].wealth += individuals[i].moneySkill * investment;
+                }
+            }
+
+            individuals.sort((a, b) => a.wealth - b.wealth)
+
+            roundCount++;
+
+            if (roundCount % EPOCH_LENGTH === 0 || wealthiestIndividual === null) {
+                wealthiestIndividual = individuals[individuals.length - 1];
+            } else {
+                wealthiestIndividual = individuals.find(ind => ind.id === wealthiestIndividual.id);
+            }
+        }
+
+        function calculateGini() {
+            const totalWealth = individuals.reduce((sum, ind) => sum + ind.wealth, 0);
+            const lorenzPoints = [];
+            let sumSoFar = 0;
+            for (let i = 0; i < numIndividuals; i++) {
+                sumSoFar += individuals[i].wealth;
+                lorenzPoints.push(sumSoFar / totalWealth);
+            }
+            
+            let areaUnderLorenz = 0;
+            for (let i = 0; i < numIndividuals; i++) {
+                areaUnderLorenz += lorenzPoints[i] / numIndividuals;
+            }
+            
+            const gini = (0.5 - areaUnderLorenz) / 0.5;
+            return gini;
+        }
+
+        function drawBarGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const barWidth = canvas.width / numIndividuals;
+            const maxMoney = Math.max(...individuals.map(ind => ind.wealth));
+
+            for (let i = 0; i < numIndividuals; i++) {
+                const barHeight = (individuals[i].wealth / maxMoney) * (canvas.height - 50);
+                ctx.fillStyle = `hsl(${(individuals[i].wealth / maxMoney) * 120}, 100%, 50%)`;
+                ctx.fillRect(i * barWidth, canvas.height - 50 - barHeight, barWidth, barHeight);
+            }
+
+            // Draw arrow pointing to wealthiest individual
+            if (wealthiestIndividual) {
+                const wealthiestIndex = individuals.findIndex(ind => ind.id === wealthiestIndividual.id);
+                const arrowX = (wealthiestIndex + 0.5) * barWidth;
+                ctx.beginPath();
+                ctx.moveTo(arrowX, canvas.height - 40);
+                ctx.lineTo(arrowX - 10, canvas.height - 20);
+                ctx.lineTo(arrowX + 10, canvas.height - 20);
+                ctx.closePath();
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            }
+
+            const gini = calculateGini();
+            const currentEpoch = Math.floor(roundCount / EPOCH_LENGTH);
+            giniDisplay.textContent = `Gini Coefficient: ${gini.toFixed(3)} | Round: ${roundCount} | Epoch: ${currentEpoch}`;
+        }
+
+        function animate() {
+            if (isRunning) {
+                runSimulation();
+                drawBarGraph();
+                animationId = requestAnimationFrame(animate);
+            }
+        }
+
+        playPauseBtn.addEventListener('click', () => {
+            isRunning = !isRunning;
+            if (isRunning) {
+                animate();
+            } else {
+                cancelAnimationFrame(animationId);
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            isRunning = false;
+            cancelAnimationFrame(animationId);
+            initializeSimulation();
+            drawBarGraph();
+        });
+
+        initializeSliders();
+        initializeSimulation();
+        drawBarGraph();
+    </script>
+</body>
+</html>

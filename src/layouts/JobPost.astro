@@ -49,6 +49,7 @@ const currentPath = path[path.length - 2];
   
 <style lang="scss">
 @import "../styles/_variables";
+
 .c-wrapper {
   padding-bottom: 2rem;
 }
@@ -143,6 +144,17 @@ const currentPath = path[path.length - 2];
         color: #fff;
       }
     }
+  }
+}
+</style>
+
+<style lang="scss" is:global>
+// slot content cannot be styled by <style scoped />: https://github.com/withastro/astro/issues/3045
+@import "../styles/_variables";
+
+.l-job {
+  a {
+    @extend %link-style;
   }
 }
 </style>

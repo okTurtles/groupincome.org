@@ -1,7 +1,7 @@
 import { atom, StoreValue } from 'nanostores'
 
 export const isNavigationOpen = atom<boolean>(false)
-export const isFundraiserOpen = atom<boolean>(true)
+export const isFundraiserOpen = atom<boolean>(false)
 
 // manipulate navigation menu
 export const openNavigation = (): StoreValue<typeof isNavigationOpen> => {

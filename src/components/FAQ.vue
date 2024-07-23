@@ -23,7 +23,7 @@
             <p v-html="q.question"></p><i class="icon-chevron-up" v-if="q.active === true"></i><i class="icon-chevron-right" v-else></i>
           </dt>
           <dd :class="{active: q.active === true}">
-            <div v-html="q.answer"></div>
+            <div v-html="q.answer" class="l-faq"></div>
           </dd>
         </div>
       </dl>
@@ -65,7 +65,7 @@ export default {
           active: false
         }, {
           question: 'Who determines what the mincome is?',
-          answer: 'When the group is created, the group members will set the group\'s mincome, as well as the % of votes needed to change the group\'s mincome. The group members may vote to change the group\'s mincome at any point, according to the voting thresholds set up when the group was created.',
+          answer: 'When the group is created, the group members will set the group\'s mincome, as well as the percentage of votes needed to change the group\'s mincome. The group members may vote to change the group\'s mincome at any point, according to the voting thresholds set up when the group was created.',
           active: false
         }]
       }, {
@@ -92,8 +92,8 @@ export default {
           answer: 'Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others\' mincome. This ensures that the pledge will not cause the pledger\'s income to fall below the mincome. This can provide predictability and stability for all members.',
           active: false
         }, {
-          question: 'What if I don\'t have money to contribute?',
-          answer: 'Everyone has something to contribute, money isn\'t the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There\'s value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.<br><br>There\'s immeasurable value in non-monetary contributions.',
+          question: "What if I don't have money to contribute?",
+          answer: 'Everyone has something to contribute; money isn\'t the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There\'s value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.<br><br>There\'s immeasurable value in non-monetary contributions.',
           active: false
         }, {
           question: 'What is the minimum size for a group?',
@@ -101,12 +101,7 @@ export default {
           active: false
         }, {
           question: 'What is the maximum size for a group?',
-          answer: 'The maximum size for a group is 60 members. This is a decision based on Dunbar\'s Number (link to Dunbar\'s Number/Sybil Attack blog post), whose concept states that the average size of a social group is 150 members. To ensure safety, we recommend that members form groups with those they have a stable social relationship.',
-          active: false
-        }, {
-          question: 'What will Group Income be released?',
-          answer: `We're working on realising the prototype first, which we’re calling <a class="link" href="https://github.com/okTurtles/group-income-simple" target="_blank">Group Income Simple</a>. It is a not-quite-fully-decentralized version of Group Income that will be released first. The prototype will only be released once we can assure it will run as smoothly and problem-free as possible.<br><br>Once the prototype is launched, we'll have the possibility of hosting up to 60 groups who want to try Group Income. We'll closely monitor how the app performs to detect possible flaws.
-            Group members will be encouraged to send feedback, report any problems, or make new suggestions so that we can continue to develop an even better and fully-decentralized version of Group Income.`,
+          answer: `150. The maximum number of participants in monetary and non-monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether they're actively participating in exchange) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
           active: false
         }]
       }, {
@@ -119,7 +114,7 @@ export default {
           active: false
         }, {
           question: 'Why is Group Income a voluntary system?',
-          answer: `One of the primary arguments for Basic Income is the notion that it is <a class="link" href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">better to give people money than vouchers</a> because <a class="link" href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">people make better decisions about what they can and should do with their money</a> than the state (or donor) can make for them. However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with it.<br><br>When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others. These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.<br><br>These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:<br>
+          answer: `One of the primary arguments for Basic Income is the notion that it is <a class="link" href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">better to give people money than vouchers</a> because <a class="link" href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">people make better decisions about what they can and should do with their money</a> than the state (or donor) can make for them. However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money.<br><br>When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others. These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.<br><br>These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:<br>
           <ul>
             <li><a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund" class="link" target="_blank">Alaska Permanent Fund Dividend</a> (resource-based)</li>
             <li><a href="https://en.wikipedia.org/wiki/Land_value_tax" class="link" target="_blank">Land value tax</a> (resource-based)</li>
@@ -136,7 +131,7 @@ export default {
           active: false
         }, {
           question: 'Why would people who earn more than a basic income want to give any of it away?',
-          answer: `Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving. Group members want to help each other reach the mincome threshold because groups are better when people support each other. When other group members are miserable and struggling, that impacts the quality of life of each group member. Likewise, when the society around you is miserable, that will impact your quality of life as well.
+          answer: `Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving. Group members want to help each other reach the mincome threshold because groups are better when people support each other. When other group members are miserable and struggling, that impacts the quality of life of each group member. Likewise, when the society around you is miserable, that will impact your quality of life as well.<br><br>
             Let's take the example of <a class="link" href="https://www.simplypsychology.org/maslow.html" target="_blank">Maslow's Hierarchy of Needs</a>. It argues that the needs lower in the hierarchy (like food, water, warmth, security, or safety) need to be satisfied before individuals can attempt to focus on needs higher up. If basic needs aren't met, individuals will never move to the next level of needs. When someone decides to contribute to a group and help members achieve basic security, they're helping their loved ones climb the ladder and attempt to reach their full potential. This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?`,
           active: false
         }, {
@@ -156,8 +151,8 @@ export default {
           active: false
         }, {
           question: 'How do you protect against Sybil attacks?',
-          answer: `The groups will be limited in size (up to 60 members). This was a decision based on Dunbar's Number as a way to prevent Sybil attacks. (link to Dunbar's Number/Sybil Attack blog post)
-            Rather than forming a single larger group, multiple groups should be linked together to ensure safety.`,
+          answer: `The members engaging in monetary and non-monetary exchange will be limited in size based to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's Number</a> (150) as a way to prevent Sybil attacks.
+            In the future, multiple groups may be linked together.`,
           active: false
         }, {
           question: 'If the size of groups is limited, how does Group Income scale?',
@@ -171,7 +166,7 @@ export default {
             <strong>That is the goal. Group Income is one of the steps on the way to that goal.</strong>`,
           active: false
         }]
-      }, {
+      }/*, {
         title: 'Dev Support',
         id: 'dev-support',
         qa: [{
@@ -182,7 +177,7 @@ export default {
             If you believe Group Income is a project that should succeed, you can reflect that in the amount you choose. The money earned will be put directly back into development and support of Group Income so we can continue providing the tools you need to just set it and forget it!`,
           active: false
         }]
-      }],
+      }*/],
       previous: [0, 0],
       expandAll: false
     }

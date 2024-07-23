@@ -13,12 +13,10 @@ import { resolvePath } from '@/utils/helpers.js'
     <Accordion client:load/>
   </div>
   <div class="c-container-center c-container-middle">
-    <img src={resolvePath("/images/avatar-group.jpg")} />
-    <h3>Still have questions?</h3>
+    <h3 class="is-title-2">Questions?</h3>
     <p>
-      Please get in touch to our friendly team.
+      Please email <a class='is-link' href="mailto:hi@okturtles.org" target="_blank">hi@okturtles.org</a>
     </p>
-    <a href="https://groupincome.org/community/" class="button primary">Get in touch</a>
   </div>
 </Layout>
 
@@ -71,21 +69,11 @@ import { resolvePath } from '@/utils/helpers.js'
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6rem auto 4rem auto;
-  padding: 4rem;
-  background-color: #FBFCFD;
-  text-align: center;
-
-  img {
-    margin-bottom: 2rem;
-  }
-
-  h3 {
-    margin-bottom: .5rem;
-  }
+  row-gap: 1.6rem;
+  margin-top: 8rem;
 
   p {
-    color: #667085;
+    color: $text_1;
   }
 }
 

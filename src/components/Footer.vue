@@ -35,7 +35,7 @@
             <div class="c-links-group">
                 <h4 class="is-title-6">{{ t('SOCIAL') }}</h4>
                 <a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
-                <a href="https://mstdn.io/@okturtles" target="_blank" alt="Mastodon">Mastodon</a>
+                <a href="https://crib.social/okturtles" target="_blank" alt="Fediverse">Fediverse</a>
                 <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
                 <a href="https://forums.okturtles.com/index.php?board=9.0" target="_blank" alt="Forums">Forums</a>
             </div>

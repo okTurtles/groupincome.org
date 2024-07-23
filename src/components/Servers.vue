@@ -2,12 +2,13 @@
 <div class="grid">
   <div class="grid-item" v-for="server in servers" :key="server.name">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body l-server">
         <img :src="server.img" class="card-img-top" :alt="server.name">
         <!-- <h4 class="card-category">{{ server.category }}</h4> -->
         <h4 class="card-category"></h4>
         <h3 class="card-title">{{ server.name }}</h3>
         <p class="card-text">{{ server.description }}</p>
+        <p class="card-text"><b>Admin:</b> <a class="" :href="server.adminContact">{{ server.admin }}</a></p>
       </div>
       <a class="button is-primary" :href="server.url">Get started</a>
     </div>
@@ -28,56 +29,32 @@
 
 <script setup>
 import { resolvePath } from '@/utils/helpers.js'
-// TODO: replace with real data
+
 const servers = [{
   name: "Group Income",
   img: resolvePath('/images/servers/group-income.webp'),
   url: 'https://groupincome.app',
-  category: "tech",
-  description: "The Official GroupIncome Server."
+  category: 'tech',
+  description: "The official Group Income Server.",
+  admin: 'okTurtles Foundation Inc.',
+  adminContact: 'https://okturtles.org'
 }
 
 // ADD YOUR SERVERS HERE !!
-
-// {
-//   name: "ClimateJustice.social",
-//   img: resolvePath('/images/servers/climate-justice-social.webp'),
-//   category: "tech",
-//   description: "We're a server for people who like bikes, transit, and walkable cities. Let's get to know each other!"
-// },
-// {
-//   name: "defon.social",
-//   img: resolvePath('/images/servers/defon-social.webp'),
-//   category: "tech",
-//   description: "DEFCON.social is a place for cyberpunks and those interested in the intersection of technology & society."
-// }, {
-//   name: "primarycare.app",
-//   img: resolvePath('/images/servers/primarycare-app.webp'),
-//   category: "health",
-//   description: "A place for those in the UK who work in Primary Care and their friends. Hosted by iatro.health for the good of the NHS community. #TeamGP"
-// }, {
-//   name: "Music.rodeo",
-//   img: resolvePath('/images/servers/music-rodeo.webp'),
-//   category: "music",
-//   description: "The GI server is for all music fans! Feel your heart beat! GroupIncome Server."
-// }, {
-//   name: "Climatejustice.social",
-//   img: resolvePath('/images/servers/climate-justice.webp'),
-//   category: "music",
-//   description: "ravenation.club is an instance for all the ravers in the universe. Anyone who listens to electronic music (or not) is welcome. "
-// }, {
-//   name: "computerfairi.es",
-//   img: resolvePath('/images/servers/climate-justice-social.webp'),
-//   category: "tech",
-//   description: "Computer Fairies is a server that aims to be as queer, friendly and furry as possible. We welcome all kinds of computer fairies!"
-// }, {
-//   name: "primarycare.app",
-//   img: resolvePath('/images/servers/primarycare-app.webp'),
-//   category: "health",
-//   description: "A place for those in the UK who work in Primary Care and their friends. Hosted by iatro.health for the good of the NHS community. #TeamGP"
-// }
+// To be listed you must supply the 'admin' and 'adminContact' properties!
 ]
 </script>
+
+<style lang="scss" is:global>
+// slot content cannot be styled by <style scoped />: https://github.com/withastro/astro/issues/3045
+@import "../styles/_variables";
+
+.l-server {
+  a {
+    @extend %link-style;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 .grid {

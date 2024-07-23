@@ -22,7 +22,7 @@ Are you an expert at JavaScript? Know the language and tools inside-out? Been pr
 *   Know how to submit pull requests.
 *   Are self-taught and are constantly pushing yourself to expand your knowledge and skillset.
 *   You are not intimidated by anything written above.
-*   Able to commit at least 15 hours per week for the next 6 months or so. We do weekly video chats on Monday at 8am Pacific Time.
+*   Able to commit at least 15 hours per week for the next 6 months or so.
 *   Are excited by what we’re creating.
 
 ##### Nice-to-have
@@ -57,4 +57,4 @@ A lifetime seat means that person cannot be voted out of the group.
     5.  How long you’ve been a developer and what programming languages you know.
     6.  Any questions/concerns you have.
     7.  How soon you’ll be able to start.
-*   Install Keybase and send a copy of that email to greg.
+*   Install [Keybase](https://keybase.io) and send a copy of that email to [greg](https://keybase.io/greg).

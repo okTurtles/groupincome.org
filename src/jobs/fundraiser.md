@@ -18,7 +18,7 @@ Seeking professional fundraiser who excels at one or more of the following:
 ##### Required Attributes
 
 *   Proven track record.
-*   Able to commit at least 15 hours per week for the next 5 months or so. We do weekly video chats on Monday at 8am Pacific Time.
+*   Able to commit at least 15 hours per week for the next 5 months or so.
 *   Are excited by what we’re creating.
 
 ##### Compensation
@@ -39,6 +39,6 @@ Seeking professional fundraiser who excels at one or more of the following:
     4.  Link(s) to portfolio(s) if you have any.
     5.  Any questions/concerns you have.
     6.  How soon you’ll be able to start.
-*   Install Keybase and send a copy of that email to greg.
+*   Install [Keybase](https://keybase.io) and send a copy of that email to [greg](https://keybase.io/greg).
 
 We should respond back within a week or so of receiving your application (depending on how many responses we’ve received so far).
