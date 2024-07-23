@@ -40,16 +40,14 @@ import Hamburger from './Hamburger.vue'
     display: flex;
     align-items: center;
     width: 100%;
-    height: $headerHeightMobile;
+    height: var(--gi-header-height);
     max-width: calc(100% - 2rem);
 
     @include tablet {
-      height: $headerHeightTablet;
       max-width: calc(100% - 8rem);
     }
 
     @include desktop {
-      height: $headerHeight;
       max-width: $maxDesktop;
     }
   }

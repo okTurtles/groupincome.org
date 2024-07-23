@@ -602,14 +602,9 @@ export default {
   align-items: center;
   justify-content: center;
 
-  min-height: calc(100vh - #{$headerHeightMobile});
-
-  @include tablet {
-    min-height: calc(100vh - #{$headerHeightTablet});
-  }
+  min-height: calc(100vh - var(--gi-header-height));
 
   @include desktop {
-    min-height: calc(100vh - #{$headerHeight});
     background-size: auto;
   }
 }
