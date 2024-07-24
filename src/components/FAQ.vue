@@ -45,7 +45,7 @@ export default {
         id: 'general',
         qa: [{
           question: 'What is Group Income?',
-          answer: 'Group income is a voluntary <strong><a class="link" href="https://www.reddit.com/r/basicincome/wiki/index" target="_blank">Basic Income</a> system</strong> for you and your friends. Our purpose is to ensure, as fairly and efficiently as possible, that all members of a group receive a minimum income (mincome), using the income streams flowing into that group.',
+          answer: 'Group income is a voluntary <strong><a href="https://www.reddit.com/r/basicincome/wiki/index" target="_blank">Basic Income</a> system</strong> for you and your friends. Our purpose is to ensure, as fairly and efficiently as possible, that all members of a group receive a minimum income (mincome), using the income streams flowing into that group.',
           active: true
         }, {
           question: 'How does Group Income work?',
@@ -53,7 +53,7 @@ export default {
           active: false
         }, {
           question: 'What are the “Group Income Shorts”?',
-          answer: 'They’re a <a class="link" href="https://www.youtube.com/watch?v=WpvyLEZmEAM&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7" target="_blank">series of videos</a> we’re creating to answer various questions about what Group Income is, how it works, and to explore various ideas related to it.',
+          answer: 'They’re a <a href="https://www.youtube.com/watch?v=WpvyLEZmEAM&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7" target="_blank">series of videos</a> we’re creating to answer various questions about what Group Income is, how it works, and to explore various ideas related to it.',
           active: false
         }, {
           question: 'What is Basic Income?',
@@ -279,7 +279,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
 @import "../styles/_variables";
 @import "../styles/_mixins";
@@ -394,5 +393,15 @@ dd {
 
 .active-nav button {
   font-weight: bold;
+}
+</style>
+
+<style lang="scss">
+@import "../styles/_variables";
+
+.l-faq {
+  a {
+    @include link-style;
+  }
 }
 </style>
