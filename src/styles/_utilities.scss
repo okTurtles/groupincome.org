@@ -1,3 +1,16 @@
+:root {
+  // toolbar-height is needed in various places in defining layouts.
+  --gi-header-height: #{$headerHeightMobile};
+
+  @include tablet {
+    --gi-header-height: #{$headerHeightTablet};
+  }
+
+  @include desktop {
+    --gi-header-height: #{$headerHeight};
+  }
+}
+
 .is-unstyled {
   background: none;
   border: none;

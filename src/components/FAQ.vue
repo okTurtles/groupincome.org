@@ -1,6 +1,6 @@
 <template>
   <section class="container c-container" id="faqContainer">
-    <ul class="c-nav" id="faqNav">
+    <ul class="c-nav">
       <li class="scrollingLink">
         <button class="is-unstyled" @click="scrollTo('#general')">General</button>
       </li>
@@ -230,18 +230,6 @@ export default {
     },
 
     scrollAnimation () {
-      this.gsap.to('#faqNav', {
-        scrollTrigger: {
-          trigger: '#faqNav',
-          pin: true,
-          start: `2 ${document.getElementsByClassName("c-header")[0].offsetHeight}`,
-          pinSpacing: false,
-          pinReparent: true,
-          end: 'bottom 308',
-          endTrigger: '#faqContainer'
-        }
-      })
-
       const navLinks = this.gsap.utils.toArray('.scrollingLink')
       const panels = this.gsap.utils.toArray('.panel')
 
@@ -284,6 +272,8 @@ export default {
 @import "../styles/_mixins";
 
 .c-nav {
+  position: sticky;
+  top: var(--gi-header-height);
   height: 3rem;
   display: flex;
   flex-wrap: wrap;
@@ -298,11 +288,15 @@ export default {
   @include phone {
     // justify-content: center;
     flex-wrap: nowrap;
-    overflow: scroll;
     height: auto;
+
     li {
       padding: .5rem;
     }
+  }
+
+  @include tablet {
+    padding: 0 0.5rem;
   }
 }
 
