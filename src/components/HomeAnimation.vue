@@ -62,6 +62,7 @@
             <div class="is-title-3 c-container-posttitle">Set a "mincome" floor</div>
             <p class="is-title-2 c-container-title">Create your own financial safety net.</p>
             <p class="c-container-para">Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (“mincome”). Each month, group members help those who haven't crossed the mincome threshold.</p>
+            <a class="c-container-link is-link" href="https://groupincome.org/simulator/">Try out the payments simulator.</a>
           </div>
 
           <div class="span-2">
