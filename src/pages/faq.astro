@@ -51,8 +51,12 @@ const giShortsData = [
             const imgSrc = resolvePath(`/images/shorts/${img}`) 
             return (
               <li>
-                <a href={url} target='_blank'>
+                <a class="link-block" href={url} target='_blank'>
                   <img src={imgSrc} alt={title} />
+                  <h3 class="short-title">
+                    <i class="icon-video"></i>
+                    <span class="text">{title}</span>
+                  </h3>
                 </a>
               </li>
             )
@@ -166,27 +170,61 @@ const giShortsData = [
 }
 
 .c-video-link {
-  display: flex;
-  padding: 5rem 1rem 0 1rem;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  justify-items: center;
+  gap: 3.25rem;
+  padding: 5rem 0.75rem 0 0.75rem;
 
-  img {
-    transition: all ease-out .125s;
+  .link-block {
+    display: block;
+    cursor: pointer;
+
+    > * {
+      display: inherit;
+    }
+
+    img {
+      box-shadow: $drop-shadow_medium;
+      margin-bottom: 1.25rem;
+      transition: transform 120ms linear;
+    }
+
+    h3.short-title {
+      font-size: $size_5;
+      width: 100%;
+      text-align: center;
+      color: $text_1;
+    }
 
     &:hover {
-      transition: all ease-in .124s;
-      transform: scale(1.1);
+      img {
+        transform: scale(1.05);
+      }
+
+      h3.short-title .text {
+        text-decoration: underline;
+      }
     }
   }
 
-  img {
-    max-width: 16rem;
-    margin-bottom: 2rem;
 
-    @include desktop {
-      margin-bottom: 0;
-    }
+  @include from ($tablet) {
+    max-width: 56rem;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include from ($desktop) {
+    max-width: 100rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    justify-items: center;
+    gap: 2.5rem;
   }
 }
 

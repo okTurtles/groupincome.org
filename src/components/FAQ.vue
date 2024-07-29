@@ -289,6 +289,9 @@ export default {
     // justify-content: center;
     flex-wrap: nowrap;
     height: auto;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    font-size: 0.85rem;
 
     li {
       padding: .5rem;
