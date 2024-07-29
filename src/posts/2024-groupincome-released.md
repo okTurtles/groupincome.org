@@ -14,7 +14,7 @@ categories:
     - Uncategorized
 ---
 
-After 9+ years in development, Group Income 1.0 has finally be released! 🥳
+After 9+ years in development, Group Income 1.0 has finally been released! 🥳
 
 🎦 Watch the release + special announcment about the future of all Internet software:
 
