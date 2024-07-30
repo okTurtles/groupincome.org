@@ -2,6 +2,33 @@
 import Layout from '../layouts/DefaultLayout.astro';
 import FAQ from '../components/FAQ.vue'
 import { resolvePath } from '@/utils/helpers.js'
+
+const giShortsData = [
+  {
+    id: 'what-is-groupincome',
+    title: 'What is Group Income? (Overview)',
+    img: 'what-is-groupincome.jpeg',
+    url: 'https://www.youtube.com/watch?v=WpvyLEZmEAM&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=1'
+  },
+  {
+    id: 'what-is-value',
+    title: 'What is Value?',
+    img: 'what-is-value.jpeg',
+    url: 'https://www.youtube.com/watch?v=i3LtljP9WsA&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=2'
+  },
+  {
+    id: 'software-architecture',
+    title: 'A New Kind Of Software Architecture',
+    img: 'software-architecture.jpeg',
+    url: 'https://www.youtube.com/watch?v=I381R5_joLE&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=3'
+  },
+  {
+    id: 'gi-demo',
+    title: 'Group Income UI Demo',
+    img: 'gi-demo.jpeg',
+    url: 'https://www.youtube.com/watch?v=KU9NGcrjXlo&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=4'
+  }
+]
 ---
 
 <Layout>
@@ -18,10 +45,23 @@ import { resolvePath } from '@/utils/helpers.js'
     <section class="container">
       <h2 class="is-title-2 c-container-title">Group Income Shorts</h2>
       <ul class="c-video-link">
-        <li><a href="https://www.youtube.com/watch?v=WpvyLEZmEAM&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=1" target="_blank"><img src={resolvePath("/images/shorts/what-is-groupincome.jpeg")} alt="What is Group Income? (Overview)"/></a></li>
-        <li><a href="https://www.youtube.com/watch?v=i3LtljP9WsA&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=2" target="_blank"><img src={resolvePath("/images/shorts/what-is-value.jpeg")} alt="What is Value?"/></a></li>
-        <li><a href="https://www.youtube.com/watch?v=I381R5_joLE&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=3" target="_blank"><img src={resolvePath("/images/shorts/software-architecture.jpeg")} alt="A New Kind Of Software Architecture"/></a></li>
-        <li><a href="https://www.youtube.com/watch?v=KU9NGcrjXlo&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=4" target="_blank"><img src={resolvePath("/images/shorts/gi-demo.jpeg")} alt="Group Income UI Demo"/></a></li>
+        {
+          giShortsData.map(data => {
+            const { url, title, img } = data
+            const imgSrc = resolvePath(`/images/shorts/${img}`) 
+            return (
+              <li>
+                <a class="link-block" href={url} target='_blank'>
+                  <img src={imgSrc} alt={title} />
+                  <h3 class="short-title">
+                    <i class="icon-video"></i>
+                    <span class="text">{title}</span>
+                  </h3>
+                </a>
+              </li>
+            )
+          })
+        }
       </ul>
     </section>
   </div>
@@ -130,27 +170,61 @@ import { resolvePath } from '@/utils/helpers.js'
 }
 
 .c-video-link {
-  display: flex;
-  padding: 5rem 1rem 0 1rem;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  justify-items: center;
+  gap: 3.25rem;
+  padding: 5rem 0.75rem 0 0.75rem;
 
-  img {
-    transition: all ease-out .125s;
+  .link-block {
+    display: block;
+    cursor: pointer;
+
+    > * {
+      display: inherit;
+    }
+
+    img {
+      box-shadow: $drop-shadow_medium;
+      margin-bottom: 1.25rem;
+      transition: transform 120ms linear;
+    }
+
+    h3.short-title {
+      font-size: $size_5;
+      width: 100%;
+      text-align: center;
+      color: $text_1;
+    }
 
     &:hover {
-      transition: all ease-in .124s;
-      transform: scale(1.1);
+      img {
+        transform: scale(1.05);
+      }
+
+      h3.short-title .text {
+        text-decoration: underline;
+      }
     }
   }
 
-  img {
-    max-width: 16rem;
-    margin-bottom: 2rem;
 
-    @include desktop {
-      margin-bottom: 0;
-    }
+  @include from ($tablet) {
+    max-width: 56rem;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include from ($desktop) {
+    max-width: 100rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    justify-items: center;
+    gap: 2.5rem;
   }
 }
 
