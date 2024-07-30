@@ -22,9 +22,13 @@
             Basic Income for your
             friends and family.
           </h1>
+
           <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
             voluntarily provide a financial safety net for their members.</p>
-          <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+
+          <div class="scroll-btn-container">
+            <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+          </div>
         </div>
       </section>
 
@@ -489,17 +493,27 @@ export default {
   }
 }
 
-.icon-chevron-bottom {
+.scroll-btn-container {
+  position: relative;
+  width: 100%;
   display: flex;
-  height: 2.5rem;
-  width: 2.5rem;
-  border-radius: 4rem;
-  margin-left: calc(50% - 1.25rem);
-  margin-top: 3rem;
-  margin-bottom: -3rem;
+  justify-content: center;
+  margin-top: 2rem;
 
-  @include phone {
-    display: none;
+  @include tablet {
+    margin-top: 3rem;
+  }
+} 
+
+.icon-chevron-bottom {
+  display: inline-flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+
+  @include tablet {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 
