@@ -24,7 +24,10 @@
           <p class="is-subtitle c-main-para">
             {{ t('Group income makes it easy for small communities to voluntarily provide a financial safety net for their members.') }}
           </p>
-          <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+
+          <div class="scroll-btn-container">
+            <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+          </div>
         </div>
       </section>
 
@@ -66,6 +69,7 @@
             <div class="is-title-3 c-container-posttitle">{{ t('Set a "mincome" floor') }}</div>
             <p class="is-title-2 c-container-title">{{ t('Create your own financial safety net.') }}</p>
             <p class="c-container-para">{{ t("Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.") }}</p>
+            <a class="c-container-link is-link" href="https://groupincome.org/simulator/">{{ t('Try out the payments simulator.') }}</a>
           </div>
 
           <div class="span-2">
@@ -504,17 +508,27 @@ export default {
   }
 }
 
-.icon-chevron-bottom {
+.scroll-btn-container {
+  position: relative;
+  width: 100%;
   display: flex;
-  height: 2.5rem;
-  width: 2.5rem;
-  border-radius: 4rem;
-  margin-left: calc(50% - 1.25rem);
-  margin-top: 3rem;
-  margin-bottom: -3rem;
+  justify-content: center;
+  margin-top: 2rem;
 
-  @include phone {
-    display: none;
+  @include tablet {
+    margin-top: 3rem;
+  }
+} 
+
+.icon-chevron-bottom {
+  display: inline-flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+
+  @include tablet {
+    height: 2.5rem;
+    width: 2.5rem;
   }
 }
 
@@ -618,14 +632,9 @@ export default {
   align-items: center;
   justify-content: center;
 
-  min-height: calc(100vh - #{$headerHeightMobile});
-
-  @include tablet {
-    min-height: calc(100vh - #{$headerHeightTablet});
-  }
+  min-height: calc(100vh - var(--gi-header-height));
 
   @include desktop {
-    min-height: calc(100vh - #{$headerHeight});
     background-size: auto;
   }
 }

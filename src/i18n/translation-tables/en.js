@@ -48,6 +48,7 @@ const table = {
     'Set a "mincome" floor': 'Set a "mincome" floor',
     'Create your own financial safety net.': 'Create your own financial safety net.',
     "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.": "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.",
+    'Try out the payments simulator.': 'Try out the payments simulator.',
     'Get started': 'Get started',
     'Donate': 'Donate'
   },

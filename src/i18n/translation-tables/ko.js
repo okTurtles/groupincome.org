@@ -48,6 +48,7 @@ const table = {
     'Set a "mincome" floor': '"mincome"을 설정하세요',
     'Create your own financial safety net.': '자신만의 재정 안전망을 구축하세요.',
     "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.": "더 단단한 공동체를 만들고, 당신이 아끼는 사람들을 위한 기본적인 재정적 안정을 보장하세요. - 최소 소득 기준을 설정하세요 (\"mincome\"). 매달, 그룹 구성원들은 최소 소득 기준을 넘지 못한 사람들을 돕습니다.",
+    'Try out the payments simulator.': 'Payments simulator 써보기.',
     'Get started': '시작하기',
     'Donate': '기부하기'
   },

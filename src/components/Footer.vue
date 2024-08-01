@@ -37,7 +37,7 @@
                 <a href="https://twitter.com/Group_Income" target="_blank" alt="Twitter">Twitter</a>
                 <a href="https://crib.social/okturtles" target="_blank" alt="Fediverse">Fediverse</a>
                 <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
-                <a href="https://forums.okturtles.com/index.php?board=9.0" target="_blank" alt="Forums">Forums</a>
+                <a href="https://github.com/okTurtles/group-income/discussions" target="_blank" alt="Forums">Forums</a>
             </div>
         </div>
     </div>
