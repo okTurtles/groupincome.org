@@ -32,12 +32,11 @@ import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
 const $isNavigationOpen = useStore(isNavigationOpen);
 
-const isCurrentPathEqualTo = val => resolvePath(val) === window.location.pathname
 let menuList = ref([])
 
 onMounted(() => {
   menuList.value = [
-    !isCurrentPathEqualTo('/') && {  name: 'Home', id: 'homeLink', path: '/' },
+    {  name: 'Home', id: 'homeLink', path: '/' },
     { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
     { name: 'Blog', id: 'blogLink', path: '/blog' },
     { name: 'FAQS', id: 'blogLink', path: '/faq' },
