@@ -164,7 +164,7 @@ dd {
   }
 
   &.active {
-    max-height: 40rem;
+    max-height: 100rem;
   }
 
   .description {
