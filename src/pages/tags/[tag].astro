@@ -9,7 +9,6 @@ export async function getStaticPaths () {
   const uniqueTags = uniq(
     allPosts.map((post: any) => post.frontmatter?.tags || []).flat()
   )
-  console.log('!@# uniqueTags: ', uniqueTags)
 
   return uniqueTags.map((tag: string) => {
     const filteredPosts = allPosts.filter(
