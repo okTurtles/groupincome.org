@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro';
+import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { resolvePath } from '@/utils/helpers.js'
 export async function getStaticPaths({ paginate }) {
 	const posts = (await Astro.glob('../../posts/*.{md,mdx}')).sort(
@@ -19,19 +20,9 @@ const { data, lastPage, url } = page
 	</section>
 
 	<section class="blog-wrapper" v-if="posts">
-		{data.map((article: any) => {
-			const imgSrc = resolvePath(article.frontmatter.image) || resolvePath('/images/' + article.frontmatter.permalink + '.jpeg')
-			return (
-				<article class="c-article">
-					<a href={resolvePath(article.frontmatter.permalink)}>
-						<img class="c-article-image has-deep-box-shadow" src={imgSrc}/>
-						<h2 class="c-blog-title">{article.frontmatter.title}</h2>
-						<p>{article.frontmatter.description || 'TODO'}</p>
-						<div class="c-info">{article.frontmatter.author || "Greg Slepak"}<time v-if="article.frontmatter.date">{ article.frontmatter.date }</time></div>
-					</a>
-				</article>
-			)
-		})}
+		{
+			data.map((article: any) => <BlogPostEntry client:only="vue" postFrontmatter={article.frontmatter} />)
+		}
 		<div class="pagination">
 			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? '/groupincome.org' + url.prev : null}>
 				<i class="icon-chevron-left"></i>
@@ -169,7 +160,7 @@ const { data, lastPage, url } = page
 
 section {
 	@include until($desktop) {
-		padding: 0 2rem;
+		padding: 0 1rem;
 	}
 }
 

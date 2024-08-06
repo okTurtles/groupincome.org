@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro'
+import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { resolvePath, uniq } from '@/utils/helpers.js'
 import { sortedPosts } from '@/utils/sort'
 
@@ -8,6 +9,7 @@ export async function getStaticPaths () {
   const uniqueTags = uniq(
     allPosts.map((post: any) => post.frontmatter?.tags || []).flat()
   )
+  console.log('!@# uniqueTags: ', uniqueTags)
 
   return uniqueTags.map((tag: string) => {
     const filteredPosts = allPosts.filter(
@@ -28,12 +30,15 @@ const { posts } = Astro.props
 <Layout>
 <div class="c-wrapper">
   <header class="c-header">
-    <h1 class="is-title-3 page-title">Posts Tagged: <span>'{tag}'</span></h1>
+    <h1 class="is-title-3 page-title">Posts Tagged: <span class="c-tag-name">'{tag}'</span></h1>
   </header>
   
-  <ul>
-    {posts.map((post: any) => <li>{post.frontmatter.title}</li>)}
-  </ul>
+  <div class="c-post-list">
+    {
+      Boolean(posts.length) &&
+      posts.map((post: any) => <BlogPostEntry client:only="vue" postFrontmatter={post.frontmatter} />)
+    }
+  </div>
 </div>
 </Layout>
 
@@ -57,5 +62,16 @@ const { posts } = Astro.props
 
 .page-title {
   font-weight: 600;
+}
+
+.c-post-list {
+  position: relative;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.c-tag-name {
+  display: inline-block;
+  margin-left: 0.5rem;
 }
 </style>
