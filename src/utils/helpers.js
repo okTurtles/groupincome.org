@@ -8,3 +8,7 @@ export function resolvePath (relPath = '') {
   relPath = relPath.startsWith('/') ? relPath.slice(1) : relPath
   return `${import.meta.env.BASE_URL}${relPath}`
 }
+
+export function uniq (array) {
+  return Array.from(new Set(array))
+}
