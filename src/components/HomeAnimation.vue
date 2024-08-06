@@ -82,7 +82,7 @@
           <div class="span-2">
             <div class="is-title-3 c-container-posttitle">Non-monetary Contributions</div>
             <p class="is-title-2 c-container-title">Everyone has something to offer.</p>
-            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independet of employment.</p>
+            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.</p>
           </div>
 
           <div class="span-2">

@@ -41,7 +41,6 @@ const props = defineProps({
 const t = useTranslation(props.lang, 'navigation')
 const $isNavigationOpen = useStore(isNavigationOpen);
 
-const isCurrentPathEqualTo = val => resolvePath(val) === window.location.pathname
 let menuList = ref([])
 
 onMounted(() => {
@@ -50,7 +49,7 @@ onMounted(() => {
 
   const prefixWithLang = (path) => props.lang ? `/${props.lang}${path}` : path
   menuList.value = [
-    !isCurrentPathEqualTo('/') && {  name: 'Home', id: 'homeLink', path: prefixWithLang('/') },
+    {  name: 'Home', id: 'homeLink', path: prefixWithLang('/') },
     { name: t('About us'), id: 'aboutUsLink', path: prefixWithLang('/about-us') },
     { name: t('Blog'), id: 'blogLink', path: prefixWithLang('/blog') },
     { name: t('FAQS'), id: 'blogLink', path: prefixWithLang('/faq') },

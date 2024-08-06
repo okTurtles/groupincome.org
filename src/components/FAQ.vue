@@ -20,7 +20,7 @@
       <dl>
         <div v-for="q, qindex in faq.qa" :key="qindex">
           <dt @click="openTab(index, qindex)" :class="{active: q.active === true}" :id="`q_${index}${qindex}`">
-            <p v-html="q.question"></p><i class="icon-chevron-up" v-if="q.active === true"></i><i class="icon-chevron-right" v-else></i>
+            <p class="c-question" v-html="q.question"></p><i class="icon-chevron-up" v-if="q.active === true"></i><i class="icon-chevron-right" v-else></i>
           </dt>
           <dd :class="{active: q.active === true}">
             <div v-html="q.answer" class="l-faq"></div>
@@ -33,7 +33,6 @@
 
 <script>
 import GSAP from '../mixins/gsap.js'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 export default {
   name: 'FAQ',
@@ -178,41 +177,20 @@ export default {
           active: false
         }]
       }*/],
-      previous: [0, 0],
       expandAll: false
     }
   },
 
-  mounted () {
-    setTimeout(() => {
-      this.scrollAnimation()
-    }, 500)
-  },
-
   methods: {
     openTab (index, qindex) {
-      const i = [index, qindex]
-      const p0 = this.previous[0]
-      const p1 = this.previous[1]
-      if ((p0 !== undefined && p0 !== index) || (p1 !== undefined && p1 !== qindex)) {
-        this.faqs[p0].qa[p1].active = false
+      const currVal = this.faqs[index].qa[qindex].active
+      this.faqs[index].qa[qindex].active = !currVal
+
+      if (!currVal) {
+        const elScrollTo = document.querySelector(`dt#q_${index}${qindex}`)
+        elScrollTo &&
+          elScrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }
-      this.previous = i
-      this.faqs[index].qa[qindex].active = !this.faqs[index].qa[qindex].active
-
-      this.refreshScrollTrigger()
-    },
-
-    refreshScrollTrigger () {
-      const scrollTriggersInstances = ScrollTrigger.getAll()
-
-      setTimeout(() => {
-        scrollTriggersInstances.forEach((el) => {
-          if (el && el.refresh) {
-            el.refresh()
-          }
-        })
-      }, 500)
     },
 
     toggleExpand () {
@@ -224,33 +202,6 @@ export default {
           return true
         })
         return true
-      })
-
-      this.refreshScrollTrigger()
-    },
-
-    scrollAnimation () {
-      const navLinks = this.gsap.utils.toArray('.scrollingLink')
-      const panels = this.gsap.utils.toArray('.panel')
-
-      panels.forEach((panel, i) => {
-        ScrollTrigger.create({
-          trigger: panel,
-          start: 'top 50%',
-
-          onEnter: () => {
-            navLinks.forEach((e) => {
-              e.classList.remove('active-nav')
-            })
-            if (navLinks.length < i) navLinks[i].classList.add('active-nav')
-          },
-          onEnterBack: () => {
-            navLinks.forEach((e) => {
-              e.classList.remove('active-nav')
-            })
-            if (navLinks.length < i) navLinks[i].classList.add('active-nav')
-          }
-        })
       })
     },
 
@@ -309,6 +260,10 @@ export default {
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
+}
+
+.c-question {
+  cursor: pointer;
 }
 
 dl {
