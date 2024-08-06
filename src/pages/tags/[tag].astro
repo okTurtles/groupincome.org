@@ -1,0 +1,61 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import { resolvePath, uniq } from '@/utils/helpers.js'
+import { sortedPosts } from '@/utils/sort'
+
+export async function getStaticPaths () {
+  const allPosts = sortedPosts(await Astro.glob('../../posts/*.{md,mdx}'))
+  const uniqueTags = uniq(
+    allPosts.map((post: any) => post.frontmatter?.tags || []).flat()
+  )
+
+  return uniqueTags.map((tag: string) => {
+    const filteredPosts = allPosts.filter(
+      (post: any) => Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.includes(tag)
+    )
+
+    return {
+      params: { tag },
+      props: { posts: filteredPosts }
+    }
+  })
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<Layout>
+<div class="c-wrapper">
+  <header class="c-header">
+    <h1 class="is-title-3 page-title">Posts Tagged: <span>'{tag}'</span></h1>
+  </header>
+  
+  <ul>
+    {posts.map((post: any) => <li>{post.frontmatter.title}</li>)}
+  </ul>
+</div>
+</Layout>
+
+<style lang="scss" scoped>
+@import "../../styles/_variables";
+
+.c-wrapper {
+  @include page-wrapper-common;
+}
+
+.c-header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 4rem;
+
+  @include tablet {
+    justify-content: center;
+    margin-bottom: 6rem;
+  }
+}
+
+.page-title {
+  font-weight: 600;
+}
+</style>
