@@ -54,6 +54,24 @@
   }
 }
 
+@mixin page-wrapper-common {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: $maxDesktop;
+  margin: 0 auto;
+
+  padding: 2rem 1rem;
+
+  @include tablet {
+    padding: 4rem 1rem;
+  }
+
+  @include desktop {
+    padding: 6rem 1rem;
+  }
+}
+
 %unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
