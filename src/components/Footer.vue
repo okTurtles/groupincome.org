@@ -6,15 +6,19 @@
               action="https://buttondown.email/api/emails/embed-subscribe/okturtles"
               method="post"
               target="popupwindow"
-              @submit="onFormSubmit">
+              @submit.prevent="onFormSubmit">
                 <h4 class="is-title-6">STAY UP TO DATE</h4>
                 <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
-                <div class="c-input">
-                  <input class="input" type="email" name="email" id="bd-email" placeholder="Your email address" />
-                  <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
-                    <i class="icon-paper-plane"></i>
-                  </button>
-                </div>
+
+                <fieldset class="c-mail-form-field">
+                  <div class="c-input">
+                    <input class="input" type="email" name="email" id="bd-email" placeholder="Your email address"
+                      v-model.trim="email" />
+                    <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
+                      <i class="icon-paper-plane"></i>
+                    </button>
+                  </div>
+                </fieldset>
             </form>
         </div>
         <div class="c-links">
@@ -54,8 +58,22 @@
 </template>
 
 <script>
+import { validateEmail } from '@/utils/helpers.js'
+
+const EMAIL_BLACKLIST = [
+  'gmail.com',
+  'googlemail.com',
+  'google.com'
+]
+
 export default {
   name: 'Footer',
+  data () {
+    return {
+      email: '',
+      emailErr: ''
+    }
+  },
   computed: {
     copyRightText () {
       const thisYear = new Date().getFullYear()
@@ -63,8 +81,23 @@ export default {
     }
   },
   methods: {
+    validateEmailField () {
+      const getAddressSegment = str => str.split('@')[1]
+      let passed = true
+
+      if (!validateEmail(this.email)) {
+        this.emailErr = 'Please enter correct email format.'
+        passed = false
+      } else if (EMAIL_BLACKLIST.includes(getAddressSegment(this.email))) {
+        console.log('TODO: spawn a modal')
+        passed = false 
+      }
+      return passed
+    },
     onFormSubmit () {
-      window.open('https://buttondown.email/okturtles', 'popupwindow')
+      if (validateEmailField()) {
+        window.open('https://buttondown.email/okturtles', 'popupwindow')
+      }
     }
   }
 }
@@ -118,9 +151,14 @@ export default {
   }
 }
 
-.c-input {
+.c-mail-form-field {
   position: relative;
   margin: 1.375rem 0;
+
+}
+
+.c-input {
+  position: relative;
 
   input {
     padding-right: 2.75rem;
