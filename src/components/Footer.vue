@@ -12,12 +12,16 @@
 
                 <fieldset class="c-mail-form-field">
                   <div class="c-input">
-                    <input class="input" type="email" name="email" id="bd-email" placeholder="Your email address"
+                    <input :class="['input', { error: emailErr }]"
+                      type="email" name="email" id="bd-email"
+                      placeholder="Your email address"
                       v-model.trim="email" />
                     <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
                       <i class="icon-paper-plane"></i>
                     </button>
                   </div>
+
+                  <p v-if="emailErr" class="error c-email-err">{{ emailErr }}</p>
                 </fieldset>
             </form>
         </div>
@@ -95,8 +99,15 @@ export default {
       return passed
     },
     onFormSubmit () {
-      if (validateEmailField()) {
+      if (this.validateEmailField()) {
         window.open('https://buttondown.email/okturtles', 'popupwindow')
+      }
+    }
+  },
+  watch: {
+    email () {
+      if (this.emailErr) {
+        this.emailErr = ''
       }
     }
   }
@@ -164,6 +175,12 @@ export default {
     padding-right: 2.75rem;
     border-radius: 0.5rem;
   }
+}
+
+.c-email-err {
+  position: relative;
+  width: 100%;
+  padding-left: 2px;
 }
 
 .c-send-btn {

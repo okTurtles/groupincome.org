@@ -302,6 +302,8 @@ p.error {
   margin-top: 0.5rem;
   margin-bottom: 0;
   color: var(--danger_0);
+  text-align: left;
+  font-size: $size_6;
 
   &::before {
     @include icon(times-circle);
