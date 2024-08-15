@@ -1,11 +1,8 @@
 // z-index constants
 // Why: https://css-tricks.com/handling-z-index/
-$zindex-banner: 70;
-$zindex-mask: 60;
-$zindex-tooltip: 50;
-$zindex-modal: 40;
-$zindex-sidebar: 40;
-$zindex-header: 30;
+$zindex-header: 10;
+$zindex-banner: 20;
+$zindex-modal: 30;
 
 // Used for typography
 // $size_0: 4rem;     // 64px
@@ -41,10 +38,6 @@ $tablet: 769px;
 $desktop: 1200px;
 
 $maxDesktop: 1120px;
-
-$transitionSpeed: 300ms;
-
-$rightSideWidth: 16.5rem;
 
 $headerHeightMobile: 4rem;
 $headerHeightTablet: 5rem;
