@@ -5,9 +5,9 @@
 
   <div class="c-modal-content">
     <header class="c-modal-header">
-      <h1 v-if="modalTitle" class="is-title-2">{{ modalTitle }}</h1>
+      <h1 v-if="modalTitle">{{ modalTitle }}</h1>
 
-      <button class="c-modal-close"
+      <button class="is-icon has-background-inverted c-modal-close"
         aria-label="Close modal">
         <i class="icon-times"></i>
       </button>
@@ -57,10 +57,10 @@ const containerAttrs = {
 .c-modal-content {
   position: relative;
   border-radius: 0.375rem;
-  width: calc(100vw - 2rem);
+  width: calc(100vw - 3rem);
   max-width: 40rem;
   height: auto;
-  max-height: calc(100% - 4rem);
+  max-height: calc(100% - 5rem);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
@@ -69,14 +69,59 @@ const containerAttrs = {
     "m-header"
     "m-body"
     "m-footer";
+  background-color: $background_0;
+  color: $text_0;
+  text-align: left;
 }
 
 .c-modal-header {
   grid-area: m-header;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  column-gap: 1rem;
+  padding: 1.5rem 1.25rem;
+  background-color: var(--general_2);
+
+  h1 {
+    font-family: "Poppins";
+    font-size: 1.85rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    flex-grow: 1;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+  button.c-modal-close {
+    flex-shrink: 0;
+  }
+
+  @include tablet {
+    flex-direction: column-reverse;
+    column-gap: 0;
+    align-items: stretch;
+
+    h1 {
+      font-size: 2.25rem;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    button.c-modal-close {
+      align-self: flex-end;
+    }
+  }
 }
 
 .c-modal-body {
   grid-area: m-body;
+  padding: 2rem 1.25rem;
+
+  @include tablet {
+    padding: 2.5rem 1.75rem;
+  }
 }
 
 .c-modal-footer {

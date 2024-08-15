@@ -57,11 +57,13 @@
         </div>
         <p class="copyright">{{ copyRightText }}</p>
     </div>
-</footer>
 
+    <NewsLetterWarningModal />
+</footer>
 </template>
 
 <script>
+import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
 import { validateEmail } from '@/utils/helpers.js'
 
 const EMAIL_BLACKLIST = [
@@ -72,6 +74,9 @@ const EMAIL_BLACKLIST = [
 
 export default {
   name: 'Footer',
+  components: {
+    NewsLetterWarningModal
+  },
   data () {
     return {
       email: '',
