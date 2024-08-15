@@ -65,6 +65,7 @@
 <script>
 import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
 import { validateEmail } from '@/utils/helpers.js'
+import { openModal } from '@/store'
 
 const EMAIL_BLACKLIST = [
   'gmail.com',
@@ -98,7 +99,7 @@ export default {
         this.emailErr = 'Please enter correct email format.'
         passed = false
       } else if (EMAIL_BLACKLIST.includes(getAddressSegment(this.email))) {
-        console.log('TODO: spawn a modal')
+        openModal('NewsLetterWarningModal')
         passed = false 
       }
       return passed

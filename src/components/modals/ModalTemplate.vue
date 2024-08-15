@@ -1,14 +1,16 @@
 <template>
-<div v-if="isModalOpen" class="l-modal"
+<div v-if="$isModalOpen(modalName)" class="l-modal"
   v-bind="containerAttrs">
-  <div class="c-modal-background"></div>
+  <div class="c-modal-background"
+    @click="close"></div>
 
   <div class="c-modal-content">
     <header class="c-modal-header">
       <h1 v-if="modalTitle">{{ modalTitle }}</h1>
 
       <button class="is-icon has-background-inverted c-modal-close"
-        aria-label="Close modal">
+        aria-label="Close modal"
+        @click.stop="close">
         <i class="icon-times"></i>
       </button>
     </header>
@@ -24,7 +26,8 @@
 </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useStore } from '@nanostores/vue';
+import { isModalOpen, closeModal } from '@/store'
 
 // props
 interface ComponentProps {
@@ -34,12 +37,18 @@ interface ComponentProps {
 const props = defineProps<ComponentProps>()
 
 // local-state
-const isModalOpen = ref<boolean>(true)
+const $isModalOpen = useStore(isModalOpen)
 const containerAttrs = {
   role: 'dialog',
   ariaLabel: props.modalTitle || 'dialog'
 }
 
+// methods
+const close = () => {
+  closeModal(props.modalName)
+}
+
+defineExpose({ close })
 </script>
 
 <style lang="scss" scoped>
@@ -64,7 +73,7 @@ const containerAttrs = {
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "m-header"
     "m-body"
@@ -118,6 +127,7 @@ const containerAttrs = {
 .c-modal-body {
   grid-area: m-body;
   padding: 2rem 1.25rem;
+  overflow: auto;
 
   @include tablet {
     padding: 2.5rem 1.75rem;
@@ -127,4 +137,4 @@ const containerAttrs = {
 .c-modal-footer {
   grid-area: m-footer;
 }
-</style>
+</style>, closeModal

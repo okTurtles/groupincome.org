@@ -6,7 +6,9 @@
     <p class="c-para-2">For that reason we can't accept any Gmail addresses. We recommend one of these alternatives:</p>
 
     <ul class="c-url-list">
-      <li v-for="link in links" :key="link.id"><a class="is-link" :href="link.url">{{ link.url }}</a></li>
+      <li v-for="link in links" :key="link.id">
+        <a class="is-link" target="_blank" :href="link.url">{{ link.url }}</a>
+      </li>
     </ul>
   </div>
 </ModalTemplate>
