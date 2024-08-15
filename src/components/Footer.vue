@@ -2,7 +2,7 @@
 <footer class="c-footer">
     <div class="c-top">
         <div class="c-wrapper"><img class="c-logo-img" v-src="'/images/group-income-icon-transparent.png'" />
-            <form class="c-form"
+            <form class="c-form" ref="emailForm"
               action="https://buttondown.email/api/emails/embed-subscribe/okturtles"
               method="post"
               target="popupwindow"
@@ -81,7 +81,8 @@ export default {
   data () {
     return {
       email: '',
-      emailErr: ''
+      emailErr: '',
+      isSubmitting: false
     }
   },
   computed: {
@@ -106,7 +107,8 @@ export default {
     },
     onFormSubmit () {
       if (this.validateEmailField()) {
-        window.open('https://buttondown.email/okturtles', 'popupwindow')
+        this.$refs.emailForm.submit()
+        this.email = ''
       }
     }
   },

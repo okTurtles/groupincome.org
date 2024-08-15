@@ -61,6 +61,8 @@ defineExpose({ close })
   width: 100%;
   height: 100%;
   background-color: rgba(10, 10, 10, 0.86);
+  opacity: 0;
+  animation: modal-bg-in 250ms ease-out forwards;
 }
 
 .c-modal-content {
@@ -81,6 +83,9 @@ defineExpose({ close })
   background-color: $background_0;
   color: $text_0;
   text-align: left;
+  opacity: 0;
+  animation: modal-content-in 300ms ease-out forwards;
+  animation-delay: 100ms;
 }
 
 .c-modal-header {
@@ -137,4 +142,21 @@ defineExpose({ close })
 .c-modal-footer {
   grid-area: m-footer;
 }
-</style>, closeModal
+
+@keyframes modal-bg-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes modal-content-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>
