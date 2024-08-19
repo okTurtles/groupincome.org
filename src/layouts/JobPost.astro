@@ -31,10 +31,10 @@ const currentPath = path[path.length - 2];
     <section class="container c-container-top">
       <h2 class="is-title-2 c-container-title">Open Positions</h2>
       <div class="c-job-links">
-        {jobs.map((job) => (
+        {jobs.map((job: any) => (
           <a href={resolvePath("/hiring"+job.frontmatter.permalink)} class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}>
-            {job.frontmatter.title}
-            <span>{job.frontmatter.type}</span>
+            <span class="c-job-title">{job.frontmatter.title}</span>
+            <span class="c-job-type">{job.frontmatter.type}</span>
           </a>
         ))}
       </div>
@@ -127,21 +127,21 @@ const currentPath = path[path.length - 2];
     flex-wrap: wrap;
 
     @include phone {
-      flex-wrap: wrap-reverse;
-      white-space: pre-wrap;
-      text-align: left;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
-    span {
-      color: #939393;
+    .c-job-type {
+      color: $text_2;
     }
 
     &.active-link {
       background: $primary_0;
-      color: #fff;
+      color: $background_0;
 
-      span {
-        color: #fff;
+      .c-job-type {
+        color: inherit;
       }
     }
   }
