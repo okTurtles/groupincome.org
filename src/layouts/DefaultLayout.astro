@@ -19,7 +19,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 			<main>
 				<slot />
 			</main>
-			<Footer client:load />
+			<Footer client:only="vue" />
 		</PageWrapper>
 	</body>
 </html>

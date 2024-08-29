@@ -123,7 +123,7 @@ button,
   }
 
   &.has-background-inverted {
-    background-color: $white;
+    background-color: $background_0;
     @include buttonState($general_1, $general_1);
   }
 

@@ -12,3 +12,9 @@ export function resolvePath (relPath = '') {
 export function uniq (array) {
   return Array.from(new Set(array))
 }
+
+export function validateEmail (email) {
+  // reference: https://mailtrap.io/blog/javascript-email-validation/
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email)
+}
