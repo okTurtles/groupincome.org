@@ -1,7 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.vue';
-import AppStyles from '../components/AppStyles.vue';
 import Footer from '../components/Footer.vue';
 import PageWrapper from '../components/pageWrapper.vue';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
@@ -14,7 +13,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 	</head>
 	<body>
 		<PageWrapper client:only="vue">
-			<AppStyles/>
 			<Header client:only="vue"  />
 			<main>
 				<slot />
