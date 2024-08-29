@@ -30,9 +30,17 @@ import { onMounted, ref } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
-const $isNavigationOpen = useStore(isNavigationOpen);
 
+// local-state
+const $isNavigationOpen = useStore(isNavigationOpen);
 let menuList = ref([])
+
+// NOTE: await Astro.glob(...) is only available within *.astro file.
+//       So using Vite's import.meta.glob() instead here.
+//       (reference: https://vitejs.dev/guide/features.html#glob-import)
+const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
+  .map((filepath) => filepath.split('/').pop())
+  .filter(fileName => !fileName.startsWith('_'))
 
 onMounted(() => {
   menuList.value = [
@@ -40,8 +48,7 @@ onMounted(() => {
     { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
     { name: 'Blog', id: 'blogLink', path: '/blog' },
     { name: 'FAQS', id: 'blogLink', path: '/faq' },
-    // TODO: figure out how to calculate this badge number based on the number of files in the jobs folder
-    { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: 3 },
+    { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: activeJobPostNames.length },
     { name: 'Donate', id: 'donateLink', path: '/donate' }
   ].filter(Boolean)
 })

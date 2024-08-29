@@ -21,6 +21,7 @@
     --danger_2: #faebeb;
     --text_0: #363636;
     --text_1: #707070;
+    --text_2: #939393;
     --general_0: #dbdbdb;
     --general_1: #ededed;
     --general_1_opacity_6: rgba(237,237,237,0.6);
