@@ -136,22 +136,20 @@ import { resolvePath } from '@/utils/helpers.js'
 </Layout>
 
 <script>
-addEventListener("DOMContentLoaded", () => {
-  setTimeout(attachEventHandlers, 100)
+import { waitForElement } from '@/utils/helpers'
 
-  function attachEventHandlers () {
-    const scrollDownBtn = document.body.querySelector('#scroll-down-btn')
-
-    scrollDownBtn && scrollDownBtn.addEventListener('click', () => {
-      const scrollToEl = document.querySelector('#scroll-down-to')
-
-      scrollToEl && scrollToEl.scrollIntoView({
+waitForElement(
+  ['#scroll-down-btn', '#scroll-down-to'],
+  (els: Array<any>) => {
+    const [arrowBtnEl, scrollTargetEl] = els
+    arrowBtnEl.addEventListener('click', () => {
+      scrollTargetEl.scrollIntoView({
         behavior: 'smooth',
         block: 'center'
       })
     })
   }
-})
+)
 </script>
 
 <style lang="scss">
