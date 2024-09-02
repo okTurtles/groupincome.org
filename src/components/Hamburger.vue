@@ -41,7 +41,7 @@ const $isNavigationOpen = useStore(isNavigationOpen);
     content: '';
     display: block;
     height: 2px;
-    width: 2rem;
+    width: 1.6rem;
     background-color: $general_0;
     transition: transform .1s ease-in-out;
     position: absolute;
@@ -50,11 +50,11 @@ const $isNavigationOpen = useStore(isNavigationOpen);
   }
 
   &::before {
-    margin-top: -0.4rem;
+    margin-top: -0.3rem;
   }
 
   &::after {
-    margin-top: 0.4rem;
+    margin-top: 0.3rem;
   }
 }
 
@@ -62,12 +62,12 @@ const $isNavigationOpen = useStore(isNavigationOpen);
   .c-hamburger {
     &::before {
       transform: rotate(45deg);
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     &::after {
       transform: rotate(-45deg);
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
   }
 }
