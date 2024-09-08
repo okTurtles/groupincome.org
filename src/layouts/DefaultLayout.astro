@@ -20,7 +20,7 @@ const siteDescription = t('siteDescription') || SITE_DESCRIPTION
 	</head>
 	<body>
 		<PageWrapper client:only="vue">
-			<Header client:only="vue"  />
+			<Header client:only="vue" lang={lang || defaultLanguage}  />
 			<main>
 				<slot />
 			</main>
