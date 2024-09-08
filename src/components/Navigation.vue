@@ -6,10 +6,6 @@
     <div class="c-navbar-backdrop hide-desktop" @click="closeNavigation"></div>
 
     <div class="c-navbar-main">
-      <button class="c-navbar-close-btn hide-desktop"
-        :class="{ 'is-nav-open': $isNavigationOpen }"
-        @click="closeNavigation">Close Navigation Menu</button>
-
       <a v-for="entry in menuList"
         :key="entry.id"
         :data-test="entry.id"
@@ -38,10 +34,18 @@ const props = defineProps({
     default: ''
   }
 })
+
+// local-state
 const t = useTranslation(props.lang, 'navigation')
 const $isNavigationOpen = useStore(isNavigationOpen);
-
 let menuList = ref([])
+
+// NOTE: await Astro.glob(...) is only available within *.astro file.
+//       So using Vite's import.meta.glob() instead here.
+//       (reference: https://vitejs.dev/guide/features.html#glob-import)
+const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
+  .map((filepath) => filepath.split('/').pop())
+  .filter(fileName => !fileName.startsWith('_'))
 
 onMounted(() => {
   // NOTE: isCurrentPathEqualTo() above cannot be used in the compile time. (window is undefined in node)
@@ -49,12 +53,11 @@ onMounted(() => {
 
   const prefixWithLang = (path) => props.lang ? `/${props.lang}${path}` : path
   menuList.value = [
-    {  name: 'Home', id: 'homeLink', path: prefixWithLang('/') },
+    { name: 'Home', id: 'homeLink', path: prefixWithLang('/') },
     { name: t('About us'), id: 'aboutUsLink', path: prefixWithLang('/about-us') },
     { name: t('Blog'), id: 'blogLink', path: prefixWithLang('/blog') },
     { name: t('FAQS'), id: 'blogLink', path: prefixWithLang('/faq') },
-    // TODO: figure out how to calculate this badge number based on the number of files in the jobs folder
-    { name: t('Hiring'), id: 'hiringLink', path: prefixWithLang('/hiring'), badge: 3 },
+    { name: t('Hiring'), id: 'hiringLink', path: prefixWithLang('/hiring'), badge: activeJobPostNames.length },
     { name: t('Donate'), id: 'donateLink', path: prefixWithLang('/donate') }
   ].filter(Boolean)
 })
@@ -191,50 +194,6 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   }
 }
 
-.c-navbar-close-btn {
-  position: absolute;
-  z-index: 2;
-  display: block;
-  width: 2.25rem;
-  height: 2.25rem;
-  min-height: unset;
-  cursor: pointer;
-  right: 1rem;
-  top: 1rem;
-  background-color: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid $general_0;
-
-  &:hover,
-  &:focus {
-    border-color: $text_1;
-  }
-
-  // accessibility
-  overflow: hidden;
-  text-indent: -9999px;
-
-  &::before,
-  &::after {
-    content: '';
-    display: block;
-    height: 2px;
-    width: 1.25rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-    background-color: $text_1;
-  }
-
-  &::before {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  &::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
-  }
-}
 
 .c-get-started-btn {
   text-transform: capitalize;

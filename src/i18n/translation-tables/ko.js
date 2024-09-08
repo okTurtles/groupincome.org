@@ -29,7 +29,8 @@ const table = {
     'Donate': '기부하기',
     'SOCIAL': '소셜 미디어',
     'Term & Conditons': '이용 약관',
-    'Privacy Policy': '보안 정책'
+    'Privacy Policy': '보안 정책',
+    'Please enter correct email format.': '올바른 포맷의 이메일을 입력하세요.'
   },
 
   // pages

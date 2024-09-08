@@ -29,7 +29,8 @@ const table = {
     'Donate': 'Donate',
     'SOCIAL': 'SOCIAL',
     'Term & Conditons': 'Term & Conditons',
-    'Privacy Policy': 'Privacy Policy'
+    'Privacy Policy': 'Privacy Policy',
+    'Please enter correct email format.': 'Please enter correct email format.'
   },
 
   // pages

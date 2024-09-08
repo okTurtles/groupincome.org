@@ -14,12 +14,16 @@ import { resolvePath } from '@/utils/helpers.js'
         <div class="is-posttitle">ABOUT GROUP INCOME</div>
         <h1 class="is-title-1 c-main-title">On a mission to ensure<span class="text-orange"> basic</span><span class="text-green"> income</span> security for<span class="text-blue"> everyone</span>.</h1>
         <p class="is-subtitle c-main-para">Group Income is an open-source project of the <a class="is-link" href="https://okturtles.org" target="_blank">okTurtles Foundation</a>, a non-profit organization that supports beneficial decentralization technologies.</p>
+
+        <div class="scroll-btn-container">
+          <i id="scroll-down-btn" class="icon-button icon-chevron-bottom"></i>
+        </div>
       </div>
     </section>
     <section class="container span-container c-container">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph1.png")} /></div>
       <div class="span-2">
-        <h2 class="is-title-2">Open Protocol</h2>
+        <h2 id="scroll-down-to" class="is-title-2">Open Protocol</h2>
         <p class="c-container-para">
           Group Income is built on top of an <a class="is-link" href="https://shelterprotocol.net" target="_blank">open protocol</a>, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.
         </p>
@@ -76,13 +80,14 @@ import { resolvePath } from '@/utils/helpers.js'
             <li><a href="https://twitter.com/a_sandrina_p" rel="nofollow" target="_blank">Sandrina Pereira</a></li>
             <li><a href="https://madeoflisboa.com/p/person/margarida-botelho" rel="nofollow" target="_blank">Margarida Botelho</a></li>
             <li><a href="http://schweigerpierre.com" rel="nofollow" target="_blank">Pierre Schweiger</a></li>
-            <li><a href="https://sebinsong.github.io" rel="nofollow" target="_blank">Sebin Song</a></li>
+            <li><a href="https://sebinsong.com" rel="nofollow" target="_blank">Sebin Song</a></li>
             <li><a href="https://twitter.com/Catarina_Diiniz" rel="nofollow" target="_blank">Catarina Chavinha</a></li>
             <li><a href="https://twitter.com/Leihla" rel="nofollow" target="_blank">Leihla Pinho</a></li>
             <li><a href="https://github.com/snowteamer" rel="nofollow" target="_blank">Luc Martin</a></li>
-            <li><a href="https://scienceordie.com/" rel="nofollow" target="_blank">Ian Wesson</a></li>
+            <li><a href="https://github.com/CrazedCoding" rel="nofollow" target="_blank">Ian Wesson</a></li>
             <li><a href="http://cryto.net/~joepie91/" rel="nofollow" target="_blank">Sven Slootweg</a></li>
             <li><a href="https://github.com/corrideat" rel="nofollow" target="_blank">Ricardo Iván Vieitez Parra</a></li>
+            <li><a href="https://github.com/silver-it" rel="nofollow" target="_blank">Alex Jin</a></li>
           </ul>
         </div>
         <div class="collaborators">
@@ -129,6 +134,23 @@ import { resolvePath } from '@/utils/helpers.js'
     </section>
   </div>
 </Layout>
+
+<script>
+import { waitForElement } from '@/utils/helpers'
+
+waitForElement(
+  ['#scroll-down-btn', '#scroll-down-to'],
+  (els: Array<any>) => {
+    const [arrowBtnEl, scrollTargetEl] = els
+    arrowBtnEl.addEventListener('click', () => {
+      scrollTargetEl.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      })
+    })
+  }
+)
+</script>
 
 <style lang="scss">
 @import "../styles/_variables";
@@ -286,6 +308,30 @@ import { resolvePath } from '@/utils/helpers.js'
 .c-main-para {
   max-width: 34rem;
   margin: 0 auto 1rem auto;
+}
+
+.scroll-btn-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  @include tablet {
+    margin-top: 3rem;
+  }
+}
+
+.icon-chevron-bottom {
+  display: inline-flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+
+  @include tablet {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 }
 
 .dark-container {
