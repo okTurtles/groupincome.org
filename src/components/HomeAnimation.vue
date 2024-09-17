@@ -611,7 +611,7 @@ export default {
 .c-main-container {
   text-align: center;
   // background: url('/images/temp/homepage-panel1.jpg') no-repeat center #fff;
-  background: url('/images/faces/shapes.png') no-repeat center #fff;
+  background: url('/images/faces/shapes.svg') no-repeat center #fff;
   background-size: 100% auto;
   flex-direction: row;
   align-items: center;
