@@ -3,7 +3,7 @@
   <div class="grid-item" v-for="server in servers" :key="server.name">
     <div class="card">
       <div class="card-body l-server">
-        <img :src="server.img" class="card-img-top" :alt="server.name">
+        <img v-src="server.img" v-srcset:2="server.imgSrc" class="card-img-top" :alt="server.name">
         <!-- <h4 class="card-category">{{ server.category }}</h4> -->
         <h4 class="card-category"></h4>
         <h3 class="card-title">{{ server.name }}</h3>
@@ -16,7 +16,7 @@
   <div class="grid-item">
     <div class="card">
       <div class="card-body">
-        <img src="/images/servers/defon-social.webp" class="card-img-top">
+        <img v-src="'/images/servers/defon-social.webp'" v-srcset:2="'/images/servers/defon-social.png'" class="card-img-top">
         <h4 class="card-category"></h4>
         <h3 class="card-title">{{ "<Your Server>" }}</h3>
         <p class="card-text">Edit the <a class="is-link" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue">this page on Github</a> to add your server here.</p>
@@ -28,11 +28,10 @@
 </template>
 
 <script setup>
-import { resolvePath } from '@/utils/helpers.js'
-
 const servers = [{
   name: "Group Income",
-  img: resolvePath('/images/servers/group-income.webp'),
+  img: '/images/servers/group-income.webp',
+  imgSrc: '/images/servers/group-income.png',
   url: 'https://groupincome.app',
   category: 'tech',
   description: "The official Group Income Server.",
@@ -83,10 +82,18 @@ const servers = [{
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   width: 100%;
   max-width: 400px;
+
+  .button {
+    align-self: flex-start;
+  }
+}
+
+.card-body {
+  margin-bottom: 1.5rem;
 }
 
 .card-img-top {
@@ -118,6 +125,5 @@ const servers = [{
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.3rem;
-  margin-bottom: 1.5rem;
 }
 </style>
