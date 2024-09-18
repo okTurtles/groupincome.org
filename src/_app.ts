@@ -1,14 +1,23 @@
 import type { App } from 'vue'
-import { resolvePath } from '@/utils/helpers.js'
+import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 
-const updateAttr = (attrName, el, relPath) => {
-  el.setAttribute(attrName, resolvePath(relPath))
+const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string) => {
+  el.setAttribute(attrName, resolvePath(relPath) || '')
+  console.log('!@# output path: ', resolvePath(relPath) || '')
 }
 
 export default (app: App) => {
   // custom-directives
-  app.directive('src', (el, binding) => updateAttr('src', el, binding.value))
-  app.directive('href', (el, binding) => updateAttr('href', el, binding.value))
+  app.directive('src', (el, binding) => {
+    setResolvedPathToAttr('src', el, binding.value)
+  })
+  app.directive('srcset', (el, binding) => {
+    el.setAttribute(
+      'srcset',
+      imgPathToSrcSet(binding.value, parseInt(binding.arg || '1'))
+    )
+  })
+  app.directive('href', (el, binding) => setResolvedPathToAttr('href', el, binding.value))
 
   // global mixins
   app.mixin({
