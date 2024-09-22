@@ -177,8 +177,7 @@ export default {
             If you believe Group Income is a project that should succeed, you can reflect that in the amount you choose. The money earned will be put directly back into development and support of Group Income so we can continue providing the tools you need to just set it and forget it!`,
           active: false
         }]
-      }*/],
-      expandAll: false
+      }*/]
     }
   },
   computed: {
