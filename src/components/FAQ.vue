@@ -11,8 +11,9 @@
         <button class="is-unstyled" @click="scrollTo('#our-philosophy')">Our Philosophy</button>
       </li>
       <li>
-        <button class="is-unstyled" v-if="!expandAll" @click="toggleExpand">Expand all</button>
-        <button class="is-unstyled" v-else @click="toggleExpand">Close all</button>
+        <button class="is-unstyled" @click="toggleExpand">
+          {{ allItemsExpanded ? 'Close all' : 'Expand all' }}
+        </button>
       </li>
     </ul>
     <div class="panel" v-for="faq, index in faqs" :key="index">
@@ -180,6 +181,12 @@ export default {
       expandAll: false
     }
   },
+  computed: {
+    allItemsExpanded () {
+      const allQuestions = this.faqs.flatMap(block => block.qa)
+      return allQuestions.every(q => q.active)
+    }
+  },
 
   methods: {
     openTab (index, qindex) {
@@ -194,14 +201,12 @@ export default {
     },
 
     toggleExpand () {
-      this.expandAll = !this.expandAll
-      this.previous = [undefined, undefined]
-      this.faqs.map((el) => {
-        el.qa.map((elq) => {
-          elq.active = this.expandAll
-          return true
+      const shouldFoldAll = this.allItemsExpanded
+
+      this.faqs.forEach((block) => {
+        block.qa.forEach((question) => {
+          question.active = !shouldFoldAll
         })
-        return true
       })
     },
 
