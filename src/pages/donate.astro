@@ -23,21 +23,27 @@ import { resolvePath } from '@/utils/helpers.js'
         </h2>
         <p class="c-main-para">If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here’s how:</p>
       </div>
-      <section class="container c-grid">
+
+      <section class="container c-grid c-mb-6">
         <div class="c-direct">
           <h2 class="c-sub-title">Direct Cryptocurrency Donation</h2>
           <Donate client:load/>
           <div class="c-or">or</div>
         </div>
         <div class="c-credit">
-          <h2 class="c-sub-title">Credit/Debit Card Donation</h2>
-          <iframe class="c-donation-box" src="https://donorbox.org/embed/okturtles-donation?language=en" name="donorbox" allowpaymentrequest="allowpaymentrequest" seamless="seamless" frameborder="0" scrolling="no" height="550px" width="100%" style="max-width: 500px; min-width: 250px; max-height:none!important" allow="payment"></iframe>
+          <div class="c-credit-block">
+            <h2 class="c-sub-title">Credit/Debit Card Donation</h2>
+            <a class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">Donate with Donorbox</a>  
+          </div>
+          
+          <div class="c-credit-block">
+            <h2 class="c-sub-title">Others</h2>
+            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support")}>Other ways to Donate</a>
+          </div>
         </div>
       </section>
-      <div class="c-container-center">
-        <a class="button is-primary" href={resolvePath("/other-ways-to-support")}>Other ways to Donate</a>
-      </div>
-      <section class="container c-grid">
+
+      <section class="container c-grid c-mb-6">
         <div><b>Crypto Donation Receipt</b>
           <div class="c-main-para">After you make a crypto donation, email us at <a class="is-link" href="mailto:hi@okturtles.org" target="_blank">hi@okturtles.org</a> so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!</div>
         </div>
@@ -103,6 +109,7 @@ import { resolvePath } from '@/utils/helpers.js'
 .c-container-center {
   text-align: center;
   margin: 6rem auto 0 auto;
+  padding: 0 1rem;
 }
 
 .c-main-title {
@@ -128,7 +135,7 @@ import { resolvePath } from '@/utils/helpers.js'
 }
 
 .c-sub-title {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -153,6 +160,39 @@ import { resolvePath } from '@/utils/helpers.js'
 
   @include desktop {
     margin-bottom: 0;
+  }
+}
+
+.c-credit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
+  @include from ($tablet) {
+    flex-direction: row;
+    column-gap: 3rem;
+    justify-content: flex-start;
+  }
+
+  @include from ($desktop) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-block {
+    display: flex;
+    flex-direction: column;
+
+    @include from ($tablet) {
+      flex-grow: 1;
+      align-items: stretch;
+    }
+
+    @include from ($desktop) {
+      flex-grow: unset;
+      align-items: flex-start;
+    }
   }
 }
 
@@ -213,10 +253,6 @@ import { resolvePath } from '@/utils/helpers.js'
   }
 }
 
-.c-donation-box {
-  filter: drop-shadow(0px 2px 6px rgba(0,0,0,.2));
-}
-
 .dark-container {
   background: url('/images/about/blue-background.svg') no-repeat center #fff;
   background-size: 100%;
@@ -261,8 +297,6 @@ import { resolvePath } from '@/utils/helpers.js'
     }
   }
 }
-
-
 
 .c-silver-sponsor {
   width: 22rem;
@@ -314,5 +348,9 @@ import { resolvePath } from '@/utils/helpers.js'
     padding: 1rem 0;
     flex-grow: 1;
   }
+}
+
+.c-mb-6 {
+  margin-bottom: 6rem;
 }
 </style>
