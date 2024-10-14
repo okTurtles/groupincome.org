@@ -16,7 +16,7 @@
         </button>
       </li>
     </ul>
-    <div class="panel" v-for="faq, index in faqs" :key="index">
+    <div ref='panel' class="panel" v-for="faq, index in faqs" :key="index">
       <h2 class="c-collapse-title" :id="faq.id">{{faq.title}}</h2>
       <dl>
         <div v-for="q, qindex in faq.qa" :key="qindex">
@@ -207,6 +207,12 @@ export default {
           question.active = !shouldFoldAll
         })
       })
+
+      if (shouldFoldAll) {
+        const elScrollTo = document.querySelector('.c-collapse-title#general')
+        elScrollTo &&
+          elScrollTo.scrollIntoView({ behavior: 'instant', block: 'center' })
+      }
     },
 
     scrollTo (el, offesetY = 300) {
