@@ -16,7 +16,7 @@
         </button>
       </li>
     </ul>
-    <div ref='panel' class="panel" v-for="faq, index in faqs" :key="index">
+    <div class="panel" v-for="faq, index in faqs" :key="index">
       <h2 class="c-collapse-title" :id="faq.id">{{faq.title}}</h2>
       <dl>
         <div v-for="q, qindex in faq.qa" :key="qindex">
