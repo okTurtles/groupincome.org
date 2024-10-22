@@ -3,7 +3,6 @@ import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string) => {
   el.setAttribute(attrName, resolvePath(relPath) || '')
-  console.log('!@# output path: ', resolvePath(relPath) || '')
 }
 
 export default (app: App) => {
