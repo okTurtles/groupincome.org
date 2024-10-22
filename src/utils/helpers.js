@@ -24,7 +24,7 @@ export function imgPathToSrcSet (relPath = '', dpi = 1) {
 
   for (let i=1; i<=dpi; i++) {
     output.push(
-      resolvePath(`${folderPath}${imgName}` + (i>1 ? `_${i}x.` : '.') + ext) +
+      resolvePath(`${folderPath}${imgName}` + (i>1 ? `@${i}x.` : '.') + ext) +
       ` ${i}x`
     )
   }
