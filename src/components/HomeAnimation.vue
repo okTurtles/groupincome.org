@@ -12,7 +12,7 @@
       <section class="container c-main-container">
         <div class="c-faces" ref="faces">
           <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-            <img class="c-face-img" v-src="`/images/faces/${i}@1x.jpg`" v-srcset:2="`/images/faces/${i}.jpg`" />
+            <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" v-srcset:2="`/images/faces/${i}.jpg`" />
           </div>
         </div>
 
