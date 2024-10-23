@@ -11,8 +11,9 @@
         <button class="is-unstyled" @click="scrollTo('#our-philosophy')">Our Philosophy</button>
       </li>
       <li>
-        <button class="is-unstyled" v-if="!expandAll" @click="toggleExpand">Expand all</button>
-        <button class="is-unstyled" v-else @click="toggleExpand">Close all</button>
+        <button class="is-unstyled" @click="toggleExpand">
+          {{ allItemsExpanded ? 'Close all' : 'Expand all' }}
+        </button>
       </li>
     </ul>
     <div class="panel" v-for="faq, index in faqs" :key="index">
@@ -176,8 +177,13 @@ export default {
             If you believe Group Income is a project that should succeed, you can reflect that in the amount you choose. The money earned will be put directly back into development and support of Group Income so we can continue providing the tools you need to just set it and forget it!`,
           active: false
         }]
-      }*/],
-      expandAll: false
+      }*/]
+    }
+  },
+  computed: {
+    allItemsExpanded () {
+      const allQuestions = this.faqs.flatMap(block => block.qa)
+      return allQuestions.every(q => q.active)
     }
   },
 
@@ -194,15 +200,19 @@ export default {
     },
 
     toggleExpand () {
-      this.expandAll = !this.expandAll
-      this.previous = [undefined, undefined]
-      this.faqs.map((el) => {
-        el.qa.map((elq) => {
-          elq.active = this.expandAll
-          return true
+      const shouldFoldAll = this.allItemsExpanded
+
+      this.faqs.forEach((block) => {
+        block.qa.forEach((question) => {
+          question.active = !shouldFoldAll
         })
-        return true
       })
+
+      if (shouldFoldAll) {
+        const elScrollTo = document.querySelector('.c-collapse-title#general')
+        elScrollTo &&
+          elScrollTo.scrollIntoView({ behavior: 'instant', block: 'center' })
+      }
     },
 
     scrollTo (el, offesetY = 300) {
