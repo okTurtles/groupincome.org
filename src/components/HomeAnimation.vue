@@ -12,7 +12,7 @@
       <section class="container c-main-container">
         <div class="c-faces" ref="faces">
           <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
-            <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" />
+            <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" v-srcset:2="`/images/faces/${i}.jpg`" />
           </div>
         </div>
 
@@ -611,7 +611,7 @@ export default {
 .c-main-container {
   text-align: center;
   // background: url('/images/temp/homepage-panel1.jpg') no-repeat center #fff;
-  background: url('/images/faces/shapes.png') no-repeat center #fff;
+  background: url('/images/faces/shapes.svg') no-repeat center #fff;
   background-size: 100% auto;
   flex-direction: row;
   align-items: center;

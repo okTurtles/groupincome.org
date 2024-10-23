@@ -9,6 +9,29 @@ export function resolvePath (relPath = '') {
   return `${import.meta.env.BASE_URL}${relPath}`
 }
 
+export function imgPathToSrcSet (relPath = '', dpi = 1) {
+  // This function generates a path string to be used for srcset html attribute.
+  // eg. if 'images/about/graph1.svg' and 2 are given,
+  // it turns the path into 'images/about/graph.svg, images/about/graph_2x.svg 2x'
+  // reference: https://docs.imgix.com/getting-started/tutorials/responsive-design/responsive-images-with-srcset#using-srcsets-with-dpr
+
+  if (!relPath) { return undefined }
+
+  const filename = relPath.split('/').pop()
+  const [imgName, ext] = filename.split('.')
+  const folderPath = relPath.replace(filename, '')
+  let output = []
+
+  for (let i=1; i<=dpi; i++) {
+    output.push(
+      resolvePath(`${folderPath}${imgName}` + (i>1 ? `@${i}x.` : '.') + ext) +
+      ` ${i}x`
+    )
+  }
+
+  return output.join(', ')
+}
+
 export function uniq (array) {
   return Array.from(new Set(array))
 }
