@@ -19,7 +19,7 @@ const _description = description || SITE_DESCRIPTION;
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={_title} description={_description} image={image} />
+		<BaseHead title={_title} description={_description} image={image || ''} />
 	</head>
 	<body>
 		<PageWrapper client:only="vue">
