@@ -24,7 +24,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 
 <Layout title={title} description={description} image={imgSrc}>
 	<section class="container grey-container">
-		<div class="l-1-2">
+		<div class="l-1-2 c-blog-header">
 			<div class="c-header">
 				<a class="is-posttitle" href="/blog">BLOG</a>
 				<h1 class="is-title-1 c-main-title">{title}</h1>
@@ -96,7 +96,7 @@ section {
 	color: #939393;
 }
 
-.l-1-2 {
+.c-blog-header.l-1-2 {
 	min-height: 32rem;
 
 	@include until($tablet) {
