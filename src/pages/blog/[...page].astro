@@ -24,7 +24,7 @@ const { data, lastPage, url } = page
 			data.map((article: any) => <BlogPostEntry client:only="vue" postFrontmatter={article.frontmatter} />)
 		}
 		<div class="pagination">
-			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? '/groupincome.org' + url.prev : null}>
+			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? resolvePath(url.prev) : null}>
 				<i class="icon-chevron-left"></i>
 			</a>
 			{[...Array(lastPage)].map((x, i) =>
