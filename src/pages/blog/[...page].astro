@@ -2,7 +2,7 @@
 import Layout from '@/layouts/DefaultLayout.astro';
 import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { resolvePath } from '@/utils/helpers.js'
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: any) {
 	const posts = (await Astro.glob('../../posts/*.{md,mdx}')).sort(
 		(a, b) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
 	);
@@ -12,6 +12,9 @@ export async function getStaticPaths({ paginate }) {
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
 const { data, lastPage, url } = page
+const indexActive = (index: number, currentUrl: string) => {
+	return index === 0 ? currentUrl === '/blog' : currentUrl.endsWith(`${index + 1}`)
+}
 ---
 
 <Layout>
@@ -24,13 +27,13 @@ const { data, lastPage, url } = page
 			data.map((article: any) => <BlogPostEntry client:only="vue" postFrontmatter={article.frontmatter} />)
 		}
 		<div class="pagination">
-			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? '/groupincome.org' + url.prev : null}>
+			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? resolvePath(url.prev) : null}>
 				<i class="icon-chevron-left"></i>
 			</a>
 			{[...Array(lastPage)].map((x, i) =>
-				<a class={url.current === i ? 'active' : ''} href={resolvePath(`/blog${i > 0 ? '/' + (i + 1) : ''}`)}>{i+1}</a>
+				<a class={indexActive(i, url.current) ? 'active' : ''} href={resolvePath(`/blog${i > 0 ? '/' + (i + 1) : ''}`)}>{i+1}</a>
 			)}
-			<a href={url.next ? '/groupincome.org' + url.next : null} class={ url.next ? '' : 'inactive' }>
+			<a href={url.next ? resolvePath(url.next) : null} class={ url.next ? '' : 'inactive' }>
 				<i class="icon-chevron-right"></i>
 			</a>
 		</div>
