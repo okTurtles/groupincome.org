@@ -1,27 +1,38 @@
 <template>
-<div class="c-feature-boxes">
-  <div class="c-feature-box">
-    <div class="c-feature-box-title">Choose a Server</div>
-    <div class="c-feature-box-para">
-      Use 
-      <a href="https://groupincome.app" class="is-link">our official server</a>
-      , choose from a community of independently operated servers, or run your own!
+<div>
+  <div class="c-feature-boxes">
+    <div class="c-feature-box">
+      <div class="c-feature-box-title">Choose a Server</div>
+      <div class="c-feature-box-para">
+        Use
+        <a href="https://groupincome.app" class="is-link">our official server</a>
+        , choose from a community of independently operated servers, or run your own!
+      </div>
+    </div>
+
+    <div class="c-feature-box">
+      <div class="c-feature-box-title">Create an account</div>
+      <div class="c-feature-box-para">
+        Group Income doesn't use cookies to manage user accounts.
+        <a href="https://shelterprotocol.net" target="_blank" class="is-display-block is-link">Read more about our technology</a>
+      </div>
+    </div>
+
+    <div class="c-feature-box">
+      <div class="c-feature-box-title">Join a Group and Start Sharing!</div>
+      <div class="c-feature-box-para">
+        Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.
+      </div>
     </div>
   </div>
 
-  <div class="c-feature-box">
-    <div class="c-feature-box-title">Create an account</div>
-    <div class="c-feature-box-para">
-      Group Income doesn't use cookies to manage user accounts.
-      <a href="https://shelterprotocol.net" target="_blank" class="is-display-block is-link">Read more about our technology</a>
-    </div>
-  </div>
-
-  <div class="c-feature-box">
-    <div class="c-feature-box-title">Join a Group and Start Sharing!</div>
-    <div class="c-feature-box-para">
-      Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.
-    </div>
+  <div class="video-wrapper">
+    <iframe
+      id="odysee-iframe"
+      style="width:100%; aspect-ratio:16 / 9;"
+      src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2Fgroup_income_intro%3A6?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
+      allowfullscreen>
+    </iframe>
   </div>
 </div>
 </template>
@@ -80,6 +91,37 @@
   .is-link.is-display-block {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+.video-wrapper {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+  margin-right: 0;
+
+  @include tablet {
+    width: 44rem;
+    max-width: 90vw;
+    position: static;
+    left: auto;
+    transform: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include desktop {
+    width: 50rem;
+    max-width: 85vw;
+  }
+
+  @media (min-width: 1400px) {
+    width: 56rem;
+    max-width: 80vw;
   }
 }
 </style>

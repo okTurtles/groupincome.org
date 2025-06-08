@@ -17,14 +17,20 @@
         </div>
 
         <div class="c-main-wrapper" id="header1">
-          <div class="is-posttitle">GROUP INCOME</div>
+          <!-- <div class="is-posttitle">GROUP INCOME</div>
           <h1 class="is-title-1 c-main-title">
             Basic Income for your
             friends and family.
-          </h1>
-
-          <p class="is-subtitle c-main-para">Group income makes it easy for small communities to
-            voluntarily provide a financial safety net for their members.</p>
+          </h1> -->
+          <div class="video-wrapper">
+            <iframe
+              id="odysee-iframe"
+              style="width:100%; aspect-ratio:16 / 9;"
+              src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2FokTurtles-Group-Income-Launch-Special-Announcement%3A3?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
 
           <div class="scroll-btn-container">
             <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
@@ -105,10 +111,10 @@
           <div class="is-title-3 c-container-posttitle">Stay Safe</div>
           <p class="is-title-2 c-container-title">Security & Privacy</p>
           <p class="c-container-para">
-            Group Income is built on top of an end-to-end encrypted protocol called 
+            Group Income is built on top of an end-to-end encrypted protocol called
             <a class="is-link" href="https://shelterprotocol.net" target="_blank">Shelter Protocol</a>.
             Your data is stored in encrypted form on servers, and decrypted locally on your device.
-            The keys to decrypt that data are derived from your password and are also stored on your device. 
+            The keys to decrypt that data are derived from your password and are also stored on your device.
           </p>
           <a class="c-container-link is-link" v-href="'/privacy-policy'">Read more about our privacy and security</a>
         </div>
@@ -503,7 +509,7 @@ export default {
   @include tablet {
     margin-top: 3rem;
   }
-} 
+}
 
 .icon-chevron-bottom {
   display: inline-flex;
@@ -642,6 +648,11 @@ export default {
 .c-main-para {
   max-width: 34rem;
   margin: 0 auto 1rem auto;
+  padding: 0 1rem;
+
+  @include tablet {
+    padding: 0;
+  }
 }
 
 .swoosh-dark-blue {
@@ -715,5 +726,36 @@ export default {
 
 .c-mt-16 {
   margin-top: 1.6rem;
+}
+
+.video-wrapper {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 0;
+  margin-right: 0;
+
+  @include tablet {
+    width: 44rem;
+    max-width: 90vw;
+    position: static;
+    left: auto;
+    transform: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include desktop {
+    width: 50rem;
+    max-width: 85vw;
+  }
+
+  @media (min-width: 1400px) {
+    width: 56rem;
+    max-width: 80vw;
+  }
 }
 </style>
