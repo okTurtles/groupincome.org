@@ -108,7 +108,7 @@ It's [simple to translate it into your favorite language](https://github.com/okT
 - Chat remembers chatroom scroll position
 - Tooltips not disappearing when they should
 - Various text alignment and overflow issues fixed
-- Payment streaks are properly reset when switching to non-participant (pledging $0)
+- Payment streaks are properly reset when switching to pledging $0
 - Properly scroll chat on new message when window is in background
 - Properly play notification sounds for chatroom events
 - Multiple bugfixes for issues preventing chatrooms from rendering properly
