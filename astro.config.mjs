@@ -12,6 +12,7 @@ import vue from "@astrojs/vue";
 
 const remarkEmbedPlugin = [remarkEmbedder.default, {
   transformers: [oembedTransformer.default],
+  // transformers: [],
   // https://github.com/remark-embedder/transformer-oembed/issues/25#issuecomment-888613740
   // https://github.com/remark-embedder/core#handleerror-errorinfo-errorinfo--gottenhtml--promisegottenhtml
   handleError({
