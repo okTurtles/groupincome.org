@@ -47,3 +47,46 @@ const _description = description || SITE_DESCRIPTION;
     <!-- End Matomo Code -->
 	</body>
 </html>
+
+<script>
+  // calculation helper functions
+  function calcFloatingContents (): number {
+    // calculate the total height of the 'position: fixed' contents of the page.
+    // currently there is two UI components like that:  'fundraiser-banner', 'header-toolbar'
+    const floatingEls = ['.fundraiser', '.c-header-wrapper']
+    let totalHeight = 0
+
+    floatingEls.forEach(sel => {
+      const el = document.querySelector(sel)
+
+      if (el) {
+        const bbox = el.getBoundingClientRect()
+        totalHeight += bbox.height
+      }
+    })
+
+    return totalHeight + 20
+  }
+
+  function getAdjustedTargetPositionAndScroll (targetId: string): void {
+    // get adjusted scroll-Y value of the target element of an anchor tag.
+    // 'adjusted' here means subtracting the total heights of the floating contents of the page.
+    const targetEl = document.querySelector(`#${targetId}`)
+
+    if (targetEl) {
+      const bbox = targetEl.getBoundingClientRect()
+      const scrollToY = bbox.top - calcFloatingContents()
+
+      if(scrollToY > 0) {
+        window.scrollTo({ top: scrollToY, behavior: 'smooth' })
+      }
+    }
+  }
+
+  setTimeout(() => {
+    const url = new URL(window.location.href)
+    if (url.hash) {
+      getAdjustedTargetPositionAndScroll(url.hash.slice(1))
+    }
+  }, 100)
+</script>
