@@ -12,9 +12,9 @@ categories:
     - Uncategorized
 ---
 
-Group Income eliminates fraud better than probably all basic income systems, and it does so in a privacy-preserving way, without needing [to scan your eyeballs](https://whitepaper.worldcoin.org/technical-implementation#the-orb).
+One of the issues facing all financial safety nets is fraud.
 
-One of the issues facing all basic income systems is fraud.
+Group Income is able to address fraud in privacy-preserving way, without needing [to scan your eyeballs](https://whitepaper.worldcoin.org/technical-implementation#the-orb).
 
 You may have heard of ["voter fraud"](https://en.wikipedia.org/wiki/Electoral_fraud), ["social security fraud"](https://www.ssa.gov/fraud/), and ["charity fraud"](https://en.wikipedia.org/wiki/Charity_fraud). All of these types of fraud have something in common: an inability to accurately identify individuals. Also known as a ["Sybil attack"](https://en.wikipedia.org/wiki/Sybil_attack), fraudsters create fake identities and use those to abuse the system.
 
