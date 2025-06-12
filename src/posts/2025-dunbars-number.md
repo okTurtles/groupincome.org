@@ -56,7 +56,7 @@ Existing systems employ various mechanisms to attempt to protect against Sybil a
 - [Proof of Humanity](https://en.wikipedia.org/wiki/Proof_of_personhood)
 - [Proof of Eyeball](https://whitepaper.worldcoin.org/technical-implementation#the-orb)
 
-## Group Income Uses Dunbar's Number
+## How Group Income Protects Against Sybil Attacks
 
 Group Income addresses the Sybil attack in a decentralized and fully privacy-preserving way by _working with_ the constraints of human social structures. We limit the size of groups to **[Dunbar's Number](https://en.wikipedia.org/wiki/Dunbar%27s_number)**, the average number of meaningful relationships an individual can maintain, estimated to be about 150 people. At this size, group members can personally know each other and readily identify fake accounts.
 
