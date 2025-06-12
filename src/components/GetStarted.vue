@@ -4,9 +4,8 @@
     <div class="c-feature-box">
       <div class="c-feature-box-title">Choose a Server</div>
       <div class="c-feature-box-para">
-        Use
-        <a href="https://groupincome.app" class="is-link">our official server</a>,
-+       choose from <a class="is-link" v-href="'/get-started#servers'">a list</a> of independently operated servers, or run your own!
+        Use <a href="https://groupincome.app" class="is-link">our official server</a>,
+        choose from <a class="is-link" v-href="'/get-started#servers'">a list of</a> independently operated servers, or run your own!
       </div>
     </div>
 
@@ -56,6 +55,11 @@
   padding: 3.3rem 1.5rem 2rem 1.5rem;
   margin-top: 2rem;
   text-align: center;
+
+  .c-feature-box-title {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
 
   &::after {
     display: flex;
