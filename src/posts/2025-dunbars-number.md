@@ -1,7 +1,7 @@
 ---
 title: "No Eyeballs Needed: How We Solve the Sybil Attack for Group Income"
 description: Tackling fraud using Dunbar's number.
-author: Greg Slepak
+author: Group Income Team
 date: June 12, 2025
 image: '/wp-content/uploads/2025/06/dunbar.jpg'
 isoDate: '2025-06-12T07:00:00+00:00'
