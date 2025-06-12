@@ -84,6 +84,10 @@ const _description = description || SITE_DESCRIPTION;
   }
 
   setTimeout(() => {
+    // Check if the url has anchor-link and scroll it to target element if it does.
+    // NOTE: This behavior is normally handled by browser automatically but for an unknown reason,
+    //       it does not work as expected in astro JS project and requires a manual handling.
+    //       So adding a logic here to apply it in every page of the website.
     const url = new URL(window.location.href)
     if (url.hash) {
       getAdjustedTargetPositionAndScroll(url.hash.slice(1))
