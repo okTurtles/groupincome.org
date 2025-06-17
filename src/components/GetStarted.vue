@@ -4,9 +4,8 @@
     <div class="c-feature-box">
       <div class="c-feature-box-title">Choose a Server</div>
       <div class="c-feature-box-para">
-        Use
-        <a href="https://groupincome.app" class="is-link">our official server</a>
-        , choose from a community of independently operated servers, or run your own!
+        Use <a href="https://groupincome.app" class="is-link">our official server</a>,
+        choose from <a class="is-link" v-href="'/get-started#servers'">a list of</a> independently operated servers, or run your own!
       </div>
     </div>
 
@@ -27,12 +26,13 @@
   </div>
 
   <div class="video-wrapper">
-    <iframe
+    <!-- <iframe
       id="odysee-iframe"
       style="width:100%; aspect-ratio:16 / 9;"
       src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2Fgroup_income_intro%3A6?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
       allowfullscreen>
-    </iframe>
+    </iframe> -->
+    <iframe style="width:100%; aspect-ratio:16 / 9;" src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
 </div>
 </template>
@@ -55,6 +55,11 @@
   padding: 3.3rem 1.5rem 2rem 1.5rem;
   margin-top: 2rem;
   text-align: center;
+
+  .c-feature-box-title {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
 
   &::after {
     display: flex;

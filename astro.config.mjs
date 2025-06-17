@@ -12,6 +12,7 @@ import vue from "@astrojs/vue";
 
 const remarkEmbedPlugin = [remarkEmbedder.default, {
   transformers: [oembedTransformer.default],
+  // transformers: [],
   // https://github.com/remark-embedder/transformer-oembed/issues/25#issuecomment-888613740
   // https://github.com/remark-embedder/core#handleerror-errorinfo-errorinfo--gottenhtml--promisegottenhtml
   handleError({
@@ -34,7 +35,7 @@ const { IS_PROD_BUILD } = process.env
 // https://astro.build/config
 export default defineConfig({
   site: IS_PROD_BUILD === 'true'
-    ? "https://our_prod_website_url.org" // !!NOTE!!: when the time comes and we deploy this project to our own website, replace this with the correct URL.
+    ? "https://groupincome.org" // !!NOTE!!: when the time comes and we deploy this project to our own website, replace this with the correct URL.
     : 'https://okturtles.github.io',
   base: IS_PROD_BUILD === 'true' ? "/" : '/groupincome.org',
   // integrations: [mdx(), sitemap(), vue()],

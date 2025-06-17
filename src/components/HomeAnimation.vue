@@ -29,7 +29,7 @@
               src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2FokTurtles-Group-Income-Launch-Special-Announcement%3A3?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
               allowfullscreen>
             </iframe> -->
-            <iframe style="width:100%; aspect-ratio:16 / 9;" src="https://www.youtube-nocookie.com/embed/KU9NGcrjXlo?si=KofIAs7oGRwzqSOm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe style="width:100%; aspect-ratio:16 / 9;" src="https://www.youtube-nocookie.com/embed/md54gZAtWA8?si=QH8HqnBwWWHVeKOf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
 
