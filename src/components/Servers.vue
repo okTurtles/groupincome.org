@@ -1,5 +1,5 @@
 <template>
-<div id="servers" class="grid">
+<div id="servers" class="grid scroll-to-by-anchor">
   <div class="grid-item" v-for="server in servers" :key="server.name">
     <div class="card">
       <div class="card-body l-server">

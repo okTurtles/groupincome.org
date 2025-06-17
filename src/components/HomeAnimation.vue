@@ -17,20 +17,24 @@
         </div>
 
         <div class="c-main-wrapper" id="header1">
-          <!-- <div class="is-posttitle">GROUP INCOME</div>
-          <h1 class="is-title-1 c-main-title">
+          <h1 class="is-font-poppin c-page-title">Group Income</h1>
+          <!-- <h1 class="is-title-1 c-main-title">
             Basic Income for your
             friends and family.
           </h1> -->
-          <div class="video-wrapper">
-            <!-- <iframe
-              id="odysee-iframe"
-              style="width:100%; aspect-ratio:16 / 9;"
-              src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2FokTurtles-Group-Income-Launch-Special-Announcement%3A3?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
-              allowfullscreen>
-            </iframe> -->
-            <iframe style="width:100%; aspect-ratio:16 / 9;" src="https://www.youtube-nocookie.com/embed/md54gZAtWA8?si=QH8HqnBwWWHVeKOf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+          <div class="c-video-wrapper">
+            <!-- <VideoPlayer class="has-deep-box-shadow"
+              src='https://okturtles.org/videos/Group_Income_1.0_Launch_Special_Announcement.mp4'
+              mimeType='video/mp4' /> -->
+
+            <iframe class="has-deep-box-shadow" style="width:100%; aspect-ratio:16 / 9;"
+              src="https://www.youtube-nocookie.com/embed/md54gZAtWA8?si=QH8HqnBwWWHVeKOf"
+              title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
+
           <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
 
           <div class="scroll-btn-container">
@@ -160,6 +164,7 @@ import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
+import VideoPlayer from './VideoPlayer.vue'
 import GSAP from '../mixins/gsap.js'
 
 export default {
@@ -168,6 +173,7 @@ export default {
     Swoosh,
     Browser,
     Sides,
+    VideoPlayer,
     GetStarted
   },
 
@@ -187,6 +193,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
+
+@mixin phone_narrow {
+  @media screen and (max-width: 430px) {
+    @content;
+  }
+}
 
 // Rpevent rendering glitch
 .right-side {
@@ -341,12 +353,12 @@ export default {
 }
 
 #face-1 {
-  top: 76vh;
-  left: 22%;
+  top: 78vh;
+  left: 20%;
 
   @include tablet {
-    top: 70vh;
-    left: 24%;
+    top: 74vh;
+    left: 10%;
   }
 
   @include desktop {
@@ -361,8 +373,8 @@ export default {
   left: 1%;
 
   @include tablet {
-    top: 54vh;
-    left: 7%;
+    top: 45vh;
+    left: 4%;
   }
 
   @include desktop {
@@ -392,18 +404,18 @@ export default {
 }
 
 #face-4 {
-  top: 73vh;
-  left: 52%;
+  top: 79vh;
+  left: 56%;
 
   @include tablet {
-    top: 65vh;
     left: 73%;
+    transform: scale(0.8);
   }
 
   @include desktop {
     top: 69vh;
     left: 84%;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 
@@ -427,8 +439,8 @@ export default {
 }
 
 #face-6 {
-  top: 69vh;
-  left: 75%;
+  top: 72vh;
+  left: 82%;
 
   @include tablet {
     top: 47vh;
@@ -464,6 +476,12 @@ export default {
 #face-8 {
   top: 10vh;
   left: 75%;
+
+  @include phone_narrow {
+    top: 8vh;
+    left: 72%;
+    transform: scale(0.4);
+  }
 
   @include tablet {
     top: 12vh;
@@ -632,9 +650,46 @@ export default {
 }
 
 .c-main-wrapper {
-  margin-top: -1.6rem;
   position: relative;
   z-index: 2;
+  width: 100vw;
+}
+
+.c-page-title {
+  font-weight: 600;
+  font-size: 1.7rem;
+
+  @include tablet {
+    font-size: 2rem;
+  }
+
+  @include desktop {
+    font-size: 2.4rem;
+  }
+}
+
+.c-video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  margin: 1.5rem auto 2.75rem;
+
+  @include tablet {
+    margin: 3rem auto 4rem;
+    padding: 0;
+  }
+
+  @include desktop {
+    max-width: 40rem;
+  }
+}
+
+.c-main-para {
+  margin: 0 auto 1rem auto;
+  
+  @include tablet {
+    max-width: 34rem;
+  }
 }
 
 .c-main-title {
@@ -643,16 +698,6 @@ export default {
 
   @include phone {
     max-width: 30rem;
-  }
-}
-
-.c-main-para {
-  max-width: 34rem;
-  margin: 0 auto 1rem auto;
-  padding: 0 1rem;
-
-  @include tablet {
-    padding: 0;
   }
 }
 
@@ -727,36 +772,5 @@ export default {
 
 .c-mt-16 {
   margin-top: 1.6rem;
-}
-
-.video-wrapper {
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-left: 0;
-  margin-right: 0;
-
-  @include tablet {
-    width: 44rem;
-    max-width: 90vw;
-    position: static;
-    left: auto;
-    transform: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @include desktop {
-    width: 50rem;
-    max-width: 85vw;
-  }
-
-  @media (min-width: 1400px) {
-    width: 56rem;
-    max-width: 80vw;
-  }
 }
 </style>

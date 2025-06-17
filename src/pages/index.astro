@@ -3,5 +3,5 @@ import Layout from '../layouts/DefaultLayout.astro';
 import HomeAnimation from '../components/HomeAnimation.vue';
 ---
 <Layout>
-  <HomeAnimation client:load />
+  <HomeAnimation client:only="vue" />
 </Layout>
