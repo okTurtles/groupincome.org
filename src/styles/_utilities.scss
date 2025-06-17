@@ -114,9 +114,3 @@ $fills: (
 ul.indented-list {
   list-style-type: disc;
 }
-
-.scroll-to-by-anchor {
-  // Reference: Preventing anchor-links from scrolling behind the 'position: fixed' header
-  // -> https://getpublii.com/blog/one-line-css-solution-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header.html
-  scroll-margin-top: calc(var(--gi-header-height) + 2rem);
-}
