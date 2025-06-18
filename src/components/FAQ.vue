@@ -151,8 +151,7 @@ export default {
           active: false
         }, {
           question: 'How do you protect against Sybil attacks?',
-          answer: `The members engaging in monetary and non-monetary exchange will be limited in size based to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's Number</a> (150) as a way to prevent Sybil attacks.
-            In the future, multiple groups may be linked together.`,
+          answer: `We use something called <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's Number</a> to prevent Sybil attacks. <a href="https://groupincome.org/2025/06/no-eyeballs-needed/">More about this in this blog post</a>.`,
           active: false
         }, {
           question: 'If the size of groups is limited, how does Group Income scale?',
