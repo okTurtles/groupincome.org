@@ -25,20 +25,34 @@
     </div>
   </div>
 
-  <div class="video-wrapper">
+  <div class="c-video-wrapper">
+    <hr class="c-video-divider"/>
+
     <!-- <iframe
       id="odysee-iframe"
       style="width:100%; aspect-ratio:16 / 9;"
       src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2Fgroup_income_intro%3A6?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
       allowfullscreen>
     </iframe> -->
-    <iframe style="width:100%; aspect-ratio:16 / 9;" src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe style="width:100%; aspect-ratio:16 / 9;" class="has-deep-box-shadow"
+      src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k"
+      title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
   </div>
 </div>
 </template>
 
+<script>
+export default {
+  name: 'GetStarted'
+}
+</script>
+
 <style lang="scss" scoped>
 @import "../styles/_variables";
+
 .c-feature-boxes {
   display: flex;
   flex-wrap: wrap;
@@ -99,34 +113,35 @@
   }
 }
 
-.video-wrapper {
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-  width: 100vw;
+.c-video-wrapper {
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-left: 0;
-  margin-right: 0;
+  width: calc(100% + 2rem);
+  margin: 8rem auto 5rem -1rem;
 
   @include tablet {
-    width: 44rem;
-    max-width: 90vw;
-    position: static;
-    left: auto;
-    transform: none;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    max-width: 44rem;
+    margin: 8rem auto 5rem;
   }
 
   @include desktop {
-    width: 50rem;
-    max-width: 85vw;
+    max-width: 50rem;
   }
 
-  @media (min-width: 1400px) {
-    width: 56rem;
-    max-width: 80vw;
+  @include from(1400px) {
+    max-width: 56rem;
+  }
+
+  .c-video-divider {
+    border-bottom: 1px solid $divider_1;
+    margin: 0 auto 6rem;
+    width: 7.25rem;
+    display: none;
+
+    @include tablet {
+      display: block;
+      margin-bottom: 8rem;
+    }
   }
 }
 </style>

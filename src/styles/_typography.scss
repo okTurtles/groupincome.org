@@ -98,12 +98,17 @@ $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
   }
 }
 
+.is-font-poppin {
+  font-family: "Poppins";
+}
+
 .is-posttitle {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: -0.4px;
   line-height: 1.875rem; // 30
   font-size: $size_5;
+
   @include desktop {
     font-size: $size_4; // 18
   }
