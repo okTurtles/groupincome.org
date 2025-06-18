@@ -24,15 +24,15 @@
           </h1> -->
 
           <div class="c-video-wrapper">
-            <!-- <VideoPlayer class="has-deep-box-shadow"
-              src='https://okturtles.org/videos/Group_Income_1.0_Launch_Special_Announcement.mp4'
-              mimeType='video/mp4' /> -->
+            <VideoPlayer class="has-deep-box-shadow"
+              src='https://okturtles.org/videos/group_income_ending_big_tech_control.mp4'
+              mimeType='video/mp4' />
 
-            <iframe class="has-deep-box-shadow" style="width:100%; aspect-ratio:16 / 9;"
+            <!-- <iframe class="has-deep-box-shadow" style="width:100%; aspect-ratio:16 / 9;"
               src="https://www.youtube-nocookie.com/embed/md54gZAtWA8?si=QH8HqnBwWWHVeKOf"
               title="YouTube video player"
               frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
           </div>
 
           <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
@@ -641,8 +641,9 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   min-height: calc(100vh - var(--gi-header-height));
+  padding-left: 0;
+  padding-right: 0;
 
   @include desktop {
     background-size: auto;
@@ -686,6 +687,7 @@ export default {
 
 .c-main-para {
   margin: 0 auto 1rem auto;
+  padding: 0 1rem;
   
   @include tablet {
     max-width: 34rem;

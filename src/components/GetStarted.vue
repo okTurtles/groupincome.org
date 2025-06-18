@@ -52,6 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/_variables";
+
 .c-feature-boxes {
   display: flex;
   flex-wrap: wrap;
@@ -114,12 +115,13 @@ export default {
 
 .c-video-wrapper {
   position: relative;
-  width: 100%;
-  margin: 8rem auto 5rem;
+  width: calc(100% + 2rem);
+  margin: 8rem auto 5rem -1rem;
 
   @include tablet {
+    width: 100%;
     max-width: 44rem;
-    padding: 0;
+    margin: 8rem auto 5rem;
   }
 
   @include desktop {
@@ -133,7 +135,7 @@ export default {
   .c-video-divider {
     border-bottom: 1px solid $divider_1;
     margin: 0 auto 6rem;
-    width: 4rem;
+    width: 7.25rem;
     display: none;
 
     @include tablet {
