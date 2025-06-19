@@ -164,7 +164,7 @@ import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
-import VideoPlayer from './VideoPlayer.vue'
+// import VideoPlayer from './VideoPlayer.vue'
 import GSAP from '../mixins/gsap.js'
 
 export default {
@@ -173,8 +173,8 @@ export default {
     Swoosh,
     Browser,
     Sides,
-    VideoPlayer,
-    GetStarted
+    GetStarted,
+    // VideoPlayer
   },
 
   methods: {
