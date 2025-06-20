@@ -1,13 +1,13 @@
 ---
 id: 5
-title: AI Marketer
+title: AI Marketing
 pubDate: '2025-06-20T00:00:00+00:00'
 type: "remote"
 permalink: /marketing/
 layout: "../layouts/JobPost.astro"
 ---
 
-### AI Marketer
+### AI Marketing
 
 We're looking for a "professional sh*t poster" and marketer who is excited to work with AI technologies and is down with the social networks. A true people person who loves to make people smile, has a thick skin when they don't smile, and is a creative type who's interested in playing with AI tech to generate marketing material for Group Income.
 
@@ -15,9 +15,8 @@ We're looking for a "professional sh*t poster" and marketer who is excited to wo
 
 1. Loves the idea of Group Income and is excited about what we're doing.
 2. People person.
-3. Funny.
-4. Talented.
-5. Creative.
+3. Funny, Talented, and Creative.
+4. Are able to manage social network accounts on TikTok, Instagram, X, and any other platform we might decide to post to.
 
 ##### Compensation
 
