@@ -38,7 +38,7 @@
           <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
 
           <div class="scroll-btn-container">
-            <i class="icon-button icon-chevron-bottom" @click="scrollTo('#container2')"></i>
+            <i class="icon-button icon-chevron-bottom" @click="onChevronClick"></i>
           </div>
         </div>
       </section>
@@ -165,10 +165,8 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 // import VideoPlayer from './VideoPlayer.vue'
-import GSAP from '../mixins/gsap.js'
 
 export default {
-  mixins: [GSAP],
   components: {
     Swoosh,
     Browser,
@@ -178,14 +176,15 @@ export default {
   },
 
   methods: {
-    scrollTo(el) {
-      this.gsap.to(window, {
-        duration: 0.5,
-        scrollTo: {
-          y: el,
-          offsetY: 170
-        }
-      })
+    onChevronClick () {
+      const elScrollTo = document.querySelector('#container2 .c-container-title')
+
+      if (elScrollTo) {
+        elScrollTo.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      }
     }
   }
 }
