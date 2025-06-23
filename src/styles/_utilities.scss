@@ -114,3 +114,10 @@ $fills: (
 ul.indented-list {
   list-style-type: disc;
 }
+
+.has-scroll-margin-top {
+  // When scrolling to a particular element via anchor tag, the target scroll-position needs to
+  // take into account the top-header UI that is floating on top of the page content.
+  // reference: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top
+  scroll-margin-top: calc(var(--gi-header-height) + 50px);
+}
