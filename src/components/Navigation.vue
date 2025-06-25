@@ -31,9 +31,6 @@ import { resolvePath } from '@/utils/helpers.js'
 const $isNavigationOpen = useStore(isNavigationOpen);
 let menuList = ref([])
 
-// NOTE: await Astro.glob(...) is only available within *.astro file.
-//       So using Vite's import.meta.glob() instead here.
-//       (reference: https://vitejs.dev/guide/features.html#glob-import)
 const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
   .map((filepath) => filepath.split('/').pop())
   .filter(fileName => !fileName.startsWith('_'))

@@ -1,7 +1,7 @@
 ---
 import { sortedPosts } from '@/utils/sort'
 export async function getStaticPaths() {
-  const jobs =  sortedPosts(await Astro.glob('../../jobs/*.{md,mdx}'));
+  const jobs =  sortedPosts(import.meta.glob('../../jobs/*.{md,mdx}', { eager: true }));
   return jobs.map(job => {
     return {
       params: {
