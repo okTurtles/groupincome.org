@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 :root {
   // toolbar-height is needed in various places in defining layouts.
   --gi-header-height: #{$headerHeightMobile};
@@ -120,4 +122,38 @@ ul.indented-list {
   // take into account the top-header UI that is floating on top of the page content.
   // reference: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top
   scroll-margin-top: calc(var(--gi-header-height) + 50px);
+}
+
+// color-related util classes (refer to _colors.scss for details)
+
+.text-orange {
+  color: $orange;
+}
+
+.text-blue {
+  color: $blue;
+}
+
+.text-green {
+  color: $green;
+}
+
+.bg-orange {
+  background-color: $orange;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.bg-green {
+  background-color: $green;
+}
+
+.has-deep-box-shadow {
+  box-shadow: $drop-shadow_deep;
+}
+
+.has-shallow-box-shadow {
+  box-shadow: $drop-shadow_shallow;
 }

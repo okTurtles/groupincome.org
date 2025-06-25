@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 $inputHeight: 2.75rem;
 
 @mixin placeholder {

@@ -118,7 +118,7 @@ $bg: #eceef0;
     background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
   }
   &::after {
-    background: url('/svgs/copy.svg') no-repeat right .875rem center;
+    background: url(/svgs/copy.svg) no-repeat right .875rem center;
   }
 
   &:hover {

@@ -1,3 +1,13 @@
+@use "./colors" as *;
+
+// Breakpoints
+$gap: 1rem;
+$tablet: 769px;
+$desktop: 1200px;
+
+$maxDesktop: 1120px;
+
+
 @mixin fa($size, $dimensions) {
   display: inline-block;
   font-size: $size;

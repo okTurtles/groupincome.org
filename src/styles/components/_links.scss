@@ -1,4 +1,6 @@
+@use "../mixins" as mx;
+
 .is-link,
 .link {
-  @extend %link-style;
+  @extend %mx.link-style;
 }

@@ -52,5 +52,5 @@ $headerHeight: 6.25rem;
 // tag of .vue components, and so those classes would end up being
 // duplicated across all the injected component CSS
 
-@import "_colors";
-@import "_mixins";
+@forward "_colors";
+@forward "_mixins";
