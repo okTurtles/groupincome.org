@@ -21,7 +21,7 @@ import Hamburger from './Hamburger.vue'
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .c-header {
   width: 100%;

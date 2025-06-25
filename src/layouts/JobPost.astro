@@ -48,7 +48,7 @@ const currentPath = path[path.length - 2];
 </Layout>
   
 <style lang="scss">
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .c-wrapper {
   padding-bottom: 2rem;
@@ -150,7 +150,7 @@ const currentPath = path[path.length - 2];
 
 <style lang="scss" is:global>
 // slot content cannot be styled by <style scoped />: https://github.com/withastro/astro/issues/3045
-@import "../styles/_variables";
+@use "../styles/mixins" as *;
 
 .l-job {
   a {

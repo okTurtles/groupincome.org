@@ -124,7 +124,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
+
 .c-footer {
   max-width: $maxDesktop;
   margin: 2rem auto 0 auto;

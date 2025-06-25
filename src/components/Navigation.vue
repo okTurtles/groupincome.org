@@ -51,7 +51,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
+
 $zindex-navigation-on-mobile: $zindex-banner + 1;
 
 .c-navbar {

@@ -56,8 +56,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .c-crypto-item {
   position: relative;

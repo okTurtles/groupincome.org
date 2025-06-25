@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);

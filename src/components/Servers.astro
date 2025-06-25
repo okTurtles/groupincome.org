@@ -53,7 +53,7 @@ const servers = [{
 
 <style lang="scss" is:global>
 // slot content cannot be styled by <style scoped />: https://github.com/withastro/astro/issues/3045
-@import "../styles/variables";
+@use "../styles/mixins" as *;
 
 .l-server {
   a {

@@ -45,8 +45,8 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 </Layout>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
+
 .c-header {
 	display: flex;
 	flex-direction: column;

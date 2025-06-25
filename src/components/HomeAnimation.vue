@@ -191,7 +191,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 @mixin phone_narrow {
   @media screen and (max-width: 430px) {

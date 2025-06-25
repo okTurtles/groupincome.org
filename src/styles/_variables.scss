@@ -4,40 +4,8 @@ $zindex-header: 10;
 $zindex-banner: 20;
 $zindex-modal: 30;
 
-// Used for typography
-// $size_0: 4rem;     // 64px
-// $size_1: 2rem;     // 32px
-// $size_2: 1.5rem;   // 24px
-// $size_3: 1.125rem; // 18px
-// $size_4: 0.875rem; // 14px
-// $size_5: 0.75rem;  // 12px
-
-$size_1: 4.5rem;   // 72px
-$size_2: 3.5rem;   // 56px
-$size_3: 1.375rem; // 22px
-$size_4: 1.125rem; // 18px
-$size_5: 1rem;     // 16px
-$size_6: 0.875rem; // 14px
-
-// Alias for fonts
-$size_extra_small: $size_5;
-$size_small: $size_5;
-$size_normal: $size_4;
-$size_medium: $size_3;
-$size_large: $size_2;
-$size_extra-large: $size_1;
-
 $radius: 3px;
 $radius-large: 5px;
-
-// Breakpoints
-// // Same as JS breakpoints at breakpoints.js
-// TODO: Redefine the breakpoints with @mmbotelho in a next task.
-$gap: 1rem;
-$tablet: 769px;
-$desktop: 1200px;
-
-$maxDesktop: 1120px;
 
 $headerHeightMobile: 4rem;
 $headerHeightTablet: 5rem;
@@ -52,5 +20,6 @@ $headerHeight: 6.25rem;
 // tag of .vue components, and so those classes would end up being
 // duplicated across all the injected component CSS
 
+@forward "_font_variables";
 @forward "_colors";
 @forward "_mixins";

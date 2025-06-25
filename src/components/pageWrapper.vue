@@ -13,7 +13,7 @@ const $isFundraiserOpen = useStore(isFundraiserOpen);
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .main-wrapper {
   --fundraiser-space: 0rem;

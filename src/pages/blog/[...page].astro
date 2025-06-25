@@ -41,8 +41,8 @@ const indexActive = (index: number, currentUrl: string) => {
 </Layout>
 
 <style lang="scss" is:global>
-@import "../../styles/_variables";
-@import "../../styles/_mixins";
+@use "../../styles/variables" as *;
+
 .c-blog-wrapper {
 	.icon-link {
 		display: none;
@@ -142,8 +142,8 @@ const indexActive = (index: number, currentUrl: string) => {
 </style>
 	
 <style lang="scss" scoped>
-@import "../../styles/_variables";
-@import "../../styles/_mixins";
+@use "../../styles/variables" as *;
+
 .c-header {
 	display: flex;
 	justify-content: center;

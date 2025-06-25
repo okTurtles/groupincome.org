@@ -220,8 +220,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .c-nav {
   position: sticky;
@@ -350,11 +349,11 @@ dd {
 </style>
 
 <style lang="scss">
-@import "../styles/_variables";
+@use "../styles/mixins" as m;
 
 .l-faq {
   a {
-    @include link-style;
+    @include m.link-style;
   }
 }
 </style>

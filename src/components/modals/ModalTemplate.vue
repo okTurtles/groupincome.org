@@ -52,7 +52,7 @@ defineExpose({ close })
 </script>
 
 <style lang="scss" scoped>
-@import "../../styles/_variables";
+@use "../../styles/variables" as *;
 
 .c-modal-background {
   position: absolute;
