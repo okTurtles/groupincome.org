@@ -19,7 +19,6 @@
     "@nanostores/vue": "^0.6.1",
     "@remark-embedder/core": "3.0.1",
     "@remark-embedder/transformer-oembed": "3.0.0",
-    "gsap": "^3.11.4",
     "nanostores": "^0.10.0",
     "plyr": "^3.7.8",
     "rehype-katex": "^6.0.2",

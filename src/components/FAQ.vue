@@ -33,11 +33,8 @@
 </template>
 
 <script>
-import GSAP from '../mixins/gsap.js'
-
 export default {
   name: 'FAQ',
-  mixins: [GSAP],
   data () {
     return {
       faqs: [{
@@ -192,12 +189,9 @@ export default {
       this.faqs[index].qa[qindex].active = !currVal
 
       if (!currVal) {
-        const elScrollTo = document.querySelector(`dt#q_${index}${qindex}`)
-        elScrollTo &&
-          elScrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        this.scrollTo(`dt#q_${index}${qindex}`)
       }
     },
-
     toggleExpand () {
       const shouldFoldAll = this.allItemsExpanded
 
@@ -208,20 +202,18 @@ export default {
       })
 
       if (shouldFoldAll) {
-        const elScrollTo = document.querySelector('.c-collapse-title#general')
-        elScrollTo &&
-          elScrollTo.scrollIntoView({ behavior: 'instant', block: 'center' })
+        this.scrollTo('.c-collapse-title#general', true)
       }
     },
+    scrollTo (selector, instant = false) {
+      const elScrollTo = document.querySelector(selector)
 
-    scrollTo (el, offesetY = 300) {
-      this.gsap.to(window, {
-        duration: 0.5,
-        scrollTo: {
-          y: el,
-          offsetY: offesetY
-        }
-      })
+      if (elScrollTo) {
+        elScrollTo.scrollIntoView({
+          behavior: instant ? 'instant' : 'smooth',
+          block: 'center'
+        })
+      }
     }
   }
 }
