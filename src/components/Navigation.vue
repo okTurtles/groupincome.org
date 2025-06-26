@@ -5,7 +5,7 @@
     aria-label="main navigation">
     <div class="c-navbar-backdrop hide-desktop" @click="closeNavigation"></div>
 
-    <div class="c-navbar-main">
+    <div v-if="menuList.length > 0" class="c-navbar-main">
       <a v-for="entry in menuList"
         :key="entry.id"
         :data-test="entry.id"

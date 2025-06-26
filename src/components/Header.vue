@@ -35,6 +35,7 @@ import Hamburger from './Hamburger.vue'
   display: flex;
   justify-content: center;
   background-color: #fff;
+  width: 100%;
 
   .c-wrapper {
     display: flex;
