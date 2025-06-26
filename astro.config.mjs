@@ -30,20 +30,19 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
   }
 }];
 
-const { IS_PROD_BUILD = null } = process.env
+const { BUILD_TARGET = '' } = process.env
 const isDevelopment = process.env.NODE_ENV === 'development'
-
+const siteMap = {
+  'staging': 'https://okturtles.github.io',
+  'production': 'https://groupincome.org'
+}
 // Reference:
 // https://docs.astro.build/en/reference/configuration-reference/
 // https://vite.dev/config/
 
 export default defineConfig({
-  site: isDevelopment
-    ? undefined
-    : IS_PROD_BUILD
-      ? 'https://groupincome.org'
-      : 'https://okturtles.github.io',
-  base: isDevelopment || IS_PROD_BUILD ? '/' : '/groupincome.org/',
+  site: siteMap[BUILD_TARGET],
+  base: BUILD_TARGET === 'staging' ? '/groupincome.org/' : '/',
   // Sass-related options
   css: {
     preprocessorOptions: {

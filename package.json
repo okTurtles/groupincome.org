@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "build:prod": "IS_PROD_BUILD=true astro build",
-    "preview": "astro preview",
+    "build": "BUILD_TARGET=staging astro build",
+    "preview": "BUILD_TARGET=staging astro preview",
+    "build:prod": "BUILD_TARGET=production astro build",
+    "preview:prod": "BUILD_TARGET=production astro preview",
     "astro": "astro"
   },
   "dependencies": {
