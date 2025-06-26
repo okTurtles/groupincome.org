@@ -31,7 +31,6 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
 }];
 
 const { BUILD_TARGET = '' } = process.env
-const isDevelopment = process.env.NODE_ENV === 'development'
 const siteMap = {
   'staging': 'https://okturtles.github.io',
   'production': 'https://groupincome.org'
