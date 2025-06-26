@@ -69,8 +69,7 @@ const giShortsData = [
 </Layout>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .c-wrapper {
   padding-bottom: 2rem;
@@ -165,7 +164,7 @@ const giShortsData = [
 }
 
 .grey-container {
-  background: url('/images/about/grey-background.svg') no-repeat center bottom #fff;
+  background: url(/images/about/grey-background.svg) no-repeat center bottom #fff;
   background-size: 100%;
 }
 

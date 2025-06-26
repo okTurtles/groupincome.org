@@ -4,7 +4,7 @@ import Sides from '../components/graphics/Sides.vue';
 import { sortedPosts } from '@/utils/sort'
 import { resolvePath } from '@/utils/helpers.js'
 
-const jobs =  sortedPosts(await Astro.glob('../jobs/*.{md,mdx}')).filter(job => {
+const jobs =  sortedPosts(import.meta.glob('../jobs/*.{md,mdx}', { eager: true })).filter(job => {
   return !job.file.split('/').pop().startsWith('_')
 })
 
@@ -48,7 +48,7 @@ const currentPath = path[path.length - 2];
 </Layout>
   
 <style lang="scss">
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .c-wrapper {
   padding-bottom: 2rem;
@@ -150,7 +150,7 @@ const currentPath = path[path.length - 2];
 
 <style lang="scss" is:global>
 // slot content cannot be styled by <style scoped />: https://github.com/withastro/astro/issues/3045
-@import "../styles/_variables";
+@use "../styles/mixins" as *;
 
 .l-job {
   a {

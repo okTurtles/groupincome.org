@@ -1,4 +1,4 @@
-import { atom, computed, StoreValue } from 'nanostores'
+import { atom, computed, type StoreValue } from 'nanostores'
 
 export const isNavigationOpen = atom<boolean>(false)
 export const isFundraiserOpen = atom<boolean>(false)

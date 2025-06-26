@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../styles/_variables";
+@use "../../styles/mixins" as *;
 
 svg {
   position: absolute;

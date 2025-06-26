@@ -56,8 +56,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .c-crypto-item {
   position: relative;
@@ -118,7 +117,7 @@ $bg: #eceef0;
     background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
   }
   &::after {
-    background: url('/svgs/copy.svg') no-repeat right .875rem center;
+    background: url(/svgs/copy.svg) no-repeat right .875rem center;
   }
 
   &:hover {

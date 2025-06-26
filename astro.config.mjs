@@ -30,15 +30,26 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
   }
 }];
 
-const { IS_PROD_BUILD } = process.env
+const { BUILD_TARGET = '' } = process.env
+const siteMap = {
+  'staging': 'https://okturtles.github.io',
+  'production': 'https://groupincome.org'
+}
+// Reference:
+// https://docs.astro.build/en/reference/configuration-reference/
+// https://vite.dev/config/
 
-// https://astro.build/config
 export default defineConfig({
-  site: IS_PROD_BUILD === 'true'
-    ? "https://groupincome.org" // !!NOTE!!: when the time comes and we deploy this project to our own website, replace this with the correct URL.
-    : 'https://okturtles.github.io',
-  base: IS_PROD_BUILD === 'true' ? "/" : '/groupincome.org',
-  // integrations: [mdx(), sitemap(), vue()],
+  site: siteMap[BUILD_TARGET],
+  base: BUILD_TARGET === 'staging' ? '/groupincome.org/' : '/',
+  // Sass-related options
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler'
+      }
+    }
+  },
   integrations: [
     mdx(),
     sitemap(),
@@ -48,4 +59,4 @@ export default defineConfig({
     remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, remarkMath],
     rehypePlugins: [[rehypeKatex, {}]]
   }
-});
+})

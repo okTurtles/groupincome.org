@@ -30,8 +30,7 @@ import Servers from '../components/Servers.astro';
 </Layout>
 
 <style lang="scss">
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .container {
   margin: 0 auto;
@@ -102,7 +101,7 @@ import Servers from '../components/Servers.astro';
 
   &:after {
     content: '';
-    background: url('/svgs/bottom-curve-white.svg') no-repeat center bottom;
+    background: url(/svgs/bottom-curve-white.svg) no-repeat center bottom;
     background-size: 100%;
     position: absolute;
     bottom: 0;
@@ -116,7 +115,7 @@ import Servers from '../components/Servers.astro';
 }
 
 .grey-container {
-  background: url('/images/about/grey-background.svg') no-repeat center bottom #fff;
+  background: url(/images/about/grey-background.svg) no-repeat center bottom #fff;
   background-size: 100%;
   text-align: center;
   padding: 4rem 1rem;

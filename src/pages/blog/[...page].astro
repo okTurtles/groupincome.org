@@ -3,9 +3,10 @@ import Layout from '@/layouts/DefaultLayout.astro';
 import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { resolvePath } from '@/utils/helpers.js'
 export async function getStaticPaths({ paginate }: any) {
-	const posts = (await Astro.glob('../../posts/*.{md,mdx}')).sort(
-		(a, b) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
-	);
+	const posts = Object.values(import.meta.glob('../../posts/*.{md,mdx}', { eager: true }))
+		.sort(
+			(a: any, b: any) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
+		);
   // Generate pages from our array of blog post, with 2 to a page
   return paginate(posts, { pageSize: 4 });
 }
@@ -41,8 +42,8 @@ const indexActive = (index: number, currentUrl: string) => {
 </Layout>
 
 <style lang="scss" is:global>
-@import "../../styles/_variables";
-@import "../../styles/_mixins";
+@use "../../styles/variables" as *;
+
 .c-blog-wrapper {
 	.icon-link {
 		display: none;
@@ -142,8 +143,8 @@ const indexActive = (index: number, currentUrl: string) => {
 </style>
 	
 <style lang="scss" scoped>
-@import "../../styles/_variables";
-@import "../../styles/_mixins";
+@use "../../styles/variables" as *;
+
 .c-header {
 	display: flex;
 	justify-content: center;

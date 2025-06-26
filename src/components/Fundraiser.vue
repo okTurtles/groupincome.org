@@ -33,7 +33,8 @@ const pourcent = `${progress}%`
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
+
 @property --num {
   syntax: "<integer>";
   initial-value: 0;

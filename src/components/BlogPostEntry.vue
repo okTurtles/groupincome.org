@@ -33,7 +33,7 @@ const imgSrc = resolvePath(image) || resolvePath('/images/' + permalink + '.jpeg
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .c-article {
 	border-bottom: 1px solid #D0DEEA;

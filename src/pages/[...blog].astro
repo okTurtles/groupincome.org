@@ -1,7 +1,7 @@
 ---
 import { sortedPosts } from '@/utils/sort'
 export async function getStaticPaths() {
-  const posts = sortedPosts(await Astro.glob('../posts/*.{md,mdx}'))
+  const posts = sortedPosts(import.meta.glob('../posts/*.{md,mdx}', { eager: true }))
   return posts.map(post => {
     return {
       params: {
@@ -19,8 +19,7 @@ const { Content } = Astro.props
 <Content />
 
 <style lang="scss" is:global>
-  @import "../styles/_variables";
-  @import "../styles/_mixins";
+  @use "../styles/variables" as *;
 
   .c-blog-wrapper {
     .icon-link {
@@ -162,8 +161,8 @@ const { Content } = Astro.props
   </style>
     
   <style lang="scss">
-  @import "../styles/_variables";
-  @import "../styles/_mixins";
+  @use "../styles/variables" as *;
+
   .c-header {
     display: flex;
     flex-direction: column;

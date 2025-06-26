@@ -27,7 +27,7 @@ const links: any[] = [
 </script>
 
 <style lang="scss" scoped>
-@import "../../styles/_variables";
+@use "../../styles/variables" as *;
 
 .c-warning-content {
   position: relative;

@@ -12,7 +12,7 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .c-hamburger {
   background-color: transparent;

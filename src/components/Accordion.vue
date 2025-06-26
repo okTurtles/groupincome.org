@@ -82,8 +82,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .panel {
   display: grid;

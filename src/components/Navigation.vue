@@ -5,7 +5,7 @@
     aria-label="main navigation">
     <div class="c-navbar-backdrop hide-desktop" @click="closeNavigation"></div>
 
-    <div class="c-navbar-main">
+    <div v-if="menuList.length > 0" class="c-navbar-main">
       <a v-for="entry in menuList"
         :key="entry.id"
         :data-test="entry.id"
@@ -31,9 +31,6 @@ import { resolvePath } from '@/utils/helpers.js'
 const $isNavigationOpen = useStore(isNavigationOpen);
 let menuList = ref([])
 
-// NOTE: await Astro.glob(...) is only available within *.astro file.
-//       So using Vite's import.meta.glob() instead here.
-//       (reference: https://vitejs.dev/guide/features.html#glob-import)
 const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
   .map((filepath) => filepath.split('/').pop())
   .filter(fileName => !fileName.startsWith('_'))
@@ -51,7 +48,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
+
 $zindex-navigation-on-mobile: $zindex-banner + 1;
 
 .c-navbar {

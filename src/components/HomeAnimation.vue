@@ -191,7 +191,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 @mixin phone_narrow {
   @media screen and (max-width: 430px) {
@@ -634,8 +634,7 @@ export default {
 
 .c-main-container {
   text-align: center;
-  // background: url('/images/temp/homepage-panel1.jpg') no-repeat center #fff;
-  background: url('/images/faces/shapes.svg') no-repeat center #fff;
+  background: url(/images/faces/shapes.svg) no-repeat center #fff;
   background-size: 100% auto;
   flex-direction: row;
   align-items: center;
@@ -711,7 +710,7 @@ export default {
   @include desktop {
     padding-bottom: 0;
     margin-bottom: 0;
-    background: url('/images/swoosh-dark-blue.svg') no-repeat center #fff;
+    background: url(/images/swoosh-dark-blue.svg) no-repeat center #fff;
     background-size: cover;
     background-size: 100% 100%;
   }

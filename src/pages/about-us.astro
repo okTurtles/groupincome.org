@@ -153,8 +153,7 @@ waitForElement(
 </script>
 
 <style lang="scss">
-@import "../styles/_variables";
-@import "../styles/_mixins";
+@use "../styles/variables" as *;
 
 .c-wrapper {
   padding-bottom: 2rem;
@@ -335,7 +334,7 @@ waitForElement(
 }
 
 .dark-container {
-  background: url('/images/about/blue-background.svg') no-repeat center #fff;
+  background: url(/images/about/blue-background.svg) no-repeat center #fff;
   background-size: 100%;
   color: #fff;
 
@@ -365,7 +364,7 @@ waitForElement(
 }
 
 .grey-container {
-  background: url('/images/about/grey-background.svg') no-repeat center bottom #fff;
+  background: url(/images/about/grey-background.svg) no-repeat center bottom #fff;
   background-size: 100%;
   text-align: center;
 

@@ -21,7 +21,7 @@ import Hamburger from './Hamburger.vue'
 </script>
 
 <style lang="scss" scoped>
-@import "../styles/_variables";
+@use "../styles/variables" as *;
 
 .c-header {
   width: 100%;
@@ -35,6 +35,7 @@ import Hamburger from './Hamburger.vue'
   display: flex;
   justify-content: center;
   background-color: #fff;
+  width: 100%;
 
   .c-wrapper {
     display: flex;

@@ -1,3 +1,6 @@
+@use "../variables" as *;
+@use "../icons" as i;
+
 $inputHeight: 2.75rem;
 
 @mixin placeholder {
@@ -150,7 +153,7 @@ legend.legend {
 .selectbox,
 .selectgroup {
   &::after {
-    @include icon(sort-down);
+    @include i.icon(sort-down);
     position: absolute;
     top: 50%;
     right: 1rem;
@@ -306,7 +309,7 @@ p.error {
   font-size: $size_6;
 
   &::before {
-    @include icon(times-circle);
+    @include i.icon(times-circle);
     margin-right: 0.25rem;
   }
 
@@ -428,7 +431,7 @@ p.error {
     }
 
     &::after {
-      @include icon(check);
+      @include i.icon(check);
       font-size: 10px;
       position: absolute;
       width: 6px;

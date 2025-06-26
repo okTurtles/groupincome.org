@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "sass:list";
+
 @font-face {
   src: url(/fonts/Lato/Lato-Bold.ttf);
   font-family: "Lato";
@@ -76,24 +79,24 @@ $letterSpacing: -3, -2.4, -0.55, 0, 0, 0;
 $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
 
 @each $size in $titles {
-  $i: index($titles, $size);
+  $i: list.index($titles, $size);
 
   .is-title-#{$i} {
     font-family: "Poppins";
     font-size: $size;
-    line-height: #{nth($lineHeight, $i) * .5}rem;
+    line-height: #{list.nth($lineHeight, $i) * .5}rem;
 
     @if ($i < 3) {
       font-weight: 600;
       font-size: $size * .5;
       @include tablet {
         font-size: $size * .8;
-        line-height: #{nth($lineHeight, $i) * .8}rem;
+        line-height: #{list.nth($lineHeight, $i) * .8}rem;
       }
     }
 
     @include desktop {
-      letter-spacing: #{nth($letterSpacing, $i)}px;
+      letter-spacing: #{list.nth($letterSpacing, $i)}px;
     }
   }
 }
@@ -117,6 +120,7 @@ $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
 .is-subtitle {
   line-height: 1.6875rem; // 27
   font-size: $size_5;
+
   @include desktop {
     font-size: $size_4; // 18
   }
@@ -150,10 +154,6 @@ small {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-// formerly in _colors.scss, moved here so that
-// @import "_variables"; in scoped styles in vue components
-// doesn't result in repeated CSS generated
 
 .has-text-0 {
   color: $text_0;
