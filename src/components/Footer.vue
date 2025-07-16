@@ -42,10 +42,10 @@
             </div>
             <div class="c-links-group">
                 <h4 class="is-title-6">SOCIAL</h4>
+                <a href="https://crib.social/groupincome" target="_blank" alt="Fediverse">Fediverse</a>
                 <a href="https://x.com/Group_Income" target="_blank" alt="Twitter">X/Twitter</a>
-                <a href="https://crib.social/okturtles" target="_blank" alt="Fediverse">Fediverse</a>
-                <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
                 <a href="https://odysee.com/@groupIncome:c" target="_blank" alt="Odysee">Odysee</a>
+                <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube">YouTube</a>
                 <a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank" alt="Slack">Slack</a>
                 <a href="https://github.com/okTurtles/group-income/discussions" target="_blank" alt="Forums">Forums</a>
             </div>
