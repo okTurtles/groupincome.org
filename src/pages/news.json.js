@@ -23,7 +23,7 @@ export function GET () {
     {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*' // Enable CORS for the news.json endpoint
+        'Access-Control-Allow-Origin': '*', // Enable CORS for the news.json endpoint
         'Access-Control-Allow-Methods': 'GET, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type'
       }
