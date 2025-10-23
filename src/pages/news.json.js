@@ -1,3 +1,7 @@
+const getPostDate = (post) => {
+  return new Date(post.createdAt).getTime()
+}
+
 export function GET () {
   const newsPosts = Object.values(import.meta.glob('../posts/news/*.md', { eager: true }))
   const newsJSONarray = newsPosts.map(post => {
@@ -8,6 +12,8 @@ export function GET () {
         .replace(/[ \t]+(?=\n)/g, '') // remove unnecessary whitespaces that occur between line-breaks (e.g. '\n     \n' -> '\n\n')
     }
   })
+
+  newsJSONarray.sort((a, b) => getPostDate(b) - getPostDate(a))
   return new Response(
     JSON.stringify(newsJSONarray),
     {
