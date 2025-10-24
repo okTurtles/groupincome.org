@@ -38,7 +38,7 @@
           <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
 
           <div class="scroll-btn-container">
-            <i class="icon-button icon-chevron-bottom" @click="onChevronClick"></i>
+            <ScrollDownArrow targetSelector="#container2 .c-container-title" />
           </div>
         </div>
       </section>
@@ -164,6 +164,7 @@ import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
+import ScrollDownArrow from './ScrollDownArrow.vue'
 // import VideoPlayer from './VideoPlayer.vue'
 
 export default {
@@ -172,20 +173,8 @@ export default {
     Browser,
     Sides,
     GetStarted,
+    ScrollDownArrow
     // VideoPlayer
-  },
-
-  methods: {
-    onChevronClick () {
-      const elScrollTo = document.querySelector('#container2 .c-container-title')
-
-      if (elScrollTo) {
-        elScrollTo.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        })
-      }
-    }
   }
 }
 </script>
