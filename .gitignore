@@ -11,16 +11,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# astro
-.astro/
-
 # environment variables
 .env
 .env.production
 
 # macOS-specific files
 .DS_Store
-
 
 # Astro
 .astro/
