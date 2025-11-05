@@ -34,8 +34,20 @@
 }
 
 .l-job {
+  p {
+    margin-bottom: 0.3rem;
+  }
   ul, ol {
     margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    li {
+      margin-bottom: 0.3rem;
+
+      ul, ol {
+        margin-top: 0.3rem;
+      }
+    }
   }
 
   ul {

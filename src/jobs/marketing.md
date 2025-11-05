@@ -1,26 +1,26 @@
 ---
 id: 5
-title: AI Marketing
-pubDate: '2025-06-20T00:00:00+00:00'
+title: Social Media Marketer
+pubDate: '2025-06-20T08:00:00Z'
 type: "remote"
 permalink: /marketing/
 layout: "../layouts/JobPost.astro"
 ---
 
-### AI Marketing
+### Social Media Marketer
 
-We're looking for a "professional sh*t poster" and marketer who is excited to work with AI technologies and is down with the social networks. A true people person who loves to make people smile, has a thick skin when they don't smile, and is a creative type who's interested in playing with AI tech to generate marketing material for Group Income.
+We're looking for a "professional sh*t poster" who has nothing better to do than sit on social media and post a few times per day in reaction to various project-related events in a semi-professional (but funny) manner. We'll pay you for it.
 
 ##### Required Attributes
 
 1. Loves the idea of Group Income and is excited about what we're doing.
-2. People person.
+2. People person. Happy to interact in a positive way with the community.
 3. Funny, Talented, and Creative.
-4. Are able to manage social network accounts on TikTok, Instagram, X, and any other platform we might decide to post to.
+4. Are able to manage multiple social network accounts, at least on Fediverse, X, and BlueSky.
 
 ##### Compensation
 
-- Negotiated hourly rate in cryptocurrency (or USD if there is no other way).
+- Negotiated hourly rate paid in cryptocurrency.
 
 ##### What to expect
 
@@ -36,9 +36,11 @@ We're looking for a "professional sh*t poster" and marketer who is excited to wo
     3.  What, if anything, you think you might have trouble with (be honest).
     4.  Link(s) to portfolio(s) or work, if you have any.
     5.  Any questions/concerns you have.
-    6.  2 real examples of any type of marketing content you'd make for us (whether it's a tweet, an AI video, a song, a blog post, whatever).
+    6.  3 real examples of any type of marketing content you'd make for us (whether it's a tweet, an AI video, a song, a blog post, a reaction to some current event, whatever).
     7.  How soon you’ll be able to start.
 
 *   Install [Keybase](https://keybase.io) and send a copy of that email to [greg](https://keybase.io/greg).
+
+Please follow all instructions if you'd like a reply.
 
 We should respond back within a week or so of receiving your application (depending on how many responses we’ve received so far).
