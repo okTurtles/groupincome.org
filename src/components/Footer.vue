@@ -46,8 +46,8 @@
                 <a href="https://odysee.com/@groupIncome:c" target="_blank" alt="Odysee">Odysee</a>
                 <a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank" alt="Slack">Slack</a>
                 <a href="https://github.com/okTurtles/group-income/discussions" target="_blank" alt="Forums">Forums</a>
-                <a href="https://x.com/Group_Income" target="_blank" alt="Twitter" style="color:grey">X/Twitter</a>
-                <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube" style="color:grey">YouTube</a>
+                <a href="https://x.com/Group_Income" target="_blank" alt="Twitter" style="color:lightgrey">X/Twitter</a>
+                <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube" style="color:lightgrey">YouTube</a>
             </div>
         </div>
     </div>
