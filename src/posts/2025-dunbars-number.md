@@ -4,8 +4,8 @@ description: Tackling fraud using Dunbar's number.
 author: Group Income Team
 date: June 12, 2025
 image: '/wp-content/uploads/2025/06/dunbar.jpg'
-isoDate: '2025-06-12T07:00:00+00:00'
-pubDate: '2025-06-12T07:00:00+00:00'
+isoDate: '2025-06-12T07:00:00Z'
+pubDate: '2025-06-12T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2025/06/no-eyeballs-needed/
 categories:

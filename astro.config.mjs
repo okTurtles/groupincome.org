@@ -6,13 +6,14 @@ import remarkGfm from 'remark-gfm'; // support rendering tables in markdown file
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 // twitter & youtube auto-embed via remark
-import remarkEmbedder from '@remark-embedder/core';
-import oembedTransformer from '@remark-embedder/transformer-oembed';
+// import remarkEmbedder from '@remark-embedder/core';
+// import oembedTransformer from '@remark-embedder/transformer-oembed';
 import vue from "@astrojs/vue";
 
+/*
 const remarkEmbedPlugin = [remarkEmbedder.default, {
-  transformers: [oembedTransformer.default],
-  // transformers: [],
+  // transformers: [oembedTransformer.default],
+  transformers: [],
   // https://github.com/remark-embedder/transformer-oembed/issues/25#issuecomment-888613740
   // https://github.com/remark-embedder/core#handleerror-errorinfo-errorinfo--gottenhtml--promisegottenhtml
   handleError({
@@ -29,6 +30,7 @@ const remarkEmbedPlugin = [remarkEmbedder.default, {
     return `<p style="color:red">ERROR: Unable to embed <a href="${url}">this tweet</a> (possibly deleted).</p>`;
   }
 }];
+*/
 
 const { BUILD_TARGET = '' } = process.env
 const siteMap = {
@@ -56,7 +58,7 @@ export default defineConfig({
     vue({ appEntrypoint: '/src/_app' })
   ],
   markdown: {
-    remarkPlugins: [remarkEmbedPlugin, remarkGfm, remarkBreaks, remarkMath],
+    remarkPlugins: [/* remarkEmbedPlugin, */ remarkGfm, remarkBreaks, remarkMath],
     rehypePlugins: [[rehypeKatex, {}]]
   }
 })

@@ -1,5 +1,5 @@
 ---
-import { sortedPosts } from '@/utils/sort'
+import { sortedPosts } from '@/utils/helpers'
 export async function getStaticPaths() {
   const posts = sortedPosts(import.meta.glob('../posts/*.{md,mdx}', { eager: true }))
   return posts.map(post => {
@@ -40,11 +40,11 @@ const { Content } = Astro.props
       margin-left: auto;
       margin-right: auto;
     }
-  
+
     .icon-link::before {
       font-family: "Font Awesome 5 Free";
     }
-  
+
     ul, ol {
       margin: 1rem 0 1.5rem 1rem;
 
@@ -56,15 +56,15 @@ const { Content } = Astro.props
         }
       }
     }
-  
+
     h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
     }
-  
+
     h1, h2{
       margin-top: 4rem;
     }
-  
+
     h1, h2, h3, h4, h5, h6, p, li {
       margin-bottom: 1rem;
     }
@@ -74,7 +74,7 @@ const { Content } = Astro.props
       border-bottom: 1px solid $divider_1;
       margin: 3rem 0 1.5rem;
     }
-  
+
     a {
       @extend %link-style;
     }
@@ -83,53 +83,53 @@ const { Content } = Astro.props
       0% { background-size: 100% 0.1em, 0 0.1em; }
       100% { background-size: 0 0.1em, 100% 0.1em; }
     }
-  
+
     img {
       margin: 2rem 0;
     }
-  
+
     table {
       margin: 1rem 0 3rem 0;
     }
-  
+
     th {
       padding: 1rem;
       border-bottom: 2px solid #ddd;
     }
-  
+
     td {
       padding: 1rem;
       border-bottom: 1px solid #ddd;
     }
-  
+
     center {
       margin-bottom: 1rem;
     }
-  
+
     ul {
       list-style-type: disc;
     }
-  
+
     iframe {
       margin: 2rem auto;
       max-width: 100%;
     }
-  
+
     blockquote {
       border-left: 5px solid rgba(0, 0, 0, .15);
       padding: 10px 18px;
       font-style: italic;
       margin: 0 0 1.5em;
-  
+
       p:last-child {
         margin-bottom: 0;
       }
     }
-  
+
     .gallery {
       display: flex;
       justify-content: space-around;
-  
+
       img {
         min-width: 1px;
         padding: .3rem;
@@ -159,7 +159,7 @@ const { Content } = Astro.props
     }
   }
   </style>
-    
+
   <style lang="scss">
   @use "../styles/variables" as *;
 
@@ -168,46 +168,46 @@ const { Content } = Astro.props
     flex-direction: column;
     min-height: 32rem;
     justify-content: center;
-  
+
     @include until($tablet) {
       min-height: auto;
       margin-top: 1rem;
       margin-bottom: 5rem;
     }
   }
-  
+
   .c-header-image {
     width: 100%;
     height: 20rem;
     max-height: 44vw;
     object-fit: cover;
   }
-  
+
   .grey-container {
     margin-bottom: 6rem;
   }
-  
+
   section {
     @include until($desktop) {
       padding: 0 1rem;
     }
   }
-  
+
   .c-info,
   .c-main-para {
     color: #939393;
   }
-  
+
   .l-1-2 {
     min-height: 32rem;
-  
+
     @include until($tablet) {
       display: flex;
       flex-direction: column-reverse;
       margin-top: 2rem;
     }
   }
-  
+
   .l-1-1-1 {
     .c-article-image {
       background-color: #D0DEEA;
@@ -217,75 +217,75 @@ const { Content } = Astro.props
       object-fit: cover;
     }
   }
-  
+
   .c-article-image {
     background-color: #D0DEEA;
     border-radius: .5rem;
   }
-  
+
   .c-blog-title,
   .c-main-title {
     margin: 1rem 0 1rem 0;
   }
-  
+
   .c-blog-title {
     font-weight: 600;
-  
+
     @include phone {
       line-height: 1.4;
     }
   }
-  
+
   .c-main-title {
     font-size: 3.5rem;
-  
+
     @include until($desktop) {
       font-size: 3rem;
       line-height: 1.2;
     }
-  
+
     @include phone {
       font-size: 2.25rem;
     }
   }
-  
+
   .c-info {
     font-weight: .5rem;
     margin: 1rem 0 3rem 0;
-  
+
     time::before {
       content: ' • ';
     }
   }
-  
+
   .c-article {
     border-bottom: 1px solid #D0DEEA;
     padding-bottom: 2rem;
     margin-bottom: 5rem;
-  
+
     p {
       margin-bottom: 1.5rem;
     }
-  
+
     img {
       margin: 2rem auto;
     }
-  
+
     h2 {
       font-size: 2rem;
       font-weight: 600;
     }
   }
-  
+
   .c-article-link {
     display: flex;
     align-items: flex-start;
-  
+
     strong {
       color: #0AA5DE;
       size: $size_4;
     }
-  
+
     img {
       width: 16rem;
       height: auto;
@@ -293,16 +293,16 @@ const { Content } = Astro.props
       margin-right: 2rem;
       object-fit: cover;
     }
-  
+
     .c-blog-title {
       max-width: 21rem;
       margin-top: .2rem;
       margin-bottom: -.5rem;
     }
-  
+
     @include phone {
       flex-direction: column;
-  
+
       img {
         width: 100%;
         margin-right: 0;

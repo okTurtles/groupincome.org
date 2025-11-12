@@ -1,7 +1,7 @@
 ---
 id: 3
 title: Volunteering & Bounties
-pubDate: '2022-03-13T00:00:00+00:00'
+pubDate: '2022-03-13T07:00:00Z'
 type: "remote"
 permalink: /volunteering/
 layout: "../layouts/JobPost.astro"

@@ -9,6 +9,22 @@ export function resolvePath (relPath = '') {
   return `${import.meta.env.BASE_URL}${relPath}`
 }
 
+export function sortedPosts (matches) {
+  // NOTE: This function assumes that matches passed in is the result of import.meta.glob()
+  // reference: https://docs.astro.build/en/guides/imports/#importmetaglob
+
+  const posts = Object.values(matches)
+  return posts
+    .filter(p => !p.frontmatter.draft)
+    .sort(
+      (a, b) => {
+        const value = new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+        // console.info({ date: value })
+        return value
+      }
+    )
+}
+
 export function imgPathToSrcSet (relPath = '', dpi = 1) {
   // This function generates a path string to be used for srcset html attribute.
   // eg. if 'images/about/graph1.svg' and 2 are given,

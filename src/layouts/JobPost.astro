@@ -1,8 +1,7 @@
 ---
 import Layout from './DefaultLayout.astro';
 import Sides from '../components/graphics/Sides.vue';
-import { sortedPosts } from '@/utils/sort'
-import { resolvePath } from '@/utils/helpers.js'
+import { resolvePath, sortedPosts } from '@/utils/helpers.js'
 
 const jobs =  sortedPosts(import.meta.glob('../jobs/*.{md,mdx}', { eager: true })).filter(job => {
   return !job.file.split('/').pop().startsWith('_')
@@ -46,7 +45,7 @@ const currentPath = path[path.length - 2];
   </div>
 </div>
 </Layout>
-  
+
 <style lang="scss">
 @use "../styles/variables" as *;
 

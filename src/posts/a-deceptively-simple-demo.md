@@ -4,8 +4,8 @@ description: Our goal for Group Income was to not just get the UI right, but to 
 author: Greg Slepak
 date: May 14, 2020
 image: '/images/blog/a-deceptively-simple-demo.jpeg'
-isoDate: '2020-05-14T13:29:36+00:00'
-pubDate: '2020-05-14T13:29:36+00:00'
+isoDate: '2020-05-14T13:29:36Z'
+pubDate: '2020-05-14T13:29:36Z'
 layout: "../layouts/BlogPost.astro"
 
 id: 1381

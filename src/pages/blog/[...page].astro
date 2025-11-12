@@ -1,12 +1,9 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro';
 import BlogPostEntry from '@/components/BlogPostEntry.vue'
-import { resolvePath } from '@/utils/helpers.js'
+import { resolvePath, sortedPosts } from '@/utils/helpers.js'
 export async function getStaticPaths({ paginate }: any) {
-	const posts = Object.values(import.meta.glob('../../posts/*.{md,mdx}', { eager: true }))
-		.sort(
-			(a: any, b: any) => new Date(b.frontmatter.isoDate).valueOf() - new Date(a.frontmatter.isoDate).valueOf()
-		);
+	const posts = sortedPosts(import.meta.glob('../../posts/*.{md,mdx}', { eager: true }))
   // Generate pages from our array of blog post, with 2 to a page
   return paginate(posts, { pageSize: 4 });
 }
@@ -141,7 +138,7 @@ const indexActive = (index: number, currentUrl: string) => {
 	}
 }
 </style>
-	
+
 <style lang="scss" scoped>
 @use "../../styles/variables" as *;
 

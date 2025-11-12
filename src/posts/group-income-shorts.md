@@ -4,8 +4,8 @@ description: What is Group Income…? …How does Group Income work…? …And w
 author: Greg Slepak
 date: December 8, 2016
 image: /images/blog/group-income-shorts.jpeg
-isoDate: '2016-12-08T10:04:23+00:00'
-pubDate: '2016-12-08T10:04:23+00:00'
+isoDate: '2016-12-08T10:04:23Z'
+pubDate: '2016-12-08T10:04:23Z'
 layout: '../layouts/BlogPost.astro'
 id: 660
 guid: 'https://groupincome.org/?p=660'

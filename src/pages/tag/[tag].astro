@@ -1,8 +1,7 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro'
 import BlogPostEntry from '@/components/BlogPostEntry.vue'
-import { resolvePath, uniq } from '@/utils/helpers.js'
-import { sortedPosts } from '@/utils/sort'
+import { sortedPosts, uniq } from '@/utils/helpers.js'
 
 export async function getStaticPaths () {
   const allPosts = sortedPosts(import.meta.glob('../../posts/*.{md,mdx}', { eager: true }))
@@ -31,7 +30,7 @@ const { posts } = Astro.props
   <header class="c-header">
     <h1 class="is-title-3 page-title">Posts Tagged: <span class="c-tag-name">'{tag}'</span></h1>
   </header>
-  
+
   <div class="c-post-list">
     {
       Boolean(posts.length) &&

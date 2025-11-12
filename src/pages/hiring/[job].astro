@@ -1,5 +1,5 @@
 ---
-import { sortedPosts } from '@/utils/sort'
+import { sortedPosts } from '@/utils/helpers'
 export async function getStaticPaths() {
   const jobs =  sortedPosts(import.meta.glob('../../jobs/*.{md,mdx}', { eager: true }));
   return jobs.map(job => {

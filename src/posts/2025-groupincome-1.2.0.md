@@ -4,8 +4,8 @@ description: Introducing end-to-end encrypted web push notifications and more!
 author: Greg Slepak
 date: February 25, 2025
 image: '/wp-content/uploads/2025/02/Version1.2.png'
-isoDate: '2025-02-25T07:00:00+00:00'
-pubDate: '2025-02-25T07:00:00+00:00'
+isoDate: '2025-02-25T07:00:00Z'
+pubDate: '2025-02-25T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2025/02/group-income-released/
 categories:

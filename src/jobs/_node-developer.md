@@ -1,13 +1,13 @@
 ---
 id: 1
 title: Node.js Developer (Senior/Mid or Promising Junior)
-pubDate: '2022-01-13T00:00:00+00:00'
+pubDate: '2022-01-13T07:00:00Z'
 type: "remote"
 permalink: /node-developer/
 layout: "../layouts/JobPost.astro"
 ---
 
-### Node.js Developer  
+### Node.js Developer
 (Senior/Mid or Promising Junior)
 
 Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂

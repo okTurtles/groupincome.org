@@ -1,7 +1,7 @@
 ---
 id: 4
 title: Infosec Expert Protocol Developer
-pubDate: '2022-01-13T00:00:00+00:00'
+pubDate: '2022-01-13T07:00:00Z'
 type: "remote"
 permalink: /infosec-expert/
 layout: "../layouts/JobPost.astro"

@@ -4,8 +4,8 @@ description: A brand new beginning.
 author: Greg Slepak
 date: June 10, 2025
 image: '/wp-content/uploads/2025/06/Version2.0.png'
-isoDate: '2025-06-10T07:00:00+00:00'
-pubDate: '2025-06-10T07:00:00+00:00'
+isoDate: '2025-06-10T07:00:00Z'
+pubDate: '2025-06-10T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2025/06/group-income-2.0/
 categories:

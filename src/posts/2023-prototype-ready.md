@@ -4,8 +4,8 @@ description: It's been quite a journey, but we're finally here. A 'new kind of s
 author: Greg Slepak
 date: June 8, 2023
 image: '/images/blog/groupincome-screenshot.png'
-isoDate: '2023-06-08T07:00:00+00:00'
-pubDate: '2023-06-08T07:00:00+00:00'
+isoDate: '2023-06-08T07:00:00Z'
+pubDate: '2023-06-08T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 id: 1539
 guid: 'https://groupincome.org/?p=1539'

@@ -1,7 +1,7 @@
 ---
 id: 2
 title: Professional Fundraiser
-pubDate: '2022-02-13T00:00:00+00:00'
+pubDate: '2022-02-13T07:00:00Z'
 type: "remote"
 permalink: /fundraiser/
 layout: "../layouts/JobPost.astro"
