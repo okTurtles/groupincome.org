@@ -28,17 +28,17 @@
   <div class="c-video-wrapper">
     <hr class="c-video-divider"/>
 
-    <!-- <iframe
+     <iframe
       id="odysee-iframe"
-      style="width:100%; aspect-ratio:16 / 9;"
+      style="width:100%; aspect-ratio:16 / 9;" class="has-deep-box-shadow"
       src="https://odysee.com/%24/embed/%40okTurtles%3Ae%2Fgroup_income_intro%3A6?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
       allowfullscreen>
-    </iframe> -->
-    <iframe style="width:100%; aspect-ratio:16 / 9;" class="has-deep-box-shadow"
+    </iframe>
+    <!-- <iframe style="width:100%; aspect-ratio:16 / 9;" class="has-deep-box-shadow"
       src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k"
       title="YouTube video player"
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 
   </div>
 </div>
