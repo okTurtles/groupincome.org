@@ -20,7 +20,7 @@ And now we've upgraded it with an end-to-end encrypted video player!
 
 ### Localized Into 9 Languages!
 
-Group Income 2.5 now speaks 9 languages.
+Group Income 2.5 now speaks 9 other languages (besides English)!
 
 You can now use Group Income in **Korean**, **Chinese**, **Japanese**, **Spanish**, **Portuguese**, **German**, **French**, **Russian** and **Ukrainian**!
 
