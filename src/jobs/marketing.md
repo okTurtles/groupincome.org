@@ -9,7 +9,7 @@ layout: "../layouts/JobPost.astro"
 
 ### Social Media Marketer
 
-We're looking for a "professional sh*t poster" who's great with social media to post a few times per day in reaction to various project-related events in a semi-professional (but humorous) manner. We'll pay you for it.
+We're looking for a "professional sh*t poster" who's great with social media to post a few times per day in reaction to various project-related events in a semi-professional (but humorous) manner and engage with the community.
 
 ##### Required Attributes
 
