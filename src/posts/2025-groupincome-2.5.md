@@ -18,11 +18,11 @@ And now we've upgraded it with an end-to-end encrypted video player!
 
 ![](/wp-content/uploads/2025/11/sys.jpg)
 
-### Localized Into 9 Languages!
+### Localized Into 10 Languages!
 
-Group Income 2.5 now speaks 9 other languages (besides English)!
+Group Income 2.5 now speaks 10 languages!
 
-You can now use Group Income in **Korean**, **Chinese**, **Japanese**, **Spanish**, **Portuguese**, **German**, **French**, **Russian** and **Ukrainian**!
+You can now use Group Income in **English**, **Korean**, **Chinese**, **Japanese**, **Spanish**, **Portuguese**, **German**, **French**, **Russian** and **Ukrainian**!
 
 ![](/wp-content/uploads/2025/11/localized.jpg)
 
@@ -41,7 +41,7 @@ Can Group Income save us from the control grid? Find out!
 **New Features**
 
 - Video player! You can now upload videos to chat and play them back!
-- App translated for Korean, Chinese, Japanese, Spanish, Portuguese, German, Russian, and Ukrainian (we already had French!)
+- New translations for Korean, Chinese, Japanese, Spanish, Portuguese, German, Russian, and Ukrainian (we already had French!)
 
 **Improvements**
 
@@ -51,7 +51,7 @@ Can Group Income save us from the control grid? Find out!
 
 **Bugfixes**
 
-- New DMs not showing up after key rotation
+- Fixed new DMs not showing up after key rotation
 - Fixed handling of in-app links within chat
 - Hopefully fixed delayed distribution period notification
 - Fixed virtual keyboard occluding chat send message area
