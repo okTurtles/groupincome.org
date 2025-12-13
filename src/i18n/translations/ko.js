@@ -11,10 +11,12 @@ const table = {
     'Donate': '기부하기',
     'Get started': '시작하기'
   },
+
   'fundraiser': {
     'Donate now': '기부하기',
     'Help us reach our goal!': '목표 달성을 도와주세요!'
   },
+
   'footer': {
     'STAY UP TO DATE': '최신 정보를 받아보세요',
     'Subscribe to our newsletter to be the first to know when the prototype is ready.': '뉴스레터를 구독하고, 프로토타입 런치 소식을 가장 먼저 받아보세요.',
@@ -53,6 +55,7 @@ const table = {
     'Get started': '시작하기',
     'Donate': '기부하기'
   },
+
   'about-us': {
     'ABOUT GROUP INCOME': 'GROUP INCOME 이란',
     'On a mission to ensure': '<span class="text-blue">모두</span>의 <span class="text-orange">기본 소득</span> <span class="text-green">보장</span>을 향한 미션.',
@@ -65,6 +68,15 @@ const table = {
     'Collaborators': '협력자들',
     'Do you like our project and want to join our team?': '저희 팀에 합류하고 싶으신가요?',
     'See open positions': '채용공고 보기'
+  },
+
+  'get-started-page': {
+    'GET STARTED': '시작하기',
+    'Join a Group Income server': 'Group Income 서버에 가입하세요',
+    "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.":
+      "Group Income은 웹사이트가 아니라, 이메일과 같습니다. 누구나 자신의 서버를 운영할 수 있습니다. 공식 서버 혹은, 다른 고객의 서버에 가입하세요.",
+    "Don't see a server you like?": '원하는 서버를 찾지 못하셨나요?',
+    'Run your own server': '본인만의 서버를 운영하세요'
   }
 }
 

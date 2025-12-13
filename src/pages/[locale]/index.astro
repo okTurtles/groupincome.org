@@ -1,0 +1,15 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import HomeAnimation from '@/components/HomeAnimation.vue'
+import { dynamicRoutes } from '@/i18n/utils'
+
+
+export async function getStaticPaths() {
+  return dynamicRoutes
+}
+
+const { locale } = Astro.params
+---
+<Layout>
+  <HomeAnimation client:load locale={locale} />
+</Layout>

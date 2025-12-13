@@ -17,7 +17,7 @@
         </div>
 
         <div class="c-main-wrapper" id="header1">
-          <h1 class="is-font-poppin c-page-title">Group Income</h1>
+          <h1 class="is-font-poppin c-page-title">Group Income{{ locale ? ` (${locale})` : '' }}</h1>
           <!-- <h1 class="is-title-1 c-main-title">
             Basic Income for your
             friends and family.
@@ -180,6 +180,13 @@ export default {
     GetStarted,
     ScrollDownArrow
     // VideoPlayer
+  },
+  props: {
+    locale: {
+      type: String,
+      required: false,
+      default: ''
+    }
   }
 }
 </script>
