@@ -7,7 +7,7 @@
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>
-      <Navigation client:load></Navigation>
+      <Navigation client:load :locale="locale"></Navigation>
     </div>
     <Hamburger></Hamburger>
   </div>
@@ -18,6 +18,14 @@
 import Navigation from './Navigation.vue'
 import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
+
+const props = defineProps({
+  locale: {
+    type: String,
+    required: false,
+    default: ''
+  }
+})
 </script>
 
 <style lang="scss" scoped>

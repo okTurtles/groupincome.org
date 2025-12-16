@@ -151,7 +151,7 @@
           <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
 
           <div class="c-buttons">
-            <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
+            <a class="c-navbar-item button is-big is-primary" v-href:[locale]="'/get-started'">Get started</a>
             <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">Donate</a>
           </div>
         </div>

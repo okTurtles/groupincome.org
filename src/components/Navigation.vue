@@ -16,7 +16,7 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <a class="c-get-started-btn button is-primary" v-href="'/get-started'" @click="closeNavigation">Get started</a>
+      <a class="c-get-started-btn button is-primary" v-href:[locale]="'/get-started'" @click="closeNavigation">Get started</a>
     </div>
   </nav>
 </template>
@@ -26,6 +26,14 @@ import { onMounted, ref } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 import { resolvePath } from '@/utils/helpers.js'
+
+const props = defineProps({
+  locale: {
+    type: String,
+    required: false,
+    default: ''
+  }
+})
 
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);

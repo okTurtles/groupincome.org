@@ -12,7 +12,7 @@ export interface Props {
 	locale?: string;
 }
 
-const { title, description, image, locale } = Astro.props;
+const { title, description, image, locale = '' } = Astro.props;
 const _title = title || SITE_TITLE;
 const _description = description || SITE_DESCRIPTION;
 ---
@@ -24,7 +24,7 @@ const _description = description || SITE_DESCRIPTION;
 	</head>
 	<body data-translation={locale}>
 		<PageWrapper client:load>
-			<Header client:load />
+			<Header client:load locale={locale} />
 			<main>
 				<slot />
 			</main>
