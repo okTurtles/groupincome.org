@@ -2,25 +2,22 @@
 <div>
   <div class="c-feature-boxes">
     <div class="c-feature-box">
-      <div class="c-feature-box-title">Choose a Server</div>
+      <div class="c-feature-box-title">{{ L('Choose a Server') }}</div>
+      <div class="c-feature-box-para" v-html="L('Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!', { a1_: '<a href=\'https://groupincome.app\' class=\'is-link\'>', _a: '</a>', a2_: '<a class=\'is-link\' v-href=\'/get-started#servers\'>' })" />
+    </div>
+
+    <div class="c-feature-box">
+      <div class="c-feature-box-title">{{ L('Create an account') }}</div>
       <div class="c-feature-box-para">
-        Use <a href="https://groupincome.app" class="is-link">our official server</a>,
-        choose from <a class="is-link" v-href="'/get-started#servers'">a list of</a> independently operated servers, or run your own!
+        {{ L("Group Income doesn't use cookies to manage user accounts.") }}
+        <a href="https://shelterprotocol.net" target="_blank" class="is-display-block is-link">{{ L('Read more about our technology') }}</a>
       </div>
     </div>
 
     <div class="c-feature-box">
-      <div class="c-feature-box-title">Create an account</div>
+      <div class="c-feature-box-title">{{ L('Join a Group and Start Sharing!') }}</div>
       <div class="c-feature-box-para">
-        Group Income doesn't use cookies to manage user accounts.
-        <a href="https://shelterprotocol.net" target="_blank" class="is-display-block is-link">Read more about our technology</a>
-      </div>
-    </div>
-
-    <div class="c-feature-box">
-      <div class="c-feature-box-title">Join a Group and Start Sharing!</div>
-      <div class="c-feature-box-para">
-        Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.
+        {{ L('Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.') }}
       </div>
     </div>
   </div>
@@ -45,8 +42,30 @@
 </template>
 
 <script>
+// @i18n-area: get-started
+
+import { inject } from 'vue'
+
 export default {
-  name: 'GetStarted'
+  name: 'GetStarted',
+  props: {
+    locale: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  },
+  setup () {
+    const useTranslation = inject('useTranslation')
+    return {
+      useTranslation
+    }
+  },
+  computed: {
+    L () {
+      return this.useTranslation(this.locale, 'get-started')
+    }
+  }
 }
 </script>
 

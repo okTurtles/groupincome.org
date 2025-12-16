@@ -50,6 +50,19 @@ const table = {
     'Create your own financial safety net.': 'Create your own financial safety net.',
     "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.": "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.",
     'Try out the payments simulator.': 'Try out the payments simulator.',
+    'Non-monetary Contributions': 'Non-monetary Contributions',
+    'Everyone has something to offer.': 'Everyone has something to offer.',
+    'Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.': 'Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.',
+    'Empower Your Community': 'Empower Your Community',
+    'The best private chat for your community.': 'The best private chat for your community.',
+    'A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.': 'A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.',
+    'Stay Safe': 'Stay Safe',
+    'Security & Privacy': 'Security & Privacy',
+    'Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.': 'Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.',
+    'Your data is stored in encrypted form on servers, and decrypted locally on your device. The keys to decrypt that data are derived from your password and are also stored on your device.': 'Your data is stored in encrypted form on servers, and decrypted locally on your device. The keys to decrypt that data are derived from your password and are also stored on your device.',
+    'Group Income is end-to-end encrypted and self-hosted.': 'Group Income is end-to-end encrypted and self-hosted.',
+    "Here's how to get started:": "Here's how to get started:",
+    'Basic Income for your friends and family.': 'Basic Income for your friends and family.',
     'Get started': 'Get started',
     'Donate': 'Donate'
   },
@@ -65,6 +78,25 @@ const table = {
     'Collaborators': 'Collaborators',
     'Do you like our project and want to join our team?': 'Do you like our project and want to join our team?',
     'See open positions': 'See open positions'
+  },
+  'get-started-page': {
+    'GET STARTED': 'GET STARTED',
+    'Join a Group Income server': 'Join a Group Income server',
+    "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.":
+      "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.",
+    "Don't see a server you like?": "Don't see a server you like?",
+    'Run your own server': 'Run your own server'
+  },
+
+  // vue components
+  'get-started': {
+    'Choose a Server': 'Choose a Server',
+    'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!': 'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!',
+    'Create an account': 'Create an account',
+    "Group Income doesn't use cookies to manage user accounts.": "Group Income doesn't use cookies to manage user accounts.",
+    'Read more about our technology': 'Read more about our technology',
+    'Join a Group and Start Sharing!': 'Join a Group and Start Sharing!',
+    'Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.': 'Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.',
   }
 }
 

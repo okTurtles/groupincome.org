@@ -51,12 +51,24 @@ const table = {
     'Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.': '기본 소득은 기본적인 재정 안정을 지원함으로써, 수백만 명의 삶의 질을 향상시키고, 마음의 평안을 제공합니다.',
     'Set a "mincome" floor': '"mincome"을 설정하세요',
     'Create your own financial safety net.': '자신만의 재정 안전망을 구축하세요.',
-    "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.": "더 단단한 공동체를 만들고, 당신이 아끼는 사람들을 위한 기본적인 재정적 안정을 보장하세요. - 최소 소득 기준을 설정하세요 (\"mincome\"). 매달, 그룹 구성원들은 최소 소득 기준을 넘지 못한 사람들을 돕습니다.",
+    "Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.": "더 단단한 공동체를 만들고, 당신이 아끼는 사람들을 위한 기본적인 재정적 안정을 보장하세요. - 최소 소득(\"mincome\") 기준을 설정하세요. 매달 그룹 구성원들은 최소 소득 기준을 넘지 못한 사람들을 돕습니다.",
     'Try out the payments simulator.': 'Payments simulator 써보기.',
+    'Non-monetary Contributions': '비재정적 기부',
+    'Everyone has something to offer.': '모두가 무언가를 제공할 수 있습니다.',
+    'Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.': '그룹 구성원들은 재정적 기부 혹은 비재정적 기부를 통해, 고용 여부에 관계없이 모든 구성원들에게 기본소득을 제공합니다.',
+    'Empower Your Community': '당신의 커뮤니티에 힘을 실어주세요',
+    'The best private chat for your community.': '당신의 커뮤니티를 위한 최고의 비밀 채팅 소프트웨어.',
+    'A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.': '이모지 반응, 투표, 파일 첨부 등 다양한 기능을 제공하는 강력한 커뮤니티 채팅 소프트웨어, 모두 비밀이며 엔드-투-엔드(E2E) 암호화를 적용합니다.',
+    'Stay Safe': '안전하게 사용하세요',
+    'Security & Privacy': '정보 보안 정책',
+    'Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.': 'Group Income은 엔드-투-엔드 암호화 프로토콜인 {a_}Shelter Protocol{_a}을 기반으로 구축되었습니다.',
+    'Your data is stored in encrypted form on servers, and decrypted locally on your device. The keys to decrypt that data are derived from your password and are also stored on your device.': '당신의 데이터는 서버에 암호화된 형태로 저장되며, 당신의 기기에서 복호화됩니다. 복호화 키는 당신의 비밀번호에서 파생되며, 당신의 기기에도 저장됩니다.',
+    'Group Income is end-to-end encrypted and self-hosted.': 'Group Income은 엔드-투-엔드 암호화 및 자체 호스팅 소프트웨어입니다.',
+    "Here's how to get started:": '시작하는 법:',
+    'Basic Income for your friends and family.': '당신의 친구와 가족을 위한 기본소득.',
     'Get started': '시작하기',
     'Donate': '기부하기'
   },
-
   'about-us': {
     'ABOUT GROUP INCOME': 'GROUP INCOME 이란',
     'On a mission to ensure': '<span class="text-blue">모두</span>의 <span class="text-orange">기본 소득</span> <span class="text-green">보장</span>을 향한 미션.',
@@ -70,7 +82,6 @@ const table = {
     'Do you like our project and want to join our team?': '저희 팀에 합류하고 싶으신가요?',
     'See open positions': '채용공고 보기'
   },
-
   'get-started-page': {
     'GET STARTED': '시작하기',
     'Join a Group Income server': 'Group Income 서버에 가입하세요',
@@ -78,6 +89,17 @@ const table = {
       "Group Income은 웹사이트가 아니라, 이메일과 같습니다. 누구나 자신의 서버를 운영할 수 있습니다. 공식 서버 혹은, 다른 고객의 서버에 가입하세요.",
     "Don't see a server you like?": '원하는 서버를 찾지 못하셨나요?',
     'Run your own server': '본인만의 서버를 운영하세요'
+  },
+
+  // vue components
+  'get-started': {
+    'Choose a Server': '서버 선택하기',
+    'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!': '{a1_}저희 공식 서버를{_a} 이용하거나, {a2_}독립 운영 서버 리스트에서{_a} 하나를 선택하거나, 혹은 본인만의 서버를 운영하세요!',
+    'Create an account': '계정 생성하기',
+    "Group Income doesn't use cookies to manage user accounts.": "Group Income은 쿠키를 사용하지 않습니다.",
+    'Read more about our technology': '기술에 대해 더 알아보기',
+    'Join a Group and Start Sharing!': '그룹에 가입하고 나눔을 시작하세요!',
+    'Contribute with monetary or non-monetary donations and secure everyone in your group with a basic income.': '재정적 기부 혹은 비재정적 기부를 통해, 고용 여부에 관계없이 모든 구성원들에게 기본소득을 제공합니다.',
   }
 }
 
