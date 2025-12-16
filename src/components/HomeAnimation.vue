@@ -40,7 +40,7 @@
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
           </div>
 
-          <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
+          <p class="is-subtitle c-main-para">{{ L('Private community software with a financial safety net, so you can focus on what matters.') }}</p>
 
           <div class="scroll-btn-container">
             <ScrollDownArrow targetSelector="#container2 .c-container-title" />
@@ -165,6 +165,7 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
@@ -186,6 +187,17 @@ export default {
       type: String,
       required: false,
       default: ''
+    }
+  },
+  setup () {
+    const useTranslation = inject('useTranslation')
+    return {
+      useTranslation
+    }
+  },
+  computed: {
+    L () {
+      return this.useTranslation(this.locale, 'home')
     }
   }
 }

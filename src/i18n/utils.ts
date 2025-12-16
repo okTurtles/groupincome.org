@@ -17,15 +17,35 @@ export const dynamicRoutes: Array<any> = supportedLangCodes.map((langCode: strin
   return { params: { locale: langCode } }
 })
 
+const argsRegex = /\{([0-9a-zA-Z_]+)\}/g
+
+function replaceArgs (string: string, args: Record<string, string> = {}): string {
+  const replacementsByKey = args
+
+  return string.replace(argsRegex, (match, capture, index) => {
+    // Avoid replacing the capture if it is escaped by double curly braces.
+    if (string[index - 1] === '{' && string[index + match.length] === '}') {
+      return capture
+    }
+
+    return replacementsByKey[capture] || ''
+  })
+}
+
 export function useTranslation (lang: string = '', area: string = '') {
   if (lang === defaultLanguage || !(lang in translationTables)) {
     return (key: string): string => key
   }
 
   const table = translationTables[lang]
-  return (key: string): string => {
-    return area in table
+  return (key: string, args: Record<string, string> = {}): string => {
+    const stringFromTable = area in table
       ? table[area][key] || table[key] || key
       : table[key] || key
+    const hasArgs = Object.keys(args).length > 0
+
+    return hasArgs
+      ? replaceArgs(stringFromTable, args)
+      : stringFromTable
   }
 }

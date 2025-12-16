@@ -37,6 +37,7 @@ const table = {
 
   // pages
   'home': {
+    'Private community software with a financial safety net, so you can focus on what matters.': '재정적 안전망을 제공하는 비밀 공동체 소프트웨어, 당신이 신경써야 할 것에 집중할 수 있습니다.',
     'Basic Income for your friends and family.': '당신의 친구와 가족을 위한 기본소득.',
     'Group income makes it easy for small communities to voluntarily provide a financial safety net for their members.': 'Group Income은 소규모 공동체가 자제척으로 구성원들에게 재정적 안전망 제공을 할 수 있게 돕습니다.',
     'What is Group Income?': 'Group Income 이란?',

@@ -60,5 +60,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [/* remarkEmbedPlugin, */ remarkGfm, remarkBreaks, remarkMath],
     rehypePlugins: [[rehypeKatex, {}]]
+  },
+  devToolbar: {
+    enabled: false, // hide the dev toolbar
   }
 })
