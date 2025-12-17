@@ -1,5 +1,5 @@
 <template>
-<component :is="tag" v-html="translated"></component>
+<span v-html="translated"></span>
 </template>
 
 <script setup>
@@ -16,18 +16,17 @@ const props = defineProps({
     required: false,
     default: ''
   },
-  tag: {
+  locale: {
     type: String,
     required: false,
-    default: 'span'
+    default: ''
   },
   args: Object
 })
 
 const slots = useSlots()
 const useTranslation = inject('useTranslation')
-const locale = inject('locale', '')
-const translator = useTranslation(locale, props.area)
+const translator = useTranslation(props.locale, props.area)
 
 const textToTranslate = props.text || (slots.default ? slots.default()[0].children : '') || ''
 const translated = translator(textToTranslate.trim(), props.args)

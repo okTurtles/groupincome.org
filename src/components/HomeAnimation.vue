@@ -40,7 +40,7 @@
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
           </div>
 
-          <p class="is-subtitle c-main-para">{{ L('Private community software with a financial safety net, so you can focus on what matters.') }}</p>
+          <I18n tag="p" class="is-subtitle c-main-para" area="home" :locale="locale">Private community software with a financial safety net, so you can focus on what matters.</I18n>
 
           <div class="scroll-btn-container">
             <ScrollDownArrow targetSelector="#container2 .c-container-title" />
