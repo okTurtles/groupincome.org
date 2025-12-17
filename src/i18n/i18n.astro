@@ -15,8 +15,8 @@ const L = useTranslation(locale, area)
 const TagName = tag || 'span'
 
 // Astro.slots.render() - https://docs.astro.build/en/reference/astro-syntax/#astroslotsrender
-const textToTranslate = text || (await Astro.slots.render('default'))
-const translated = L(textToTranslate, args)
+const textToTranslate = text || (await Astro.slots.render('default')) || ''
+const translated = L(textToTranslate.trim(), args)
 
 const classStr = classNames(className)
 ---
