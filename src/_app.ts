@@ -1,6 +1,7 @@
 import type { App } from 'vue'
 import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 import { useTranslation } from '@/i18n/utils'
+import I18n from '@/i18n/i18n.vue'
 
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, lang: string = '') => {
   el.setAttribute(attrName, resolvePath(relPath, lang) || '')
@@ -26,6 +27,9 @@ export default (app: App) => {
     resolvePath
   })
 
-  // global provide
+  // global components
+  app.component('I18n', I18n)
+
+  // global provides
   app.provide('useTranslation', useTranslation)
 }

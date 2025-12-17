@@ -33,15 +33,15 @@ function replaceArgs (string: string, args: Record<string, string> = {}): string
 }
 
 export function useTranslation (lang: string = '', area: string = '') {
-  if (lang === defaultLanguage || !(lang in translationTables)) {
-    return (key: string): string => key
-  }
-
+  const noLookupNeeded = lang === defaultLanguage || !(lang in translationTables)
   const table = translationTables[lang]
+
   return (key: string, args: Record<string, string> = {}): string => {
-    const stringFromTable = area in table
-      ? table[area][key] || table[key] || key
-      : table[key] || key
+    const stringFromTable = noLookupNeeded
+      ? key
+      : area in table
+        ? table[area][key] || table[key] || key
+        : table[key] || key
     const hasArgs = Object.keys(args).length > 0
 
     return hasArgs
