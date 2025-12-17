@@ -32,4 +32,5 @@ export default (app: App) => {
 
   // global provides
   app.provide('useTranslation', useTranslation)
+  app.provide('locale', (globalThis as any).locale ?? '')
 }
