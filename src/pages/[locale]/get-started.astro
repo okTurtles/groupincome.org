@@ -2,6 +2,7 @@
 // @i18n-area: get-started-page
 import Layout from '@/layouts/DefaultLayout.astro';
 import GetStartedSection from '@/components/GetStarted.vue';
+import I18n from '@/i18n/i18n.astro';
 import Servers from '@/components/Servers.astro';
 import { dynamicRoutes, useTranslation } from '@/i18n/utils'
 
@@ -17,9 +18,9 @@ const L = useTranslation(locale, 'get-started-page')
   <div class="c-wrapper">
     <section class="container grey-container">
       <div class="c-main-wrapper">
-        <div class="is-posttitle">{ L('GET STARTED') }</div>
-        <h1 class="is-title-1 c-main-title">{ L('Join a Group Income server') }</h1>
-        <p class="is-subtitle c-main-para">{ L("Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.") }</p>
+        <I18n tag="div" class="is-posttitle" area="get-started-page">GET STARTED</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title" area="get-started-page">Join a Group Income server</I18n>
+        <I18n tag="p" class="is-subtitle c-main-para" area="get-started-page">Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</I18n>
       </div>
     </section>
     <section class="container span-container">
@@ -38,7 +39,7 @@ const L = useTranslation(locale, 'get-started-page')
   </div>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
 @use "../../styles/variables" as *;
 
 .container {

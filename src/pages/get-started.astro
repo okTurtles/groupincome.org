@@ -1,1 +1,5 @@
-<meta http-equiv="refresh" content="0;url=/en/get-started" />
+---
+const redirectUrl = `${import.meta.env.BASE_URL}en/get-started`
+---
+
+<meta http-equiv="refresh" content={'0;url=' + redirectUrl} />
