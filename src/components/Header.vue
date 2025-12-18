@@ -7,7 +7,7 @@
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>
-      <Navigation client:load :locale="locale"></Navigation>
+      <Navigation client:load></Navigation>
     </div>
     <Hamburger></Hamburger>
   </div>

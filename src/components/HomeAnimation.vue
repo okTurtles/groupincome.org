@@ -184,15 +184,13 @@ export default {
   },
   setup () {
     const useTranslation = inject('useTranslation')
-    const locale = inject('locale')
     return {
-      useTranslation,
-      locale
+      useTranslation
     }
   },
   computed: {
     L () {
-      return this.useTranslation(this.locale, 'home')
+      return this.useTranslation('home')
     }
   }
 }

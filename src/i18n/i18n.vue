@@ -25,8 +25,7 @@ const props = defineProps({
 
 const slots = useSlots()
 const useTranslation = inject("useTranslation")
-const locale = inject("locale");
-const translator = useTranslation(locale, props.area);
+const translator = useTranslation(props.area)
 
 const textToTranslate =
 	props.text || (slots.default ? slots.default()[0].children : "") || "";

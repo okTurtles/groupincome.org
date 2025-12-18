@@ -9,7 +9,7 @@
       <a v-for="entry in menuList"
         :key="entry.id"
         :data-test="entry.id"
-        v-href="entry.path"
+        v-href.locale="entry.path"
         @click="closeNavigation"
         class="c-navbar-item">
         <span>{{ entry.name }}</span>
@@ -25,15 +25,6 @@
 import { onMounted, ref } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
-import { resolvePath } from '@/utils/helpers.js'
-
-const props = defineProps({
-  locale: {
-    type: String,
-    required: false,
-    default: ''
-  }
-})
 
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
@@ -45,7 +36,7 @@ const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
 
 onMounted(() => {
   menuList.value = [
-    {  name: 'Home', id: 'homeLink', path: '/' },
+    { name: 'Home', id: 'homeLink', path: '/' },
     { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
     { name: 'Blog', id: 'blogLink', path: '/blog' },
     { name: 'FAQS', id: 'blogLink', path: '/faq' },

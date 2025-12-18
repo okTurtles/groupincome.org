@@ -48,13 +48,6 @@ import { inject } from 'vue'
 
 export default {
   name: 'GetStarted',
-  props: {
-    locale: {
-      type: String,
-      required: false,
-      default: ''
-    }
-  },
   setup () {
     const useTranslation = inject('useTranslation')
     return {
@@ -63,7 +56,7 @@ export default {
   },
   computed: {
     L () {
-      return this.useTranslation(this.locale, 'get-started')
+      return this.useTranslation('get-started')
     }
   }
 }
