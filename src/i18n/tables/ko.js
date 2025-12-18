@@ -4,6 +4,7 @@ const table = {
 
   // layout components
   'navigation': {
+    'Home': '홈으로',
     'About us': '소개',
     'Blog': '블로그',
     'FAQS': '질의응답',
@@ -57,8 +58,8 @@ const table = {
     'Everyone has something to offer.': '모두가 무언가를 제공할 수 있습니다.',
     'Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.': '그룹 구성원들은 재정적 기부 혹은 비재정적 기부를 통해, 고용 여부에 관계없이 모든 구성원들에게 기본소득을 제공합니다.',
     'Empower Your Community': '당신의 커뮤니티에 힘을 실어주세요',
-    'The best private chat for your community.': '당신의 커뮤니티를 위한 최고의 비밀 채팅 소프트웨어.',
-    'A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.': '이모지 반응, 투표, 파일 첨부 등 다양한 기능을 제공하는 강력한 커뮤니티 채팅 소프트웨어, 모두 비밀이며 엔드-투-엔드(E2E) 암호화를 적용합니다.',
+    'The best private chat for your community.': '당신의 커뮤니티를 위한 최상의 프라이빗 채팅.',
+    'A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.': '이모지 리액션, 투표, 파일 첨부 등 다양한 기능을 제공하는 강력한 커뮤니티 채팅 소프트웨어, 모두 비밀이며 엔드-투-엔드(E2E) 암호화를 적용합니다.',
     'Stay Safe': '안전하게 사용하세요',
     'Security & Privacy': '정보 보안 정책',
     'Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.': 'Group Income은 엔드-투-엔드 암호화 프로토콜인 {a_}Shelter Protocol{_a}을 기반으로 구축되었습니다.',

@@ -124,7 +124,7 @@
             <span v-html="L('Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.', { a_: '<a class=\'is-link\' href=\'https://shelterprotocol.net\' target=\'_blank\'>', _a: '</a>' })"></span>
             {{ L('Your data is stored in encrypted form on servers, and decrypted locally on your device. The keys to decrypt that data are derived from your password and are also stored on your device.') }}
           </p>
-          <a class="c-container-link is-link" v-href="'/privacy-policy'">{{ L('Read more about our privacy and security') }}</a>
+          <a class="c-container-link is-link" v-href="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
         </div>
 
         <div class="span-2">

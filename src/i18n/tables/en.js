@@ -4,6 +4,7 @@ const table = {
 
   // layout components
   'navigation': {
+    'Home': 'Home',
     'About us': 'About us',
     'Blog': 'Blog',
     'FAQS': 'FAQS',

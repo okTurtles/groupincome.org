@@ -10,6 +10,7 @@
     "preview": "BUILD_TARGET=staging astro preview",
     "build:prod": "BUILD_TARGET=production astro build",
     "preview:prod": "BUILD_TARGET=production astro preview",
+    "prepare-translation": "node prepare-translation.js",
     "astro": "astro"
   },
   "dependencies": {

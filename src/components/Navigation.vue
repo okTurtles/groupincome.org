@@ -16,16 +16,19 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">Get started</a>
+      <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">{{ L('Get started') }}</a>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+// @i18n-area: navigation
+import { onMounted, ref, inject } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 
+const useTranslation = inject('useTranslation')
+const L = useTranslation('navigation')
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
 let menuList = ref([])
@@ -36,12 +39,12 @@ const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
 
 onMounted(() => {
   menuList.value = [
-    { name: 'Home', id: 'homeLink', path: '/' },
-    { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
-    { name: 'Blog', id: 'blogLink', path: '/blog' },
-    { name: 'FAQS', id: 'blogLink', path: '/faq' },
-    { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: activeJobPostNames.length },
-    { name: 'Donate', id: 'donateLink', path: '/donate' }
+    { name: L('Home'), id: 'homeLink', path: '/' },
+    { name: L('About us'), id: 'aboutUsLink', path: '/about-us' },
+    { name: L('Blog'), id: 'blogLink', path: '/blog' },
+    { name: L('FAQS'), id: 'blogLink', path: '/faq' },
+    { name: L('Hiring'), id: 'hiringLink', path: '/hiring', badge: activeJobPostNames.length },
+    { name: L('Donate'), id: 'donateLink', path: '/donate' }
   ].filter(Boolean)
 })
 </script>
