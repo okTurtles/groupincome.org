@@ -18,14 +18,6 @@
 import Navigation from './Navigation.vue'
 import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
-
-const props = defineProps({
-  locale: {
-    type: String,
-    required: false,
-    default: ''
-  }
-})
 </script>
 
 <style lang="scss" scoped>

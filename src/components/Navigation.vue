@@ -16,7 +16,7 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <a class="c-get-started-btn button is-primary" v-href:[locale]="'/get-started'" @click="closeNavigation">Get started</a>
+      <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">Get started</a>
     </div>
   </nav>
 </template>

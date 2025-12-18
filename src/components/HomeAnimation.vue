@@ -139,7 +139,7 @@
       <h3 class="is-title-2 c-container-title">{{ L('Group Income is end-to-end encrypted and self-hosted.') }}</h3>
       <div class="is-title-3 c-container-posttitle">{{ L("Here's how to get started:") }}</div>
 
-      <GetStarted :locale="locale" />
+      <GetStarted />
     </section>
 
     <div class="graphic-wrapper swoosh-dark-blue">
@@ -149,7 +149,7 @@
           <p class="is-title-2 c-container-title">{{ L('Basic Income for your friends and family.') }}</p>
 
           <div class="c-buttons">
-            <a class="c-navbar-item button is-big is-primary" v-href:[locale]="'/get-started'">{{ L('Get started') }}</a>
+            <a class="c-navbar-item button is-big is-primary" v-href.locale="'/get-started'">{{ L('Get started') }}</a>
             <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">{{ L('Donate') }}</a>
           </div>
         </div>
@@ -182,17 +182,12 @@ export default {
     ScrollDownArrow
     // VideoPlayer
   },
-  props: {
-    locale: {
-      type: String,
-      required: false,
-      default: ''
-    }
-  },
   setup () {
     const useTranslation = inject('useTranslation')
+    const locale = inject('locale')
     return {
-      useTranslation
+      useTranslation,
+      locale
     }
   },
   computed: {

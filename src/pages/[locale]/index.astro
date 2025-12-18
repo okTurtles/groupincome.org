@@ -11,5 +11,5 @@ export async function getStaticPaths() {
 const { locale } = Astro.params
 ---
 <Layout locale={locale}>
-  <HomeAnimation client:load locale={locale} />
+  <HomeAnimation client:load />
 </Layout>
