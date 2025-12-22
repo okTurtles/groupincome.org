@@ -85,15 +85,8 @@ async function extractI18nStrings (filePath) {
 }
 
 function serializeTable (obj, indent = 2, level = 0) {
-  const pad = ' '.repeat(level * indent)
-  const nextPad = ' '.repeat((level + 1) * indent)
-
   if (typeof obj === 'string') {
     return `\`${obj}\``
-  }
-
-  if (typeof obj !== 'object' || obj === null) {
-    return String(obj)
   }
 
   const entries = Object.entries(obj)
@@ -102,12 +95,14 @@ function serializeTable (obj, indent = 2, level = 0) {
     return '{}'
   }
 
+  const padBeforeParenthesis = ' '.repeat(level * indent) // indentation for opening/closing parenthesis of current object
+  const padBeforeEachKey = ' '.repeat((level + 1) * indent) // indentation for each key in the current object (one unit deeper than padBeforeParenthesis)
   const lines = entries.map(([key, value]) => {
     const serializedValue = serializeTable(value, indent, level + 1)
-    return `${nextPad}\`${key}\`: ${serializedValue}`
+    return `${padBeforeEachKey}\`${key}\`: ${serializedValue}`
   })
 
-  return `{\n${lines.join(',\n')}\n${pad}}`
+  return `{\n${lines.join(',\n')}\n${padBeforeParenthesis}}`
 }
 
 async function run () {
