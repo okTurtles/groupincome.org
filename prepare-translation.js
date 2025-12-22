@@ -173,20 +173,24 @@ async function run () {
    * ================================================== */
   const finalTable = structuredClone(existingTable)
 
-  for (const [area, value] of Object.entries(generatedTable)) {
+  for (const [key, value] of Object.entries(generatedTable)) {
     if (typeof value === 'object') {
+      // In this case, key = area, value = { [text]: text }
+      const area = key
       if (!finalTable[area]) {
         finalTable[area] = {}
       }
 
-      for (const [key, text] of Object.entries(value)) {
-        if (!(key in finalTable[area])) {
-          finalTable[area][key] = text
+      //  { [text]: text } part here
+      for (const [nestedKey, text] of Object.entries(value)) {
+        if (!(nestedKey in finalTable[area])) {
+          finalTable[area][nestedKey] = text
         }
       }
     } else {
-      if (!(area in finalTable)) {
-        finalTable[area] = value
+      // 'no-area' entries here
+      if (!(key in finalTable)) {
+        finalTable[key] = value
       }
     }
   }
