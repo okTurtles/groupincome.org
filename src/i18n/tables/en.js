@@ -20,7 +20,7 @@ const table = {
     `Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.`: `Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.`,
     `Set a "mincome" floor`: `Set a "mincome" floor`,
     `Create your own financial safety net.`: `Create your own financial safety net.`,
-    `Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\`: `Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\`,
+    `Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.`: `Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.`,
     `Try out the payments simulator.`: `Try out the payments simulator.`,
     `Non-monetary Contributions`: `Non-monetary Contributions`,
     `Everyone has something to offer.`: `Everyone has something to offer.`,

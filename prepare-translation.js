@@ -1,11 +1,13 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
+const supportedLangCodes = ['en', 'ko']
 const targetDirs = [
   'src/components',
   'src/pages',
   'src/layouts'
 ]
+
 const targetFileExtensions = ['.vue', '.astro']
 const hasTargetExtensions = fPath => targetFileExtensions.includes(path.extname(fPath))
 const testFilePath = 'src/pages/[locale]/get-started.astro'
@@ -52,7 +54,7 @@ async function extractI18nStrings (filePath) {
    *    - wraps result with backticks
    * ================================================== */
   const lCallRegex =
-    /\bL\s*\(\s*(['"`])([\s\S]*?)\1\s*(?:,|\))/g;
+    /\bL\s*\(\s*(['"`])((?:\\.|(?!\1)[\s\S])*)\1\s*(?:,|\))/g;
 
   for (const match of content.matchAll(lCallRegex)) {
     const text = match[2]
@@ -128,75 +130,71 @@ async function run () {
   }
 
   /* ==================================================
-   * 1. Build generated table
+   * 1. Build common table
    * ================================================== */
-  const generatedTable = {}
+  const commonTable = {}
 
   for (const entry of allEntries.hasArea) {
-    if (!generatedTable[entry.area]) {
-      generatedTable[entry.area] = {}
+    if (!commonTable[entry.area]) {
+      commonTable[entry.area] = {}
     }
     
     for (const raw of entry.strings) {
       const text = raw.slice(1, -1) // remove backticks
-      generatedTable[entry.area][text] = text
+      commonTable[entry.area][text] = text
     }
   }
 
   for (const entry of allEntries.noArea) {
     for (const raw of entry.strings) {
       const text = raw.slice(1, -1)
-      generatedTable[text] = text
+      commonTable[text] = text
     }
   }
 
   /* ==================================================
-   * 2. Load existing en.js if it exists
+   * 2. generate translation table files (eg. en.js, fr.js, ko.js, etc.)
    * ================================================== */
-  const enJsPath = path.resolve('src/i18n/tables/en.js')
-  let existingTable = {}
+  for (const langCode of supportedLangCodes) {
+    const langJsPath = path.resolve(`src/i18n/tables/${langCode}.js`)
+    let existingTable = {}
 
-  try {
-    const imported = await import(`file://${enJsPath}`)
-    existingTable = imported.default || {}
-  }  catch {
-    // file does not exist yet — start fresh
-  }
+    try {
+      const imported = await import(`file://${langJsPath}`)
+      existingTable = imported.default || {}
+    }  catch {
+      // file does not exist yet — start fresh
+    }
 
-  /* ==================================================
-   * 3. Merge (preserve existing, add missing)
-   * ================================================== */
-  const finalTable = structuredClone(existingTable)
+    // Merge common table with existing table (preserve existing entries, add missing or new entries)
+    const finalTable = structuredClone(existingTable)
 
-  for (const [key, value] of Object.entries(generatedTable)) {
-    if (typeof value === 'object') {
-      // In this case, key = area, value = { [text]: text }
-      const area = key
-      if (!finalTable[area]) {
-        finalTable[area] = {}
-      }
+    for (const [key, value] of Object.entries(commonTable)) {
+      if (typeof value === 'object') {
+        // For the case of area object: { [area]: { [text]: text } }
+        const area = key
+        if (!finalTable[area]) {
+          finalTable[area] = {}
+        }
 
-      //  { [text]: text } part here
-      for (const [nestedKey, text] of Object.entries(value)) {
-        if (!(nestedKey in finalTable[area])) {
-          finalTable[area][nestedKey] = text
+        for (const [nestedKey, text] of Object.entries(value)) {
+          if (!(nestedKey in finalTable[area])) {
+            finalTable[area][nestedKey] = text
+          }
+        }
+      } else {
+        // { [text]: text } part here.
+        if (!(key in finalTable)) {
+          finalTable[key] = value
         }
       }
-    } else {
-      // 'no-area' entries here
-      if (!(key in finalTable)) {
-        finalTable[key] = value
-      }
     }
+
+    // Write the final table to the file
+    const fileContent = `const table = ${serializeTable(finalTable)}\n\nexport default table`
+    await fs.writeFile(langJsPath, fileContent, 'utf8')
+    console.log(`✅ Successfully prepared translations for ${langCode}.js`)
   }
-
-  /* ==================================================
-   * 4. Write en.js with backtick keys
-   * ================================================== */
-  const fileContent = `const table = ${serializeTable(finalTable)}\n\nexport default table`
-  await fs.writeFile(enJsPath, fileContent, 'utf8')
-
-  console.log(`✅ Successfully prepared translations for en.js`)
 }
 
 run()
