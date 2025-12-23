@@ -10,7 +10,6 @@ const targetDirs = [
 
 const targetFileExtensions = ['.vue', '.astro']
 const hasTargetExtensions = fPath => targetFileExtensions.includes(path.extname(fPath))
-const testFilePath = 'src/pages/[locale]/get-started.astro'
 
 async function recusrivelyReadDir (dirPath) {
   const list = await fs.readdir(dirPath, { withFileTypes: true })

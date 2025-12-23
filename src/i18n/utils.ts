@@ -32,6 +32,17 @@ function replaceArgs (string: string, args: Record<string, string> = {}): string
   })
 }
 
+export function LTags (...tags: string[]): Record<string, string> {
+  const o: Record<string, string> = {
+    'br_': '<br/>'
+  }
+  for (const tag of tags) {
+    o[`${tag}_`] = `<${tag}>`
+    o[`_${tag}`] = `</${tag}>`
+  }
+  return o
+}
+
 export function useTranslation (lang: string = '') {
   const noLookupNeeded = lang === defaultLanguage || !(lang in translationTables)
   const table = translationTables[lang]

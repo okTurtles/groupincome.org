@@ -8,8 +8,7 @@ export async function getStaticPaths() {
   return dynamicRoutes
 }
 
-const { locale } = Astro.params
 ---
-<Layout locale={locale}>
+<Layout>
   <HomeAnimation client:load />
 </Layout>
