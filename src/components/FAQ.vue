@@ -52,29 +52,35 @@ export default {
         qa: [{
           question: L('What is Group Income?'),
           answer: L(
-            'Group income is a voluntary {strong_}{a_}Basic Income{_a}{_strong} system for you and your friends. Our purpose is to ensure, as fairly and efficiently as possible, that all members of a group receive a minimum income (mincome), using the income streams flowing into that group.',
+            L('Group income is a voluntary {strong_}{a_}Basic Income{_a}{_strong} system for you and your friends. Our purpose is to ensure, as fairly and efficiently as possible, that all members of a group receive a minimum income (mincome), using the income streams flowing into that group.'),
             { ...LTags('strong', 'a'), 'a_': '<a href="https://www.reddit.com/r/basicincome/wiki/index" target="_blank">' }
           ),
           active: true
         }, {
           question: L('How does Group Income work?'),
-          answer: 'When a group is created, the group members decide its mincome. Each month, group members volunteer their monetary contributions to the group. Throughout the month, group members can share their non-monetary contributions to the group. At the end of the month, monetary contributions are divided among the group members who have not yet crossed the mincome threshold.<br><a class="link" href="https://www.youtube.com/watch?v=KU9NGcrjXlo&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&index=4" target="_blank">Demo</a>',
+          answer: L(
+            'When a group is created, the group members decide its mincome. Each month, group members volunteer their monetary contributions to the group. Throughout the month, group members can share their non-monetary contributions to the group. At the end of the month, monetary contributions are divided among the group members who have not yet crossed the mincome threshold.{br_}{a_}Demo{_a}',
+            { ...LTags('a'), 'a_': '<a href="https://www.youtube.com/watch?v=KU9NGcrjXlo&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&index=4" target="_blank">' }
+          ),
           active: false
         }, {
           question: L('What are the “Group Income Shorts”?'),
-          answer: 'They’re a <a href="https://www.youtube.com/watch?v=WpvyLEZmEAM&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7" target="_blank">series of videos</a> we’re creating to answer various questions about what Group Income is, how it works, and to explore various ideas related to it.',
+          answer: L(
+            `They're a {a_}series of videos{_a} we're creating to answer various questions about what Group Income is, how it works, and to explore various ideas related to it.`,
+            { ...LTags('a'), 'a_': '<a href="https://www.youtube.com/watch?v=WpvyLEZmEAM&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7" target="_blank">' }
+          ),
           active: false
         }, {
           question: L('What is Basic Income?'),
-          answer: 'Basic income is the amount of income required to meet any individual\'s basic needs. On Group Income, the basic income will ideally be the same as the group\'s <i>mincome</i>.',
+          answer: L(`Basic income is the amount of income required to meet any individual's basic needs. On Group Income, the basic income will ideally be the same as the group's {i_}mincome{_i}.`, { ...LTags('i') }),
           active: false
         }, {
           question: L('What is mincome?'),
-          answer: 'The mincome is the minimum income that the group aims to ensure for each member. Each month, the voluntary monetary contributions are divided among the group members who have not yet crossed the mincome threshold.',
+          answer: L('The mincome is the minimum income that the group aims to ensure for each member. Each month, the voluntary monetary contributions are divided among the group members who have not yet crossed the mincome threshold.'),
           active: false
         }, {
           question: L('Who determines what the mincome is?'),
-          answer: 'When the group is created, the group members will set the group\'s mincome, as well as the percentage of votes needed to change the group\'s mincome. The group members may vote to change the group\'s mincome at any point, according to the voting thresholds set up when the group was created.',
+          answer: L(`When the group is created, the group members will set the group's mincome, as well as the percentage of votes needed to change the group's mincome. The group members may vote to change the group's mincome at any point, according to the voting thresholds set up when the group was created.`),
           active: false
         }]
       }, {
@@ -86,31 +92,31 @@ export default {
           active: false
         }, {
           question: L('Who can be part of a group?'),
-          answer: 'Any individual with a stable social relationship with the other members of a group. Members are encouraged to know each other personally and be part of the same community.<br><br>E.g.: a group of supporting creators, family members, friends, coworkers, neighbors, etc.',
+          answer: L(`Any individual with a stable social relationship with the other members of a group. Members are encouraged to know each other personally and be part of the same community.{br_}E.g.: a group of supporting creators, family members, friends, coworkers, neighbors, etc.`, { ...LTags() }),
           active: false
         }, {
           question: L("What if there aren't enough contributions to meet everyone's mincome?"),
-          answer: 'If there aren\'t enough contributions to meet every group member\'s mincome, then all group members below the mincome will be brought to the same level, as close to the mincome as possible.',
+          answer: L(`If there aren't enough contributions to meet every group member's mincome, then all group members below the mincome will be brought to the same level, as close to the mincome as possible.`),
           active: false
         }, {
           question: L('What if there are more monetary pledges than are needed?'),
-          answer: 'If the group has more than enough monetary pledges to meet everyone\'s mincome, then only the needed amounts will be given, and pledges will be allocated proportionally to the group\'s needs.<br><br>For example, if a group needs $100 to meet everyone\'s mincome, and there are $200 in pledges, then only $100 of the pledges will be used to meet the group members\' mincomes. This means that 50% of each individual pledge will be used because only 50% of the total pledges are needed.',
+          answer: L(`If the group has more than enough monetary pledges to meet everyone's mincome, then only the needed amounts will be given, and pledges will be allocated proportionally to the group's needs.{br_}For example, if a group needs $100 to meet everyone's mincome, and there are $200 in pledges, then only $100 of the pledges will be used to meet the group members' mincomes. This means that 50% of each individual pledge will be used because only 50% of the total pledges are needed.`, { ...LTags() }),
           active: false
         }, {
           question: L('Why are group members able to pledge less than what the group needs to meet their mincome?'),
-          answer: 'Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others\' mincome. This ensures that the pledge will not cause the pledger\'s income to fall below the mincome. This can provide predictability and stability for all members.',
+          answer: L(`Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others' mincome. This ensures that the pledge will not cause the pledger's income to fall below the mincome. This can provide predictability and stability for all members.`),
           active: false
         }, {
           question: L("What if I don't have money to contribute?"),
-          answer: 'Everyone has something to contribute; money isn\'t the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There\'s value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.<br><br>There\'s immeasurable value in non-monetary contributions.',
+          answer: L(`Everyone has something to contribute; money isn't the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There's value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.{br_}{br_}There's immeasurable value in non-monetary contributions.`, { ...LTags() }),
           active: false
         }, {
           question: L('What is the minimum size for a group?'),
-          answer: 'There is no minimum size for a group. So long as the group can meet its mincome, two individuals can form a group.',
+          answer: L('There is no minimum size for a group. So long as the group can meet its mincome, two individuals can form a group.'),
           active: false
         }, {
           question: L('What is the maximum size for a group?'),
-          answer: `150. The maximum number of participants in monetary and non-monetary exchange is limited to <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's number</a> (150) to prevent fraud. The maximum number of members a group (regardless of whether they're actively participating in exchange) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`,
+          answer: L(`150. The maximum number of participants in monetary and non-monetary exchange is limited to {a_}Dunbar's number{_a} (150) to prevent fraud. The maximum number of members a group (regardless of whether they're actively participating in exchange) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`, { ...LTags('a'), 'a_': '<a href="https://en.wikipedia.org/wiki/Dunbar\'s_number" target="_blank">' }),
           active: false
         }]
       }, {
@@ -118,8 +124,10 @@ export default {
         id: 'our-philosophy',
         qa: [{
           question: L('Why is Basic Income or Group Income important?'),
-          answer: `The importance of a <a class="link" href="http://www.reddit.com/r/basicincome/wiki/index" target="_blank">Basic Income</a> is <a class="link" href="http://www.reddit.com/r/basicincome/wiki/index" target="_blank">self-evident</a>, <a class="link" href="https://www.youtube.com/watch?v=7Pq-S557XQU" target="_blank">ever-increasing</a> in need, and therefore integral to the functioning of any modern monetary system. Group Income is a small solution to a larger scale problem.
+          answer: L(`The importance of a {a1_}Basic Income{_a} is {a2_}self-evident{_a}, {a3_}ever-increasing{_a} in need, and therefore integral to the functioning of any modern monetary system. Group Income is a small solution to a larger scale problem.
             We're providing a tool that helps you support the ones closest to you, through a voluntary basic income system, without the need for governmental action or approval.`,
+            { ...LTags('a'), 'a1_': '<a href="http://www.reddit.com/r/basicincome/wiki/index" target="_blank">', 'a2_': '<a href="http://www.reddit.com/r/basicincome/wiki/index" target="_blank">', 'a3_': '<a href="https://www.youtube.com/watch?v=7Pq-S557XQU" target="_blank">' }
+          ),
           active: false
         }, {
           question: L('Why is Group Income a voluntary system?'),
