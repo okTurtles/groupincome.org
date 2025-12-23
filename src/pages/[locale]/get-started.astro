@@ -11,16 +11,17 @@ export async function getStaticPaths() {
 }
 
 const { locale } = Astro.params
-const L = useTranslation(locale, 'get-started-page')
+const i18nArea = 'get-started-page'
+const L = useTranslation(locale, i18nArea)
 ---
 
 <Layout>
   <div class="c-wrapper">
     <section class="container grey-container">
       <div class="c-main-wrapper">
-        <I18n tag="div" class="is-posttitle" area="get-started-page">GET STARTED</I18n>
-        <I18n tag="h1" class="is-title-1 c-main-title" area="get-started-page">Join a Group Income server</I18n>
-        <I18n tag="p" class="is-subtitle c-main-para" area="get-started-page">Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</I18n>
+        <I18n tag="div" class="is-posttitle" area={i18nArea}>GET STARTED</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title" area={i18nArea}>Join a Group Income server</I18n>
+        <I18n tag="p" class="is-subtitle c-main-para" area={i18nArea}>Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</I18n>
       </div>
     </section>
     <section class="container span-container">

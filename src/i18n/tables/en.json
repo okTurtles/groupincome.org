@@ -1,4 +1,21 @@
 {
+  "footer": {
+    "Your email address": "Your email address",
+    "Github": "Github",
+    "STAY UP TO DATE": "STAY UP TO DATE",
+    "Subscribe to our newsletter to be the first to know when the prototype is ready.": "Subscribe to our newsletter to be the first to know when the prototype is ready.",
+    "Home": "Home",
+    "About us": "About us",
+    "Blog": "Blog",
+    "FAQ": "FAQ",
+    "CONTRIBUTE": "CONTRIBUTE",
+    "Volunteer": "Volunteer",
+    "Join our team": "Join our team",
+    "Donate": "Donate",
+    "SOCIAL": "SOCIAL",
+    "Term & Conditons": "Term & Conditons",
+    "Privacy Policy": "Privacy Policy"
+  },
   "get-started": {
     "Choose a Server": "Choose a Server",
     "Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!": "Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!",

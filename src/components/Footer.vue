@@ -7,14 +7,14 @@
               method="post"
               target="popupwindow"
               @submit.prevent="onFormSubmit">
-                <h4 class="is-title-6">STAY UP TO DATE</h4>
-                <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
+                <i18n tag="h4" class="is-title-6" :area="i18nArea">STAY UP TO DATE</i18n>
+                <i18n tag="p" :area="i18nArea">Subscribe to our newsletter to be the first to know when the prototype is ready.</i18n>
 
                 <fieldset class="c-mail-form-field">
                   <div class="c-input">
                     <input :class="['input', { error: emailErr }]"
                       type="email" name="email" id="bd-email"
-                      placeholder="Your email address"
+                      :placeholder="L('Your email address')"
                       v-model.trim="email" />
                     <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
                       <i class="icon-paper-plane"></i>
@@ -28,20 +28,20 @@
         <div class="c-links">
             <div class="c-links-group">
                 <h4 class="is-title-6">GROUPINCOME</h4>
-                <a v-href="'/'">Home</a>
-                <a v-href="'/about-us'">About us</a>
-                <a v-href="'/blog'">Blog</a>
-                <a v-href="'/faq'">FAQ</a>
+                <i18n tag="a" v-href.locale="'/'" :area="i18nArea">Home</i18n>
+                <i18n tag="a" v-href.locale="'/about-us'" :area="i18nArea">About us</i18n>
+                <i18n tag="a" v-href.locale="'/blog'" :area="i18nArea">Blog</i18n>
+                <i18n tag="a" v-href.locale="'/faq'" :area="i18nArea">FAQ</i18n>
             </div>
             <div class="c-links-group">
-                <h4 class="is-title-6">CONTRIBUTE</h4>
-                <a v-href="'/hiring/volunteering/'">Volunteer</a>
-                <a v-href="'/hiring/'">Join our team</a>
-                <a v-href="'/donate'">Donate</a>
-                <a href="https://github.com/okTurtles/group-income" target="_blank" alt="Github">Github</a>
+                <i18n tag="h4" class="is-title-6" :area="i18nArea">CONTRIBUTE</i18n>
+                <i18n tag="a" v-href.locale="'/hiring/volunteering/'" :area="i18nArea">Volunteer</i18n>
+                <i18n tag="a" v-href.locale="'/hiring/'" :area="i18nArea">Join our team</i18n>
+                <i18n tag="a" v-href.locale="'/donate'" :area="i18nArea">Donate</i18n>
+                <i18n tag="a" href="https://github.com/okTurtles/group-income" target="_blank" :alt="L('Github')" :area="i18nArea">Github</i18n>
             </div>
             <div class="c-links-group">
-                <h4 class="is-title-6">SOCIAL</h4>
+                <i18n tag="h4" class="is-title-6" :area="i18nArea">SOCIAL</i18n>
                 <a href="https://crib.social/groupincome" target="_blank" alt="Fediverse">Fediverse</a>
                 <a href="https://odysee.com/@groupIncome:c" target="_blank" alt="Odysee">Odysee</a>
                 <a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank" alt="Slack">Slack</a>
@@ -53,8 +53,8 @@
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <a v-href="'/terms-and-conditions'">Term & Conditons</a>
-            <a v-href="'/privacy-policy'">Privacy Policy</a>
+            <i18n tag="a" v-href.locale="'/terms-and-conditions'" :area="i18nArea">Term & Conditons</i18n>
+            <i18n tag="a" v-href.locale="'/privacy-policy'" :area="i18nArea">Privacy Policy</i18n>
         </div>
         <p class="copyright">{{ copyRightText }}</p>
     </div>
@@ -64,6 +64,9 @@
 </template>
 
 <script>
+// @i18n-area: footer
+
+import { inject } from 'vue'
 import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
 import { validateEmail } from '@/utils/helpers.js'
 import { openModal } from '@/store'
@@ -78,6 +81,12 @@ export default {
   name: 'Footer',
   components: {
     NewsLetterWarningModal
+  },
+  setup () {
+    const useTranslation = inject('useTranslation')
+    const i18nArea = 'footer'
+    const L = useTranslation(i18nArea)
+    return { L, i18nArea }
   },
   data () {
     return {

@@ -1,4 +1,21 @@
 {
+  "footer": {
+    "Your email address": "이메일 주소",
+    "Github": "깃허브",
+    "STAY UP TO DATE": "최신 소식 받기",
+    "Subscribe to our newsletter to be the first to know when the prototype is ready.": "뉴스레터를 구독하고, 프로토타입 준비 소식 알림을 먼저 받으세요.",
+    "Home": "홈으로",
+    "About us": "소개",
+    "Blog": "블로그",
+    "FAQ": "질의응답",
+    "CONTRIBUTE": "기여하기",
+    "Volunteer": "자원봉사",
+    "Join our team": "팀에 합류하기",
+    "Donate": "기부하기",
+    "SOCIAL": "소셜",
+    "Term & Conditons": "이용약관",
+    "Privacy Policy": "개인정보 보호정책"
+  },
   "get-started": {
     "Choose a Server": "서버 선택하기",
     "Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!": "{a1_}저희 공식 서버를{_a} 이용하거나, {a2_}독립 운영 서버 리스트에서{_a} 하나를 선택하거나, 혹은 본인만의 서버를 운영하세요!",
