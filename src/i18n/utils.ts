@@ -1,7 +1,7 @@
 // reference: https://docs.astro.build/en/recipes/i18n/
 
 // tables
-import koreanTable from './tables/ko.js'
+import koreanTable from './tables/ko.json'
 
 const translationTables: { [index: string]: any } = {
   // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp

@@ -81,7 +81,7 @@
           <div class="span-2 c-container-header" id="header4">
             <div class="is-title-3 c-container-posttitle">{{ L('Set a "mincome" floor') }}</div>
             <p class="is-title-2 c-container-title">{{ L('Create your own financial safety net.') }}</p>
-            <p class="c-container-para">{{ L("Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (\"mincome\"). Each month, group members help those who haven't crossed the mincome threshold.") }}</p>
+            <p class="c-container-para">{{ L(`Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor ("mincome"). Each month, group members help those who haven't crossed the mincome threshold.`) }}</p>
             <a class="c-container-link is-link" href="https://groupincome.org/simulator/">{{ L('Try out the payments simulator.') }}</a>
           </div>
 

@@ -51,21 +51,19 @@ async function extractI18nStrings (filePath) {
    * 2. L('...') or L("..."), optional 2nd argument
    *    - multiline-safe
    *    - ignores args after the first
-   *    - wraps result with backticks
    * ================================================== */
   const lCallRegex =
     /\bL\s*\(\s*(['"`])((?:\\.|(?!\1)[\s\S])*)\1\s*(?:,|\))/g;
 
   for (const match of content.matchAll(lCallRegex)) {
     const text = match[2]
-    strings.push(`\`${text}\``)
+    strings.push(text)
   }
 
   /* ==================================================
    * 3. <I18n ...>...</I18n> (case-insensitive)
    *    - multiline open + content
    *    - trim trailing whitespace only
-   *    - wrap with backticks
    * ================================================== */
   const i18nTagRegex =
     /<i18n\b[\s\S]*?>([\s\S]*?)<\/i18n>/gi;
@@ -77,34 +75,13 @@ async function extractI18nStrings (filePath) {
     text = text.replace(/\s+$/, '')
 
     if (text) {
-      strings.push(`\`${text}\``)
+      strings.push(text)
     }
   }
 
   return strings.length === 0
     ? null
     : { area, strings }
-}
-
-function serializeTable (obj, indent = 2, level = 0) {
-  if (typeof obj === 'string') {
-    return `\`${obj}\``
-  }
-
-  const entries = Object.entries(obj)
-
-  if (entries.length === 0) {
-    return '{}'
-  }
-
-  const padBeforeParenthesis = ' '.repeat(level * indent) // indentation for opening/closing parenthesis of current object
-  const padBeforeEachKey = ' '.repeat((level + 1) * indent) // indentation for each key in the current object (one unit deeper than padBeforeParenthesis)
-  const lines = entries.map(([key, value]) => {
-    const serializedValue = serializeTable(value, indent, level + 1)
-    return `${padBeforeEachKey}\`${key}\`: ${serializedValue}`
-  })
-
-  return `{\n${lines.join(',\n')}\n${padBeforeParenthesis}}`
 }
 
 async function run () {
@@ -132,68 +109,60 @@ async function run () {
   /* ==================================================
    * 1. Build common table
    * ================================================== */
-  const commonTable = {}
+  const finalTable = {}
 
   for (const entry of allEntries.hasArea) {
-    if (!commonTable[entry.area]) {
-      commonTable[entry.area] = {}
+    if (!finalTable[entry.area]) {
+      finalTable[entry.area] = {}
     }
     
     for (const raw of entry.strings) {
-      const text = raw.slice(1, -1) // remove backticks
-      commonTable[entry.area][text] = text
+      finalTable[entry.area][raw] = raw
     }
   }
 
   for (const entry of allEntries.noArea) {
     for (const raw of entry.strings) {
-      const text = raw.slice(1, -1)
-      commonTable[text] = text
+      finalTable[raw] = raw
     }
   }
 
   /* ==================================================
-   * 2. generate translation table files (eg. en.js, fr.js, ko.js, etc.)
+   * 2. generate JSON language tables (eg. en.json, fr.json, ko.json, etc.)
    * ================================================== */
   for (const langCode of supportedLangCodes) {
-    const langJsPath = path.resolve(`src/i18n/tables/${langCode}.js`)
+    const langJsonPath = path.resolve(`src/i18n/tables/${langCode}.json`)
     let existingTable = {}
 
     try {
-      const imported = await import(`file://${langJsPath}`)
-      existingTable = imported.default || {}
+      const rawContent = await fs.readFile(langJsonPath, 'utf8')
+      existingTable = rawContent ? JSON.parse(rawContent) : {}
     }  catch {
       // file does not exist yet — start fresh
     }
 
-    // Merge common table with existing table (preserve existing entries, add missing or new entries)
-    const finalTable = structuredClone(existingTable)
-
-    for (const [key, value] of Object.entries(commonTable)) {
+    // Merge with existing table (preserve existing entries so that already translated strings are not overwritten)
+    for (const [key, value] of Object.entries(finalTable)) {
       if (typeof value === 'object') {
         // For the case of area object: { [area]: { [text]: text } }
         const area = key
-        if (!finalTable[area]) {
-          finalTable[area] = {}
-        }
 
         for (const [nestedKey, text] of Object.entries(value)) {
-          if (!(nestedKey in finalTable[area])) {
-            finalTable[area][nestedKey] = text
-          }
+          finalTable[area][nestedKey] = (area in existingTable) && existingTable[area][nestedKey]
+            ? existingTable[area][nestedKey]
+            : text
         }
       } else {
         // { [text]: text } part here.
-        if (!(key in finalTable)) {
-          finalTable[key] = value
-        }
+        finalTable[key] = (key in existingTable)
+          ? existingTable[key]
+          : value
       }
     }
 
     // Write the final table to the file
-    const fileContent = `const table = ${serializeTable(finalTable)}\n\nexport default table`
-    await fs.writeFile(langJsPath, fileContent, 'utf8')
-    console.log(`✅ Successfully prepared translations for ${langCode}.js`)
+    await fs.writeFile(langJsonPath, JSON.stringify(finalTable, null, 2) + '\n', 'utf8')
+    console.log(`✅ Successfully prepared translations for ${langCode}.json`)
   }
 }
 
