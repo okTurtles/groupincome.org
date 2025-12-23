@@ -1,16 +1,16 @@
 ---
-// @i18n-area: get-started-page
 import Layout from '@/layouts/DefaultLayout.astro';
 import GetStartedSection from '@/components/GetStarted.vue';
 import I18n from '@/i18n/i18n.astro';
 import Servers from '@/components/Servers.astro';
-import { dynamicRoutes } from '@/i18n/utils'
+import { dynamicRoutes, useTranslation } from '@/i18n/utils'
 
 export async function getStaticPaths() {
   return dynamicRoutes
 }
 
-const { L } = Astro.locals
+const { locale } = Astro.locals
+const L = useTranslation(locale)
 ---
 
 <Layout>

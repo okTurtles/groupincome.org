@@ -8,8 +8,7 @@ export const onRequest = defineMiddleware((context, next) => {
 
     // Capture locale param for use in src/_app.ts for Vue and Astro.locals for all .astro files 
     context.locals.locale = context.params.locale;
-    context.locals.L = useTranslation(context.params.locale)
-    (globalThis as any).locale = context.params.locale
+    (globalThis as any).locale = context.params.locale;
   }
   return next();
 })

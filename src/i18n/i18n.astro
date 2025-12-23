@@ -1,5 +1,6 @@
 ---
 import { classNames } from './utils'
+import { useTranslation } from './utils'
 
 interface Props {
   tag?: string
@@ -10,7 +11,8 @@ interface Props {
 }
 const { tag = '', area = '', text, args, class: className = '' } = Astro.props as Props
 
-const { L } = Astro.locals
+const { locale } = Astro.locals
+const L = useTranslation(locale)
 const TagName = tag || 'span'
 
 // Astro.slots.render() - https://docs.astro.build/en/reference/astro-syntax/#astroslotsrender
