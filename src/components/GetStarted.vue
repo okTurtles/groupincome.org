@@ -42,22 +42,13 @@
 </template>
 
 <script>
-// @i18n-area: get-started
-
 import { inject } from 'vue'
 
 export default {
   name: 'GetStarted',
   setup () {
-    const useTranslation = inject('useTranslation')
-    return {
-      useTranslation
-    }
-  },
-  computed: {
-    L () {
-      return this.useTranslation('get-started')
-    }
+    const L = inject('L')
+    return { L }
   }
 }
 </script>

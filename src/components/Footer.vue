@@ -7,8 +7,8 @@
               method="post"
               target="popupwindow"
               @submit.prevent="onFormSubmit">
-                <i18n tag="h4" class="is-title-6" :area="i18nArea">STAY UP TO DATE</i18n>
-                <i18n tag="p" :area="i18nArea">Subscribe to our newsletter to be the first to know when the prototype is ready.</i18n>
+                <i18n tag="h4" class="is-title-6">STAY UP TO DATE</i18n>
+                <i18n tag="p">Subscribe to our newsletter to be the first to know when the prototype is ready.</i18n>
 
                 <fieldset class="c-mail-form-field">
                   <div class="c-input">
@@ -28,20 +28,20 @@
         <div class="c-links">
             <div class="c-links-group">
                 <h4 class="is-title-6">GROUPINCOME</h4>
-                <i18n tag="a" v-href.locale="'/'" :area="i18nArea">Home</i18n>
-                <i18n tag="a" v-href.locale="'/about-us'" :area="i18nArea">About us</i18n>
-                <i18n tag="a" v-href.locale="'/blog'" :area="i18nArea">Blog</i18n>
-                <i18n tag="a" v-href.locale="'/faq'" :area="i18nArea">FAQ</i18n>
+                <i18n tag="a" v-href.locale="'/'">Home</i18n>
+                <i18n tag="a" v-href.locale="'/about-us'">About us</i18n>
+                <i18n tag="a" v-href.locale="'/blog'">Blog</i18n>
+                <i18n tag="a" v-href.locale="'/faq'">FAQ</i18n>
             </div>
             <div class="c-links-group">
-                <i18n tag="h4" class="is-title-6" :area="i18nArea">CONTRIBUTE</i18n>
-                <i18n tag="a" v-href.locale="'/hiring/volunteering/'" :area="i18nArea">Volunteer</i18n>
-                <i18n tag="a" v-href.locale="'/hiring/'" :area="i18nArea">Join our team</i18n>
-                <i18n tag="a" v-href.locale="'/donate'" :area="i18nArea">Donate</i18n>
-                <i18n tag="a" href="https://github.com/okTurtles/group-income" target="_blank" :alt="L('Github')" :area="i18nArea">Github</i18n>
+                <i18n tag="h4" class="is-title-6">CONTRIBUTE</i18n>
+                <i18n tag="a" v-href.locale="'/hiring/volunteering/'">Volunteer</i18n>
+                <i18n tag="a" v-href.locale="'/hiring/'">Join our team</i18n>
+                <i18n tag="a" v-href.locale="'/donate'">Donate</i18n>
+                <i18n tag="a" href="https://github.com/okTurtles/group-income" target="_blank" :alt="L('Github')">Github</i18n>
             </div>
             <div class="c-links-group">
-                <i18n tag="h4" class="is-title-6" :area="i18nArea">SOCIAL</i18n>
+                <i18n tag="h4" class="is-title-6">SOCIAL</i18n>
                 <a href="https://crib.social/groupincome" target="_blank" alt="Fediverse">Fediverse</a>
                 <a href="https://odysee.com/@groupIncome:c" target="_blank" alt="Odysee">Odysee</a>
                 <a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank" alt="Slack">Slack</a>
@@ -53,8 +53,8 @@
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <i18n tag="a" v-href.locale="'/terms-and-conditions'" :area="i18nArea">Term & Conditons</i18n>
-            <i18n tag="a" v-href.locale="'/privacy-policy'" :area="i18nArea">Privacy Policy</i18n>
+            <i18n tag="a" v-href.locale="'/terms-and-conditions'">Term & Conditons</i18n>
+            <i18n tag="a" v-href.locale="'/privacy-policy'">Privacy Policy</i18n>
         </div>
         <p class="copyright">{{ copyRightText }}</p>
     </div>
@@ -64,8 +64,6 @@
 </template>
 
 <script>
-// @i18n-area: footer
-
 import { inject } from 'vue'
 import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
 import { validateEmail } from '@/utils/helpers.js'
@@ -83,10 +81,8 @@ export default {
     NewsLetterWarningModal
   },
   setup () {
-    const useTranslation = inject('useTranslation')
-    const i18nArea = 'footer'
-    const L = useTranslation(i18nArea)
-    return { L, i18nArea }
+    const L = inject('L')
+    return { L }
   },
   data () {
     return {

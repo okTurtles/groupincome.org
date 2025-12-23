@@ -4,24 +4,22 @@ import Layout from '@/layouts/DefaultLayout.astro';
 import GetStartedSection from '@/components/GetStarted.vue';
 import I18n from '@/i18n/i18n.astro';
 import Servers from '@/components/Servers.astro';
-import { dynamicRoutes, useTranslation } from '@/i18n/utils'
+import { dynamicRoutes } from '@/i18n/utils'
 
 export async function getStaticPaths() {
   return dynamicRoutes
 }
 
-const { locale } = Astro.params
-const i18nArea = 'get-started-page'
-const L = useTranslation(locale, i18nArea)
+const { L } = Astro.locals
 ---
 
 <Layout>
   <div class="c-wrapper">
     <section class="container grey-container">
       <div class="c-main-wrapper">
-        <I18n tag="div" class="is-posttitle" area={i18nArea}>GET STARTED</I18n>
-        <I18n tag="h1" class="is-title-1 c-main-title" area={i18nArea}>Join a Group Income server</I18n>
-        <I18n tag="p" class="is-subtitle c-main-para" area={i18nArea}>Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</I18n>
+        <I18n tag="div" class="is-posttitle">GET STARTED</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title">Join a Group Income server</I18n>
+        <I18n tag="p" class="is-subtitle c-main-para">Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</I18n>
       </div>
     </section>
     <section class="container span-container">

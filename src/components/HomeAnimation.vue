@@ -40,7 +40,7 @@
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
           </div>
 
-          <I18n tag="p" class="is-subtitle c-main-para" area="home">Private community software with a financial safety net, so you can focus on what matters.</I18n>
+          <I18n tag="p" class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</I18n>
 
           <div class="scroll-btn-container">
             <ScrollDownArrow targetSelector="#container2 .c-container-title" />
@@ -163,8 +163,6 @@
 </template>
 
 <script>
-// @i18n-area: home
-
 import { inject } from 'vue'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
@@ -183,16 +181,9 @@ export default {
     // VideoPlayer
   },
   setup () {
-    const useTranslation = inject('useTranslation')
-    return {
-      useTranslation
-    }
+    const L = inject('L')
+    return { L }
   },
-  computed: {
-    L () {
-      return this.useTranslation('home')
-    }
-  }
 }
 </script>
 

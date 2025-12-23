@@ -22,13 +22,11 @@
 </template>
 
 <script setup>
-// @i18n-area: navigation
 import { onMounted, ref, inject } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 
-const useTranslation = inject('useTranslation')
-const L = useTranslation('navigation')
+const L = inject('L')
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
 let menuList = ref([])

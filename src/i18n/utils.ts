@@ -32,16 +32,14 @@ function replaceArgs (string: string, args: Record<string, string> = {}): string
   })
 }
 
-export function useTranslation (lang: string = '', area: string = '') {
+export function useTranslation (lang: string = '') {
   const noLookupNeeded = lang === defaultLanguage || !(lang in translationTables)
   const table = translationTables[lang]
 
   return (key: string, args: Record<string, string> = {}): string => {
     const stringFromTable = noLookupNeeded
       ? key
-      : area in table
-        ? table[area][key] || table[key] || key
-        : table[key] || key
+      : table[key] || key
     const hasArgs = Object.keys(args).length > 0
 
     return hasArgs

@@ -5,5 +5,6 @@ declare namespace App {
   interface Locals {
     title?: string;
     locale?: string;
+    L?: any;
   }
 }

@@ -35,20 +35,7 @@ async function extractI18nStrings (filePath) {
   const strings = []
 
   /* ==================================================
-   * 1. Check if there is area specified in the file
-   *    - it is @i18n-area: <area> in the file
-   * ================================================== */
-  const areaRegex = /^\s*\/\/\s*@i18n-area:\s*([^\s]+)\s*$/img;
-
-  const areaMatches = [...content.matchAll(areaRegex)]
-  const area = areaMatches.length ? areaMatches[0][1] : null
-
-  if (areaMatches.length > 1) {
-    console.warn(`[i18n-warning] Multiple @i18n-area found in ${filePath}`)
-  }
-
-  /* ==================================================
-   * 2. L('...') or L("..."), optional 2nd argument
+   * 1. L('...') or L("..."), optional 2nd argument
    *    - multiline-safe
    *    - ignores args after the first
    * ================================================== */
@@ -61,7 +48,7 @@ async function extractI18nStrings (filePath) {
   }
 
   /* ==================================================
-   * 3. <I18n ...>...</I18n> (case-insensitive)
+   * 2. <I18n ...>...</I18n> (case-insensitive)
    *    - multiline open + content
    *    - trim trailing whitespace only
    * ================================================== */
@@ -81,15 +68,12 @@ async function extractI18nStrings (filePath) {
 
   return strings.length === 0
     ? null
-    : { area, strings }
+    : { filePath, strings }
 }
 
 async function run () {
   let allFilePaths = []
-  const allEntries = {
-    hasArea: [],
-    noArea: []
-  }
+  const allEntries = []
 
   for (const targetDir of targetDirs) {
     allFilePaths = [
@@ -102,34 +86,25 @@ async function run () {
     const entry = await extractI18nStrings(filePath)
 
     if (entry) {
-      allEntries[entry.area ? 'hasArea' : 'noArea'].push(entry)
+      allEntries.push(entry)
     }
   }
 
   /* ==================================================
-   * 1. Build common table
+   * generate JSON language tables (eg. en.json, fr.json, ko.json, etc.)
    * ================================================== */
+
   const finalTable = {}
 
-  for (const entry of allEntries.hasArea) {
-    if (!finalTable[entry.area]) {
-      finalTable[entry.area] = {}
-    }
-    
-    for (const raw of entry.strings) {
-      finalTable[entry.area][raw] = raw
+  for (const entry of allEntries) {
+    const { strings, filePath } = entry
+
+    finalTable[`__________${filePath}__________`] = ""
+    for (const string of strings) {
+      finalTable[string] = string
     }
   }
 
-  for (const entry of allEntries.noArea) {
-    for (const raw of entry.strings) {
-      finalTable[raw] = raw
-    }
-  }
-
-  /* ==================================================
-   * 2. generate JSON language tables (eg. en.json, fr.json, ko.json, etc.)
-   * ================================================== */
   for (const langCode of supportedLangCodes) {
     const langJsonPath = path.resolve(`src/i18n/tables/${langCode}.json`)
     let existingTable = {}
@@ -141,23 +116,13 @@ async function run () {
       // file does not exist yet — start fresh
     }
 
-    // Merge with existing table (preserve existing entries so that already translated strings are not overwritten)
+    // Merge with existing table (preserve existing entries so that already translated strings are not lost)
     for (const [key, value] of Object.entries(finalTable)) {
-      if (typeof value === 'object') {
-        // For the case of area object: { [area]: { [text]: text } }
-        const area = key
+      if (key.startsWith('___')) { continue }
 
-        for (const [nestedKey, text] of Object.entries(value)) {
-          finalTable[area][nestedKey] = (area in existingTable) && existingTable[area][nestedKey]
-            ? existingTable[area][nestedKey]
-            : text
-        }
-      } else {
-        // { [text]: text } part here.
-        finalTable[key] = (key in existingTable)
-          ? existingTable[key]
-          : value
-      }
+      finalTable[key] = (key in existingTable)
+        ? existingTable[key]
+        : value
     }
 
     // Write the final table to the file

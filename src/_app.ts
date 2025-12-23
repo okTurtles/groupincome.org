@@ -37,10 +37,9 @@ export default (app: App) => {
   app.component('I18n', I18n)
 
   const locale = getLang()
-  const useTranslationWrapper = (area: string = '') => {
-    return useTranslation(locale, area)
-  }
+  const L = useTranslation(locale)
+
   // global provides
-  app.provide('useTranslation', useTranslationWrapper)
+  app.provide('L', L)
   app.provide('locale', locale)
 }
