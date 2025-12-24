@@ -2,11 +2,23 @@
 import Layout from '@/layouts/DefaultLayout.astro';
 import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { resolvePath, sortedPosts } from '@/utils/helpers.js'
+import { supportedLangCodes } from '@/i18n/utils'
+import I18n from '@/i18n/i18n.astro'
+
 export async function getStaticPaths({ paginate }: any) {
-	const posts = sortedPosts(import.meta.glob('../../posts/*.{md,mdx}', { eager: true }))
-  // Generate pages from our array of blog post, with 2 to a page
-  return paginate(posts, { pageSize: 4 });
+	const posts = sortedPosts(import.meta.glob('../../../posts/*.{md,mdx}', { eager: true }))
+	const result = supportedLangCodes.flatMap((langCode) =>
+    paginate(posts, {
+      pageSize: 4,
+      params: {
+        locale: langCode,
+      },
+    })
+  )
+
+  return result
 }
+
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
 const { data, lastPage, url } = page
@@ -16,8 +28,8 @@ const indexActive = (index: number, currentUrl: string) => {
 ---
 
 <Layout>
-	<section class="c-header">
-		<h1>Blog</h1>
+	<section class="c-blog-page-header">
+    <I18n tag="h1">Blog</I18n>
 	</section>
 
 	<section class="blog-wrapper" v-if="posts">
@@ -39,7 +51,7 @@ const indexActive = (index: number, currentUrl: string) => {
 </Layout>
 
 <style lang="scss" is:global>
-@use "../../styles/variables" as *;
+@use "../../../styles/variables" as *;
 
 .c-blog-wrapper {
 	.icon-link {
@@ -139,10 +151,10 @@ const indexActive = (index: number, currentUrl: string) => {
 }
 </style>
 
-<style lang="scss" scoped>
-@use "../../styles/variables" as *;
+<style lang="scss" is:global>
+@use "../../../styles/variables" as *;
 
-.c-header {
+.c-blog-page-header {
 	display: flex;
 	justify-content: center;
 

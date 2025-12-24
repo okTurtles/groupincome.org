@@ -97,10 +97,18 @@ async function run () {
 
   for (const entry of allEntries) {
     const { strings, filePath } = entry
+    let fileHasAtLeastOneString = false
 
     finalTable[`__________${filePath}__________`] = ""
     for (const string of strings) {
-      finalTable[string] = string
+      if (!finalTable[string]) {
+        fileHasAtLeastOneString = true
+        finalTable[string] = string
+      }
+    }
+
+    if (!fileHasAtLeastOneString) {
+      delete finalTable[`__________${filePath}__________`]
     }
   }
 
