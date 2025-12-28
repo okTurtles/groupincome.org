@@ -2,8 +2,11 @@
 import Layout from '@/layouts/DefaultLayout.astro';
 import Donate from '@/components/Donate.vue'
 import { resolvePath } from '@/utils/helpers.js'
-import { dynamicRoutes } from '@/i18n/utils'
+import { dynamicRoutes, useTranslation, LTags } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.astro'
+
+const { locale } = Astro.locals
+const L = useTranslation(locale)
 
 export async function getStaticPaths() {
   return dynamicRoutes
@@ -22,54 +25,63 @@ export async function getStaticPaths() {
     </section>
     <div class="c-container-middle">
       <div class="c-container-center">
-        <h2 class="is-title-2 c-main-title">
-          Become a Sponsor
-        </h2>
-        <p class="c-main-para">If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here’s how:</p>
+        <I18n tag="h2" class="is-title-2 c-main-title">Become a Sponsor</I18n>
+        <I18n tag="p" class="is-subtitle c-main-para">If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here's how:</I18n>
       </div>
 
       <section class="container c-grid c-mb-6">
         <div class="c-direct">
-          <h2 class="c-sub-title">Direct Cryptocurrency Donation</h2>
+          <I18n tag="h2" class="c-sub-title">Direct Cryptocurrency Donation</I18n>
           <Donate client:load/>
-          <div class="c-or">or</div>
+          <I18n tag="div" class="c-or">or</I18n>
         </div>
         <div class="c-credit">
           <div class="c-credit-block">
-            <h2 class="c-sub-title">Credit/Debit Card Donation</h2>
-            <a class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">Donate with Donorbox</a>  
+            <I18n tag="h2" class="c-sub-title">Credit/Debit Card Donation</I18n>
+            <a class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">
+              <I18n>Donate with Donorbox</I18n>
+            </a>  
           </div>
-          
+
           <div class="c-credit-block">
-            <h2 class="c-sub-title">Others</h2>
-            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support")}>Other ways to Donate</a>
+            <I18n tag="h2" class="c-sub-title">Others</I18n>
+            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support")}>
+              <I18n>Other ways to Donate</I18n>
+            </a>
           </div>
         </div>
       </section>
 
       <section class="container c-grid c-mb-6">
-        <div><b>Crypto Donation Receipt</b>
-          <div class="c-main-para">After you make a crypto donation, email us at <a class="is-link" href="mailto:hi@okturtles.org" target="_blank">hi@okturtles.org</a> so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!</div>
+        <div>
+          <I18n tag="b">Crypto Donation Receipt</I18n>
+          <div class="c-main-para" set:html={
+            L(
+              `After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!`,
+              { ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}
+            )
+          }></div>
         </div>
-        <div><b>okTurtles Foundation</b>
-          <div class="c-main-para">The okTurtles Foundation is a 501(c)(3) non-profit corporation, and our U.S. federal tax ID number is 47-1188610.</div>
+        <div>
+          <b>okTurtles Foundation</b>
+          <I18n tag="div" class="c-main-para">The okTurtles Foundation is a 501(c)(3) non-profit corporation, and our U.S. federal tax ID number is 47-1188610.</I18n>
         </div>
       </section>
     </div>
     <section class="container dark-container">
-      <h2 class="is-title-2 c-container-title">Sponsors</h2>
-      <p class="c-container-para">Thank you to the following individuals and organizations</p>
+      <I18n tag="h2" class="is-title-2 c-container-title">Sponsors</I18n>
+      <I18n tag="p" class="c-container-para">Thank you to the following individuals and organizations</I18n>
 
       <div class="c-sponsors-logo-container">
         <div class="logo-placeholder">
-          <i class="icon-image-multiple"></i><span>Your logo here</span>
+          <i class="icon-image-multiple"></i><I18n>Your logo here</I18n>
         </div>
       </div>
     </section>
 
     <section style={{ display: 'none' }} class="container c-second-container">
-      <h2 class="is-title-2 c-container-title">Individual Sponsors</h2>
-      <p class="c-container-para">Thank you to the following individuals and organizations, who have pledged up to $x/month</p>
+      <I18n tag="h2" class="is-title-2 c-container-title">Individual Sponsors</I18n>
+      <I18n tag="p" class="c-container-para">Thank you to the following individuals and organizations, who have pledged up to $x/month</I18n>
       <div class="c-individual-sponsor-container">
         <ul>
           {
@@ -81,7 +93,7 @@ export async function getStaticPaths() {
   </div>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
 @use "../../styles/variables" as *;
 
 .c-wrapper {
@@ -131,6 +143,17 @@ export async function getStaticPaths() {
   @include desktop {
     margin: 0 auto 1rem auto;
   }
+}
+
+.is-subtitle {
+  &.c-main-para {
+    margin: 0 auto 1rem auto;
+  }
+}
+
+b:has(+ .c-main-para) {
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
 .grey-container {

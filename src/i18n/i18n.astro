@@ -9,7 +9,7 @@ interface Props {
   args?: Record<string, string>,
   class?: any
 }
-const { tag = '', area = '', text, args, class: className = '' } = Astro.props as Props
+const { tag = '', text, args, class: className = '' } = Astro.props as Props
 
 const { locale } = Astro.locals
 const L = useTranslation(locale)
@@ -21,4 +21,4 @@ const translated = L(textToTranslate.trim(), args)
 
 const classStr = classNames(className)
 ---
-<TagName class={classStr}>{translated}</TagName>
+<TagName class={classStr} set:html={translated}></TagName>
