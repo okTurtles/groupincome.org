@@ -131,20 +131,48 @@ export default {
           active: false
         }, {
           question: L('Why is Group Income a voluntary system?'),
-          answer: `One of the primary arguments for Basic Income is the notion that it is <a class="link" href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">better to give people money than vouchers</a> because <a class="link" href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">people make better decisions about what they can and should do with their money</a> than the state (or donor) can make for them. However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money.<br><br>When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others. These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.<br><br>These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:<br>
-          <ul>
-            <li><a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund" class="link" target="_blank">Alaska Permanent Fund Dividend</a> (resource-based)</li>
-            <li><a href="https://en.wikipedia.org/wiki/Land_value_tax" class="link" target="_blank">Land value tax</a> (resource-based)</li>
-            <li>Group Income (voluntary monetization of human labor)</li>
-            <li>City sales tax (where freedom of motion is feasible)</li>
-          </ul>`,
+          answer: [
+            L(
+              `One of the primary arguments for Basic Income is the notion that it is {a1_}better to give people money than vouchers{_a} because {a2_}people make better decisions about what they can and should do with their money{_a} than the state (or donor) can make for them.`,
+              {
+                ...LTags('a'),
+                'a1_': '<a href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">',
+                'a2_': '<a href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">'
+              }
+            ),
+            L(`However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money.`),
+            L(`When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others.`),
+            L(` These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.`),
+            L(`{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}`, { ...LTags('br') }),
+            L(
+              `{ul_}
+                {li_}{a1_}Alaska Permanent Fund Dividend{_a} (resource-based){_li}
+                {li_}{a2_}Land value tax{_a} (resource-based){_li}
+                {li_}Group Income (voluntary monetization of human labor){_li}
+                {li_}City sales tax (where freedom of motion is feasible){_li}
+              {_ul}`,
+              {
+                ...LTags('a', 'ul', 'li'),
+                'ul_': '<ul class="bullet-list">',
+                'a_': '<a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund" target="_blank">',
+                'a2_': '<a href="https://en.wikipedia.org/wiki/Land_value_tax" target="_blank">'
+              }
+            )
+          ].join(''),
           active: false
         }, {
           question: L('Why is Group Income decentralized?'),
-          answer: `Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.<br><br>
-            We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the <a class="link" href="https://www.businessnewsdaily.com/10625-businesses-collecting-data.html" target="_blank">way most companies, as well as big data and data brokers</a>, are currently using data to manipulate or tamper with people's will. With a decentralized system on Group Income, groups don't need to trust a centralized "service provider". Groups will be able to be self-governing, and will also only make decisions for themselves.<br><br>
-            This means that, besides helping you reach basic security, we also want you to be in control of your security and privacy online. We recognize that your data belongs to you, and we are not entitled to it.<br><br>
-            <strong>Any data shared within a group will remain private to that group.</strong>`,
+          answer: [
+            L(`Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.{br_}{br_}`, { ...LTags() }),
+            L(
+              `We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. `,
+              { ...LTags('a'), 'a_': '<a href="https://www.businessnewsdaily.com/10625-businesses-collecting-data.html" target="_blank">' }
+            ),
+            L(
+              `This means that, besides helping you reach basic security, we also want you to be in control of your security and privacy online. We recognize that your data belongs to you, and we are not entitled to it.{br_}{br_}{strong_}Any data shared within a group will remain private to that group.{_strong}`,
+              { ...LTags('strong') }
+            )
+          ].join(''),
           active: false
         }, {
           question: L('Why would people who earn more than a basic income want to give any of it away?'),

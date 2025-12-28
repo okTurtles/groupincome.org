@@ -46,8 +46,14 @@ export function LTags (...tags: string[]): Record<string, string> {
 export function useTranslation (lang: string = '') {
   const noLookupNeeded = lang === defaultLanguage || !(lang in translationTables)
   const table = translationTables[lang]
+  const removeWhiteSpaces = (text: string) => {
+    return text.replace(/\s+$/, '')
+      .replace(/\n[ \t]+/g, '\n')
+  }
 
   return (key: string, args: Record<string, string> = {}): string => {
+    key = removeWhiteSpaces(key)
+
     const stringFromTable = noLookupNeeded
       ? key
       : table[key] || key

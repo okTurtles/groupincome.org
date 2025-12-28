@@ -21,6 +21,7 @@ export async function getStaticPaths({ paginate }: any) {
 
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
+const { locale } = Astro.locals;
 const { data, lastPage, url } = page
 const indexActive = (index: number, currentUrl: string) => {
 	return index === 0 ? currentUrl === '/blog' : currentUrl.endsWith(`${index + 1}`)
@@ -41,7 +42,7 @@ const indexActive = (index: number, currentUrl: string) => {
 				<i class="icon-chevron-left"></i>
 			</a>
 			{[...Array(lastPage)].map((x, i) =>
-				<a class={indexActive(i, url.current) ? 'active' : ''} href={resolvePath(`/blog${i > 0 ? '/' + (i + 1) : ''}`)}>{i+1}</a>
+				<a class={indexActive(i, url.current) ? 'active' : ''} href={resolvePath(`/${locale}/blog${i > 0 ? '/' + (i + 1) : ''}`)}>{i+1}</a>
 			)}
 			<a href={url.next ? resolvePath(url.next) : null} class={ url.next ? '' : 'inactive' }>
 				<i class="icon-chevron-right"></i>

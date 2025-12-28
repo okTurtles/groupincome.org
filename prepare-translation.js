@@ -17,7 +17,7 @@ async function recusrivelyReadDir (dirPath) {
 
   for (const entry of list) {
     if (entry.isFile() && hasTargetExtensions(entry.name)) {
-      filePathList.push(path.join(entry.path, entry.name))
+      filePathList.push(path.join(dirPath, entry.name))
     } else if (entry.isDirectory()) {
       filePathList = [
         ...filePathList,
@@ -31,6 +31,10 @@ async function recusrivelyReadDir (dirPath) {
 
 async function extractI18nStrings (filePath) {
   const content = await fs.readFile(filePath, 'utf8')
+  const removeWhiteSpaces = (text) => {
+    return text.replace(/\s+$/, '')
+      .replace(/\n[ \t]+/g, '\n')
+  }
   const strings = []
 
   /* ==================================================
@@ -42,8 +46,11 @@ async function extractI18nStrings (filePath) {
     /\bL\s*\(\s*(['"`])((?:\\.|(?!\1)[\s\S])*)\1\s*(?:,|\))/g;
 
   for (const match of content.matchAll(lCallRegex)) {
-    const text = match[2]
-    strings.push(text)
+    const text = removeWhiteSpaces(match[2])
+
+    if (text) {
+      strings.push(text)
+    }
   }
 
   /* ==================================================
@@ -55,10 +62,7 @@ async function extractI18nStrings (filePath) {
     /<i18n\b[\s\S]*?>([\s\S]*?)<\/i18n>/gi;
 
   for (const match of content.matchAll(i18nTagRegex)) {
-    let text = match[1];
-
-    // Remove trailing whitespace only
-    text = text.replace(/\s+$/, '')
+    let text = removeWhiteSpaces(match[1]);
 
     if (text) {
       strings.push(text)
