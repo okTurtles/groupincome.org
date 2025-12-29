@@ -1,4 +1,6 @@
 ---
+/* logic to redirect existing https://www.groupincome.org/jobs/job-name links out there to https://www.groupincome.org/en/hiring/job-name */
+
 import { sortedPosts } from '@/utils/helpers'
 export async function getStaticPaths() {
   const jobs =  sortedPosts(import.meta.glob('../../jobs/*.{md,mdx}', { eager: true }));

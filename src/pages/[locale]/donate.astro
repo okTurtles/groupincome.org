@@ -8,6 +8,8 @@ import I18n from '@/i18n/i18n.astro'
 export async function getStaticPaths() {
   return getDynamicRoutes()
 }
+
+const { locale } = Astro.locals
 ---
 
 <Layout>
@@ -42,7 +44,7 @@ export async function getStaticPaths() {
 
           <div class="c-credit-block">
             <I18n tag="h2" class="c-sub-title">Others</I18n>
-            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support")}>
+            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support", locale)}>
               <I18n>Other ways to Donate</I18n>
             </a>
           </div>
