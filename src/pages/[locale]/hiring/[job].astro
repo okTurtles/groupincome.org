@@ -1,0 +1,33 @@
+---
+import { sortedPosts } from '@/utils/helpers'
+import { supportedLangCodes } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  const jobs =  sortedPosts(import.meta.glob('../../../jobs/*.{md,mdx}', { eager: true }));
+  const result = supportedLangCodes.flatMap((langCode) => {
+    return jobs.map((job: any): any => {
+      return {
+        params: {
+          locale: langCode,
+          job: job.frontmatter.permalink.slice(1).slice(0, -1)
+        },
+        props: job
+      }
+    })
+  })
+
+  return result
+}
+const { Content } = Astro.props
+---
+
+<Content />
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  window.scrollTo({
+      top: 900,
+      behavior: "smooth"
+  });
+});
+</script>
