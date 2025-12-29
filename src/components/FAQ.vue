@@ -196,17 +196,32 @@ export default {
           active: false
         }, {
           question: L("What does Group Income do or enable that the government doesn't?"),
-          answer: `It's not easy to jump-start basic income. Pilot studies don't last long. So far, there have not been any sustainable implementations providing a basic income, in part because people argue about political implementation details, like taxation.<br><br>
-            <a class="link" href="https://www.investopedia.com/terms/b/basic-income.asp" target="_blank">Universal Basic Income gained momentum in 2020</a> during Andrew Yang's presidential campaign, but it still isn't in a near-term future. Group Income does not require political discussion or nationwide acceptance. It gives people the authority to choose what they wish to do with their income, rather than having a third party making decisions for them. It is also more efficient than any government system because there's no bureaucracy, no policies, and no conflicting laws.`,
+          answer: L(
+            `It's not easy to jump-start basic income. Pilot studies don't last long. So far, there have not been any sustainable implementations providing a basic income, in part because people argue about political implementation details, like taxation.{br_}{br_}
+            {a_}Universal Basic Income gained momentum in 2020{_a} during Andrew Yang's presidential campaign, but it still isn't in a near-term future. Group Income does not require political discussion or nationwide acceptance. It gives people the authority to choose what they wish to do with their income, rather than having a third party making decisions for them. It is also more efficient than any government system because there's no bureaucracy, no policies, and no conflicting laws.`,
+            { ...LTags('a'), 'a_': '<a class="link" href="https://www.investopedia.com/terms/b/basic-income.asp" target="_blank">' }
+          ),
           active: false
         }, {
           question: L('What about deadbeats and freeloaders?'),
-          answer: `Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.<br><br>
-            We understand that the risk of deadbeats or freeloaders on a group may be a real concern for users. That being said, we expect this risk to be rare, as guaranteed basic income programs and <a class="link" href="https://www.researchgate.net/publication/227387994_The_Town_with_No_Poverty_The_Health_Effects_of_a_Canadian_Guaranteed_Annual_Income_Field_Experiment" target="_blank">studies have shown</a>, in contrast to public opinion, that people with a guaranteed income only slightly reduce their workload, rather than stop working at all. A <a class="link" href="https://www.newscientist.com/article/2242937-universal-basic-income-seems-to-improve-employment-and-well-being/#ixzz6fOgmRfR1" target="_blank">Finish study</a> also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.`,
+          answer: [
+            L(`Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}`, { ...LTags() }),
+            L(
+              `We understand that the risk of deadbeats or freeloaders on a group may be a real concern for users. That being said, we expect this risk to be rare, as guaranteed basic income programs and {a_}studies have shown{_a}, in contrast to public opinion, that people with a guaranteed income only slightly reduce their workload, rather than stop working at all.`,
+              { ...LTags('a'), 'a_': '<a class="link" href="https://www.researchgate.net/publication/227387994_The_Town_with_No_Poverty_The_Health_Effects_of_a_Canadian_Guaranteed_Annual_Income_Field_Experiment" target="_blank">' }
+            ),
+            L(
+              `A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.`,
+              { ...LTags('a'), 'a_': '<a class="link" href="https://www.newscientist.com/article/2242937-universal-basic-income-seems-to-improve-employment-and-well-being/#ixzz6fOgmRfR1" target="_blank">' }
+            )
+          ].join(' '),
           active: false
         }, {
           question: L('How do you protect against Sybil attacks?'),
-          answer: `We use something called <a href="https://en.wikipedia.org/wiki/Dunbar's_number">Dunbar's Number</a> to prevent Sybil attacks. <a href="https://groupincome.org/2025/06/no-eyeballs-needed/">More about this in this blog post</a>.`,
+          answer: L(
+            `We use something called {a_}Dunbar's Number{_a} to prevent Sybil attacks. {a2_}More about this in this blog post{_a}.`,
+            { ...LTags('a'), 'a_': '<a class="link" href="https://en.wikipedia.org/wiki/Dunbar\'s_number" target="_blank">', 'a2_': '<a class="link" href="https://groupincome.org/2025/06/no-eyeballs-needed/" target="_blank">' }
+          ),
           active: false
         }, {
           question: L('If the size of groups is limited, how does Group Income scale?'),

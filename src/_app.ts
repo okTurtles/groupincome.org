@@ -6,7 +6,7 @@ import I18n from '@/i18n/i18n.vue'
 const isNode = typeof globalThis.window === 'undefined' && typeof globalThis.document === 'undefined'
 const getLang = () => {
   return isNode
-    ? (globalThis as any).locale || ''
+    ? (globalThis as any).giVueLocale || ''
     : document.body.dataset.translation || ''
 }
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, useLocale: boolean = false) => {
