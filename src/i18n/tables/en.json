@@ -127,6 +127,9 @@
   "__________src/components/Navigation.vue__________": "",
   "FAQS": "FAQS",
   "Hiring": "Hiring",
+  "__________src/components/Servers.astro__________": "",
+  "The official Group Income Server.": "The official Group Income Server.",
+  "Edit the |a_|this page on Github|_a| to add your server here.": "Edit the |a_|this page on Github|_a| to add your server here.",
   "__________src/pages/[locale]/about-us.astro__________": "",
   "ABOUT GROUP INCOME": "ABOUT GROUP INCOME",
   "On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|.": "On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|.",
@@ -187,5 +190,12 @@
   "Run your own server": "Run your own server",
   "GET STARTED": "GET STARTED",
   "Join a Group Income server": "Join a Group Income server",
-  "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.": "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's."
+  "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.": "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.",
+  "__________src/layouts/JobPost.astro__________": "",
+  "remote": "remote",
+  "JOBS": "JOBS",
+  "Join our team.": "Join our team.",
+  "We're always looking for passionate people who share our vision and excitement for what's possible.": "We're always looking for passionate people who share our vision and excitement for what's possible.",
+  "If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.": "If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.",
+  "Open Positions": "Open Positions"
 }

@@ -127,6 +127,9 @@
   "__________src/components/Navigation.vue__________": "",
   "FAQS": "질의응답",
   "Hiring": "커리어",
+  "__________src/components/Servers.astro__________": "",
+  "The official Group Income Server.": "공식 Group Income 서버.",
+  "Edit the |a_|this page on Github|_a| to add your server here.": "Github에서 |a_|이 페이지|_a|를 편집하여 당신의 서버를 추가하세요.",
   "__________src/pages/[locale]/about-us.astro__________": "",
   "ABOUT GROUP INCOME": "GROUP INCOME 소개",
   "On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|.": "|sp1_|기본|_span||sp2_| 소득|_span| 안정을, |sp3_|모두|_span|에게 보장하기 위한 미션.",
@@ -187,5 +190,12 @@
   "Run your own server": "본인만의 서버를 운영하세요",
   "GET STARTED": "시작하기",
   "Join a Group Income server": "Group Income 서버에 가입하세요",
-  "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.": "Group Income은 웹사이트가 아니라, 이메일과 같습니다. 누구나 자신의 서버를 운영할 수 있습니다. 공식 서버 혹은, 다른 고객의 서버에 가입하세요."
+  "Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.": "Group Income은 웹사이트가 아니라, 이메일과 같습니다. 누구나 자신의 서버를 운영할 수 있습니다. 공식 서버 혹은, 다른 고객의 서버에 가입하세요.",
+  "__________src/layouts/JobPost.astro__________": "",
+  "remote": "재택근무",
+  "JOBS": "채용 공고",
+  "Join our team.": "팀에 합류하세요.",
+  "We're always looking for passionate people who share our vision and excitement for what's possible.": "저희는 항상 저희의 비전과 가능성에 대한 열망을 가진 사람들을 찾고 있습니다.",
+  "If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.": "Group Income이 만들고 있는 것과 그 의미에 진심으로 관심이 있다면, 저희 팀에 합류하고 싶으실 겁니다.",
+  "Open Positions": "현재 모집중인 공고들"
 }
