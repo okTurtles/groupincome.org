@@ -34,7 +34,6 @@ async function extractI18nStrings (filePath) {
   const removeWhiteSpaces = (text) => {
     return text.replace(/\s+$/, '')
       .replace(/\n[ \t]+/g, '\n')
-      .trim()
   }
   const strings = []
 
@@ -66,7 +65,7 @@ async function extractI18nStrings (filePath) {
     /<i18n\b[\s\S]*?(?:(?:(?:=(?:['"`])(?:\\.|(?!\1)[^\\])*\1|=\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})*)|[^>])*?)>([\s\S]*?)<\/i18n>/gi;
 
   for (const match of content.matchAll(i18nTagRegex)) {
-    let text = removeWhiteSpaces(match[1]);
+    let text = removeWhiteSpaces(match[1]).trim();
 
     if (text) {
       strings.push(text)

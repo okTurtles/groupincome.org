@@ -158,7 +158,7 @@ export default {
                 'a2_': '<a href="https://en.wikipedia.org/wiki/Land_value_tax" target="_blank">'
               }
             )
-          ].join(''),
+          ].join(' '),
           active: false
         }, {
           question: L('Why is Group Income decentralized?'),
@@ -176,13 +176,23 @@ export default {
           active: false
         }, {
           question: L('Why would people who earn more than a basic income want to give any of it away?'),
-          answer: `Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving. Group members want to help each other reach the mincome threshold because groups are better when people support each other. When other group members are miserable and struggling, that impacts the quality of life of each group member. Likewise, when the society around you is miserable, that will impact your quality of life as well.<br><br>
-            Let's take the example of <a class="link" href="https://www.simplypsychology.org/maslow.html" target="_blank">Maslow's Hierarchy of Needs</a>. It argues that the needs lower in the hierarchy (like food, water, warmth, security, or safety) need to be satisfied before individuals can attempt to focus on needs higher up. If basic needs aren't met, individuals will never move to the next level of needs. When someone decides to contribute to a group and help members achieve basic security, they're helping their loved ones climb the ladder and attempt to reach their full potential. This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?`,
+          answer: [
+            L(`Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving.`),
+            L(`Group members want to help each other reach the mincome threshold because groups are better when people support each other.`),
+            L(`When other group members are miserable and struggling, that impacts the quality of life of each group member.`),
+            L(
+              `Likewise, when the society around you is miserable, that will impact your quality of life as well.{br_}{br_}Let's take the example of {a_}Maslow's Hierarchy of Needs{_a}.`,
+              { ...LTags('a'), 'a_': '<a class="link" href="https://www.simplypsychology.org/maslow.html" target="_blank">' }
+            ),
+            L(`It argues that the needs lower in the hierarchy (like food, water, warmth, security, or safety) need to be satisfied before individuals can attempt to focus on needs higher up.`),
+            L(`If basic needs aren't met, individuals will never move to the next level of needs. When someone decides to contribute to a group and help members achieve basic security, they're helping their loved ones climb the ladder and attempt to reach their full potential.`),
+            L(`This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?`)
+          ].join(' '),
           active: false
         }, {
           question: L('This sounds like communism.'),
-          answer: `This is not communism. One reason communism failed is because power was centralized, which led to a small group making decisions for everyone, and concentration/abuse of power.<br><br>
-            Group Income is decentralized, which ensures that each group is making decisions only for itself and that no one will have power over that group.`,
+          answer: L(`This is not communism. One reason communism failed is because power was centralized, which led to a small group making decisions for everyone, and concentration/abuse of power.{br_}{br_}
+            Group Income is decentralized, which ensures that each group is making decisions only for itself and that no one will have power over that group.`, { ...LTags() }),
           active: false
         }, {
           question: L("What does Group Income do or enable that the government doesn't?"),
@@ -200,14 +210,16 @@ export default {
           active: false
         }, {
           question: L('If the size of groups is limited, how does Group Income scale?'),
-          answer: 'Group Income can scale by connecting groups together. For example, a local family group may itself be a group member in a larger community group, which may be a group member in a city group, which may be a member in a countywide group, and so forth.',
+          answer: L('Group Income can scale by connecting groups together. For example, a local family group may itself be a group member in a larger community group, which may be a group member in a city group, which may be a member in a countywide group, and so forth.'),
           active: false
         }, {
           question: L("What's the end goal of Group Income?"),
-          answer: `Basic Income Security.<br><br>
-            Our real goal with Group Income is to ensure basic security for everyone. Some societies have chosen to restrict access to such things behind money, and therefore we’re developing what is really just a bandaid to fix the damage that money creates.<br><br>
-            Like clean air and clean water, everyone should have access to a clean bed and healthy food. Access to such things shouldn't rely solely on the ability to afford them.<br><br>
-            <strong>That is the goal. Group Income is one of the steps on the way to that goal.</strong>`,
+          answer: L(`Basic Income Security.{br_}{br_}
+            Our real goal with Group Income is to ensure basic security for everyone. Some societies have chosen to restrict access to such things behind money, and therefore we're developing what is really just a bandaid to fix the damage that money creates.{br_}{br_}
+            Like clean air and clean water, everyone should have access to a clean bed and healthy food. Access to such things shouldn't rely solely on the ability to afford them.{br_}{br_}
+            {strong_}That is the goal. Group Income is one of the steps on the way to that goal.{_strong}`,
+            { ...LTags('strong') }
+          ),
           active: false
         }]
       }/*, {
