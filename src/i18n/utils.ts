@@ -13,9 +13,11 @@ export const supportedLangCodes = [defaultLanguage, ...Object.keys(translationTa
 
 // dynamic route definitions to be used in getStaticPaths() function of each page
 // (reference: https://docs.astro.build/en/reference/routing-reference/#getstaticpaths)
-export const dynamicRoutes: Array<any> = supportedLangCodes.map((langCode: string) => {
-  return { params: { locale: langCode } }
-})
+export function getDynamicRoutes(): Array<any> {
+  return supportedLangCodes.map((locale) => ({
+    params: { locale }
+  }))
+}
 
 const argsRegex = /\{([0-9a-zA-Z_]+)\}/g
 

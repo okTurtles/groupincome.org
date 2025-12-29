@@ -2,14 +2,14 @@
 import Layout from '@/layouts/DefaultLayout.astro';
 import FAQ from '@/components/FAQ.vue'
 import { resolvePath } from '@/utils/helpers.js'
-import { useTranslation, dynamicRoutes } from '@/i18n/utils'
+import { useTranslation, getDynamicRoutes } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.astro'
 
 const { locale } = Astro.locals
 const L = useTranslation(locale)
 
 export async function getStaticPaths() {
-  return dynamicRoutes
+  return getDynamicRoutes()
 }
 
 const giShortsData = [

@@ -2,14 +2,14 @@
 import Layout from '@/layouts/DefaultLayout.astro';
 import Donate from '@/components/Donate.vue'
 import { resolvePath } from '@/utils/helpers.js'
-import { dynamicRoutes, useTranslation, LTags } from '@/i18n/utils'
+import { getDynamicRoutes, useTranslation, LTags } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.astro'
 
 const { locale } = Astro.locals
 const L = useTranslation(locale)
 
 export async function getStaticPaths() {
-  return dynamicRoutes
+  return getDynamicRoutes()
 }
 ---
 

@@ -1,11 +1,11 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro'
 import HomeAnimation from '@/components/HomeAnimation.vue'
-import { dynamicRoutes } from '@/i18n/utils'
+import { getDynamicRoutes } from '@/i18n/utils'
 
 
 export async function getStaticPaths() {
-  return dynamicRoutes
+  return getDynamicRoutes()
 }
 
 ---

@@ -3,10 +3,10 @@ import Layout from '@/layouts/DefaultLayout.astro';
 import GetStartedSection from '@/components/GetStarted.vue';
 import I18n from '@/i18n/i18n.astro';
 import Servers from '@/components/Servers.astro';
-import { dynamicRoutes, useTranslation } from '@/i18n/utils'
+import { getDynamicRoutes, useTranslation } from '@/i18n/utils'
 
 export async function getStaticPaths() {
-  return dynamicRoutes
+  return getDynamicRoutes()
 }
 
 const { locale } = Astro.locals
