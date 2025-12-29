@@ -2,11 +2,8 @@
 import Layout from '@/layouts/DefaultLayout.astro';
 import Donate from '@/components/Donate.vue'
 import { resolvePath } from '@/utils/helpers.js'
-import { getDynamicRoutes, useTranslation, LTags } from '@/i18n/utils'
+import { getDynamicRoutes, LTags } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.astro'
-
-const { locale } = Astro.locals
-const L = useTranslation(locale)
 
 export async function getStaticPaths() {
   return getDynamicRoutes()
@@ -55,12 +52,9 @@ export async function getStaticPaths() {
       <section class="container c-grid c-mb-6">
         <div>
           <I18n tag="b">Crypto Donation Receipt</I18n>
-          <div class="c-main-para" set:html={
-            L(
-              `After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!`,
-              { ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}
-            )
-          }></div>
+          <I18n tag="div" class="c-main-para" args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
+            After you make a crypto donation, email us at |a_|hi@okturtles.org|_a| so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!
+          </I18n>
         </div>
         <div>
           <b>okTurtles Foundation</b>

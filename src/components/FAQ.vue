@@ -142,7 +142,7 @@ export default {
             ),
             L(`However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money.`),
             L(`When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others.`),
-            L(` These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.`),
+            L(`These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.`),
             L(`{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}`, { ...LTags('br') }),
             L(
               `{ul_}

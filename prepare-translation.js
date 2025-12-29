@@ -34,6 +34,7 @@ async function extractI18nStrings (filePath) {
   const removeWhiteSpaces = (text) => {
     return text.replace(/\s+$/, '')
       .replace(/\n[ \t]+/g, '\n')
+      .trim()
   }
   const strings = []
 
@@ -57,9 +58,12 @@ async function extractI18nStrings (filePath) {
    * 2. <I18n ...>...</I18n> (case-insensitive)
    *    - multiline open + content
    *    - trim trailing whitespace only
+   *    - handles attributes with quoted strings and JSX expressions
    * ================================================== */
+  // Match <i18n tag, then attributes (handling quotes and JSX expressions), then >, then content until </i18n>
+  // Strategy: match opening tag by finding > that's not inside quotes or unclosed braces
   const i18nTagRegex =
-    /<i18n\b[\s\S]*?>([\s\S]*?)<\/i18n>/gi;
+    /<i18n\b[\s\S]*?(?:(?:(?:=(?:['"`])(?:\\.|(?!\1)[^\\])*\1|=\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})*)|[^>])*?)>([\s\S]*?)<\/i18n>/gi;
 
   for (const match of content.matchAll(i18nTagRegex)) {
     let text = removeWhiteSpaces(match[1]);

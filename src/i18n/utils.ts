@@ -19,15 +19,26 @@ export function getDynamicRoutes(): Array<any> {
   }))
 }
 
-const argsRegex = /\{([0-9a-zA-Z_]+)\}/g
+const argsRegex = /\{([0-9a-zA-Z_]+)\}|\|([0-9a-zA-Z_]+)\|/g
 
 function replaceArgs (string: string, args: Record<string, string> = {}): string {
   const replacementsByKey = args
 
-  return string.replace(argsRegex, (match, capture, index) => {
-    // Avoid replacing the capture if it is escaped by double curly braces.
-    if (string[index - 1] === '{' && string[index + match.length] === '}') {
-      return capture
+  return string.replace(argsRegex, (match, curlyCapture, pipeCapture, index) => {
+    const capture = curlyCapture || pipeCapture
+    const isCurlyBrace = !!curlyCapture
+    const isPipe = !!pipeCapture
+
+    if (isCurlyBrace) {
+      // Avoid replacing the capture if it is escaped by double curly braces.
+      if (string[index - 1] === '{' && string[index + match.length] === '}') {
+        return capture
+      }
+    } else if (isPipe) {
+      // Avoid replacing the capture if it is escaped by double pipes.
+      if (string[index - 1] === '|' && string[index + match.length] === '|') {
+        return capture
+      }
     }
 
     return replacementsByKey[capture] || ''

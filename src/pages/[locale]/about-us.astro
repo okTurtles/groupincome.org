@@ -1,0 +1,454 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro';
+import Sides from '@/components/graphics/Sides.vue'
+import I18n from '@/i18n/i18n.astro'
+import ScrollDownArrow from '@/components/ScrollDownArrow.vue'
+import { resolvePath } from '@/utils/helpers.js'
+import { getDynamicRoutes, LTags } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+---
+
+<Layout>
+  <div class="c-wrapper">
+    <Sides color="#5DC9F1" styles={{'top': '40rem'}}></Sides>
+    <Sides color="#A1D10E" styles={{'top': '110rem', 'right': 0, 'transform': 'rotate(-180deg)'}}></Sides>
+    <Sides color="#F89202" styles={{'top': '250rem'}}></Sides>
+    <section class="container c-main-container">
+      <div class="c-main-wrapper" id="header1">
+        <I18n tag="div" class="is-posttitle">ABOUT GROUP INCOME</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title"
+          args={{ ...LTags('span'), 'sp1_': '<span class="text-orange">', 'sp2_': '<span class="text-green">', 'sp3_': '<span class="text-blue">' }}>
+          On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|.
+        </I18n>
+        <I18n tag="p" class="is-subtitle c-main-para"
+          args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://okturtles.org" target="_blank">'}}>
+          Group Income is an open-source project of the |a_|okTurtles Foundation|_a|, a non-profit organization that supports beneficial decentralization technologies.
+        </I18n>
+
+        <div class="scroll-btn-container">
+          <ScrollDownArrow client:load targetSelector="#scroll-down-to" />
+        </div>
+      </div>
+    </section>
+    <section class="container span-container c-container">
+      <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph1.svg")}/></div>
+      <div class="span-2">
+        <h2 id="scroll-down-to" class="is-title-2">
+          <I18n>Open Protocol</I18n>
+        </h2>
+        <p class="c-container-para">
+          Group Income is built on top of an <a class="is-link" href="https://shelterprotocol.net" target="_blank">open protocol</a>, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.
+        </p>
+      </div>
+    </section>
+    <section class="container span-container c-container span-reverse">
+      <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph2.svg")} /></div>
+      <div class="span-2">
+        <h2 class="is-title-2">Decentralized</h2>
+        <p class="c-container-para">
+          Group Income is decentralized through <a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">federation</a>. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers.
+        </p>
+      </div>
+    </section>
+    <section class="container span-container c-container">
+      <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph3.svg")} /></div>
+      <div class="span-2">
+        <h2 class="is-title-2">End-to-end Encrypted</h2>
+        <p class="c-container-para">
+          Enjoy a safe and private environment to support your community with Group Income. All your chats and group interactions are protected by state-of-the art end-to-end encryption.
+        </p>
+      </div>
+    </section>
+    <section class="container dark-container">
+      <h2 class="is-title-2 c-container-title">Our Team</h2>
+      <p class="c-container-para">We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!</p>
+      <div class="our-team">
+        <div class="contributors">
+          <h3 class="is-posttitle">Contributors</h3>
+          <ul>
+            <li><a href="https://fixingtao.com" rel="nofollow" target="_blank">Greg Slepak</a></li>
+            <li><a href="https://twitter.com/dotmacro" rel="nofollow" target="_blank">Andrea Devers</a></li>
+            <li><a href="https://twitter.com/travisformayor" rel="nofollow" target="_blank">Travis Uhrig</a></li>
+            <li><a href="http://aaronbrodeur.me/" rel="nofollow" target="_blank">Aaron Brodeur</a></li>
+            <li><a href="https://twitter.com/jbeano" rel="nofollow" target="_blank">Justin Bean</a></li>
+            <li><a href="https://twitter.com/figure8labs" rel="nofollow" target="_blank">Alexis Vabre</a></li>
+            <li><a href="https://twitter.com/grandcamel" rel="nofollow" target="_blank">Jason Krueger</a></li>
+            <li><a href="https://github.com/kmcq" rel="nofollow" target="_blank">Keith McHugh</a></li>
+            <li><a href="https://twitter.com/tibetsprague" rel="nofollow" target="_blank">Tibet Sprague</a></li>
+            <li><a href="https://github.com/reivan" rel="nofollow" target="_blank">Ivan Revzin</a></li>
+            <li><a href="http://simongrondin.name/" rel="nofollow" target="_blank">Simon Grondin</a></li>
+            <li><a href="https://github.com/wemeetagain" rel="nofollow" target="_blank">Cayman Nava</a></li>
+            <li><a href="https://angel.co/joeri-pross" rel="nofollow" target="_blank">Joeri Pross</a></li>
+            <li><a href="http://opellisms.wix.com/opellisms" rel="nofollow" target="_blank">Olivia Pellicer</a></li>
+            <li><a href="http://www.jamiesoarmusic.co.uk" rel="nofollow" target="_blank">Jamie Soar</a></li>
+            <li><a href="https://github.com/AnObfuscator" rel="nofollow" target="_blank">Jon Evans</a></li>
+            <li><a href="https://github.com/Liamsi" rel="nofollow" target="_blank">Ismail Khoffi</a></li>
+            <li><a href={resolvePath("/2016/11/victor-morrow-joins-group-income")} >Victor Morrow</a></li>
+            <li><a href="https://twitter.com/dH2K" rel="nofollow" target="_blank">Tamas Kalman</a></li>
+            <li><a href="https://twitter.com/dsernst" rel="nofollow" target="_blank">David Ernst</a></li>
+            <li><a href="http://danawoodman.com" rel="nofollow" target="_blank">Dana Woodman</a></li>
+            <li><a href="#need-a-link" rel="nofollow" target="_blank">Megan Cress</a></li>
+            <li><a href="https://twitter.com/hubudibu" rel="nofollow" target="_blank">Anikó Fejes</a></li>
+            <li><a href="https://twitter.com/a_sandrina_p" rel="nofollow" target="_blank">Sandrina Pereira</a></li>
+            <li><a href="https://madeoflisboa.com/p/person/margarida-botelho" rel="nofollow" target="_blank">Margarida Botelho</a></li>
+            <li><a href="http://schweigerpierre.com" rel="nofollow" target="_blank">Pierre Schweiger</a></li>
+            <li><a href="https://sebinsong.com" rel="nofollow" target="_blank">Sebin Song</a></li>
+            <li><a href="https://twitter.com/Catarina_Diiniz" rel="nofollow" target="_blank">Catarina Chavinha</a></li>
+            <li><a href="https://twitter.com/Leihla" rel="nofollow" target="_blank">Leihla Pinho</a></li>
+            <li><a href="https://github.com/snowteamer" rel="nofollow" target="_blank">Luc Martin</a></li>
+            <li><a href="https://github.com/CrazedCoding" rel="nofollow" target="_blank">Ian Wesson</a></li>
+            <li><a href="http://cryto.net/~joepie91/" rel="nofollow" target="_blank">Sven Slootweg</a></li>
+            <li><a href="https://github.com/corrideat" rel="nofollow" target="_blank">Ricardo Iván Vieitez Parra</a></li>
+            <li><a href="https://github.com/silver-it" rel="nofollow" target="_blank">Alex Jin</a></li>
+          </ul>
+        </div>
+        <div class="collaborators">
+          <h3 class="is-posttitle">Collaborators</h3>
+          <ul class="col">
+            <li><a href="https://twitter.com/travisformayor" rel="nofollow" target="_blank">Travis Uhrig</a></li>
+            <li><a href="https://read.cv/arjun" rel="nofollow" target="_blank">Arjun Banker</a></li>
+            <li><a href="https://twitter.com/ScottSantens" rel="nofollow" target="_blank">Scott Santens</a></li>
+            <li><a href="http://www.meetup.com/Los-Angeles-Basic-Income-Meetup/members/185204301/" rel="nofollow" target="_blank">David Kim</a></li>
+            <li><a href="https://twitter.com/therebelrobot" rel="nofollow" target="_blank">Trent Oswald</a></li>
+            <li><a href="http://nathanwindsor.com/" rel="nofollow" target="_blank">Nathan Windsor</a></li>
+            <li><a href="https://lightco.in/" rel="nofollow" target="_blank">John Light</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="spacer"/>
+      <p class="c-container-para-link">Do you like our project and want to join our team?<br/>
+        <a class="c-container-link is-link" href={resolvePath("/hiring")} data-test="hiringLink">See open positions</a>
+      </p>
+    </section>
+    <section class="container grey-container">
+      <h2 class="is-title-2 c-container-title">Community</h2>
+      <p class="c-container-para">Want to stay in the loop? Check the best way to get involve and get up-to-date.</p>
+      <div class="community">
+        <ul>
+          <li><a href="https://github.com/okTurtles/group-income-simple" target="_blank"><img src={resolvePath("/images/about/community/github.svg")} />Check and contribute on our code on Github.</a></li>
+          <li><a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank"><img src={resolvePath("/images/about/community/slack.svg")} />Join our Slack conversations.</a></li>
+          <li><a href="https://www.reddit.com/r/basicincome" target="_blank"><img src={resolvePath("/images/about/community/reddit.svg")} />Check Group Income and Basic Income on Reddit.</a></li>
+          <li><a href={resolvePath("/blog")} target="_blank"><img src={resolvePath("images/about/community/blog.svg")} />Read our thoughts on the Blog.</a></li>
+          <li><a href="https://twitter.com/Group_Income" target="_blank"><img src={resolvePath("/images/about/community/twitter.svg")} />Follow us on Twitter.</a></li>
+          <li><a href="https://crib.social/GroupIncome" target="_blank"><img src={resolvePath("/images/about/community/mastodon.svg")} />Connect on the Fediverse.</a></li>
+          <li><a href="https://www.youtube.com/c/groupincome" target="_blank"><img src={resolvePath("/images/about/community/youtube.svg")} />Check our videos on YouTube.</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="container span-container c-container">
+      <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/okturtles.png")} /></div>
+      <div class="span-2">
+        <h2 class="is-title-2">okTurtles Foundation</h2>
+        <p class="c-container-para">okTurtles Foundation is a 501(c)(3) non-profit. Our research, education, and development efforts go to supporting beneficial decentralization technologies. Our work has been covered in TechCrunch, VICE, Engadget, and elsewhere on the web.<br/>
+          <a class="c-container-link is-link" href={resolvePath("/donate")} data-test="donateLink">Donate to Group Income</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
+
+.c-wrapper {
+  padding-bottom: 2rem;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    padding: 4rem 1rem;
+  }
+
+  @include desktop {
+    padding: 6rem 1rem;
+  }
+}
+
+.span-container {
+  flex-direction: column;
+  max-width: $maxDesktop;
+  text-align: center;
+
+  @include phone {
+    padding: 4rem 1rem;
+  }
+
+  @include desktop {
+    text-align: left;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  &.span-reverse {
+    @include desktop {
+      flex-direction: row;
+    }
+  }
+
+  .is-title-2 {
+    margin-bottom: 1rem;
+
+    @include desktop {
+      max-width: 31rem;
+    }
+  }
+
+  @include desktop {
+    p {
+      max-width: 27rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.span-2 {
+  position: relative;
+
+  @include desktop {
+    width: 30rem;
+  }
+}
+
+.sections-container {
+  position: relative;
+  height: 80vh;
+
+  section {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.c-container {
+  &-image {
+    max-width: 80%;
+    margin: 0 auto 3rem auto;
+    @include desktop {
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+
+  &-title {
+    margin: 1rem auto;
+    max-width: 34rem;
+  }
+
+  &-posttitle {
+    color: $text_0;
+  }
+
+  &-para {
+    line-height: 1.5rem;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  &-link {
+    display: inline-block;
+    margin-top: 1.6rem;
+    font-size: inherit;
+    font-weight: bold;
+  }
+}
+
+.c-main-container {
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100vw - 2rem);
+  margin-left: 0;
+  margin-right: 0;
+
+  @include phone {
+    max-width: 100%;
+  }
+
+  @include tablet {
+    min-height: calc(100vh - #{$headerHeightTablet});
+  }
+
+  @include desktop {
+    min-height: calc(100vh - #{$headerHeight});
+  }
+}
+
+.community a:hover{
+  text-decoration: underline;
+}
+
+.c-main-wrapper {
+  margin-top: -1.6rem;
+}
+
+.c-main-title {
+  max-width: 47rem;
+  margin: 1.5rem auto;
+
+  @include phone {
+    max-width: 30rem;
+  }
+}
+
+.c-main-para {
+  max-width: 34rem;
+  margin: 0 auto 1rem auto;
+}
+
+.scroll-btn-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  @include tablet {
+    margin-top: 3rem;
+  }
+}
+
+.icon-chevron-bottom {
+  display: inline-flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+
+  @include tablet {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.dark-container {
+  background: url(/images/about/blue-background.svg) no-repeat center #fff;
+  background-size: 100%;
+  color: #fff;
+
+  @include phone {
+    background-size: 200% 100%;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    margin-top: -4rem;
+  }
+
+  .c-container-para-link,
+  .c-container-para,
+  .c-container-title {
+    text-align: center;
+    max-width: 45.5rem;
+  }
+
+  .c-container-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .is-posttitle {
+    text-transform: capitalize;
+    margin-bottom: .5rem;
+  }
+}
+
+.grey-container {
+  background: url(/images/about/grey-background.svg) no-repeat center bottom #fff;
+  background-size: 100%;
+  text-align: center;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    margin: 2rem 5%;
+    min-width: 8rem;
+
+    @include desktop {
+      max-width: 15%;
+      margin: 2rem 5%;
+    }
+  }
+
+  img {
+    width: 3rem;
+    margin: 2rem auto 1rem auto;
+  }
+}
+
+.our-team {
+  display: flex;
+  width: 70rem;
+  max-width: calc(100% - 2rem);
+  margin: 3rem auto 2rem auto;
+  flex-direction: column;
+  text-align: center;
+
+  @include desktop {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.contributors,
+.collaborators {
+
+  ul {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 3rem;
+  }
+}
+
+.contributors {
+  width: 100%;
+  ul {
+    @include desktop {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+.collaborators ul {
+  @include desktop {
+    display: list-item;
+  }
+}
+
+.spacer {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.c-container-para-link {
+  margin: 2rem auto 0rem auto;
+  font-size: 1.5rem;
+}
+
+.c-container-delimitation {
+  border-bottom: 1px solid #D0DEEA;
+}
+
+.c-container-image {
+  @include phone {
+    margin: 0 auto 2rem;
+  }
+}
+</style>
