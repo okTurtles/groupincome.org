@@ -1,0 +1,228 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import I18n from '@/i18n/i18n.astro'
+import { getDynamicRoutes, LTags } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+---
+
+<Layout>
+  <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+
+  <div class="c-privacy-policy-container">
+    <section class="container grey-container">
+      <div class="is-posttitle"><I18n>TECHNOLOGY</I18n></div>
+      <h1 class="is-title-1 c-main-title"><I18n>Security & Privacy</I18n></h1>
+    </section>
+    <section class="c-container-middle">
+      <p>
+        <i>Last updated: August 2, 2024</i>
+      </p>
+      <I18n tag="p">
+        We were tired of Silicon Valley companies telling us that they "take our privacy and security very seriously", while having regular data breaches and storing our personal data unencrypted in their databases — ripe for the picking by hackers and rogue employees. We were tired of fake "privacy settings" that offered no real privacy.
+      </I18n>
+
+      <I18n tag="h3">
+        So we decided to completely reinvent how Internet software is built.
+      </I18n>
+      <I18n tag="p">
+        Our team of information security veterans spent several years designing and implementing a completely different approach to building web-based software.
+      </I18n>
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">'}}>
+        Group Income does not have a traditional database to speak of. We do not use |a_|cookies|_a|. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.
+      </I18n>
+      <I18n tag="p">
+        Your data is encrypted on your device with a key that doesn't leave your device. This encrypted data is stored encrypted on our servers. We do not have access to your keys. Data is decrypted locally, by your device. This means we cannot read your encrypted data.
+      </I18n>
+      <I18n tag="p"
+        args={{ ...LTags('a', 'b'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
+        |b_|To do this, we created a brand new end-to-end encrypted, federated protocol called |a_|Shelter Protocol|_a|.|_b|
+      </I18n>
+
+      <hr class="c-line"/>
+
+      <I18n tag="h2">How Does Group Income Protect My Data?</I18n>
+
+      <I18n tag="h3">We use end-to-end encryption</I18n>
+
+      <p>
+        <ul class="indented-list">
+          <I18n tag="li"
+            args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://en.wikipedia.org//wiki/Surveillance_capitalism" target="_blank">'}}>
+            In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see |a_|"surveillance capitalism"|_a|).
+          </I18n>
+          <I18n tag="li"
+            args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
+            In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the |a_|Shelter Protocol|_a| for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.
+          </I18n>
+        </ul>
+      </p>
+
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">'}}>
+        Every part of Group Income, not just the frontend, is open-source. Because the protocol is a |a_|federated protocol|_a|, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers).
+      </I18n>
+
+      <I18n tag="p">In addition to the end-to-end encryption offered by the Shelter Protocol, our server for Group Income uses full-disk encryption. Please note, full-disk encryption may not exist on other community-run servers.</I18n>
+      <I18n>By default, all chatrooms in Group Income are end-to-end encrypted. However, we provide the option for users to create public chatrooms to give communities options when it comes to building open and inclusive communities. As their name suggests, public chatrooms are not end-to-end encrypted to make it easy for users of Group Income to bridge them with other services, should they choose to do so. Please see the section titled "Note On Public Chatrooms" below for more details.</I18n>
+
+      <h3>
+        <I18n args={{ ...LTags('i') }}>We do |i_|not|_i| have Third Party Service Agreements in place</I18n>
+      </h3>
+
+      <I18n tag="p">Group Income does not share your data with any third-party service, and therefore we have no need of such agreements.</I18n>
+      <I18n>As mentioned in previous sections, the data in public unencrypted chatrooms is public and should be treated with the same care and expectations of privacy that you should have with normal social media: that is, you should have zero expectation of any privacy for the content you post to public chatrooms. By default, chatrooms are non-public, and like direct messages, they are end-to-end encrypted.</I18n>
+      <I18n>Certain possible future features might necessarily require some of your data passing through third-party servers. For example, while we can end-to-end encrypt some types of notifications (push notifications), other types such as email are more difficult to encrypt. We will update this privacy policy in the future as necessary to give any disclosures should we choose to implement email notifications (or other notifications) that cannot be encrypted. In all cases, such notifications will be opt-in on the part of the user.</I18n>
+
+      <I18n tag="h3">Note On Public Chatrooms</I18n>
+
+      <I18n>By default, all chatrooms in Group Income are end-to-end encrypted and are private to group members only. Really private - not even the server admin can read them.</I18n>
+      <I18n>However, Group Income has the ability to let users create public chatrooms. The data in public chatrooms is intended to be completely public and should be treated with the same care and expectations of privacy that one has with normal social media: that is, you should have zero expectation of any privacy for the content you post to public chatrooms.</I18n>
+      <I18n>For this reason, public chatrooms are moderated by both the group admins and the server admins. Each server and group can have its own moderation rules. Posting illegal content to such chatrooms could get your entire group banned. Admins may choose to completely disable the option of public chatrooms to avoid moderation headaches.</I18n>
+
+      <I18n tag="h3">Note On Metadata</I18n>
+      <I18n>The following metadata is visible to us and not anyone else:</I18n>
+
+      <ul class="indented-list less-item-gap">
+        <I18n tag="li">Usernames registered</I18n>
+        <I18n tag="li">IP addresses (useful in case our servers come under DoS attack)</I18n>
+        <I18n tag="li">How many groups are on our server</I18n>
+        <I18n tag="li">For each group, how many invites have been created and used (but not who has used them)</I18n>
+        <I18n tag="li">Server log information such as the URL requested, time of request, and user agent</I18n>
+        <I18n tag="li">Any billing-relevant information</I18n>
+      </ul>
+
+      <I18n tag="p">The following metadata is public:</I18n>
+      <p>
+        <ul class="indented-list">
+          <I18n tag="li">If you already know the username of someone on a server, you can get their identity contractID. This doesn't tell you anything about them (as the contents of an identity contract are encrypted by default), but perhaps it could be useful for something.</I18n>
+        </ul>
+      </p>
+
+      <I18n tag="p">If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), access our website over a VPN or Tor, and avoid exposing any information about yourself in an unencrypted, public chatroom.</I18n>
+
+      <I18n tag="h3">Additional notes on emails, password, and billing details</I18n>
+
+      <ul class="indented-list">
+        <I18n tag="li">Currently, we do not use your email for anything. In the future, we might use it to send you notifications that you've requested (e.g. "please let me know when a new group member has joined").</I18n>
+        <I18n tag="li">Your password is used to decrypt your data locally on your device. We combine your password with a random server-generated salt, and a password strengthening algorithm (scrypt) to encrypt your data.</I18n>
+        <I18n tag="li">We do not have billing implemented. We plan to use the Bitcoin Lightning Network for billing and user-to-user payments in the future. Other payment options are possible, but our focus is on Bitcoin at the moment.</I18n>
+      </ul>
+
+      <I18n tag="h3">Note On Analytics</I18n>
+      <I18n tag="p">Group Income is a federated system with multiple independently run servers. As far as our server goes, we have access to basic analytics like how many groups and how many users our server is hosting. We know how much space the data takes up. Like all web servers, we know the IP address that is used to access our servers. The IP address is useful in case our servers come under DoS attack (that way we can block malicious IPs).</I18n>
+      <I18n tag="p">As far as independent federated servers go, we have no access to the data stored on them at all. If and when analytics are implemented (to collect basic information about the health and size of the federation), then server operators might be able to share that information with us. Such information sharing will be up to the discretion of each server administrator. This page will be updated with information about any such analytics if and when they are implemented. Any such hypothetical analytics features will be managed and stored by us only — the first-party — and never by a third-party (e.g. "Google Analytics", etc.).</I18n>
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">'}}>
+        Currently, we do not have any federated usage statistics, so we only know what you tell us via our |a_|community forums|_a|. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.
+      </I18n>
+
+      <I18n tag="h3">Note on Third-party Servers</I18n>
+
+      <I18n tag="p">If you are using Group Income on a third-party server (one not hosted by us), please be advised that we have absolutely no control over that server, we cannot guarantee its integrity, we cannot guarantee that it's running the same code, we are not responsible for anything on it, and you should only use servers run by someone you trust.</I18n>
+      <I18n tag="p">We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order.</I18n>
+
+      <hr class="c-line"/>
+
+      <I18n tag="h2">
+        Who we share this information with
+      </I18n>
+
+      <I18n tag="p">Nobody. If we are forced by a court to share information with a government body, the data we can share with them is described above in the section "Note On Metadata".</I18n>
+      <I18n tag="p">Future features that cannot avoid using third-party services (e.g. some types of notifications) may necessarily expose limited data to some third-party providers should users choose to enable such features. See the section above on third-party agreements for more details.</I18n>
+      <I18n tag="p">Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them, and information shared in public chatrooms is… public (see section "Note On Public Chatrooms").</I18n>
+      <I18n tag="p">Group members can read the information in the group because they share a secret key. Again, this secret key is available only to group members, not us. Similarly, direct messages can only be read by sender and recipient.</I18n>
+
+      <hr class="c-line"/>
+      <I18n tag="h2">Data Risks</I18n>
+
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net/en/security/" target="_blank">'}}>
+        Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — |a_|attacks that cannot be protected against|_a|.
+      </I18n>
+      <I18n tag="p">The same is true of our service. While we have significantly raised the burden necessary to achieve data disclosure, we have not eliminated it. Potential security holes in the software that we use, or bugs in our software, may exist that would allow a determined attacker to break the security and exfiltrate data. To the best of our ability we have mitigated against this. We can say that Group Income protects your data better than the vast majority of software services out there, but we cannot guarantee that your data will never be exposed, and anyone who does give you such guarantees is deceiving you.</I18n>
+      <I18n>The only real way to guarantee data safety is to avoid using online services entirely. Even better would be to avoid using computers altogether.</I18n>
+
+      <hr class="c-line"/>
+
+      <I18n tag="h2">Questions</I18n>
+
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">'}}>
+        If your question wasn't answered on this page, please ask it on |a_|our community forums|_a|.
+      </I18n>
+    </section>
+  </div>
+</Layout>
+
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
+
+.c-privacy-policy-container {
+  padding-bottom: 2rem;
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding: 4rem 1rem;
+    }
+
+    @include desktop {
+      padding: 6rem 1rem;
+    }
+  }
+
+  .grey-container {
+    text-align: center;
+  }
+
+  .c-container-middle {
+    width: 45.6rem;
+    max-width: 100%;
+    margin: 4rem auto;
+    padding: 0 1rem;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 3rem auto;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 3rem auto 2rem auto;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .c-container-center {
+    text-align: center;
+    margin: 6rem auto 0 auto;
+  }
+
+  .c-main-title {
+    max-width: 47rem;
+    margin: 1.5rem auto;
+
+    @include phone {
+      max-width: 30rem;
+    }
+  }
+
+  .c-line {
+    margin: 3rem 0;
+    border-bottom: 1px solid #D0DEEA;
+  }
+}
+</style>
