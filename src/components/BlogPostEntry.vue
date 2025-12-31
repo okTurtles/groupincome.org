@@ -1,6 +1,6 @@
 <template>
 <article class="c-article">
-  <a class="c-link-wrapper" :href="postUrl">
+  <a class="c-link-wrapper" :href="postUrl" :target="isLocaleEn ? '_self' : '_blank'">
     <img class="c-article-image has-deep-box-shadow" :src="imgSrc" />
     <h2 class="c-blog-title">{{ title }}</h2>
     <p class="c-blog-desc">{{ description }}</p>
@@ -10,7 +10,11 @@
 </template>
 
 <script setup>
+import { inject } from 'vue'
 import { resolvePath } from '@/utils/helpers.js'
+
+const locale = inject('locale')
+const isLocaleEn = locale === 'en'
 
 const props = defineProps({
   postFrontmatter: {
