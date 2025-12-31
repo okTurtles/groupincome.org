@@ -2,13 +2,14 @@
 import Layout from '@/layouts/DefaultLayout.astro'
 import { resolvePath } from '@/utils/helpers.js'
 import I18n from '@/i18n/i18n.astro'
-import { getDynamicRoutes, LTags } from '@/i18n/utils'
+import { getDynamicRoutes, LTags, localeAwareDateString } from '@/i18n/utils'
 
 export async function getStaticPaths() {
   return getDynamicRoutes()
 }
 
 const { locale } = Astro.locals
+const lastUpdatedDate = localeAwareDateString('2024-07-20', locale)
 ---
 
 <Layout>
@@ -21,7 +22,7 @@ const { locale } = Astro.locals
     </section>
     <section class="c-container-middle">
       <p>
-        <i>Last updated: July 20, 2024</i>
+        <I18n tag="i" args={{ date: lastUpdatedDate }}>Last updated: |date|</I18n>
       </p>
 
       <I18n tag="h3">Acceptance of Terms</I18n>

@@ -1,11 +1,15 @@
 ---
 import Layout from '@/layouts/DefaultLayout.astro'
 import I18n from '@/i18n/i18n.astro'
-import { getDynamicRoutes, LTags } from '@/i18n/utils'
+import { getDynamicRoutes, LTags, localeAwareDateString } from '@/i18n/utils'
+
 
 export async function getStaticPaths() {
   return getDynamicRoutes()
 }
+
+const { locale } = Astro.locals
+const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 ---
 
 <Layout>
@@ -18,7 +22,7 @@ export async function getStaticPaths() {
     </section>
     <section class="c-container-middle">
       <p>
-        <i>Last updated: August 2, 2024</i>
+        <I18n tag="i" args={{ date: lastUpdatedDate }}>Last updated: |date|</I18n>
       </p>
       <I18n tag="p">
         We were tired of Silicon Valley companies telling us that they "take our privacy and security very seriously", while having regular data breaches and storing our personal data unencrypted in their databases — ripe for the picking by hackers and rogue employees. We were tired of fake "privacy settings" that offered no real privacy.

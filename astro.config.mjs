@@ -9,6 +9,10 @@ import rehypeKatex from 'rehype-katex';
 // import remarkEmbedder from '@remark-embedder/core';
 // import oembedTransformer from '@remark-embedder/transformer-oembed';
 import vue from "@astrojs/vue";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /*
 const remarkEmbedPlugin = [remarkEmbedder.default, {
@@ -63,5 +67,12 @@ export default defineConfig({
   },
   devToolbar: {
     enabled: false, // hide the dev toolbar
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src')
+      }
+    }
   }
 })

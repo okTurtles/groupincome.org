@@ -97,3 +97,18 @@ export function classNames (...args: any[]): string {
       }
     }).join(' ')
 }
+
+export function localeAwareDateString (date: string, lang: string = ''): string {
+  const dateObj = new Date(date)
+  
+  // Validate date
+  if (isNaN(dateObj.getTime())) {
+    return date // Return original string if date is invalid
+  }
+
+  return dateObj.toLocaleDateString(lang || defaultLanguage, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
