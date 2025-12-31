@@ -94,27 +94,28 @@ async function run () {
    * generate JSON language tables (eg. en.json, fr.json, ko.json, etc.)
    * ================================================== */
 
-  const finalTable = {}
+  const commonTable = {}
 
   for (const entry of allEntries) {
     const { strings, filePath } = entry
     let fileHasAtLeastOneString = false
 
-    finalTable[`__________${filePath}__________`] = ""
+    commonTable[`__________${filePath}__________`] = ""
     for (const string of strings) {
-      if (!finalTable[string]) {
+      if (!commonTable[string]) {
         fileHasAtLeastOneString = true
-        finalTable[string] = string
+        commonTable[string] = string
       }
     }
 
     if (!fileHasAtLeastOneString) {
-      delete finalTable[`__________${filePath}__________`]
+      delete commonTable[`__________${filePath}__________`]
     }
   }
 
   for (const langCode of supportedLangCodes) {
     const langJsonPath = path.resolve(`src/i18n/tables/${langCode}.json`)
+    const finalTable = JSON.parse(JSON.stringify(commonTable))
     let existingTable = {}
 
     try {
