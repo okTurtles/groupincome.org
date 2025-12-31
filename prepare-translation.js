@@ -1,14 +1,8 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import config from './translation.config.js'
 
-const supportedLangCodes = ['en', 'ko']
-const targetDirs = [
-  'src/components',
-  'src/pages',
-  'src/layouts'
-]
-
-const targetFileExtensions = ['.vue', '.astro']
+const { supportedLangCodes, targetDirs, targetFileExtensions } = config
 const hasTargetExtensions = fPath => targetFileExtensions.includes(path.extname(fPath))
 
 async function recusrivelyReadDir (dirPath) {
