@@ -65,7 +65,17 @@ Lastly, you must return the translation as a JSON object without including any o
 For example, do not include \`\`\`json at the beginning or \`\`\` at the end.
 `
 
+function cleanJsonString(str) {
+  // Regex looks for ```json (optional 'json') at start and ``` at end, ignoring whitespace
+  return str.replace(/^\s*```(?:json)?/gm, '').replace(/```\s*$/gm, '').trim();
+}
+
 export async function translateWithLLM (strings, targetLangCode) {
+  if (!openRouterAPIKey) {
+    console.log(`[LLM translation] 🚫 No API key found. Either specify it directly in translation.config.js or create .env file in the root dir that has OPENROUTER_API_KEY=<api-key> entry.`)
+    return {}
+  }
+
   const openRouter = new OpenRouter({ apiKey: openRouterAPIKey })
   const languageName = localeToLanguageName[targetLangCode]
 
@@ -95,7 +105,7 @@ export async function translateWithLLM (strings, targetLangCode) {
       ]
     })
 
-    const translationResult = translatorRequest.choices[0].message.content
+    const translationResult = cleanJsonString(translatorRequest.choices[0].message.content)
 
     console.log(`[LLM translation] 🛠️ ${qualityCheckerModel} is checking the quality of the translation...`)
     
@@ -116,7 +126,7 @@ export async function translateWithLLM (strings, targetLangCode) {
       ]
     })
 
-    const qualityCheckerResult = JSON.parse(qualityCheckerRequest.choices[0].message.content)
+    const qualityCheckerResult = JSON.parse(cleanJsonString(qualityCheckerRequest.choices[0].message.content))
 
     // Return type as JSON object is precisely stated in the system prompts, but do another basic type check here.
     if (typeof qualityCheckerResult === 'object') {
@@ -126,7 +136,13 @@ export async function translateWithLLM (strings, targetLangCode) {
       return {}
     }
   } catch (e) {
-    console.log('[LLM translation] 🚫 Something went wrong. Translation aborted with below error:\n', e)
+    const errMsg = e.message
+      ? e.message
+      : e.error?.code // Open Router API error
+        ? e.error
+        : e
+
+    console.log('[LLM translation] 🚫 Something went wrong. Translation aborted with below error:\n', errMsg)
     return {}
   }
 }

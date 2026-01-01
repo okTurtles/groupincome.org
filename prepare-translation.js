@@ -141,22 +141,23 @@ async function run () {
       finalTable[key] = (key in existingTable)
         ? existingTable[key]
         : value
-      
-      if (llmTranslation.enabled) {
-        const missingTranslations = []
+    }
 
-        for (const [key, value] of Object.entries(finalTable)) {
-          if (key.startsWith('___')) { continue }
+    if (llmTranslation.enabled && langCode !== 'en') {
+      const missingTranslations = []
 
-          if (key === value) {
-            // Entries that are not translated yet have the key and the value as the same string.
-            missingTranslations.push(key)
-          }
+      for (const [key, value] of Object.entries(finalTable)) {
+        if (key.startsWith('___')) { continue }
+
+        if (key === value) {
+          // Entries that are not translated yet have the key and the value as the same string.
+          missingTranslations.push(key)
         }
+      }
 
-        console.log(`!@# missing translations to '${langCode}' caught:\n`, missingTranslations)
-        const llmTranslationTable = await translateWithLLM(missingTranslations)
-        console.log('!@# llm translation result:', llmTranslationTable)
+      const llmTranslationTable = await translateWithLLM(missingTranslations, langCode)
+      for (const [key, value] of Object.entries(llmTranslationTable)) {
+        finalTable[key] = value
       }
     }
 
