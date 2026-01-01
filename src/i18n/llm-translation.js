@@ -89,10 +89,8 @@ export async function translateWithLLM (strings, targetLangCode) {
           content: translator_system_prompt
         },
         {
-          {
-            role: 'user',
-            content: `Please translate the following list of strings into ${languageName} and return the translations in a JSON object:\n\n${JSON.stringify(strings, null, 2)}`
-          }
+          role: 'user',
+          content: `Please translate the following list of strings into ${languageName} and return the translations in a JSON object:\n\n${JSON.stringify(strings, null, 2)}`
         }
       ]
     })
