@@ -19,4 +19,6 @@
 @use "./components/pills";
 @use "./components/tables";
 
+@use "locale_adjustment";
+
 @use "katex/dist/katex.min.css";

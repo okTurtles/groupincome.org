@@ -1,0 +1,14 @@
+/*
+This file is for adjusting the styles for different locales.
+eg. spacing in navigation menu breaks when viewed in French. 
+*/
+
+@use "./variables" as *;
+
+@include is-locale("fr") {
+  .c-navbar-main {
+    @include desktop {
+      width: 43.75rem;
+    }
+  }
+}

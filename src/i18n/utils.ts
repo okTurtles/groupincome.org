@@ -69,11 +69,6 @@ export function useTranslation (lang: string = '') {
   return (key: string, args: Record<string, string> = {}): string => {
     key = removeWhiteSpaces(key)
 
-    if (lang === 'fr') {
-      console.log('!@# key', key)
-      console.log('!@# table[key]', table[key])
-    }
-
     const stringFromTable = noLookupNeeded
       ? key
       : table[key] || key

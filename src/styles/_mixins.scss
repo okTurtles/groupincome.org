@@ -83,6 +83,12 @@ $maxDesktop: 1120px;
   }
 }
 
+@mixin is-locale($locale) {
+  body[data-translation="#{$locale}"] {
+    @content;
+  }
+}
+
 %unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;

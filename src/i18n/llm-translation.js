@@ -107,7 +107,7 @@ export async function translateWithLLM (strings, targetLangCode) {
 
     const translationResult = cleanJsonString(translatorRequest.choices[0].message.content)
 
-    console.log(`[LLM translation] 🛠️ ${qualityCheckerModel} is checking the quality of the translation...`)
+    console.log(`[LLM translation] 🛠️ ${qualityCheckerModel} is checking for wrong or missing translations...`)
     
     // 2. pass the translation result to another LLM to polish them / catch missing or inaccurate translations.
     const qualityCheckerRequest = await openRouter.chat.send({
