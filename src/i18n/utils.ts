@@ -2,10 +2,12 @@
 
 // tables
 import koreanTable from './tables/ko.json'
+import frenchTable from './tables/fr.json'
 
 const translationTables: { [index: string]: any } = {
   // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp
-  'ko': koreanTable
+  'ko': koreanTable,
+  'fr': frenchTable
 }
 
 export const defaultLanguage = 'en'
@@ -66,6 +68,11 @@ export function useTranslation (lang: string = '') {
 
   return (key: string, args: Record<string, string> = {}): string => {
     key = removeWhiteSpaces(key)
+
+    if (lang === 'fr') {
+      console.log('!@# key', key)
+      console.log('!@# table[key]', table[key])
+    }
 
     const stringFromTable = noLookupNeeded
       ? key

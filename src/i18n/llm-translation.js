@@ -37,16 +37,16 @@ When they do exist as pairs, they sometimes may be nested. For example,
 
 3. Do not bother to translate anything that looks like "Proper Noun" (e.g. "Group Income", "Mincome", "Github", "Gmail" etc.)
 
-Lastly, you must return the translation as a JSON object without including any other text or comments, so that I can parse it directly using JSON.parse() without any sanitization.
+Lastly, return the translation as a JSON object without including any other text or comments, so that I can parse it directly using JSON.parse() without any sanitization.
 For example, do not include \`\`\`json at the beginning or \`\`\` at the end.
 `
 
 const quality_checker_system_prompt = `
 You are a helpful assistant that checks the quality of the translation done by someone else.
 You will be given a JSON object where the key is the original string and the value is the translation.
-Your job is to see if the translation is accurate and complete and if you see any translation pair that is not correct or sounds strange or awkward, replace it with the polishedimproved translation.
-If the translation is already good enough, do not bother to make any changes.
-Below are instructions I gave to the translator(Sample translations are done in Korean, FYI). Make sure the translator didn't break any of these rules:
+Your job is to see if there is any missing translation entries and if any translation entry is not done by the rules I gave to the translator.
+If you see any of the above, go ahead and complete the translation.
+Below are instructions I gave to the translator(Sample translations are done in Korean, FYI).:
 
 1. Keep all the escape characters like \n, \" etc. For example, If you were given "What does \"mincome\" mean?", you need to return "\"mincome\"이란 무엇입니까?"
 2. You must not remove special segments wrapped in curly braces or pipe symbols. Below are some examples:
@@ -61,7 +61,7 @@ When they do exist as pairs, they sometimes may be nested. For example,
 
 3. Do not bother to translate anything that looks like "Proper Noun" (e.g. "Group Income", "Mincome", "Github", "Gmail" etc.)
 
-Lastly, you must return the translation as a JSON object without including any other text or comments, so that I can parse it directly using JSON.parse() without any sanitization.
+Lastly, return the translation as a JSON object without including any other text or comments, so that I can parse it directly using JSON.parse() without any sanitization.
 For example, do not include \`\`\`json at the beginning or \`\`\` at the end.
 `
 

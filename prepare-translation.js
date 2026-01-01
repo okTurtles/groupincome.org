@@ -126,7 +126,6 @@ async function run () {
     const finalTable = JSON.parse(JSON.stringify(commonTable))
     let existingTable = {}
 
-
     try {
       const rawContent = await fs.readFile(langJsonPath, 'utf8')
       existingTable = rawContent ? JSON.parse(rawContent) : {}
@@ -155,9 +154,11 @@ async function run () {
         }
       }
 
-      const llmTranslationTable = await translateWithLLM(missingTranslations, langCode)
-      for (const [key, value] of Object.entries(llmTranslationTable)) {
-        finalTable[key] = value
+      if (missingTranslations.length > 0) {
+        const llmTranslationTable = await translateWithLLM(missingTranslations, langCode)
+          for (const [key, value] of Object.entries(llmTranslationTable)) {
+            finalTable[key] = value
+          }
       }
     }
 
