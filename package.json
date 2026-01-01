@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@nanostores/vue": "^1.0.0",
+    "@openrouter/sdk": "^0.3.11",
     "nanostores": "^1.0.1",
     "plyr": "^3.7.8",
     "vue": "^3.5.17"

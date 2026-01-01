@@ -1,8 +1,15 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import config from './translation.config.js'
+import { translateWithLLM } from './src/i18n/llm-translation.js'
 
-const { supportedLangCodes, targetDirs, targetFileExtensions } = config
+const {
+  supportedLangCodes,
+  targetDirs,
+  targetFileExtensions,
+  outputDir,
+  llmTranslation
+} = config
 const hasTargetExtensions = fPath => targetFileExtensions.includes(path.extname(fPath))
 
 async function recusrivelyReadDir (dirPath) {
@@ -114,9 +121,11 @@ async function run () {
   }
 
   for (const langCode of supportedLangCodes) {
-    const langJsonPath = path.resolve(`src/i18n/tables/${langCode}.json`)
+    console.log(`✏️ Preparing translation table for ${langCode}...`)
+    const langJsonPath = path.resolve(`${outputDir}/${langCode}.json`)
     const finalTable = JSON.parse(JSON.stringify(commonTable))
     let existingTable = {}
+
 
     try {
       const rawContent = await fs.readFile(langJsonPath, 'utf8')
@@ -132,6 +141,23 @@ async function run () {
       finalTable[key] = (key in existingTable)
         ? existingTable[key]
         : value
+      
+      if (llmTranslation.enabled) {
+        const missingTranslations = []
+
+        for (const [key, value] of Object.entries(finalTable)) {
+          if (key.startsWith('___')) { continue }
+
+          if (key === value) {
+            // Entries that are not translated yet have the key and the value as the same string.
+            missingTranslations.push(key)
+          }
+        }
+
+        console.log(`!@# missing translations to '${langCode}' caught:\n`, missingTranslations)
+        const llmTranslationTable = await translateWithLLM(missingTranslations)
+        console.log('!@# llm translation result:', llmTranslationTable)
+      }
     }
 
     // Write the final table to the file
