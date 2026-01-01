@@ -10,6 +10,12 @@ const translationTables: { [index: string]: any } = {
   'fr': frenchTable
 }
 
+export const languageNameMap: { [index: string]: string } = {
+  'en': 'English',
+  'ko': 'Korean',
+  'fr': 'French'
+}
+
 export const defaultLanguage = 'en'
 export const supportedLangCodes = [defaultLanguage, ...Object.keys(translationTables)]
 

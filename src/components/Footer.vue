@@ -82,7 +82,8 @@ export default {
   },
   setup () {
     const L = inject('L')
-    return { L }
+    const currentLocale = inject<string>('locale')
+    return { L, currentLocale }
   },
   data () {
     return {
