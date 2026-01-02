@@ -34,7 +34,7 @@
               <i18n tag="a" v-href.locale="'/faq'">FAQ</i18n>
 
               <div v-if="!isBlogpost" class="c-language-switch-container">
-                <label class="is-title-6">LANGUAGE</label>
+                <i18n tag="h4" class="is-title-6">LANGUAGE</i18n>
                 <LanguageSwitch client:load />
               </div>
             </div>

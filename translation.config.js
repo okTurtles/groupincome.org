@@ -12,7 +12,7 @@ export default {
 
   // options to use LLMs to create/populate translation tables using OpenRouter API
   llmTranslation: {
-    enabled: true,
+    enabled: false,
     translatorModel: 'openai/gpt-5.2-chat',
     qualityCheckerModel: 'google/gemini-2.5-pro',
     // NOTE: If you choose to specify the API key directly below, Don't forget to remove this before committing
