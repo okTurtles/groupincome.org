@@ -14,5 +14,13 @@ export const onRequest = defineMiddleware((context, next) => {
     // Ensure the locale that was set in the previous request is cleared, so that it doesn't spill over to wrong files/pages.
     delete (globalThis as any).giVueLocale;
   }
+
+  if (context.params.blogpost) {
+    context.locals.isBlogpost = true;
+    (globalThis as any).giVueIsBlogpost = true;
+  } else {
+    delete (globalThis as any).giVueIsBlogpost;
+  }
+
   return next();
 })

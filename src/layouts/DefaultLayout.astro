@@ -10,9 +10,10 @@ export interface Props {
 	description?: string;
 	image?: string;
 	mainClasses?: string;
+	pageType?: 'jobpost' | 'blogpost' | 'default';
 }
 
-const { title, description, image, mainClasses = '' } = Astro.props;
+const { title, description, image, mainClasses = '', pageType = 'default'} = Astro.props;
 const { locale } = Astro.locals;
 const _title = title || SITE_TITLE;
 const _description = description || SITE_DESCRIPTION;
@@ -23,7 +24,7 @@ const _description = description || SITE_DESCRIPTION;
 	<head>
 		<BaseHead title={_title} description={_description} image={image || ''} />
 	</head>
-	<body data-translation={locale}>
+	<body data-translation={locale} data-page-type={pageType}>
 		<PageWrapper client:load>
 			<Header client:load />
 			<main class={mainClasses}>

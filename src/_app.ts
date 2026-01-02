@@ -9,6 +9,12 @@ const getLang = () => {
     ? (globalThis as any).giVueLocale || ''
     : document.body.dataset.translation || ''
 }
+const getIsBlogpost = () => {
+  return isNode
+    ? (globalThis as any).giVueIsBlogpost || false
+    : document.body.dataset.pageType === 'blogpost'
+}
+
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, useLocale: boolean = false) => {
   el.setAttribute(attrName, resolvePath(relPath, useLocale ? getLang() : '') || '')
 }
@@ -42,4 +48,5 @@ export default (app: App) => {
   // global provides
   app.provide('L', L)
   app.provide('locale', locale)
+  app.provide('isBlogpost', getIsBlogpost())
 }
