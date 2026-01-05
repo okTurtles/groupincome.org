@@ -32,11 +32,6 @@
               <i18n tag="a" v-href.locale="'/about-us'">About us</i18n>
               <i18n tag="a" v-href.locale="'/blog'">Blog</i18n>
               <i18n tag="a" v-href.locale="'/faq'">FAQ</i18n>
-
-              <div v-if="!isBlogpost" class="c-language-switch-container">
-                <i18n tag="h4" class="is-title-6">LANGUAGE</i18n>
-                <LanguageSwitch client:load />
-              </div>
             </div>
 
             <div class="c-links-group">
@@ -91,9 +86,8 @@ export default {
   },
   setup () {
     const L = inject('L')
-    const isBlogpost = inject('isBlogpost')
-
-    return { L, isBlogpost }
+  
+    return { L }
   },
   data () {
     return {
@@ -239,16 +233,6 @@ export default {
   }
 }
 
-.c-links-group {
-  display: flex;
-  flex-direction: column;
-  min-width: 11.5rem;
-
-  @include phone {
-    margin-bottom: 1rem;
-  }
-}
-
 .is-title-6 {
   font-weight: 600;
   line-height: 1.625rem;
@@ -279,6 +263,16 @@ export default {
   }
 }
 
+.c-links-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 11.5rem;
+
+  @include phone {
+    margin-bottom: 1rem;
+  }
+}
+
 .c-bottom {
   display: flex;
   flex-direction: column;
@@ -295,24 +289,9 @@ export default {
 }
 
 .c-bottom-links {
-
   a:last-child::before {
     content: '-';
     padding: 0 .4rem 0 .5rem;
-  }
-}
-
-.c-language-switch-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 0.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-
-  @include desktop {
-    align-items: flex-start;
-    margin-top: 1.25rem;
   }
 }
 </style>

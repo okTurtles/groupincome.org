@@ -1,25 +1,34 @@
 <template>
-<div class="selectbox c-language-switch">
-  <select class="select c-select" v-model="selected" @input="handleLanguageChange">
+<div class="c-language-switch">
+  <select class="c-select"
+    v-model="selected"
+    @input="handleLanguageChange">
     <option v-for="option in optionsList"
       :key="option.value"
       :value="option.value">
       {{ option.label }}
     </option>
   </select>
+
+  <i class="icon-chevron-bottom"></i>
 </div>
 </template>
 
 <script setup lang="ts">
 import { ref, inject } from 'vue'
-import { languageNameMap } from '@/i18n/utils'
+import { supportedLangCodes } from '@/i18n/utils'
 
 const currentLocale = inject<string>('locale')
+const optionNames: Record<string, string> = {
+  en: 'English',
+  ko: '한국어',
+  fr: 'Français'
+}
 
 const selected = ref<string>(currentLocale || 'en')
-const optionsList = Object.entries(languageNameMap).map(([code, name]) => ({
+const optionsList = supportedLangCodes.map((code) => ({
   value: code,
-  label: name
+  label: optionNames[code] || code
 }))
 
 const handleLanguageChange = (event: Event) => {
@@ -38,17 +47,45 @@ const handleLanguageChange = (event: Event) => {
 @use "../styles/variables" as *;
 
 .c-language-switch {
-  width: 8.75rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: $radius;
 
   .c-select {
-    height: 2rem;
-    font-size: $size_6;
-    padding-left: 0.75rem;
-    padding-right: 1.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    border: 1px solid $general_0;
+    height: 2.75rem;
+    padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+    background-color: transparent;
+    font-family: inherit;
+    font-weight: 500;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    font-size: $size_5;
+
+    @include desktop {
+      padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+      width: max-content;
+    }
   }
 
-  @include desktop {
-    width: 9.25rem;
+  i {
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    right: 0.5rem;
+    top: 55%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
   }
 }
 </style>

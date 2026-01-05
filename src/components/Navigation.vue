@@ -16,6 +16,8 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
+      <LanguageSwitch v-if="!isBlogpost" client:load />
+
       <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">{{ L('Get started') }}</a>
     </div>
   </nav>
@@ -25,8 +27,11 @@
 import { onMounted, ref, inject } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
+import LanguageSwitch from '@/components/LanguageSwitch.vue';
 
 const L = inject('L')
+const isBlogpost = inject('isBlogpost')
+
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
 let menuList = ref([])
@@ -99,7 +104,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   align-items: center;
   justify-content: space-around;
   text-align: center;
-  width: 38.4rem;
+  width: 42.75rem;
   max-height: 30rem;
   border-left: none;
 

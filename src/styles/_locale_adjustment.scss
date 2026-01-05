@@ -8,7 +8,7 @@ eg. spacing in navigation menu breaks when viewed in French.
 @include is-locale("fr") {
   .c-navbar-main {
     @include desktop {
-      width: 43.75rem;
+      width: 50.75rem;
     }
   }
 }
