@@ -1,13 +1,24 @@
-// reference: https://docs.astro.build/en/recipes/i18n/
-
 // tables
-import koreanTable from './tables/ko.json'
-import frenchTable from './tables/fr.json'
+import koreanTable from './tables/ko.json' with { type: 'json' }
+import frenchTable from './tables/fr.json' with { type: 'json' }
 
 const translationTables: { [index: string]: any } = {
   // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp
   'ko': koreanTable,
   'fr': frenchTable
+}
+
+export const languageDisplayNames: Record<string, string> = {
+  // language display names in their own languages
+  en: 'English',
+  ko: '한국어',
+  fr: 'Français'
+}
+
+export const languageDisplayNamesInEnglish: Record<string, string> = {
+  en: 'English',
+  ko: 'Korean',
+  fr: 'French'
 }
 
 export const defaultLanguage = 'en'

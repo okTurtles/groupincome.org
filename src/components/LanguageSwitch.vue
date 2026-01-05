@@ -16,19 +16,14 @@
 
 <script setup lang="ts">
 import { ref, inject } from 'vue'
-import { supportedLangCodes } from '@/i18n/utils'
+import { supportedLangCodes, languageDisplayNames } from '@/i18n/utils'
 
 const currentLocale = inject<string>('locale')
-const optionNames: Record<string, string> = {
-  en: 'English',
-  ko: '한국어',
-  fr: 'Français'
-}
 
 const selected = ref<string>(currentLocale || 'en')
 const optionsList = supportedLangCodes.map((code) => ({
   value: code,
-  label: optionNames[code] || code
+  label: languageDisplayNames[code] || code
 }))
 
 const handleLanguageChange = (event: Event) => {
@@ -51,6 +46,11 @@ const handleLanguageChange = (event: Event) => {
   display: flex;
   align-items: center;
   border-radius: $radius;
+  padding: 0.5rem 0 0.75rem;
+
+  @include desktop {
+    padding: 0;
+  }
 
   .c-select {
     width: 100%;
