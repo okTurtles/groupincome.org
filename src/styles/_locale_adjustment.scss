@@ -11,4 +11,10 @@ eg. spacing in navigation menu breaks when viewed in French.
       width: 50.75rem;
     }
   }
+
+  .c-footer .c-links-group a {
+    display: inline-block;
+    max-width: 9.75rem;
+    word-break: break-word;
+  }
 }
