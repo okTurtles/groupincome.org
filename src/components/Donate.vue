@@ -8,7 +8,7 @@
       </div>
 
       <div class="c-copied-feedback" :class="{ 'is-active': copied === crypto.id }">
-        <I18n>Copied to clipboard!</I18n>
+        <i18n>Copied to clipboard!</i18n>
       </div>
     </li>
   </ul>

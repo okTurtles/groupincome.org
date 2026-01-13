@@ -137,6 +137,7 @@
   "Hiring": "커리어",
   "__________src/components/Servers.astro__________": "",
   "The official Group Income Server.": "공식 Group Income 서버.",
+  "<Your Server>": "<귀하의 서버>",
   "Edit the |a_|this page on Github|_a| to add your server here.": "Github에서 |a_|이 페이지|_a|를 편집하여 당신의 서버를 추가하세요.",
   "__________src/components/modals/NewsLetterWarningModal.vue__________": "",
   "Sorry Gmail users!": "Gmail 유저분들께 죄송합니다!",

@@ -40,7 +40,7 @@
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
           </div>
 
-          <I18n tag="p" class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</I18n>
+          <i18n tag="p" class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</i18n>
 
           <div class="scroll-btn-container">
             <ScrollDownArrow targetSelector="#container2 .c-container-title" />

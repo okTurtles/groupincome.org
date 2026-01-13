@@ -15,6 +15,7 @@ import { resolvePath } from '@/utils/helpers.js'
 import { localeAwareDateString } from '@/i18n/utils.js'
 
 const locale = inject('locale')
+const isLocaleEn = locale === 'en'
 
 const props = defineProps({
   postFrontmatter: {
@@ -35,7 +36,7 @@ const {
 const postUrl = resolvePath(permalink)
 const imgSrc = resolvePath(image) || resolvePath('/images/' + permalink + '.jpeg')
 const getDateDisplay = (dateString) => {
-  return locale === 'en' ? dateString : localeAwareDateString(dateString, locale)
+  return isLocaleEn ? dateString : localeAwareDateString(dateString, locale)
 }
 </script>
 

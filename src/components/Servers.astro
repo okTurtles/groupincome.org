@@ -16,6 +16,8 @@ const servers = [{
   admin: 'okTurtles Foundation Inc.',
   adminContact: 'https://okturtles.org'
 }]
+
+const yourServer = L('<Your Server>')
 ---
 
 <div id="servers" class="grid has-scroll-margin-top c-server-grid-container">
@@ -48,11 +50,11 @@ const servers = [{
           src={resolvePath('/images/servers/defon-social.webp')}
           srcset={resolvePath('/images/servers/defon-social.png')} />
         <h4 class="card-category"></h4>
-        <h3 class="card-title">{ "<Your Server>" }</h3>
+        <h3 class="card-title">{ yourServer }</h3>
         <I18n tag="p" class="card-text"
           args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue">' }}>
           Edit the |a_|this page on Github|_a| to add your server here.
-        </I18n>
+        </i18n>
       </div>
       <a class="button is-primary" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue"><I18n>Get started</I18n></a>
     </div>

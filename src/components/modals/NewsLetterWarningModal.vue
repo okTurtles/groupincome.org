@@ -2,8 +2,8 @@
 <ModalTemplate modalName="NewsLetterWarningModal"
   :modal-title="modalTitle">
   <div class="c-warning-content">
-    <p class="c-para-1"><I18n>Google isn't delivering our newsletter to all subscribers. They aren't even sending it to junk, just black holing it.</I18n></p>
-    <p class="c-para-2"><I18n>For that reason we can't accept any Gmail addresses. We recommend one of these alternatives:</I18n></p>
+    <p class="c-para-1"><i18n>Google isn't delivering our newsletter to all subscribers. They aren't even sending it to junk, just black holing it.</i18n></p>
+    <p class="c-para-2"><i18n>For that reason we can't accept any Gmail addresses. We recommend one of these alternatives:</i18n></p>
 
     <ul class="c-url-list">
       <li v-for="link in links" :key="link.id">

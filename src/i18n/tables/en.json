@@ -137,6 +137,7 @@
   "Hiring": "Hiring",
   "__________src/components/Servers.astro__________": "",
   "The official Group Income Server.": "The official Group Income Server.",
+  "<Your Server>": "<Your Server>",
   "Edit the |a_|this page on Github|_a| to add your server here.": "Edit the |a_|this page on Github|_a| to add your server here.",
   "__________src/components/modals/NewsLetterWarningModal.vue__________": "",
   "Sorry Gmail users!": "Sorry Gmail users!",

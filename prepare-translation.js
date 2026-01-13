@@ -55,7 +55,7 @@ async function extractI18nStrings (filePath) {
   }
 
   /* ==================================================
-   * 2. <I18n ...>...</I18n> (case-insensitive)
+   * 2. <i18n ...>...</i18n> (NOTE: use I18n with capital letter I when using I18n.astro. Case-insensitive for i18n.vue)
    *    - multiline open + content
    *    - trim trailing whitespace only
    *    - handles attributes with quoted strings and JSX expressions

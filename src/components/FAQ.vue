@@ -2,13 +2,13 @@
   <section class="container c-container" id="faqContainer">
     <ul class="c-nav">
       <li class="scrollingLink">
-        <I18n tag="button" class="is-unstyled" @click="scrollTo('#general')">General</I18n>
+        <i18n tag="button" class="is-unstyled" @click="scrollTo('#general')">General</i18n>
       </li>
       <li class="scrollingLink">
-        <I18n tag="button" class="is-unstyled" @click="scrollTo('#groups')">Groups</I18n>
+        <i18n tag="button" class="is-unstyled" @click="scrollTo('#groups')">Groups</i18n>
       </li>
       <li class="scrollingLink">
-        <I18n tag="button" class="is-unstyled" @click="scrollTo('#our-philosophy')">Our Philosophy</I18n>
+        <i18n tag="button" class="is-unstyled" @click="scrollTo('#our-philosophy')">Our Philosophy</i18n>
       </li>
       <li>
         <button class="is-unstyled" @click="toggleExpand">
