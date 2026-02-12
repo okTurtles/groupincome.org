@@ -17,6 +17,7 @@
         </div>
 
         <div class="c-main-wrapper" id="header1">
+
           <h1 class="is-font-poppin c-page-title">Group Income</h1>
           <!-- <h1 class="is-title-1 c-main-title">
             Basic Income for your
@@ -183,7 +184,7 @@ export default {
   setup () {
     const L = inject('L')
     return { L }
-  },
+  }
 }
 </script>
 
@@ -769,5 +770,11 @@ export default {
 
 .c-mt-16 {
   margin-top: 1.6rem;
+}
+
+.c-dropdown {
+  max-width: 12.75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

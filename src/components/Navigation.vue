@@ -16,7 +16,7 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <LanguageSwitch v-if="!isBlogpost" client:load />
+      <LanguageSwitch v-if="!isBlogpost" class="c-language-switch" client:load />
 
       <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">{{ L('Get started') }}</a>
     </div>
@@ -184,6 +184,12 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   }
 }
 
+.c-language-switch {
+  @include touch {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 .c-get-started-btn {
   text-transform: capitalize;
