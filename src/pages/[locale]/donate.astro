@@ -1,71 +1,83 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro';
-import Donate from '../components/Donate.vue'
+import Layout from '@/layouts/DefaultLayout.astro';
+import Donate from '@/components/Donate.vue'
 import { resolvePath } from '@/utils/helpers.js'
+import { getDynamicRoutes, LTags } from '@/i18n/utils'
+import I18n from '@/i18n/i18n.astro'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+
+const { locale } = Astro.locals
 ---
 
 <Layout>
   <script src="https://donorbox.org/widget.js" paypalExpress="true"></script>
-  <div class="c-wrapper">
+  <div class="c-donate-content-wrapper">
     <section class="container grey-container">
-      <div class="is-posttitle">SUPPORT OUR DEVELOPMENT</div>
-      <h1 class="is-title-1 c-main-title">Sponsor Group Income.</h1>
-      <p class="is-subtitle c-main-para">
-        Group Income is a project developed by the okTurtles Foundation,
+      <I18n tag="div" class="is-posttitle">SUPPORT OUR DEVELOPMENT</I18n>
+      <I18n tag="h1" class="is-title-1 c-main-title">Sponsor Group Income.</I18n>
+      <I18n tag="p" class="is-subtitle c-main-para">Group Income is a project developed by the okTurtles Foundation,
         a non-profit organization that supports beneficial decentralization technologies.
-        If you want to help us succeed, consider becoming a sponsor.
-      </p>
+        If you want to help us succeed, consider becoming a sponsor.</I18n>
     </section>
     <div class="c-container-middle">
       <div class="c-container-center">
-        <h2 class="is-title-2 c-main-title">
-          Become a Sponsor
-        </h2>
-        <p class="c-main-para">If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here’s how:</p>
+        <I18n tag="h2" class="is-title-2 c-main-title">Become a Sponsor</I18n>
+        <I18n tag="p" class="is-subtitle c-main-para">If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here's how:</I18n>
       </div>
 
       <section class="container c-grid c-mb-6">
         <div class="c-direct">
-          <h2 class="c-sub-title">Direct Cryptocurrency Donation</h2>
+          <I18n tag="h2" class="c-sub-title">Direct Cryptocurrency Donation</I18n>
           <Donate client:load/>
-          <div class="c-or">or</div>
+          <I18n tag="div" class="c-or">or</I18n>
         </div>
         <div class="c-credit">
           <div class="c-credit-block">
-            <h2 class="c-sub-title">Credit/Debit Card Donation</h2>
-            <a class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">Donate with Donorbox</a>  
+            <I18n tag="h2" class="c-sub-title">Credit/Debit Card Donation</I18n>
+            <a class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">
+              <I18n>Donate with Donorbox</I18n>
+            </a>  
           </div>
-          
+
           <div class="c-credit-block">
-            <h2 class="c-sub-title">Others</h2>
-            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support")}>Other ways to Donate</a>
+            <I18n tag="h2" class="c-sub-title">Others</I18n>
+            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support", locale)}>
+              <I18n>Other ways to Donate</I18n>
+            </a>
           </div>
         </div>
       </section>
 
       <section class="container c-grid c-mb-6">
-        <div><b>Crypto Donation Receipt</b>
-          <div class="c-main-para">After you make a crypto donation, email us at <a class="is-link" href="mailto:hi@okturtles.org" target="_blank">hi@okturtles.org</a> so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!</div>
+        <div>
+          <I18n tag="b">Crypto Donation Receipt</I18n>
+          <I18n tag="div" class="c-main-para" args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
+            After you make a crypto donation, email us at |a_|hi@okturtles.org|_a| so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!
+          </I18n>
         </div>
-        <div><b>okTurtles Foundation</b>
-          <div class="c-main-para">The okTurtles Foundation is a 501(c)(3) non-profit corporation, and our U.S. federal tax ID number is 47-1188610.</div>
+        <div>
+          <b>okTurtles Foundation</b>
+          <I18n tag="div" class="c-main-para">The okTurtles Foundation is a 501(c)(3) non-profit corporation, and our U.S. federal tax ID number is 47-1188610.</I18n>
         </div>
       </section>
     </div>
     <section class="container dark-container">
-      <h2 class="is-title-2 c-container-title">Sponsors</h2>
-      <p class="c-container-para">Thank you to the following individuals and organizations</p>
+      <I18n tag="h2" class="is-title-2 c-container-title">Sponsors</I18n>
+      <I18n tag="p" class="c-container-para">Thank you to the following individuals and organizations</I18n>
 
       <div class="c-sponsors-logo-container">
         <div class="logo-placeholder">
-          <i class="icon-image-multiple"></i><span>Your logo here</span>
+          <i class="icon-image-multiple"></i><I18n>Your logo here</I18n>
         </div>
       </div>
     </section>
 
     <section style={{ display: 'none' }} class="container c-second-container">
-      <h2 class="is-title-2 c-container-title">Individual Sponsors</h2>
-      <p class="c-container-para">Thank you to the following individuals and organizations, who have pledged up to $x/month</p>
+      <I18n tag="h2" class="is-title-2 c-container-title">Individual Sponsors</I18n>
+      <I18n tag="p" class="c-container-para">Thank you to the following individuals and organizations, who have pledged up to $x/month</I18n>
       <div class="c-individual-sponsor-container">
         <ul>
           {
@@ -77,10 +89,10 @@ import { resolvePath } from '@/utils/helpers.js'
   </div>
 </Layout>
 
-<style lang="scss">
-@use "../styles/variables" as *;
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
 
-.c-wrapper {
+.c-donate-content-wrapper {
   padding-bottom: 2rem;
 }
 
@@ -127,6 +139,17 @@ import { resolvePath } from '@/utils/helpers.js'
   @include desktop {
     margin: 0 auto 1rem auto;
   }
+}
+
+.is-subtitle {
+  &.c-main-para {
+    margin: 0 auto 1rem auto;
+  }
+}
+
+b:has(+ .c-main-para) {
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
 .grey-container {

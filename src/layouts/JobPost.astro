@@ -2,6 +2,8 @@
 import Layout from './DefaultLayout.astro';
 import Sides from '../components/graphics/Sides.vue';
 import { resolvePath, sortedPosts } from '@/utils/helpers.js'
+import I18n from '@/i18n/i18n.astro'
+import { useTranslation } from '@/i18n/utils'
 
 const jobs =  sortedPosts(import.meta.glob('../jobs/*.{md,mdx}', { eager: true })).filter(job => {
   return !job.file.split('/').pop().startsWith('_')
@@ -10,30 +12,38 @@ const jobs =  sortedPosts(import.meta.glob('../jobs/*.{md,mdx}', { eager: true }
 const pathname = new URL(Astro.request.url).pathname;
 const path = pathname.split("/");
 const currentPath = path[path.length - 2];
+const { locale } = Astro.locals
+const L = useTranslation(locale)
+
+const typeDisplayMap: Record<string, string> = {
+  "remote": L("remote")
+}
 ---
-<Layout>
+<Layout pageType="jobpost">
 <div class="c-wrapper">
   <Sides color="#5DC9F1" :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"></Sides>
   <Sides color="#F89202" :styles="{ top: 120rem }"></Sides>
 
   <section class="container grey-container">
     <div class="is-posttitle">
-      JOBS
+      <I18n>JOBS</I18n>
     </div>
-    <h1 class="is-title-1 c-main-title">Join our team.</h1>
+
+    <h1 class="is-title-1 c-main-title"><I18n>Join our team.</I18n></h1>
     <p class="is-subtitle c-main-para">
-      We’re always looking for passionate people who share our vision and excitement for what’s possible.
-      If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.
+      <I18n>We're always looking for passionate people who share our vision and excitement for what's possible.</I18n>
+      <I18n>If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.</I18n>
     </p>
   </section>
   <div class="c-container-middle">
     <section class="container c-container-top">
-      <h2 class="is-title-2 c-container-title">Open Positions</h2>
+      <h2 class="is-title-2 c-container-title"><I18n>Open Positions</I18n></h2>
       <div class="c-job-links">
         {jobs.map((job: any) => (
-          <a href={resolvePath("/hiring"+job.frontmatter.permalink)} class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}>
+          <a class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}
+            href={resolvePath(`/hiring${job.frontmatter.permalink}`, locale)}>
             <span class="c-job-title">{job.frontmatter.title}</span>
-            <span class="c-job-type">{job.frontmatter.type}</span>
+            <span class="c-job-type">{typeDisplayMap[job.frontmatter.type]}</span>
           </a>
         ))}
       </div>

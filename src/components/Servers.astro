@@ -1,5 +1,10 @@
 ---
 import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
+import I18n from '@/i18n/i18n.astro';
+import { useTranslation, LTags } from '@/i18n/utils'
+
+const { locale } = Astro.locals
+const L = useTranslation(locale)
 
 const servers = [{
   name: "Group Income",
@@ -7,13 +12,15 @@ const servers = [{
   imgSrc: '/images/servers/group-income.png',
   url: 'https://groupincome.app',
   category: 'tech',
-  description: "The official Group Income Server.",
+  description: L("The official Group Income Server."),
   admin: 'okTurtles Foundation Inc.',
   adminContact: 'https://okturtles.org'
 }]
+
+const yourServer = L('<Your Server>')
 ---
 
-<div id="servers" class="grid has-scroll-margin-top">
+<div id="servers" class="grid has-scroll-margin-top c-server-grid-container">
   {
     servers.map(server => {
       return (
@@ -29,7 +36,7 @@ const servers = [{
               <p class="card-text">{ server.description }</p>
               <p class="card-text"><b>Admin:</b> <a class="" href={server.adminContact}>{ server.admin }</a></p>
             </div>
-            <a class="button is-primary" href={server.url}>Get started</a>
+            <a class="button is-primary" href={server.url}><I18n>Get started</I18n></a>
           </div>
         </div>
       )
@@ -43,10 +50,13 @@ const servers = [{
           src={resolvePath('/images/servers/defon-social.webp')}
           srcset={resolvePath('/images/servers/defon-social.png')} />
         <h4 class="card-category"></h4>
-        <h3 class="card-title">{ "<Your Server>" }</h3>
-        <p class="card-text">Edit the <a class="is-link" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue">this page on Github</a> to add your server here.</p>
+        <h3 class="card-title">{ yourServer }</h3>
+        <I18n tag="p" class="card-text"
+          args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue">' }}>
+          Edit the |a_|this page on Github|_a| to add your server here.
+        </i18n>
       </div>
-      <a class="button is-primary" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue">Get started</a>
+      <a class="button is-primary" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue"><I18n>Get started</I18n></a>
     </div>
   </div>
 </div>
@@ -60,10 +70,8 @@ const servers = [{
     @extend %link-style;
   }
 }
-</style>
 
-<style lang="scss">
-.grid {
+.c-server-grid-container {
   width: 70rem;
   max-width: calc(100vw - 2rem);
   display: grid;
@@ -71,66 +79,66 @@ const servers = [{
   grid-template-columns: repeat(auto-fit, minmax(16.6rem, 1fr));
   margin: 4rem auto 6rem auto;
   justify-content: center;
-}
 
-.grid-item {
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  padding: 1rem;
-  border: 1px solid #D0DEEA;
-  background: #F6F8FB;
-  border-radius: 8px;
-  box-shadow: none;
-  color: #000;
-  margin-bottom: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 400px;
-
-  .button {
-    align-self: flex-start;
+  .grid-item {
+    display: flex;
+    justify-content: center;
   }
-}
 
-.card-body {
-  margin-bottom: 1.5rem;
-}
+  .card {
+    padding: 1rem;
+    border: 1px solid #D0DEEA;
+    background: #F6F8FB;
+    border-radius: 8px;
+    box-shadow: none;
+    color: #000;
+    margin-bottom: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
 
-.card-img-top {
-  border-radius: 8px;
-  overflow: hidden;
-  width: 100%;
-  object-fit: cover;
-  max-height: 12.5rem;
-}
+    .button {
+      align-self: flex-start;
+    }
+  }
 
-.card-category {
-  font-weight: 600;
-  font-size: 0.75rem;
-  color: #939393;
-  text-transform: uppercase;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
+  .card-body {
+    margin-bottom: 1.5rem;
+  }
 
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
+  .card-img-top {
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    object-fit: cover;
+    max-height: 12.5rem;
+  }
 
-.card-text {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.3rem;
+  .card-category {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #939393;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.3rem;
+  }
 }
 </style>

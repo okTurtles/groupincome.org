@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import Accordion from '@/components/Accordion.vue'
+import I18n from '@/i18n/i18n.astro'
+import { getDynamicRoutes, LTags } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+---
+
+<Layout mainClasses="c-other-ways-to-support-container">
+  <section class="container c-main-container">
+    <I18n tag="div" class="is-posttitle">Donate</I18n>
+    <h1 class="is-title-1 c-main-title"><I18n>Other Ways Support</I18n></h1>
+  </section>
+
+  <div class="c-container-middle">
+    <Accordion client:load/>
+  </div>
+
+  <div class="c-container-center c-container-middle">
+    <h3 class="is-title-2"><I18n>Questions?</I18n></h3>
+    <I18n tag="p"
+    args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
+      Please email |a_|hi@okturtles.org|_a|
+    </I18n>
+  </div>
+</Layout>
+
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
+
+.c-other-ways-to-support-container {
+  .c-main-container {
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: calc(100vw - 2rem);
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 0;
+    pointer-events: none;
+
+    @include phone {
+      max-width: 100%;
+    }
+  }
+
+  .c-wrapper {
+    padding-bottom: 2rem;
+  }
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding: 4rem 1rem;
+    }
+
+    @include desktop {
+      padding: 6rem 1rem;
+    }
+  }
+
+  .c-container-middle {
+    width: 70rem;
+    max-width: 100%;
+    margin: -2rem auto 0 auto;
+  }
+
+  .c-container-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.6rem;
+    margin-top: 8rem;
+
+    p {
+      color: $text_1;
+    }
+  }
+
+  .c-main-title {
+    max-width: 47rem;
+    margin: 1.5rem auto;
+
+    @include phone {
+      max-width: 30rem;
+    }
+  }
+}
+</style>

@@ -20,53 +20,61 @@
 </template>
 
 <script>
+import { inject } from 'vue'
+
 export default {
   name: 'Accordion',
+  setup () {
+    const L = inject('L')
+    return { L }
+  },
   data () {
+    const L = this.L
+
     return {
       list: [{
         title: 'Github',
         id: 'github',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate',
+        linkCopy: L('Donate'),
         active: true
       }, {
-        title: 'Car donation',
+        title: L('Car donation'),
         id: 'car-donation',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate'
+        linkCopy: L('Donate')
       }, {
-        title: 'Check',
+        title: L('Check'),
         id: 'check',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate'
+        linkCopy: L('Donate')
       }, {
-        title: 'Paypal',
+        title: L('Paypal'),
         id: 'paypal',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate'
+        linkCopy: L('Donate')
       }, {
-        title: 'Online purchases',
+        title: L('Online purchases'),
         id: 'online-purchases',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate'
+        linkCopy: L('Donate')
       }, {
-        title: 'Stock donations',
+        title: L('Stock donations'),
         id: 'stock-donations',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate'
+        linkCopy: L('Donate')
       }, {
-        title: 'Donate time',
+        title: L('Donate time'),
         id: 'donate-time',
-        description: 'Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂',
+        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
         link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: 'Donate'
+        linkCopy: L('Donate')
       }],
       previous: 0
     }

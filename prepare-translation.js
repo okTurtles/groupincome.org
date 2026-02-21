@@ -1,0 +1,171 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import config from './translation.config.js'
+import { translateWithLLM } from './src/i18n/llm-translation.js'
+
+const {
+  supportedLangCodes,
+  targetDirs,
+  targetFileExtensions,
+  outputDir,
+  llmTranslation
+} = config
+const hasTargetExtensions = fPath => targetFileExtensions.includes(path.extname(fPath))
+
+async function recusrivelyReadDir (dirPath) {
+  const list = await fs.readdir(dirPath, { withFileTypes: true })
+  let filePathList = []
+
+  for (const entry of list) {
+    if (entry.isFile() && hasTargetExtensions(entry.name)) {
+      filePathList.push(path.join(dirPath, entry.name))
+    } else if (entry.isDirectory()) {
+      filePathList = [
+        ...filePathList,
+        ...await recusrivelyReadDir(path.join(dirPath, entry.name))
+      ]
+    }
+  }
+
+  return filePathList
+}
+
+async function extractI18nStrings (filePath) {
+  const content = await fs.readFile(filePath, 'utf8')
+  const removeWhiteSpaces = (text) => {
+    return text.replace(/\s+$/, '')
+      .replace(/\n[ \t]+/g, '\n')
+  }
+  const strings = []
+
+  /* ==================================================
+   * 1. L('...') or L("..."), optional 2nd argument
+   *    - multiline-safe
+   *    - ignores args after the first
+   * ================================================== */
+  const lCallRegex =
+    /\bL\s*\(\s*(['"`])((?:\\.|(?!\1)[\s\S])*)\1\s*(?:,|\))/g;
+
+  for (const match of content.matchAll(lCallRegex)) {
+    const text = removeWhiteSpaces(match[2])
+
+    if (text) {
+      strings.push(text)
+    }
+  }
+
+  /* ==================================================
+   * 2. <i18n ...>...</i18n> (NOTE: use I18n with capital letter I when using I18n.astro. Case-insensitive for i18n.vue)
+   *    - multiline open + content
+   *    - trim trailing whitespace only
+   *    - handles attributes with quoted strings and JSX expressions
+   * ================================================== */
+  // Match <i18n tag, then attributes (handling quotes and JSX expressions), then >, then content until </i18n>
+  // Strategy: match opening tag by finding > that's not inside quotes or unclosed braces
+  const i18nTagRegex =
+    /<i18n\b[\s\S]*?(?:(?:(?:=(?:['"`])(?:\\.|(?!\1)[^\\])*\1|=\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})*)|[^>])*?)>([\s\S]*?)<\/i18n>/gi;
+
+  for (const match of content.matchAll(i18nTagRegex)) {
+    let text = removeWhiteSpaces(match[1]).trim();
+
+    if (text) {
+      strings.push(text)
+    }
+  }
+
+  return strings.length === 0
+    ? null
+    : { filePath, strings }
+}
+
+async function run () {
+  let allFilePaths = []
+  const allEntries = []
+
+  for (const targetDir of targetDirs) {
+    allFilePaths = [
+      ...allFilePaths,
+      ...await recusrivelyReadDir(targetDir)
+    ]
+  }
+
+  for (const filePath of allFilePaths) {
+    const entry = await extractI18nStrings(filePath)
+
+    if (entry) {
+      allEntries.push(entry)
+    }
+  }
+
+  /* ==================================================
+   * generate JSON language tables (eg. en.json, fr.json, ko.json, etc.)
+   * ================================================== */
+
+  const commonTable = {}
+
+  for (const entry of allEntries) {
+    const { strings, filePath } = entry
+    let fileHasAtLeastOneString = false
+
+    commonTable[`__________${filePath}__________`] = ""
+    for (const string of strings) {
+      if (!commonTable[string]) {
+        fileHasAtLeastOneString = true
+        commonTable[string] = string
+      }
+    }
+
+    if (!fileHasAtLeastOneString) {
+      delete commonTable[`__________${filePath}__________`]
+    }
+  }
+
+  for (const langCode of supportedLangCodes) {
+    console.log(`✏️ Preparing translation table for ${langCode}...`)
+    const langJsonPath = path.resolve(`${outputDir}/${langCode}.json`)
+    const finalTable = JSON.parse(JSON.stringify(commonTable))
+    let existingTable = {}
+
+    try {
+      const rawContent = await fs.readFile(langJsonPath, 'utf8')
+      existingTable = rawContent ? JSON.parse(rawContent) : {}
+    }  catch {
+      // file does not exist yet — start fresh
+    }
+
+    // Merge with existing table (preserve existing entries so that already translated strings are not lost)
+    for (const [key, value] of Object.entries(finalTable)) {
+      if (key.startsWith('___')) { continue }
+
+      finalTable[key] = (key in existingTable)
+        ? existingTable[key]
+        : value
+    }
+
+    if (llmTranslation.enabled && langCode !== 'en') {
+      const missingTranslations = []
+
+      for (const [key, value] of Object.entries(finalTable)) {
+        if (key.startsWith('___')) { continue }
+
+        if (key === value) {
+          // Entries that are not translated yet have the key and the value as the same string.
+          missingTranslations.push(key)
+        }
+      }
+
+      if (missingTranslations.length > 0) {
+        const llmTranslationTable = await translateWithLLM(missingTranslations, langCode)
+          for (const [key, value] of Object.entries(llmTranslationTable)) {
+            finalTable[key] = value
+          }
+      }
+    }
+
+    // Write the final table to the file
+    await fs.writeFile(langJsonPath, JSON.stringify(finalTable, null, 2) + '\n', 'utf8')
+    console.log(`✅ Successfully prepared translations for ${langCode}.json`)
+  }
+}
+
+run()

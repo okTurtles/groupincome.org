@@ -1,4 +1,6 @@
 ---
+/* logic to redirect existing https://www.groupincome.org/jobs/job-name links out there to https://www.groupincome.org/en/hiring/job-name */
+
 import { sortedPosts } from '@/utils/helpers'
 export async function getStaticPaths() {
   const jobs =  sortedPosts(import.meta.glob('../../jobs/*.{md,mdx}', { eager: true }));
@@ -8,21 +10,13 @@ export async function getStaticPaths() {
         // these `.slice` calls are necessary and remove
         // the `/` from the beginning and end of the permalink
         job: job.frontmatter.permalink.slice(1).slice(0, -1)
-      },
-      props: job
+      }
     }
   })
 }
-const { Content } = Astro.props
+
+const { job: slug } = Astro.params
+const redirectUrl = `${import.meta.env.BASE_URL}en/hiring/${slug}`
 ---
 
-<Content />
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  window.scrollTo({
-      top: 900,
-      behavior: "smooth"
-  });
-});
-</script>
+<meta http-equiv="refresh" content={'0;url=' + redirectUrl} />

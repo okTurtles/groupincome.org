@@ -17,6 +17,7 @@
         </div>
 
         <div class="c-main-wrapper" id="header1">
+
           <h1 class="is-font-poppin c-page-title">Group Income</h1>
           <!-- <h1 class="is-title-1 c-main-title">
             Basic Income for your
@@ -40,7 +41,7 @@
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
           </div>
 
-          <p class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</p>
+          <i18n tag="p" class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</i18n>
 
           <div class="scroll-btn-container">
             <ScrollDownArrow targetSelector="#container2 .c-container-title" />
@@ -50,11 +51,11 @@
 
       <section class="container span-container c-container" id="container2">
         <div class="span-2" id="header2">
-          <div class="is-title-3 c-container-posttitle">What is Group Income?</div>
-          <p class="is-title-2 c-container-title">A safe space to financially support each other.</p>
-          <p class="c-container-para">Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.</p>
-          <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income.</a>
-          <a class="is-link" v-href="'/privacy-policy'">Read more about our privacy and security.</a>
+          <div class="is-title-3 c-container-posttitle">{{ L('What is Group Income?') }}</div>
+          <p class="is-title-2 c-container-title">{{ L('A safe space to financially support each other.') }}</p>
+          <p class="c-container-para">{{ L('Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.') }}</p>
+          <a class="c-container-link is-link" v-href="'/faq'">{{ L('Learn more about Basic Income.') }}</a>
+          <a class="is-link" v-href="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
         </div>
 
         <div class="span-2" id="circle-graph">
@@ -65,11 +66,11 @@
       <div class="sections-container" id="freeze-wrapper">
         <section class="container span-container" id="container3">
           <div class="span-2 c-container-header" id="header3">
-            <div class="is-title-3 c-container-posttitle">Why it matters</div>
-            <p class="is-title-2 c-container-title">Every individual is valuable.</p>
-            <p class="c-container-para">Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.</p>
-            <p class="c-container-para c-mt-16">Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.</p>
-            <a class="c-container-link is-link" v-href="'/faq'">Learn more about Basic Income.</a>
+            <div class="is-title-3 c-container-posttitle">{{ L('Why it matters') }}</div>
+            <p class="is-title-2 c-container-title">{{ L('Every individual is valuable.') }}</p>
+            <p class="c-container-para">{{ L('Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.') }}</p>
+            <p class="c-container-para c-mt-16">{{ L('Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.') }}</p>
+            <a class="c-container-link is-link" v-href="'/faq'">{{ L('Learn more about Basic Income.') }}</a>
           </div>
 
           <div class="span-2">
@@ -79,10 +80,10 @@
 
         <section class="container span-container" id="container4">
           <div class="span-2 c-container-header" id="header4">
-            <div class="is-title-3 c-container-posttitle">Set a "mincome" floor</div>
-            <p class="is-title-2 c-container-title">Create your own financial safety net.</p>
-            <p class="c-container-para">Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor (“mincome”). Each month, group members help those who haven't crossed the mincome threshold.</p>
-            <a class="c-container-link is-link" href="https://groupincome.org/simulator/">Try out the payments simulator.</a>
+            <div class="is-title-3 c-container-posttitle">{{ L('Set a "mincome" floor') }}</div>
+            <p class="is-title-2 c-container-title">{{ L('Create your own financial safety net.') }}</p>
+            <p class="c-container-para">{{ L(`Create stronger communities and ensure basic financial security for the people you care about — set a minimum income floor ("mincome"). Each month, group members help those who haven't crossed the mincome threshold.`) }}</p>
+            <a class="c-container-link is-link" href="https://groupincome.org/simulator/">{{ L('Try out the payments simulator.') }}</a>
           </div>
 
           <div class="span-2">
@@ -93,9 +94,9 @@
 
         <section class="container span-container span-reverse" id="contribute">
           <div class="span-2">
-            <div class="is-title-3 c-container-posttitle">Non-monetary Contributions</div>
-            <p class="is-title-2 c-container-title">Everyone has something to offer.</p>
-            <p class="c-container-para">Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.</p>
+            <div class="is-title-3 c-container-posttitle">{{ L('Non-monetary Contributions') }}</div>
+            <p class="is-title-2 c-container-title">{{ L('Everyone has something to offer.') }}</p>
+            <p class="c-container-para">{{ L('Members of the group can contribute with monetary or non-monetary donations, securing everyone in your group with a basic income, independent of employment.') }}</p>
           </div>
 
           <div class="span-2">
@@ -105,9 +106,9 @@
 
         <section class="container span-container c-chat-section" id="container5">
           <div class="span-2 c-container-header" id="header5">
-            <div class="is-title-3 c-container-posttitle">Empower Your Community</div>
-            <p class="is-title-2 c-container-title">The best private chat for your community.</p>
-            <p class="c-container-para">A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.</p>
+            <div class="is-title-3 c-container-posttitle">{{ L('Empower Your Community') }}</div>
+            <p class="is-title-2 c-container-title">{{ L('The best private chat for your community.') }}</p>
+            <p class="c-container-para">{{ L('A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted.') }}</p>
           </div>
 
           <div class="c-chat-img-container">
@@ -118,15 +119,13 @@
 
       <section class="container span-container c-container span-reverse" id="container6">
         <div class="span-2 c-container-header" id="header6">
-          <div class="is-title-3 c-container-posttitle">Stay Safe</div>
-          <p class="is-title-2 c-container-title">Security & Privacy</p>
+          <div class="is-title-3 c-container-posttitle">{{ L('Stay Safe') }}</div>
+          <p class="is-title-2 c-container-title">{{ L('Security & Privacy') }}</p>
           <p class="c-container-para">
-            Group Income is built on top of an end-to-end encrypted protocol called
-            <a class="is-link" href="https://shelterprotocol.net" target="_blank">Shelter Protocol</a>.
-            Your data is stored in encrypted form on servers, and decrypted locally on your device.
-            The keys to decrypt that data are derived from your password and are also stored on your device.
+            <span v-html="L('Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.', { a_: '<a class=\'is-link\' href=\'https://shelterprotocol.net\' target=\'_blank\'>', _a: '</a>' })"></span>
+            {{ L('Your data is stored in encrypted form on servers, and decrypted locally on your device. The keys to decrypt that data are derived from your password and are also stored on your device.') }}
           </p>
-          <a class="c-container-link is-link" v-href="'/privacy-policy'">Read more about our privacy and security</a>
+          <a class="c-container-link is-link" v-href="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
         </div>
 
         <div class="span-2">
@@ -138,8 +137,8 @@
     </div>
 
     <section class="container c-get-started">
-      <h3 class="is-title-2 c-container-title">Group Income is end-to-end encrypted and self-hosted.</h3>
-      <div class="is-title-3 c-container-posttitle">Here’s how to get started:</div>
+      <h3 class="is-title-2 c-container-title">{{ L('Group Income is end-to-end encrypted and self-hosted.') }}</h3>
+      <div class="is-title-3 c-container-posttitle">{{ L("Here's how to get started:") }}</div>
 
       <GetStarted />
     </section>
@@ -148,11 +147,11 @@
       <section class="container span-container">
         <div class="span-2">
           <div class="is-title-3 c-container-posttitle">GROUP INCOME</div>
-          <p class="is-title-2 c-container-title">Basic Income for your friends and family.</p>
+          <p class="is-title-2 c-container-title">{{ L('Basic Income for your friends and family.') }}</p>
 
           <div class="c-buttons">
-            <a class="c-navbar-item button is-big is-primary" v-href="'/get-started'">Get started</a>
-            <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">Donate</a>
+            <a class="c-navbar-item button is-big is-primary" v-href.locale="'/get-started'">{{ L('Get started') }}</a>
+            <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">{{ L('Donate') }}</a>
           </div>
         </div>
 
@@ -165,6 +164,7 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
@@ -180,6 +180,10 @@ export default {
     GetStarted,
     ScrollDownArrow
     // VideoPlayer
+  },
+  setup () {
+    const L = inject('L')
+    return { L }
   }
 }
 </script>
@@ -766,5 +770,11 @@ export default {
 
 .c-mt-16 {
   margin-top: 1.6rem;
+}
+
+.c-dropdown {
+  max-width: 12.75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
