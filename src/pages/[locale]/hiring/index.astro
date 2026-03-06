@@ -1,0 +1,10 @@
+---
+import Layout from '@/layouts/JobPost.astro'
+import { getDynamicRoutes } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+---
+
+<Layout/>

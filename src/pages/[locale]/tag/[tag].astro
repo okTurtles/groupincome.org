@@ -1,0 +1,86 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import BlogPostEntry from '@/components/BlogPostEntry.vue'
+import { sortedPosts, uniq } from '@/utils/helpers.js'
+import { supportedLangCodes, LTags } from '@/i18n/utils'
+import I18n from '@/i18n/i18n.astro'
+
+export async function getStaticPaths () {
+  const allPosts = sortedPosts(import.meta.glob('../../../posts/*.{md,mdx}', { eager: true }))
+  const uniqueTags = uniq(
+    allPosts.map((post: any) => post.frontmatter?.tags || []).flat()
+  )
+
+  const result = supportedLangCodes.flatMap((langCode: string) => {
+    return uniqueTags.map((tag: string) => {
+      const filteredPosts = allPosts.filter(
+        (post: any) => Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.includes(tag)
+      )
+
+      return {
+        params: { locale: langCode, tag },
+        props: { posts: filteredPosts }
+      }
+    })
+  })
+
+  return result
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<Layout>
+<div class="c-tag-page-container">
+  <header class="c-header">
+    <h1 class="is-title-3 page-title">
+      <I18n tag="p"
+        args={{ ...LTags('span'), 'span_': '<span class="c-tag-name">', 'tag': tag }}>
+        Posts Tagged: |span_| |tag| |_span|
+      </I18n>
+    </h1>
+  </header>
+
+  <div class="c-post-list">
+    {
+      Boolean(posts.length) &&
+      posts.map((post: any) => <BlogPostEntry client:only="vue" postFrontmatter={post.frontmatter} />)
+    }
+  </div>
+</div>
+</Layout>
+
+<style lang="scss" is:global>
+@use "../../../styles/variables" as *;
+
+.c-tag-page-container {
+  @include page-wrapper-common;
+
+  .c-header {
+    display: flex;
+    width: 100%;
+    margin-bottom: 4rem;
+
+    @include tablet {
+      justify-content: center;
+      margin-bottom: 6rem;
+    }
+  }
+
+  .page-title {
+    font-weight: 600;
+  }
+
+  .c-post-list {
+    position: relative;
+    max-width: 45rem;
+    margin: 0 auto;
+  }
+
+  .c-tag-name {
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+}
+</style>

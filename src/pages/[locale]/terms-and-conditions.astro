@@ -1,0 +1,131 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import { resolvePath } from '@/utils/helpers.js'
+import I18n from '@/i18n/i18n.astro'
+import { getDynamicRoutes, LTags, localeAwareDateString } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+
+const { locale } = Astro.locals
+const lastUpdatedDate = localeAwareDateString('2024-07-20', locale)
+---
+
+<Layout>
+  <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+
+  <div class="c-terms-and-conditions-container">
+    <section class="container grey-container">
+      <div class="is-posttitle">GROUP INCOME</div>
+      <h1 class="is-title-1 c-main-title"><I18n>Terms &amp; Conditions</I18n></h1>
+    </section>
+    <section class="c-container-middle">
+      <p>
+        <I18n tag="i" args={{ date: lastUpdatedDate }}>Last updated: |date|</I18n>
+      </p>
+
+      <I18n tag="h3">Acceptance of Terms</I18n>
+      <I18n tag="p">
+        The Group Income website and app ("Services") are a project of okTurtles Foundation Inc. ("okTurtles"), a 501(c)(3) non-profit registered in the State of Florida, USA.
+      </I18n>
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': `<a href=${resolvePath('/privacy-policy', locale)} class="is-link">` }}>
+        By accessing and using Services, you agree to be bound by these Terms and Conditions ("Terms"), and our |a_|Privacy Policy|_a|. If you do not agree with any part of these Terms, you must not use our Services.
+      </I18n>
+      <I18n tag="h3">Disclaimer of Warranty and Liability</I18n>
+      <I18n tag="p">Your use of the Services is at your sole risk. The Services are provided on an "AS IS" and "AS AVAILABLE" basis. okTurtles expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</I18n>
+      <I18n tag="p">okTurtles and its affiliates, officers, directors, employees, and agents shall not be liable for any direct, indirect, incidental, special, or consequential damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses resulting from the use or inability to use the Services, or any unauthorized access to or alteration of your data.</I18n>
+      <I18n tag="p">
+        TO THE EXTENT WHICH IS PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION, OKTURTLES EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT OF THIRD PARTY RIGHTS, AND FITNESS FOR A PARTICULAR PURPOSE. NO INFORMATION OR ADVICE PROVIDED BY OKTURTLES OR AN OKTURTLES REPRESENTATIVE SHALL CREATE A WARRANTY OR IN ANY WAY CHANGE THE TERMS OF THIS WARRANTY. SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIRS, OR CORRECTIONS. 
+      </I18n>
+      <I18n tag="p">TO THE EXTENT WHICH IS PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION, IN NO EVENT, INCLUDING NEGLIGENCE, SHALL OKTURTLES BE LIABLE FOR PERSONAL INJURY OR ANY INCIDENTAL, SPECIAL, INDIRECT, DIRECT, OR CONSEQUENTIAL DAMAGES, COSTS, OR LOSSES, EVEN IF OKTURTLES HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. IN NO EVENT SHALL OKTURTLES'S TOTAL LIABILITY TO YOU FOR ALL DAMAGES EXCEED THE AMOUNT, IF ANY, PAID BY YOU FOR THE SOFTWARE, EXCEPT AS MAY BE REQUIRED BY APPLICABLE LAW IN CASES INVOLVING PERSONAL INJURY.</I18n>
+
+      <I18n tag="h3">Data and Security</I18n>
+      
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': `<a href=${resolvePath('/privacy-policy', locale)} class="is-link">` }}>
+        While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone |a_|above and beyond in this regard|_a|), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data.
+      </I18n>
+      
+      <I18n tag="h3">Third-party Servers</I18n>
+
+      <I18n tag="p">If you are using Group Income on a third-party server (one not hosted by us), please be advised that we have absolutely no control over that server, we cannot guarantee its integrity, we cannot guarantee that it's running the same code, we are not responsible for anything on it, and you should only use servers run by someone you trust.</I18n>
+      <I18n tag="p">We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order.</I18n>
+
+      <I18n tag="h3">Jurisdiction and Governing Law</I18n>
+
+      <I18n tag="p">These Terms shall be governed by and construed in accordance with the laws of the State of Florida, without giving effect to any principles of conflicts of law. Any legal action or proceeding arising out of or related to these Terms or the Services shall be instituted exclusively in the state or federal courts located in Miami-Dade, Florida, and you expressly consent to the personal jurisdiction of such courts.</I18n>
+
+      <I18n tag="h3">Changes to Terms and Conditions</I18n>
+
+      <I18n tag="p">okTurtles reserves the right to modify or update these Terms at any time. Your continued use of the Services after any such changes constitutes your acceptance of the new Terms.</I18n>
+
+      <I18n tag="h3">Contact Information</I18n>
+
+      <I18n tag="p"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
+        If you have any questions about these Terms, please contact us at |a_|hi@okturtles.org|_a|.
+      </I18n>
+    </section>
+  </div>
+</Layout>
+
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
+
+.c-terms-and-conditions-container {
+  padding-bottom: 2rem;
+
+  .container {
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      padding: 4rem 1rem;
+    }
+
+    @include desktop {
+      padding: 6rem 1rem;
+    }
+  }
+
+  .grey-container {
+    text-align: center;
+  }
+
+  .c-container-middle {
+    width: 45.6rem;
+    max-width: 100%;
+    margin: 4rem auto;
+    padding: 0 1rem;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 3rem auto;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 3rem auto 2rem auto;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .c-main-title {
+    max-width: 47rem;
+    margin: 1.5rem auto;
+
+    @include phone {
+      max-width: 30rem;
+    }
+  }
+}
+</style>

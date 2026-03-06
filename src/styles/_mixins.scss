@@ -6,7 +6,7 @@ $gap: 1rem;
 $tablet: 769px;
 $desktop: 1200px;
 
-$maxDesktop: 1120px;
+$maxDesktop: 1180px;
 
 
 @mixin fa($size, $dimensions) {
@@ -80,6 +80,12 @@ $maxDesktop: 1120px;
 
   @include desktop {
     padding: 6rem 1rem;
+  }
+}
+
+@mixin is-locale($locale) {
+  body[data-translation="#{$locale}"] {
+    @content;
   }
 }
 

@@ -3,7 +3,7 @@
   <Fundraiser></Fundraiser>
   <div class="c-header-wrapper">
     <div class="c-wrapper" role="banner">
-      <a class="c-logo" v-href="'/'">
+      <a class="c-logo" v-href.locale="'/'">
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>

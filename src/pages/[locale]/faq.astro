@@ -1,30 +1,39 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro';
-import FAQ from '../components/FAQ.vue'
+import Layout from '@/layouts/DefaultLayout.astro';
+import FAQ from '@/components/FAQ.vue'
 import { resolvePath } from '@/utils/helpers.js'
+import { useTranslation, getDynamicRoutes } from '@/i18n/utils'
+import I18n from '@/i18n/i18n.astro'
+
+const { locale } = Astro.locals
+const L = useTranslation(locale)
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
 
 const giShortsData = [
   {
     id: 'what-is-groupincome',
-    title: 'What is Group Income? (Overview)',
+    title: L('What is Group Income? (Overview)'),
     img: 'what-is-groupincome.jpeg',
     url: 'https://www.youtube.com/watch?v=WpvyLEZmEAM&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=1'
   },
   {
     id: 'what-is-value',
-    title: 'What is Value?',
+    title: L('What is Value?'),
     img: 'what-is-value.jpeg',
     url: 'https://www.youtube.com/watch?v=i3LtljP9WsA&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=2'
   },
   {
     id: 'software-architecture',
-    title: 'A New Kind Of Software Architecture',
+    title: L('A New Kind Of Software Architecture'),
     img: 'software-architecture.jpeg',
     url: 'https://www.youtube.com/watch?v=I381R5_joLE&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=3'
   },
   {
     id: 'gi-demo',
-    title: 'Group Income UI Demo',
+    title: L('Group Income UI Demo'),
     img: 'gi-demo.jpeg',
     url: 'https://www.youtube.com/watch?v=KU9NGcrjXlo&amp;list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7&amp;index=4'
   }
@@ -35,15 +44,15 @@ const giShortsData = [
   <div class="c-wrapper">
     <section class="container c-main-container">
       <div class="c-main-wrapper" id="header1">
-        <div class="is-posttitle">LEARN</div>
-        <h1 class="is-title-1 c-main-title">Frequently Asked Questions.</h1>
+        <I18n tag="div" class="is-posttitle">LEARN</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title">Frequently Asked Questions.</I18n>
       </div>
     </section>
     <div class="grey-container">
       <FAQ client:load/>
     </div>
     <section class="container">
-      <h2 class="is-title-2 c-container-title">Group Income Shorts</h2>
+      <I18n tag="h2" class="is-title-2 c-container-title">Group Income Shorts</I18n>
       <ul class="c-video-link">
         {
           giShortsData.map(data => {
@@ -69,7 +78,7 @@ const giShortsData = [
 </Layout>
 
 <style lang="scss" scoped>
-@use "../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .c-wrapper {
   padding-bottom: 2rem;

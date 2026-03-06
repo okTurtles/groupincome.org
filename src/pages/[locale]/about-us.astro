@@ -1,20 +1,32 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro';
-import Sides from '../components/graphics/Sides.vue'
-import ScrollDownArrow from '../components/ScrollDownArrow.vue'
+import Layout from '@/layouts/DefaultLayout.astro';
+import Sides from '@/components/graphics/Sides.vue'
+import I18n from '@/i18n/i18n.astro'
+import ScrollDownArrow from '@/components/ScrollDownArrow.vue'
 import { resolvePath } from '@/utils/helpers.js'
+import { getDynamicRoutes, LTags } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
 ---
 
 <Layout>
-  <div class="c-wrapper">
+  <div class="c-about-us-content-wrapper">
     <Sides color="#5DC9F1" styles={{'top': '40rem'}}></Sides>
     <Sides color="#A1D10E" styles={{'top': '110rem', 'right': 0, 'transform': 'rotate(-180deg)'}}></Sides>
     <Sides color="#F89202" styles={{'top': '250rem'}}></Sides>
     <section class="container c-main-container">
       <div class="c-main-wrapper" id="header1">
-        <div class="is-posttitle">ABOUT GROUP INCOME</div>
-        <h1 class="is-title-1 c-main-title">On a mission to ensure<span class="text-orange"> basic</span><span class="text-green"> income</span> security for<span class="text-blue"> everyone</span>.</h1>
-        <p class="is-subtitle c-main-para">Group Income is an open-source project of the <a class="is-link" href="https://okturtles.org" target="_blank">okTurtles Foundation</a>, a non-profit organization that supports beneficial decentralization technologies.</p>
+        <I18n tag="div" class="is-posttitle">ABOUT GROUP INCOME</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title"
+          args={{ ...LTags('span'), 'sp1_': '<span class="text-orange">', 'sp2_': '<span class="text-green">', 'sp3_': '<span class="text-blue">' }}>
+          On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|.
+        </I18n>
+        <I18n tag="p" class="is-subtitle c-main-para"
+          args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://okturtles.org" target="_blank">'}}>
+          Group Income is an open-source project of the |a_|okTurtles Foundation|_a|, a non-profit organization that supports beneficial decentralization technologies.
+        </I18n>
 
         <div class="scroll-btn-container">
           <ScrollDownArrow client:load targetSelector="#scroll-down-to" />
@@ -24,36 +36,40 @@ import { resolvePath } from '@/utils/helpers.js'
     <section class="container span-container c-container">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph1.svg")}/></div>
       <div class="span-2">
-        <h2 id="scroll-down-to" class="is-title-2">Open Protocol</h2>
-        <p class="c-container-para">
-          Group Income is built on top of an <a class="is-link" href="https://shelterprotocol.net" target="_blank">open protocol</a>, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.
-        </p>
+        <h2 id="scroll-down-to" class="is-title-2">
+          <I18n>Open Protocol</I18n>
+        </h2>
+        <I18n tag="p" class="c-container-para"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
+          Group Income is built on top of an |a_|open protocol|_a|, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.
+        </I18n>
       </div>
     </section>
     <section class="container span-container c-container span-reverse">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph2.svg")} /></div>
       <div class="span-2">
-        <h2 class="is-title-2">Decentralized</h2>
-        <p class="c-container-para">
-          Group Income is decentralized through <a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">federation</a>. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers.
-        </p>
+        <h2 class="is-title-2"><I18n>Decentralized</I18n></h2>
+        <I18n tag="p" class="c-container-para"
+        args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">'}}>
+          Group Income is decentralized through |a_|federation|_a|. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers.
+        </I18n>
       </div>
     </section>
     <section class="container span-container c-container">
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/graph3.svg")} /></div>
       <div class="span-2">
-        <h2 class="is-title-2">End-to-end Encrypted</h2>
-        <p class="c-container-para">
+        <h2 class="is-title-2"><I18n>End-to-end Encrypted</I18n></h2>
+        <I18n tag="p" class="c-container-para">
           Enjoy a safe and private environment to support your community with Group Income. All your chats and group interactions are protected by state-of-the art end-to-end encryption.
-        </p>
+        </I18n>
       </div>
     </section>
     <section class="container dark-container">
-      <h2 class="is-title-2 c-container-title">Our Team</h2>
-      <p class="c-container-para">We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!</p>
+      <h2 class="is-title-2 c-container-title"><I18n>Our Team</I18n></h2>
+      <I18n tag="p" class="c-container-para">We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!</I18n>
       <div class="our-team">
         <div class="contributors">
-          <h3 class="is-posttitle">Contributors</h3>
+          <h3 class="is-posttitle"><I18n>Contributors</I18n></h3>
           <ul>
             <li><a href="https://fixingtao.com" rel="nofollow" target="_blank">Greg Slepak</a></li>
             <li><a href="https://twitter.com/dotmacro" rel="nofollow" target="_blank">Andrea Devers</a></li>
@@ -92,7 +108,7 @@ import { resolvePath } from '@/utils/helpers.js'
           </ul>
         </div>
         <div class="collaborators">
-          <h3 class="is-posttitle">Collaborators</h3>
+          <h3 class="is-posttitle"><I18n>Collaborators</I18n></h3>
           <ul class="col">
             <li><a href="https://twitter.com/travisformayor" rel="nofollow" target="_blank">Travis Uhrig</a></li>
             <li><a href="https://read.cv/arjun" rel="nofollow" target="_blank">Arjun Banker</a></li>
@@ -105,22 +121,22 @@ import { resolvePath } from '@/utils/helpers.js'
         </div>
       </div>
       <hr class="spacer"/>
-      <p class="c-container-para-link">Do you like our project and want to join our team?<br/>
-        <a class="c-container-link is-link" href={resolvePath("/hiring")} data-test="hiringLink">See open positions</a>
+      <p class="c-container-para-link"><I18n>Do you like our project and want to join our team?</I18n><br/>
+        <a class="c-container-link is-link" href={resolvePath("/hiring")} data-test="hiringLink"><I18n>See open positions</I18n></a>
       </p>
     </section>
     <section class="container grey-container">
-      <h2 class="is-title-2 c-container-title">Community</h2>
-      <p class="c-container-para">Want to stay in the loop? Check the best way to get involve and get up-to-date.</p>
+      <h2 class="is-title-2 c-container-title"><I18n>Community</I18n></h2>
+      <I18n tag="p" class="c-container-para">Want to stay in the loop? Check the best way to get involve and get up-to-date.</I18n>
       <div class="community">
         <ul>
-          <li><a href="https://github.com/okTurtles/group-income-simple" target="_blank"><img src={resolvePath("/images/about/community/github.svg")} />Check and contribute on our code on Github.</a></li>
-          <li><a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank"><img src={resolvePath("/images/about/community/slack.svg")} />Join our Slack conversations.</a></li>
-          <li><a href="https://www.reddit.com/r/basicincome" target="_blank"><img src={resolvePath("/images/about/community/reddit.svg")} />Check Group Income and Basic Income on Reddit.</a></li>
-          <li><a href={resolvePath("/blog")} target="_blank"><img src={resolvePath("images/about/community/blog.svg")} />Read our thoughts on the Blog.</a></li>
-          <li><a href="https://twitter.com/Group_Income" target="_blank"><img src={resolvePath("/images/about/community/twitter.svg")} />Follow us on Twitter.</a></li>
-          <li><a href="https://crib.social/GroupIncome" target="_blank"><img src={resolvePath("/images/about/community/mastodon.svg")} />Connect on the Fediverse.</a></li>
-          <li><a href="https://www.youtube.com/c/groupincome" target="_blank"><img src={resolvePath("/images/about/community/youtube.svg")} />Check our videos on YouTube.</a></li>
+          <li><a href="https://github.com/okTurtles/group-income-simple" target="_blank"><img src={resolvePath("/images/about/community/github.svg")} /><I18n>Check and contribute on our code on Github.</I18n></a></li>
+          <li><a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank"><img src={resolvePath("/images/about/community/slack.svg")} /><I18n>Join our Slack conversations.</I18n></a></li>
+          <li><a href="https://www.reddit.com/r/basicincome" target="_blank"><img src={resolvePath("/images/about/community/reddit.svg")} /><I18n>Check Group Income and Basic Income on Reddit.</I18n></a></li>
+          <li><a href={resolvePath("/blog")} target="_blank"><img src={resolvePath("images/about/community/blog.svg")} /><I18n>Read our thoughts on the Blog.</I18n></a></li>
+          <li><a href="https://twitter.com/Group_Income" target="_blank"><img src={resolvePath("/images/about/community/twitter.svg")} /><I18n>Follow us on Twitter.</I18n></a></li>
+          <li><a href="https://crib.social/GroupIncome" target="_blank"><img src={resolvePath("/images/about/community/mastodon.svg")} /><I18n>Connect on the Fediverse.</I18n></a></li>
+          <li><a href="https://www.youtube.com/c/groupincome" target="_blank"><img src={resolvePath("/images/about/community/youtube.svg")} /><I18n>Check our videos on YouTube.</I18n></a></li>
         </ul>
       </div>
     </section>
@@ -128,18 +144,19 @@ import { resolvePath } from '@/utils/helpers.js'
       <div class="span-2"><img class="c-container-image" src={resolvePath("/images/about/okturtles.png")} /></div>
       <div class="span-2">
         <h2 class="is-title-2">okTurtles Foundation</h2>
-        <p class="c-container-para">okTurtles Foundation is a 501(c)(3) non-profit. Our research, education, and development efforts go to supporting beneficial decentralization technologies. Our work has been covered in TechCrunch, VICE, Engadget, and elsewhere on the web.<br/>
-          <a class="c-container-link is-link" href={resolvePath("/donate")} data-test="donateLink">Donate to Group Income</a>
+        <p class="c-container-para">
+          <I18n>okTurtles Foundation is a 501(c)(3) non-profit. Our research, education, and development efforts go to supporting beneficial decentralization technologies. Our work has been covered in TechCrunch, VICE, Engadget, and elsewhere on the web.</I18n><br/>
+          <a class="c-container-link is-link" href={resolvePath("/donate")} data-test="donateLink"><I18n>Donate to Group Income</I18n></a>
         </p>
       </div>
     </section>
   </div>
 </Layout>
 
-<style lang="scss">
-@use "../styles/variables" as *;
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
 
-.c-wrapper {
+.c-about-us-content-wrapper {
   padding-bottom: 2rem;
 }
 

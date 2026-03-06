@@ -7,7 +7,7 @@ export async function getStaticPaths() {
       params: {
         // these `.slice` calls are necessary and remove
         // the `/` from the beginning and end of the permalink
-        blog: post.frontmatter.permalink.slice(1).slice(0, -1)
+        blogpost: post.frontmatter.permalink.slice(1).slice(0, -1)
       },
       props: post
     }

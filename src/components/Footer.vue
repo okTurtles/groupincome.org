@@ -7,14 +7,14 @@
               method="post"
               target="popupwindow"
               @submit.prevent="onFormSubmit">
-                <h4 class="is-title-6">STAY UP TO DATE</h4>
-                <p>Subscribe to our newsletter to be the first to know when the prototype is ready.</p>
+                <i18n tag="h4" class="is-title-6">STAY UP TO DATE</i18n>
+                <i18n tag="p">Subscribe to our newsletter to be the first to know when the prototype is ready.</i18n>
 
                 <fieldset class="c-mail-form-field">
                   <div class="c-input">
                     <input :class="['input', { error: emailErr }]"
                       type="email" name="email" id="bd-email"
-                      placeholder="Your email address"
+                      :placeholder="L('Your email address')"
                       v-model.trim="email" />
                     <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
                       <i class="icon-paper-plane"></i>
@@ -27,34 +27,36 @@
         </div>
         <div class="c-links">
             <div class="c-links-group">
-                <h4 class="is-title-6">GROUPINCOME</h4>
-                <a v-href="'/'">Home</a>
-                <a v-href="'/about-us'">About us</a>
-                <a v-href="'/blog'">Blog</a>
-                <a v-href="'/faq'">FAQ</a>
+              <h4 class="is-title-6">GROUPINCOME</h4>
+              <i18n tag="a" v-href.locale="'/'">Home</i18n>
+              <i18n tag="a" v-href.locale="'/about-us'">About us</i18n>
+              <i18n tag="a" v-href.locale="'/blog'">Blog</i18n>
+              <i18n tag="a" v-href.locale="'/faq'">FAQ</i18n>
             </div>
+
             <div class="c-links-group">
-                <h4 class="is-title-6">CONTRIBUTE</h4>
-                <a v-href="'/hiring/volunteering/'">Volunteer</a>
-                <a v-href="'/hiring/'">Join our team</a>
-                <a v-href="'/donate'">Donate</a>
-                <a href="https://github.com/okTurtles/group-income" target="_blank" alt="Github">Github</a>
+              <i18n tag="h4" class="is-title-6">CONTRIBUTE</i18n>
+              <i18n tag="a" v-href.locale="'/hiring/volunteering/'">Volunteer</i18n>
+              <i18n tag="a" v-href.locale="'/hiring/'">Join our team</i18n>
+              <i18n tag="a" v-href.locale="'/donate'">Donate</i18n>
+              <i18n tag="a" href="https://github.com/okTurtles/group-income" target="_blank" :alt="L('Github')">Github</i18n>
             </div>
+
             <div class="c-links-group">
-                <h4 class="is-title-6">SOCIAL</h4>
-                <a href="https://crib.social/groupincome" target="_blank" alt="Fediverse">Fediverse</a>
-                <a href="https://odysee.com/@groupIncome:c" target="_blank" alt="Odysee">Odysee</a>
-                <a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank" alt="Slack">Slack</a>
-                <a href="https://github.com/okTurtles/group-income/discussions" target="_blank" alt="Forums">Forums</a>
-                <a href="https://x.com/Group_Income" target="_blank" alt="Twitter" style="color:lightgrey">X/Twitter</a>
-                <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube" style="color:lightgrey">YouTube</a>
+              <i18n tag="h4" class="is-title-6">SOCIAL</i18n>
+              <a href="https://crib.social/groupincome" target="_blank" alt="Fediverse">Fediverse</a>
+              <a href="https://odysee.com/@groupIncome:c" target="_blank" alt="Odysee">Odysee</a>
+              <a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank" alt="Slack">Slack</a>
+              <a href="https://github.com/okTurtles/group-income/discussions" target="_blank" alt="Forums"><i18n>Forums</i18n></a>
+              <a href="https://x.com/Group_Income" target="_blank" alt="Twitter" style="color:lightgrey">X/Twitter</a>
+              <a href="https://www.youtube.com/@GroupIncome" target="_blank" alt="Youtube" style="color:lightgrey">YouTube</a>
             </div>
         </div>
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <a v-href="'/terms-and-conditions'">Term & Conditons</a>
-            <a v-href="'/privacy-policy'">Privacy Policy</a>
+            <i18n tag="a" v-href.locale="'/terms-and-conditions'">Term & Conditons</i18n>
+            <i18n tag="a" v-href.locale="'/privacy-policy'">Privacy Policy</i18n>
         </div>
         <p class="copyright">{{ copyRightText }}</p>
     </div>
@@ -64,7 +66,9 @@
 </template>
 
 <script>
+import { inject } from 'vue'
 import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
+import LanguageSwitch from '@/components/LanguageSwitch.vue'
 import { validateEmail } from '@/utils/helpers.js'
 import { openModal } from '@/store'
 
@@ -77,7 +81,13 @@ const EMAIL_BLACKLIST = [
 export default {
   name: 'Footer',
   components: {
-    NewsLetterWarningModal
+    NewsLetterWarningModal,
+    LanguageSwitch
+  },
+  setup () {
+    const L = inject('L')
+  
+    return { L }
   },
   data () {
     return {
@@ -223,16 +233,6 @@ export default {
   }
 }
 
-.c-links-group {
-  display: flex;
-  flex-direction: column;
-  min-width: 11.5rem;
-
-  @include phone {
-    margin-bottom: 1rem;
-  }
-}
-
 .is-title-6 {
   font-weight: 600;
   line-height: 1.625rem;
@@ -240,18 +240,36 @@ export default {
 
 .c-links {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   max-width: 100%;
   line-height: 2rem;
   margin-top: 2rem;
   padding: 0 2rem;
+
+  @include tablet {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   @include desktop {
     justify-content: space-between;
     margin-left: 5.2rem;
     margin-top: 0;
     padding: 0;
+  }
+}
+
+.c-links-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 11.5rem;
+
+  @include phone {
+    margin-bottom: 1rem;
   }
 }
 
@@ -271,7 +289,6 @@ export default {
 }
 
 .c-bottom-links {
-
   a:last-child::before {
     content: '-';
     padding: 0 .4rem 0 .5rem;

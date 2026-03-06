@@ -1,16 +1,21 @@
 <template>
 <article class="c-article">
-  <a class="c-link-wrapper" :href="postUrl">
+  <a class="c-link-wrapper" :href="postUrl" :target="isLocaleEn ? '_self' : '_blank'">
     <img class="c-article-image has-deep-box-shadow" :src="imgSrc" />
     <h2 class="c-blog-title">{{ title }}</h2>
     <p class="c-blog-desc">{{ description }}</p>
-    <div class="c-info">{{ author }}<time v-if="createdDate">{{ createdDate }}</time></div>
+    <div class="c-info">{{ author }}<time v-if="createdDate">{{ getDateDisplay(createdDate) }}</time></div>
   </a>
 </article>
 </template>
 
 <script setup>
+import { inject } from 'vue'
 import { resolvePath } from '@/utils/helpers.js'
+import { localeAwareDateString } from '@/i18n/utils.js'
+
+const locale = inject('locale')
+const isLocaleEn = locale === 'en'
 
 const props = defineProps({
   postFrontmatter: {
@@ -30,6 +35,9 @@ const {
 
 const postUrl = resolvePath(permalink)
 const imgSrc = resolvePath(image) || resolvePath('/images/' + permalink + '.jpeg')
+const getDateDisplay = (dateString) => {
+  return isLocaleEn ? dateString : localeAwareDateString(dateString, locale)
+}
 </script>
 
 <style lang="scss" scoped>

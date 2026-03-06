@@ -7,7 +7,9 @@
         <span class="c-address-text">{{crypto.id}}</span>
       </div>
 
-      <div class="c-copied-feedback" :class="{ 'is-active': copied === crypto.id }">Copied to clipboard!</div>
+      <div class="c-copied-feedback" :class="{ 'is-active': copied === crypto.id }">
+        <i18n>Copied to clipboard!</i18n>
+      </div>
     </li>
   </ul>
 </template>

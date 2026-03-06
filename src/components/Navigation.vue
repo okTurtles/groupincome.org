@@ -9,23 +9,28 @@
       <a v-for="entry in menuList"
         :key="entry.id"
         :data-test="entry.id"
-        v-href="entry.path"
+        v-href.locale="entry.path"
         @click="closeNavigation"
         class="c-navbar-item">
         <span>{{ entry.name }}</span>
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <a class="c-get-started-btn button is-primary" v-href="'/get-started'" @click="closeNavigation">Get started</a>
+      <LanguageSwitch v-if="!isBlogpost" class="c-language-switch" client:load />
+
+      <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">{{ L('Get started') }}</a>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, inject } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
-import { resolvePath } from '@/utils/helpers.js'
+import LanguageSwitch from '@/components/LanguageSwitch.vue';
+
+const L = inject('L')
+const isBlogpost = inject('isBlogpost')
 
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
@@ -37,12 +42,12 @@ const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
 
 onMounted(() => {
   menuList.value = [
-    {  name: 'Home', id: 'homeLink', path: '/' },
-    { name: 'About us', id: 'aboutUsLink', path: '/about-us' },
-    { name: 'Blog', id: 'blogLink', path: '/blog' },
-    { name: 'FAQS', id: 'blogLink', path: '/faq' },
-    { name: 'Hiring', id: 'hiringLink', path: '/hiring', badge: activeJobPostNames.length },
-    { name: 'Donate', id: 'donateLink', path: '/donate' }
+    { name: L('Home'), id: 'homeLink', path: '/' },
+    { name: L('About us'), id: 'aboutUsLink', path: '/about-us' },
+    { name: L('Blog'), id: 'blogLink', path: '/blog' },
+    { name: L('FAQS'), id: 'blogLink', path: '/faq' },
+    { name: L('Hiring'), id: 'hiringLink', path: '/hiring', badge: activeJobPostNames.length },
+    { name: L('Donate'), id: 'donateLink', path: '/donate' }
   ].filter(Boolean)
 })
 </script>
@@ -99,7 +104,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   align-items: center;
   justify-content: space-around;
   text-align: center;
-  width: 38.4rem;
+  width: 42.75rem;
   max-height: 30rem;
   border-left: none;
 
@@ -179,6 +184,12 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   }
 }
 
+.c-language-switch {
+  @include touch {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 .c-get-started-btn {
   text-transform: capitalize;

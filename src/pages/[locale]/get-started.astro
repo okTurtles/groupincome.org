@@ -1,36 +1,45 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro';
-import GetStarted from '../components/GetStarted.vue';
-import Servers from '../components/Servers.astro';
+import Layout from '@/layouts/DefaultLayout.astro';
+import GetStartedSection from '@/components/GetStarted.vue';
+import I18n from '@/i18n/i18n.astro';
+import Servers from '@/components/Servers.astro';
+import { getDynamicRoutes, useTranslation } from '@/i18n/utils'
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+
+const { locale } = Astro.locals
+const L = useTranslation(locale)
 ---
 
 <Layout>
   <div class="c-wrapper">
     <section class="container grey-container">
       <div class="c-main-wrapper">
-        <div class="is-posttitle">GET STARTED</div>
-        <h1 class="is-title-1 c-main-title">Join a Group Income server</h1>
-        <p class="is-subtitle c-main-para">Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</p>
+        <I18n tag="div" class="is-posttitle">GET STARTED</I18n>
+        <I18n tag="h1" class="is-title-1 c-main-title">Join a Group Income server</I18n>
+        <I18n tag="p" class="is-subtitle c-main-para">Group Income is not a single website, it's more like email, anyone can run it on their own. Join our official server or join someone else's.</I18n>
       </div>
     </section>
     <section class="container span-container">
-      <GetStarted client:load />
+      <GetStartedSection />
     </section>
     <section class="container dark-container">
       <!-- <p class="c-container-para">All servers listed have a commitment to GroupIncome server agreement.</p> -->
       <Servers />
       <p class="c-container-para">
-        Don’t see a server you like?
+        { L("Don't see a server you like?") }
         <a href="https://github.com/okTurtles/group-income" class="link server-link" target="_blank">
-          Run your own server
+          { L('Run your own server') }
         </a>
       </p>
     </section>
   </div>
 </Layout>
 
-<style lang="scss">
-@use "../styles/variables" as *;
+<style lang="scss" is:global>
+@use "../../styles/variables" as *;
 
 .container {
   margin: 0 auto;
