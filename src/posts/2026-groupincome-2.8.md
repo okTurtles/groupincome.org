@@ -75,11 +75,13 @@ Many other little UI/UX improvements have been made as well (e.g. support for fo
 
 We spent a lot of time fixing some very complicated edge cases related to:
 
-- Handling key rotations
+- Recovery from unexpected key rotation failures
 - Key sharing
 - Memory leaks from service worker <-> page message passing
 
 This release includes updates to the underlying Chelonia framework as well.
+
+---
 
 ### Release Notes
 
