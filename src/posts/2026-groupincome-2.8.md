@@ -56,6 +56,13 @@ Now gets rendered like this:
 
 <img src="/wp-content/uploads/2026/04/table.jpg" class="aligncenter" width="915" />
 
+### New Settings UI
+
+Both the user and group settings UIs have received a major revamp. They are now no longer all jumbled together on one page but neatly organized into sections:
+
+<img src="/wp-content/uploads/2026/04/settings.jpg" class="aligncenter" width="987" />
+
+
 ### Progress spinners
 
 Little quality-of-life UI tweaks have been added, like progress spinners for both uploading and download file attachments:
