@@ -9,7 +9,7 @@ pubDate: '2026-04-16T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2026/04/group-income-2.8/
 categories:
-    - Uncategorized
+    - Releases
 ---
 
 You might be wondering, "2.8?! What happened to 2.6 and 2.7?"
@@ -30,7 +30,7 @@ Welcome to Group Income 2.8. Greater stability and resilience, and several aweso
 
 As always, users can rest easy knowing their privacy is completely protected. All our features are end-to-end encrypted.
 
-But sometimes data doesn't need to be end-to-end encrypted, because it never hits the server to begin with. That brings us to message drafts.
+But sometimes data doesn't need to be end-to-end encrypted because it never hits the server to begin with. That brings us to message drafts.
 
 ### Draft messages
 
@@ -40,32 +40,23 @@ No more fear that your message drafts will be lost if you switch conversations:
 
 ### New Table Rendering
 
-This:
+Before:
 
-```
-| Feature Icon | Description |
-| --- | --- |
-| 🎵 | Built-in audio player for chat attachments |
-| 📝 | Draft messages are now preserved when switching channels |
-| 📊 | **New and improved table rendering for Markdown in chat messages** |
-| ⏳ | Spinner shown during file uploads and downloads |
-| ⚙️ | Ability to modify defaults for chatroom notification and sound settings |
-```
+<img src="/wp-content/uploads/2026/04/table_before.jpg" class="aligncenter" width="569" />
 
-Now gets rendered like this:
+After:
 
-<img src="/wp-content/uploads/2026/04/table.jpg" class="aligncenter" width="915" />
+<img src="/wp-content/uploads/2026/04/table_after.jpg" class="aligncenter" width="867" />
 
 ### New Settings UI
 
-Both the user and group settings UIs have received a major revamp. They are now no longer all jumbled together on one page but neatly organized into sections:
+Both the user and group settings UIs have received a major revamp. They are now no longer jumbled together on one page but neatly organized into sections:
 
 <img src="/wp-content/uploads/2026/04/settings.jpg" class="aligncenter" width="987" />
 
-
 ### Progress spinners
 
-Little quality-of-life UI tweaks have been added, like progress spinners for both uploading and download file attachments:
+Little quality-of-life UI tweaks have been added, like progress spinners for both uploading and downloading file attachments:
 
 <img src="/wp-content/uploads/2026/04/spinner.jpg" class="aligncenter" width="458" />
 
@@ -77,7 +68,7 @@ We spent a lot of time fixing some very complicated edge cases related to:
 
 - Recovery from unexpected key rotation failures
 - Key sharing
-- Memory leaks from service worker <-> page message passing
+- Memory leaks from service worker ↔︎ page message passing
 
 This release includes updates to the underlying Chelonia framework as well.
 
@@ -114,7 +105,7 @@ This release includes updates to the underlying Chelonia framework as well.
 
 **Bugfixes**
 
-- Sent `.gif` files no longer lose animation
+- Fixed an issue where `.gif` files lost their animation
 - You can now attach the same file consecutively
 - You can now attach files from multiple folders at once
 - Mentions no longer match special characters in chatrooms
@@ -143,6 +134,6 @@ We hope you enjoyed this release!
 Try it out on [our official server](https://groupincome.app)!
 
 
-💌 Subscribe to our low-volume newsletter at the bottom of this page 👇 and follow us (off of Big Tech if you want to see our posts!) for the latest news about Group Income, Chelonia, and more!
+💌 Subscribe to our low-volume newsletter at the bottom of this page 👇 and [follow us](https://crib.social/groupincome) on the Fediverse (where we aren't silenced by algorithms!) for the latest news about Group Income, Chelonia, and more!
 
 👇👇👇

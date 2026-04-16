@@ -9,7 +9,7 @@ pubDate: '2025-06-10T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2025/06/group-income-2.0/
 categories:
-    - Uncategorized
+    - Releases
 ---
 
 

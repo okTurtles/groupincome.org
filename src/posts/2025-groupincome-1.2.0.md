@@ -9,7 +9,7 @@ pubDate: '2025-02-25T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2025/02/group-income-released/
 categories:
-    - Uncategorized
+    - Releases
 ---
 
 Group Income 1.2 introduces major internal rewrites to support end-to-end encrypted web push notifications!
