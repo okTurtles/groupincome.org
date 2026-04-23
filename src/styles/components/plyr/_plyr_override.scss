@@ -32,6 +32,16 @@ $phone_narrow: 430px;
     transition: none;
   }
 
+  // Restore styling for the big centered overlay play button, which the
+  // reset above would otherwise strip (green circle background, rounded,
+  // larger padding).
+  .plyr button.plyr__control--overlaid {
+    background: var(--plyr-video-control-background-hover, var(--plyr-color-main));
+    border-radius: 100%;
+    padding: calc(var(--plyr-control-spacing, 10px) * 1.5);
+    color: var(--plyr-video-control-color, #fff);
+  }
+
   // NOTE: When the screen size is narrow, there is an issue where the play/resume button and the progress-bar UI becomes too small
   //       (Even smaller than the volume-control UI). To get more space for the play progess bar, we hide some buttons that are not absolutely essential
   //       when compared to others.
