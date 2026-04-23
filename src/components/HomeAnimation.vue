@@ -24,14 +24,15 @@
           </h1> -->
 
           <div class="c-video-wrapper">
-            <!-- <VideoPlayer class="has-deep-box-shadow"
-              src='https://okturtles.org/videos/group_income_ending_big_tech_control.mp4'
-              mimeType='video/mp4' /> -->
+             <VideoPlayer class="has-deep-box-shadow"
+              src='/videos/group_income_animation_v2_1080p.mp4'
+              poster='/videos/group_income_animation_v2_1080p.webp'
+              mimeType='video/mp4' />
 
-            <iframe id="odysee-iframe" style="width:100%; aspect-ratio:16 / 9;"
+            <!-- <iframe id="odysee-iframe" style="width:100%; aspect-ratio:16 / 9;"
               class="has-deep-box-shadow"
               src="https://odysee.com/%24/embed/%40groupIncome%3Ac%2Fgroup_income_animation_v2-%281080p%29%3A9?r=J91Yd9UJDqP36LmGQZaGwG95T1NcnzDW"
-              allowfullscreen></iframe>
+              allowfullscreen></iframe> -->
 
             <!-- <iframe class="has-deep-box-shadow" style="width:100%; aspect-ratio:16 / 9;"
               src="https://www.youtube-nocookie.com/embed/md54gZAtWA8?si=QH8HqnBwWWHVeKOf"
@@ -170,7 +171,7 @@ import Sides from './graphics/Sides.vue'
 import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import ScrollDownArrow from './ScrollDownArrow.vue'
-// import VideoPlayer from './VideoPlayer.vue'
+import VideoPlayer from './VideoPlayer.vue'
 
 export default {
   components: {
@@ -178,8 +179,8 @@ export default {
     Browser,
     Sides,
     GetStarted,
-    ScrollDownArrow
-    // VideoPlayer
+    ScrollDownArrow,
+    VideoPlayer
   }
 }
 </script>

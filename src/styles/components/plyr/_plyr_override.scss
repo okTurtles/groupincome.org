@@ -15,6 +15,23 @@ $phone_narrow: 430px;
     aspect-ratio: inherit;
   }
 
+  // Neutralize global `button, .button` rule from components/_buttons.scss
+  // which would otherwise force Plyr controls to min-height: 2.75rem, make
+  // them pill-shaped, and add horizontal padding — stretching the square
+  // play/pause/fullscreen buttons into tall rectangles.
+  .plyr button {
+    min-height: 0;
+    border-radius: var(--plyr-control-radius, 4px);
+    padding: calc(var(--plyr-control-spacing, 10px) * 0.7);
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    white-space: normal;
+    transition: none;
+  }
+
   // NOTE: When the screen size is narrow, there is an issue where the play/resume button and the progress-bar UI becomes too small
   //       (Even smaller than the volume-control UI). To get more space for the play progess bar, we hide some buttons that are not absolutely essential
   //       when compared to others.
