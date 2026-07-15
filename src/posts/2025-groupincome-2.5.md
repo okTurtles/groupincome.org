@@ -9,7 +9,7 @@ pubDate: '2025-11-13T07:00:00Z'
 layout: "../layouts/BlogPost.astro"
 permalink: /2025/11/group-income-2.5/
 categories:
-    - Uncategorized
+    - Releases
 ---
 
 Group Income is the only basic income system that works in a completely privacy-preserving way, distributing funds while avoiding the Sybil attack [without needing your identity](/2025/06/no-eyeballs-needed/).
