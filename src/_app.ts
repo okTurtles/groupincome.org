@@ -3,16 +3,18 @@ import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 import { useTranslation } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.vue'
 
+// This is a flag to check whether this files runs during compilation time(NodeJS environment) or runtime(Browser context).
 const isNode = typeof globalThis.window === 'undefined' && typeof globalThis.document === 'undefined'
+
 const getLang = () => {
   return isNode
     ? (globalThis as any).giVueLocale || ''
-    : document.body.dataset.translation || ''
+    : document.body.dataset.translation || '' // data-translation attribute is set in the DefaultLayout.astro file
 }
 const getIsBlogpost = () => {
   return isNode
     ? (globalThis as any).giVueIsBlogpost || false
-    : document.body.dataset.pageType === 'blogpost'
+    : document.body.dataset.pageType === 'blogpost' // data-page-type attribute is set in the DefaultLayout.astro file
 }
 
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, useLocale: boolean = false) => {
@@ -45,7 +47,7 @@ export default (app: App) => {
   const locale = getLang()
   const L = useTranslation(locale)
 
-  // global provides
+  // global provides (reference: https://vuejs.org/guide/components/provide-inject.html#app-level-provide)
   app.provide('L', L)
   app.provide('locale', locale)
   app.provide('isBlogpost', getIsBlogpost())
