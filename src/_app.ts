@@ -6,12 +6,12 @@ import I18n from '@/i18n/i18n.vue'
 // This is a flag to check whether this files runs during compilation time(NodeJS environment) or runtime(Browser context).
 const isNode = typeof globalThis.window === 'undefined' && typeof globalThis.document === 'undefined'
 
-const getLang = () => {
+const getLang = (): string => {
   return isNode
     ? (globalThis as any).giVueLocale || ''
     : document.body.dataset.translation || '' // data-translation attribute is set in the DefaultLayout.astro file
 }
-const getIsBlogpost = () => {
+const getIsBlogpost = (): boolean => {
   return isNode
     ? (globalThis as any).giVueIsBlogpost || false
     : document.body.dataset.pageType === 'blogpost' // data-page-type attribute is set in the DefaultLayout.astro file

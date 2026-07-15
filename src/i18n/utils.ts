@@ -69,12 +69,12 @@ export function LTags (...tags: string[]): Record<string, string> {
   return o
 }
 
-export function useTranslation (lang: string = '') {
+export function useTranslation (lang: string = ''): any {
   const noLookupNeeded = lang === defaultLanguage || !(lang in translationTables)
   const table = translationTables[lang]
   const removeWhiteSpaces = (text: string) => {
-    return text.replace(/\s+$/, '')
-      .replace(/\n[ \t]+/g, '\n')
+    return text.replace(/\s+$/, '') // Remove trailing whitespaces.
+      .replace(/\n[ \t]+/g, '\n') // Remove leading whitespaces in each line.
   }
 
   return (key: string, args: Record<string, string> = {}): string => {

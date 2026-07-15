@@ -3,6 +3,7 @@
 export function resolvePath (relPath = '', lang = '') {
   // used to resolve any assets or page index file paths with the baseUrl configured by 'base' option in astro.config.mjs
   // (reference: https://docs.astro.build/en/reference/configuration-reference/#base)
+  // lang here is the locale prefix to the path if it's passed in. (eg. 'en/', 'fr/', etc.)
   if (!relPath) { return undefined }
 
   relPath = relPath.startsWith('/') ? relPath.slice(1) : relPath
