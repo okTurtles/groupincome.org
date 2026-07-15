@@ -164,7 +164,7 @@ const emit = defineEmits<{
   .dropdown-menu-item {
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.675rem 1.175rem;
     text-align: left;
     cursor: pointer;
     transition: background-color 0.2s ease-out;
@@ -194,6 +194,14 @@ const emit = defineEmits<{
     &:focus-within {
       background-color: $general_2;
       color: $text_0;
+    }
+
+    &:active {
+      background-color: $general_1;
+
+      .dropdown-menu-item-text {
+        text-decoration: underline;
+      }
     }
   }
 }
