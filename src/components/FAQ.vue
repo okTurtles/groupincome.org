@@ -52,7 +52,7 @@ export default {
         qa: [{
           question: L('What is Group Income?'),
           answer: L(
-            L('Group income is a voluntary {strong_}{a_}Basic Income{_a}{_strong} system for you and your friends. Our purpose is to ensure, as fairly and efficiently as possible, that all members of a group receive a minimum income (mincome), using the income streams flowing into that group.'),
+            'Group income is a voluntary {strong_}{a_}Basic Income{_a}{_strong} system for you and your friends. Our purpose is to ensure, as fairly and efficiently as possible, that all members of a group receive a minimum income (mincome), using the income streams flowing into that group.',
             { ...LTags('strong', 'a'), 'a_': '<a href="https://www.reddit.com/r/basicincome/wiki/index" target="_blank">' }
           ),
           active: true
@@ -66,13 +66,13 @@ export default {
         }, {
           question: L('What are the “Group Income Shorts”?'),
           answer: L(
-            `They're a {a_}series of videos{_a} we're creating to answer various questions about what Group Income is, how it works, and to explore various ideas related to it.`,
+            "They're a {a_}series of videos{_a} we're creating to answer various questions about what Group Income is, how it works, and to explore various ideas related to it.",
             { ...LTags('a'), 'a_': '<a href="https://www.youtube.com/watch?v=WpvyLEZmEAM&list=PLRcgABNc9s2R3gSfRG7jHzb4giQdxaDB7" target="_blank">' }
           ),
           active: false
         }, {
           question: L('What is Basic Income?'),
-          answer: L(`Basic income is the amount of income required to meet any individual's basic needs. On Group Income, the basic income will ideally be the same as the group's {i_}mincome{_i}.`, { ...LTags('i') }),
+          answer: L("Basic income is the amount of income required to meet any individual's basic needs. On Group Income, the basic income will ideally be the same as the group's {i_}mincome{_i}.", { ...LTags('i') }),
           active: false
         }, {
           question: L('What is mincome?'),
@@ -80,7 +80,7 @@ export default {
           active: false
         }, {
           question: L('Who determines what the mincome is?'),
-          answer: L(`When the group is created, the group members will set the group's mincome, as well as the percentage of votes needed to change the group's mincome. The group members may vote to change the group's mincome at any point, according to the voting thresholds set up when the group was created.`),
+          answer: L("When the group is created, the group members will set the group's mincome, as well as the percentage of votes needed to change the group's mincome. The group members may vote to change the group's mincome at any point, according to the voting thresholds set up when the group was created."),
           active: false
         }]
       }, {
@@ -92,23 +92,23 @@ export default {
           active: false
         }, {
           question: L('Who can be part of a group?'),
-          answer: L(`Any individual with a stable social relationship with the other members of a group. Members are encouraged to know each other personally and be part of the same community.{br_}E.g.: a group of supporting creators, family members, friends, coworkers, neighbors, etc.`, { ...LTags() }),
+          answer: L('Any individual with a stable social relationship with the other members of a group. Members are encouraged to know each other personally and be part of the same community.{br_}E.g.: a group of supporting creators, family members, friends, coworkers, neighbors, etc.', { ...LTags() }),
           active: false
         }, {
           question: L("What if there aren't enough contributions to meet everyone's mincome?"),
-          answer: L(`If there aren't enough contributions to meet every group member's mincome, then all group members below the mincome will be brought to the same level, as close to the mincome as possible.`),
+          answer: L("If there aren't enough contributions to meet every group member's mincome, then all group members below the mincome will be brought to the same level, as close to the mincome as possible."),
           active: false
         }, {
           question: L('What if there are more monetary pledges than are needed?'),
-          answer: L(`If the group has more than enough monetary pledges to meet everyone's mincome, then only the needed amounts will be given, and pledges will be allocated proportionally to the group's needs.{br_}For example, if a group needs $100 to meet everyone's mincome, and there are $200 in pledges, then only $100 of the pledges will be used to meet the group members' mincomes. This means that 50% of each individual pledge will be used because only 50% of the total pledges are needed.`, { ...LTags() }),
+          answer: L("If the group has more than enough monetary pledges to meet everyone's mincome, then only the needed amounts will be given, and pledges will be allocated proportionally to the group's needs.{br_}For example, if a group needs $100 to meet everyone's mincome, and there are $200 in pledges, then only $100 of the pledges will be used to meet the group members' mincomes. This means that 50% of each individual pledge will be used because only 50% of the total pledges are needed.", { ...LTags() }),
           active: false
         }, {
           question: L('Why are group members able to pledge less than what the group needs to meet their mincome?'),
-          answer: L(`Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others' mincome. This ensures that the pledge will not cause the pledger's income to fall below the mincome. This can provide predictability and stability for all members.`),
+          answer: L("Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others' mincome. This ensures that the pledge will not cause the pledger's income to fall below the mincome. This can provide predictability and stability for all members."),
           active: false
         }, {
           question: L("What if I don't have money to contribute?"),
-          answer: L(`Everyone has something to contribute; money isn't the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There's value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.{br_}{br_}There's immeasurable value in non-monetary contributions.`, { ...LTags() }),
+          answer: L("Everyone has something to contribute; money isn't the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There's value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.{br_}{br_}There's immeasurable value in non-monetary contributions.", { ...LTags() }),
           active: false
         }, {
           question: L('What is the minimum size for a group?'),
@@ -116,7 +116,7 @@ export default {
           active: false
         }, {
           question: L('What is the maximum size for a group?'),
-          answer: L(`150. The maximum number of participants in monetary and non-monetary exchange is limited to {a_}Dunbar's number{_a} (150) to prevent fraud. The maximum number of members a group (regardless of whether they're actively participating in exchange) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.`, { ...LTags('a'), 'a_': '<a href="https://en.wikipedia.org/wiki/Dunbar\'s_number" target="_blank">' }),
+          answer: L("150. The maximum number of participants in monetary and non-monetary exchange is limited to {a_}Dunbar's number{_a} (150) to prevent fraud. The maximum number of members a group (regardless of whether they're actively participating in exchange) is currently also 150, although this might change in the future. We recommend that members form groups with those they have a stable social relationship.", { ...LTags('a'), 'a_': '<a href="https://en.wikipedia.org/wiki/Dunbar\'s_number" target="_blank">' }),
           active: false
         }]
       }, {
@@ -124,8 +124,7 @@ export default {
         id: 'our-philosophy',
         qa: [{
           question: L('Why is Basic Income or Group Income important?'),
-          answer: L(`The importance of a {a1_}Basic Income{_a} is {a2_}self-evident{_a}, {a3_}ever-increasing{_a} in need, and therefore integral to the functioning of any modern monetary system. Group Income is a small solution to a larger scale problem.
-            We're providing a tool that helps you support the ones closest to you, through a voluntary basic income system, without the need for governmental action or approval.`,
+          answer: L("The importance of a {a1_}Basic Income{_a} is {a2_}self-evident{_a}, {a3_}ever-increasing{_a} in need, and therefore integral to the functioning of any modern monetary system. Group Income is a small solution to a larger scale problem.\nWe're providing a tool that helps you support the ones closest to you, through a voluntary basic income system, without the need for governmental action or approval.",
             { ...LTags('a'), 'a1_': '<a href="http://www.reddit.com/r/basicincome/wiki/index" target="_blank">', 'a2_': '<a href="http://www.reddit.com/r/basicincome/wiki/index" target="_blank">', 'a3_': '<a href="https://www.youtube.com/watch?v=7Pq-S557XQU" target="_blank">' }
           ),
           active: false
@@ -133,24 +132,19 @@ export default {
           question: L('Why is Group Income a voluntary system?'),
           answer: [
             L(
-              `One of the primary arguments for Basic Income is the notion that it is {a1_}better to give people money than vouchers{_a} because {a2_}people make better decisions about what they can and should do with their money{_a} than the state (or donor) can make for them.`,
+              'One of the primary arguments for Basic Income is the notion that it is {a1_}better to give people money than vouchers{_a} because {a2_}people make better decisions about what they can and should do with their money{_a} than the state (or donor) can make for them.',
               {
                 ...LTags('a'),
                 'a1_': '<a href="http://www.bloomberg.com/news/articles/2013-06-03/for-fighting-poverty-cash-is-surprisingly-effective" target="_blank">',
                 'a2_': '<a href="http://www.cgdev.org/publication/cash-or-coupons-testing-impacts-cash-versus-vouchers-democratic-republic-congo-working" target="_blank">'
               }
             ),
-            L(`However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money.`),
-            L(`When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they'll be giving money to others.`),
-            L(`These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary.`),
-            L(`{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}`, { ...LTags('br') }),
+            L("However, a government-based Basic Income program would take other people's money against their will because it, supposedly, knows better than they do what to do with their money."),
+            L('When in the mindset of a "net giver", even basic income advocates often ask the same questions about fairness that everyone asks upon hearing they\'ll be giving money to others.'),
+            L("These questions, for some reason, aren't asked when people talk about Basic Income on a national level, because most view the issue from the reference point of a net beneficiary."),
+            L('{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}', { ...LTags('br') }),
             L(
-              `{ul_}
-                {li_}{a1_}Alaska Permanent Fund Dividend{_a} (resource-based){_li}
-                {li_}{a2_}Land value tax{_a} (resource-based){_li}
-                {li_}Group Income (voluntary monetization of human labor){_li}
-                {li_}City sales tax (where freedom of motion is feasible){_li}
-              {_ul}`,
+              '{ul_}\n{li_}{a1_}Alaska Permanent Fund Dividend{_a} (resource-based){_li}\n{li_}{a2_}Land value tax{_a} (resource-based){_li}\n{li_}Group Income (voluntary monetization of human labor){_li}\n{li_}City sales tax (where freedom of motion is feasible){_li}\n{_ul}',
               {
                 ...LTags('a', 'ul', 'li'),
                 'ul_': '<ul class="bullet-list">',
@@ -163,13 +157,13 @@ export default {
         }, {
           question: L('Why is Group Income decentralized?'),
           answer: [
-            L(`Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.{br_}{br_}`, { ...LTags() }),
+            L('Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.{br_}{br_}', { ...LTags() }),
             L(
-              `We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. `,
+              "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. ",
               { ...LTags('a'), 'a_': '<a href="https://www.businessnewsdaily.com/10625-businesses-collecting-data.html" target="_blank">' }
             ),
             L(
-              `This means that, besides helping you reach basic security, we also want you to be in control of your security and privacy online. We recognize that your data belongs to you, and we are not entitled to it.{br_}{br_}{strong_}Any data shared within a group will remain private to that group.{_strong}`,
+              'This means that, besides helping you reach basic security, we also want you to be in control of your security and privacy online. We recognize that your data belongs to you, and we are not entitled to it.{br_}{br_}{strong_}Any data shared within a group will remain private to that group.{_strong}',
               { ...LTags('strong') }
             )
           ].join(''),
@@ -177,41 +171,39 @@ export default {
         }, {
           question: L('Why would people who earn more than a basic income want to give any of it away?'),
           answer: [
-            L(`Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving.`),
-            L(`Group members want to help each other reach the mincome threshold because groups are better when people support each other.`),
-            L(`When other group members are miserable and struggling, that impacts the quality of life of each group member.`),
+            L("Group members can limit their monetary contributions, so they don't need to give away more than they are comfortable giving."),
+            L('Group members want to help each other reach the mincome threshold because groups are better when people support each other.'),
+            L('When other group members are miserable and struggling, that impacts the quality of life of each group member.'),
             L(
-              `Likewise, when the society around you is miserable, that will impact your quality of life as well.{br_}{br_}Let's take the example of {a_}Maslow's Hierarchy of Needs{_a}.`,
+              "Likewise, when the society around you is miserable, that will impact your quality of life as well.{br_}{br_}Let's take the example of {a_}Maslow's Hierarchy of Needs{_a}.",
               { ...LTags('a'), 'a_': '<a class="link" href="https://www.simplypsychology.org/maslow.html" target="_blank">' }
             ),
-            L(`It argues that the needs lower in the hierarchy (like food, water, warmth, security, or safety) need to be satisfied before individuals can attempt to focus on needs higher up.`),
-            L(`If basic needs aren't met, individuals will never move to the next level of needs. When someone decides to contribute to a group and help members achieve basic security, they're helping their loved ones climb the ladder and attempt to reach their full potential.`),
-            L(`This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?`)
+            L('It argues that the needs lower in the hierarchy (like food, water, warmth, security, or safety) need to be satisfied before individuals can attempt to focus on needs higher up.'),
+            L("If basic needs aren't met, individuals will never move to the next level of needs. When someone decides to contribute to a group and help members achieve basic security, they're helping their loved ones climb the ladder and attempt to reach their full potential."),
+            L("This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?")
           ].join(' '),
           active: false
         }, {
           question: L('This sounds like communism.'),
-          answer: L(`This is not communism. One reason communism failed is because power was centralized, which led to a small group making decisions for everyone, and concentration/abuse of power.{br_}{br_}
-            Group Income is decentralized, which ensures that each group is making decisions only for itself and that no one will have power over that group.`, { ...LTags() }),
+          answer: L('This is not communism. One reason communism failed is because power was centralized, which led to a small group making decisions for everyone, and concentration/abuse of power.{br_}{br_}\nGroup Income is decentralized, which ensures that each group is making decisions only for itself and that no one will have power over that group.', { ...LTags() }),
           active: false
         }, {
           question: L("What does Group Income do or enable that the government doesn't?"),
           answer: L(
-            `It's not easy to jump-start basic income. Pilot studies don't last long. So far, there have not been any sustainable implementations providing a basic income, in part because people argue about political implementation details, like taxation.{br_}{br_}
-            {a_}Universal Basic Income gained momentum in 2020{_a} during Andrew Yang's presidential campaign, but it still isn't in a near-term future. Group Income does not require political discussion or nationwide acceptance. It gives people the authority to choose what they wish to do with their income, rather than having a third party making decisions for them. It is also more efficient than any government system because there's no bureaucracy, no policies, and no conflicting laws.`,
+            "It's not easy to jump-start basic income. Pilot studies don't last long. So far, there have not been any sustainable implementations providing a basic income, in part because people argue about political implementation details, like taxation.{br_}{br_}\n{a_}Universal Basic Income gained momentum in 2020{_a} during Andrew Yang's presidential campaign, but it still isn't in a near-term future. Group Income does not require political discussion or nationwide acceptance. It gives people the authority to choose what they wish to do with their income, rather than having a third party making decisions for them. It is also more efficient than any government system because there's no bureaucracy, no policies, and no conflicting laws.",
             { ...LTags('a'), 'a_': '<a class="link" href="https://www.investopedia.com/terms/b/basic-income.asp" target="_blank">' }
           ),
           active: false
         }, {
           question: L('What about deadbeats and freeloaders?'),
           answer: [
-            L(`Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}`, { ...LTags() }),
+            L('Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}', { ...LTags() }),
             L(
-              `We understand that the risk of deadbeats or freeloaders on a group may be a real concern for users. That being said, we expect this risk to be rare, as guaranteed basic income programs and {a_}studies have shown{_a}, in contrast to public opinion, that people with a guaranteed income only slightly reduce their workload, rather than stop working at all.`,
+              'We understand that the risk of deadbeats or freeloaders on a group may be a real concern for users. That being said, we expect this risk to be rare, as guaranteed basic income programs and {a_}studies have shown{_a}, in contrast to public opinion, that people with a guaranteed income only slightly reduce their workload, rather than stop working at all.',
               { ...LTags('a'), 'a_': '<a class="link" href="https://www.researchgate.net/publication/227387994_The_Town_with_No_Poverty_The_Health_Effects_of_a_Canadian_Guaranteed_Annual_Income_Field_Experiment" target="_blank">' }
             ),
             L(
-              `A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.`,
+              'A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.',
               { ...LTags('a'), 'a_': '<a class="link" href="https://www.newscientist.com/article/2242937-universal-basic-income-seems-to-improve-employment-and-well-being/#ixzz6fOgmRfR1" target="_blank">' }
             )
           ].join(' '),
@@ -219,7 +211,7 @@ export default {
         }, {
           question: L('How do you protect against Sybil attacks?'),
           answer: L(
-            `We use something called {a_}Dunbar's Number{_a} to prevent Sybil attacks. {a2_}More about this in this blog post{_a}.`,
+            "We use something called {a_}Dunbar's Number{_a} to prevent Sybil attacks. {a2_}More about this in this blog post{_a}.",
             { ...LTags('a'), 'a_': '<a class="link" href="https://en.wikipedia.org/wiki/Dunbar\'s_number" target="_blank">', 'a2_': '<a class="link" href="https://groupincome.org/2025/06/no-eyeballs-needed/" target="_blank">' }
           ),
           active: false
@@ -229,10 +221,7 @@ export default {
           active: false
         }, {
           question: L("What's the end goal of Group Income?"),
-          answer: L(`Basic Income Security.{br_}{br_}
-            Our real goal with Group Income is to ensure basic security for everyone. Some societies have chosen to restrict access to such things behind money, and therefore we're developing what is really just a bandaid to fix the damage that money creates.{br_}{br_}
-            Like clean air and clean water, everyone should have access to a clean bed and healthy food. Access to such things shouldn't rely solely on the ability to afford them.{br_}{br_}
-            {strong_}That is the goal. Group Income is one of the steps on the way to that goal.{_strong}`,
+          answer: L("Basic Income Security.{br_}{br_}\nOur real goal with Group Income is to ensure basic security for everyone. Some societies have chosen to restrict access to such things behind money, and therefore we're developing what is really just a bandaid to fix the damage that money creates.{br_}{br_}\nLike clean air and clean water, everyone should have access to a clean bed and healthy food. Access to such things shouldn't rely solely on the ability to afford them.{br_}{br_}\n{strong_}That is the goal. Group Income is one of the steps on the way to that goal.{_strong}",
             { ...LTags('strong') }
           ),
           active: false
