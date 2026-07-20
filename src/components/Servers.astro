@@ -36,7 +36,7 @@ const yourServer = L('<Your Server>')
               <p class="card-text">{ server.description }</p>
               <p class="card-text"><b>Admin:</b> <a class="" href={server.adminContact}>{ server.admin }</a></p>
             </div>
-            <a class="button is-primary" href={server.url}><I18n>Get started</I18n></a>
+            <I18n tag="a" class="button is-primary" href={server.url}>Get started</I18n>
           </div>
         </div>
       )
@@ -56,7 +56,7 @@ const yourServer = L('<Your Server>')
           Edit the |a_|this page on Github|_a| to add your server here.
         </I18n>
       </div>
-      <a class="button is-primary" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue"><I18n>Get started</I18n></a>
+      <I18n tag="a" class="button is-primary" href="https://github.com/okTurtles/groupincome.org/edit/master/src/components/Servers.vue">Get started</I18n>
     </div>
   </div>
 </div>

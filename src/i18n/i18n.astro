@@ -1,15 +1,16 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
 import { classNames } from './utils'
 import { useTranslation } from './utils'
 
-interface Props {
+interface Props extends HTMLAttributes<any> {
   tag?: string
   area?: string,
   text?: string,
   args?: Record<string, string>,
   class?: any
 }
-const { tag = '', text, args, class: className = '' } = Astro.props as Props
+const { tag = '', text, args, class: className = '', ...rest } = Astro.props as Props
 
 const { locale } = Astro.locals
 const L = useTranslation(locale)
@@ -21,4 +22,4 @@ const translated = L(textToTranslate.trim(), args)
 
 const classStr = classNames(className)
 ---
-<TagName class={classStr} set:html={translated}></TagName>
+<TagName class={classStr} set:html={translated} {...rest}></TagName>
