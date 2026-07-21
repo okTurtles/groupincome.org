@@ -1,6 +1,6 @@
 // tables
-import koreanTable from './tables/ko.json' with { type: 'json' }
-import frenchTable from './tables/fr.json' with { type: 'json' }
+import koreanTable from '../../strings/korean.json' with { type: 'json' }
+import frenchTable from '../../strings/french.json' with { type: 'json' }
 
 const translationTables: { [index: string]: any } = {
   // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp
@@ -13,12 +13,6 @@ export const languageDisplayNames: Record<string, string> = {
   en: 'English',
   ko: '한국어',
   fr: 'Français'
-}
-
-export const languageDisplayNamesInEnglish: Record<string, string> = {
-  en: 'English',
-  ko: 'Korean',
-  fr: 'French'
 }
 
 export const defaultLanguage = 'en'
