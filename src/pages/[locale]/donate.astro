@@ -37,16 +37,12 @@ const { locale } = Astro.locals
         <div class="c-credit">
           <div class="c-credit-block">
             <I18n tag="h2" class="c-sub-title">Credit/Debit Card Donation</I18n>
-            <a class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">
-              <I18n>Donate with Donorbox</I18n>
-            </a>  
+            <I18n tag="a" class="button is-success c-link-btn" href="https://donorbox.org/okturtles-donation" target="_blank">Donate with Donorbox</I18n>
           </div>
 
           <div class="c-credit-block">
             <I18n tag="h2" class="c-sub-title">Others</I18n>
-            <a class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support", locale)}>
-              <I18n>Other ways to Donate</I18n>
-            </a>
+            <I18n tag="a" class="button is-primary c-link-btn" href={resolvePath("/other-ways-to-support", locale)}>Other ways to Donate</I18n>
           </div>
         </div>
       </section>
@@ -54,8 +50,8 @@ const { locale } = Astro.locals
       <section class="container c-grid c-mb-6">
         <div>
           <I18n tag="b">Crypto Donation Receipt</I18n>
-          <I18n tag="div" class="c-main-para" args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
-            After you make a crypto donation, email us at |a_|hi@okturtles.org|_a| so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!
+          <I18n is:raw tag="div" class="c-main-para" args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
+            After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!
           </I18n>
         </div>
         <div>
@@ -70,7 +66,8 @@ const { locale } = Astro.locals
 
       <div class="c-sponsors-logo-container">
         <div class="logo-placeholder">
-          <i class="icon-image-multiple"></i><I18n>Your logo here</I18n>
+          <i class="icon-image-multiple"></i>
+          <I18n>Your logo here</I18n>
         </div>
       </div>
     </section>

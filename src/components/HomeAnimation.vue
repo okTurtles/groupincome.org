@@ -45,7 +45,7 @@
           <i18n tag="p" class="is-subtitle c-main-para">Private community software with a financial safety net, so you can focus on what matters.</i18n>
 
           <div class="scroll-btn-container">
-            <ScrollDownArrow targetSelector="#container2 .c-container-title" />
+            <ScrollDownArrow className='scroll-down-btn' targetSelector="#container2 .c-container-title" />
           </div>
         </div>
       </section>
@@ -528,7 +528,7 @@ export default {
   }
 }
 
-.icon-chevron-bottom {
+.scroll-down-btn {
   display: inline-flex;
   height: 2.25rem;
   width: 2.25rem;

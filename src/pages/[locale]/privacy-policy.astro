@@ -17,13 +17,11 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 
   <div class="c-privacy-policy-container">
     <section class="container grey-container">
-      <div class="is-posttitle"><I18n>TECHNOLOGY</I18n></div>
-      <h1 class="is-title-1 c-main-title"><I18n>Security & Privacy</I18n></h1>
+      <I18n tag="div" class="is-posttitle">TECHNOLOGY</I18n>
+      <I18n tag="h1" class="is-title-1 c-main-title">Security & Privacy</I18n>
     </section>
     <section class="c-container-middle">
-      <p>
-        <I18n tag="i" args={{ date: lastUpdatedDate }}>Last updated: |date|</I18n>
-      </p>
+      <I18n class="has-text-italic" is:raw tag="p" args={{ date: lastUpdatedDate }}>Last updated: {date}</I18n>
       <I18n tag="p">
         We were tired of Silicon Valley companies telling us that they "take our privacy and security very seriously", while having regular data breaches and storing our personal data unencrypted in their databases — ripe for the picking by hackers and rogue employees. We were tired of fake "privacy settings" that offered no real privacy.
       </I18n>
@@ -34,16 +32,16 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       <I18n tag="p">
         Our team of information security veterans spent several years designing and implementing a completely different approach to building web-based software.
       </I18n>
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">'}}>
-        Group Income does not have a traditional database to speak of. We do not use |a_|cookies|_a|. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.
+        Group Income does not have a traditional database to speak of. We do not use {a_}cookies{_a}. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.
       </I18n>
       <I18n tag="p">
         Your data is encrypted on your device with a key that doesn't leave your device. This encrypted data is stored encrypted on our servers. We do not have access to your keys. Data is decrypted locally, by your device. This means we cannot read your encrypted data.
       </I18n>
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a', 'b'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
-        |b_|To do this, we created a brand new end-to-end encrypted, federated protocol called |a_|Shelter Protocol|_a|.|_b|
+        {b_}To do this, we created a brand new end-to-end encrypted, federated protocol called {a_}Shelter Protocol{_a}.{_b}
       </I18n>
 
       <hr class="c-line"/>
@@ -54,28 +52,26 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 
       <p>
         <ul class="indented-list">
-          <I18n tag="li"
+          <I18n tag="li" is:raw
             args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://en.wikipedia.org//wiki/Surveillance_capitalism" target="_blank">'}}>
-            In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see |a_|"surveillance capitalism"|_a|).
+            In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see {a_}"surveillance capitalism"{_a}).
           </I18n>
-          <I18n tag="li"
+          <I18n tag="li" is:raw
             args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
-            In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the |a_|Shelter Protocol|_a| for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.
+            In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the {a_}Shelter Protocol{_a} for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.
           </I18n>
         </ul>
       </p>
 
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">'}}>
-        Every part of Group Income, not just the frontend, is open-source. Because the protocol is a |a_|federated protocol|_a|, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers).
+        Every part of Group Income, not just the frontend, is open-source. Because the protocol is a {a_}federated protocol{_a}, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers).
       </I18n>
 
       <I18n tag="p">In addition to the end-to-end encryption offered by the Shelter Protocol, our server for Group Income uses full-disk encryption. Please note, full-disk encryption may not exist on other community-run servers.</I18n>
       <I18n>By default, all chatrooms in Group Income are end-to-end encrypted. However, we provide the option for users to create public chatrooms to give communities options when it comes to building open and inclusive communities. As their name suggests, public chatrooms are not end-to-end encrypted to make it easy for users of Group Income to bridge them with other services, should they choose to do so. Please see the section titled "Note On Public Chatrooms" below for more details.</I18n>
 
-      <h3>
-        <I18n args={{ ...LTags('i') }}>We do |i_|not|_i| have Third Party Service Agreements in place</I18n>
-      </h3>
+      <I18n tag="h3" is:raw args={{ ...LTags('i') }}>We do {i_}not{_i} have Third Party Service Agreements in place</I18n>
 
       <I18n tag="p">Group Income does not share your data with any third-party service, and therefore we have no need of such agreements.</I18n>
       <I18n>As mentioned in previous sections, the data in public unencrypted chatrooms is public and should be treated with the same care and expectations of privacy that you should have with normal social media: that is, you should have zero expectation of any privacy for the content you post to public chatrooms. By default, chatrooms are non-public, and like direct messages, they are end-to-end encrypted.</I18n>
@@ -119,9 +115,9 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       <I18n tag="h3">Note On Analytics</I18n>
       <I18n tag="p">Group Income is a federated system with multiple independently run servers. As far as our server goes, we have access to basic analytics like how many groups and how many users our server is hosting. We know how much space the data takes up. Like all web servers, we know the IP address that is used to access our servers. The IP address is useful in case our servers come under DoS attack (that way we can block malicious IPs).</I18n>
       <I18n tag="p">As far as independent federated servers go, we have no access to the data stored on them at all. If and when analytics are implemented (to collect basic information about the health and size of the federation), then server operators might be able to share that information with us. Such information sharing will be up to the discretion of each server administrator. This page will be updated with information about any such analytics if and when they are implemented. Any such hypothetical analytics features will be managed and stored by us only — the first-party — and never by a third-party (e.g. "Google Analytics", etc.).</I18n>
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">'}}>
-        Currently, we do not have any federated usage statistics, so we only know what you tell us via our |a_|community forums|_a|. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.
+        Currently, we do not have any federated usage statistics, so we only know what you tell us via our {a_}community forums{_a}. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.
       </I18n>
 
       <I18n tag="h3">Note on Third-party Servers</I18n>
@@ -143,9 +139,9 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       <hr class="c-line"/>
       <I18n tag="h2">Data Risks</I18n>
 
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net/en/security/" target="_blank">'}}>
-        Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — |a_|attacks that cannot be protected against|_a|.
+        Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — {a_}attacks that cannot be protected against{_a}.
       </I18n>
       <I18n tag="p">The same is true of our service. While we have significantly raised the burden necessary to achieve data disclosure, we have not eliminated it. Potential security holes in the software that we use, or bugs in our software, may exist that would allow a determined attacker to break the security and exfiltrate data. To the best of our ability we have mitigated against this. We can say that Group Income protects your data better than the vast majority of software services out there, but we cannot guarantee that your data will never be exposed, and anyone who does give you such guarantees is deceiving you.</I18n>
       <I18n>The only real way to guarantee data safety is to avoid using online services entirely. Even better would be to avoid using computers altogether.</I18n>
@@ -154,9 +150,9 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 
       <I18n tag="h2">Questions</I18n>
 
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://github.com/okTurtles/group-income/discussions" target="_blank">'}}>
-        If your question wasn't answered on this page, please ask it on |a_|our community forums|_a|.
+        If your question wasn't answered on this page, please ask it on {a_}our community forums{_a}.
       </I18n>
     </section>
   </div>

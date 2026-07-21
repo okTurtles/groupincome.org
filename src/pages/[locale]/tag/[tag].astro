@@ -35,9 +35,9 @@ const { posts } = Astro.props
 <div class="c-tag-page-container">
   <header class="c-header">
     <h1 class="is-title-3 page-title">
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('span'), 'span_': '<span class="c-tag-name">', 'tag': tag }}>
-        Posts Tagged: |span_| |tag| |_span|
+        Posts Tagged: {span_} {tag} {_span}
       </I18n>
     </h1>
   </header>

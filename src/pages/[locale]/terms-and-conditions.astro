@@ -18,20 +18,18 @@ const lastUpdatedDate = localeAwareDateString('2024-07-20', locale)
   <div class="c-terms-and-conditions-container">
     <section class="container grey-container">
       <div class="is-posttitle">GROUP INCOME</div>
-      <h1 class="is-title-1 c-main-title"><I18n>Terms &amp; Conditions</I18n></h1>
+      <I18n tag="h1" class="is-title-1 c-main-title">Terms &amp; Conditions</I18n>
     </section>
     <section class="c-container-middle">
-      <p>
-        <I18n tag="i" args={{ date: lastUpdatedDate }}>Last updated: |date|</I18n>
-      </p>
+      <I18n class="has-text-italic" is:raw tag="p" args={{ date: lastUpdatedDate }}>Last updated: {date}</I18n>
 
       <I18n tag="h3">Acceptance of Terms</I18n>
       <I18n tag="p">
         The Group Income website and app ("Services") are a project of okTurtles Foundation Inc. ("okTurtles"), a 501(c)(3) non-profit registered in the State of Florida, USA.
       </I18n>
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': `<a href=${resolvePath('/privacy-policy', locale)} class="is-link">` }}>
-        By accessing and using Services, you agree to be bound by these Terms and Conditions ("Terms"), and our |a_|Privacy Policy|_a|. If you do not agree with any part of these Terms, you must not use our Services.
+        By accessing and using Services, you agree to be bound by these Terms and Conditions ("Terms"), and our {a_}Privacy Policy{_a}. If you do not agree with any part of these Terms, you must not use our Services.
       </I18n>
       <I18n tag="h3">Disclaimer of Warranty and Liability</I18n>
       <I18n tag="p">Your use of the Services is at your sole risk. The Services are provided on an "AS IS" and "AS AVAILABLE" basis. okTurtles expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</I18n>
@@ -43,9 +41,9 @@ const lastUpdatedDate = localeAwareDateString('2024-07-20', locale)
 
       <I18n tag="h3">Data and Security</I18n>
       
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': `<a href=${resolvePath('/privacy-policy', locale)} class="is-link">` }}>
-        While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone |a_|above and beyond in this regard|_a|), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data.
+        While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone {a_}above and beyond in this regard{_a}), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data.
       </I18n>
       
       <I18n tag="h3">Third-party Servers</I18n>
@@ -63,9 +61,9 @@ const lastUpdatedDate = localeAwareDateString('2024-07-20', locale)
 
       <I18n tag="h3">Contact Information</I18n>
 
-      <I18n tag="p"
+      <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
-        If you have any questions about these Terms, please contact us at |a_|hi@okturtles.org|_a|.
+        If you have any questions about these Terms, please contact us at {a_}hi@okturtles.org{_a}.
       </I18n>
     </section>
   </div>

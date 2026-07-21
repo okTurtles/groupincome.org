@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 <Layout mainClasses="c-other-ways-to-support-container">
   <section class="container c-main-container">
     <I18n tag="div" class="is-posttitle">Donate</I18n>
-    <h1 class="is-title-1 c-main-title"><I18n>Other Ways Support</I18n></h1>
+    <I18n tag="h1" class="is-title-1 c-main-title">Other Ways Support</I18n>
   </section>
 
   <div class="c-container-middle">
@@ -20,10 +20,10 @@ export async function getStaticPaths() {
   </div>
 
   <div class="c-container-center c-container-middle">
-    <h3 class="is-title-2"><I18n>Questions?</I18n></h3>
-    <I18n tag="p"
+    <I18n tag="h3" class="is-title-2">Questions?</I18n>
+    <I18n is:raw tag="p"
     args={{ ...LTags('a'), 'a_': '<a class="is-link" href="mailto:hi@okturtles.org" target="_blank">'}}>
-      Please email |a_|hi@okturtles.org|_a|
+      Please email {a_}hi@okturtles.org{_a}
     </I18n>
   </div>
 </Layout>

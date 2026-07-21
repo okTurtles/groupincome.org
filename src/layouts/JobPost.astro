@@ -25,19 +25,16 @@ const typeDisplayMap: Record<string, string> = {
   <Sides color="#F89202" :styles="{ top: 120rem }"></Sides>
 
   <section class="container grey-container">
-    <div class="is-posttitle">
-      <I18n>JOBS</I18n>
-    </div>
+    <I18n tag="div" class="is-posttitle">JOBS</I18n>
 
-    <h1 class="is-title-1 c-main-title"><I18n>Join our team.</I18n></h1>
-    <p class="is-subtitle c-main-para">
-      <I18n>We're always looking for passionate people who share our vision and excitement for what's possible.</I18n>
-      <I18n>If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.</I18n>
-    </p>
+    <I18n tag="h1" class="is-title-1 c-main-title">Join our team.</I18n>
+    <I18n is:raw tag="p" class="is-subtitle c-main-para">
+      We're always looking for passionate people who share our vision and excitement for what's possible. If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.
+    </I18n>
   </section>
   <div class="c-container-middle">
     <section class="container c-container-top">
-      <h2 class="is-title-2 c-container-title"><I18n>Open Positions</I18n></h2>
+      <I18n tag="h2" class="is-title-2 c-container-title">Open Positions</I18n>
       <div class="c-job-links">
         {jobs.map((job: any) => (
           <a class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}
