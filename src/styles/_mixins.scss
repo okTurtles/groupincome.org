@@ -84,7 +84,9 @@ $maxDesktop: 1180px;
 }
 
 @mixin is-locale($locale) {
-  body[data-translation="#{$locale}"] {
+  // Useful for adjusting styles for different locales.
+  // e.g.) Certain text translated to french is longer than in english and needs some spacing adjustments.
+  body[data-locale="#{$locale}"] {
     @content;
   }
 }

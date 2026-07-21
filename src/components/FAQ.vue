@@ -203,7 +203,7 @@ export default {
               { ...LTags('a'), 'a_': '<a class="link" href="https://www.researchgate.net/publication/227387994_The_Town_with_No_Poverty_The_Health_Effects_of_a_Canadian_Guaranteed_Annual_Income_Field_Experiment" target="_blank">' }
             ),
             L(
-              'A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.',
+              'A {a_}Finnish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.',
               { ...LTags('a'), 'a_': '<a class="link" href="https://www.newscientist.com/article/2242937-universal-basic-income-seems-to-improve-employment-and-well-being/#ixzz6fOgmRfR1" target="_blank">' }
             )
           ].join(' '),

@@ -6,6 +6,6 @@ declare namespace App {
     title?: string;
     locale?: string;
     isBlogpost?: boolean;
-    L?: any;
+    L?: import('./i18n/utils').TranslationFn;
   }
 }

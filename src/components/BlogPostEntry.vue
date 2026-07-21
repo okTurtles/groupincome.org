@@ -12,7 +12,7 @@
 <script setup>
 import { inject } from 'vue'
 import { resolvePath } from '@/utils/helpers.js'
-import { localeAwareDateString } from '@/i18n/utils.js'
+import { localeAwareDateString } from '@/i18n/utils'
 
 const locale = inject('locale')
 const isLocaleEn = locale === 'en'

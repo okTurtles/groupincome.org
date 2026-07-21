@@ -34,7 +34,7 @@
 "A group is a number of people who have voluntarily chosen to work to provide each other with a mincome, or a basic income." = "그룹은 서로에게 최소 소득(mincome) 혹은 기본 소득을 제공하기로 자발적 선택을 한 사람들의 모임입니다.";
 
 /* components/FAQ.vue */
-"A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future." = "{a_}핀란드 연구{_a}에서도 시범 보편적 기본 소득을 받은 사람들이 더 나은 재정적 웰빙, 정신 건강, 인지 기능을 보고했으며, 미래에 대한 자신감 수준도 더 높은 것으로 나타났습니다.";
+"A {a_}Finnish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future." = "{a_}핀란드 연구{_a}에서도 시범 보편적 기본 소득을 받은 사람들이 더 나은 재정적 웰빙, 정신 건강, 인지 기능을 보고했으며, 미래에 대한 자신감 수준도 더 높은 것으로 나타났습니다.";
 
 /* components/FAQ.vue */
 "Any individual with a stable social relationship with the other members of a group. Members are encouraged to know each other personally and be part of the same community.{br_}E.g.: a group of supporting creators, family members, friends, coworkers, neighbors, etc." = "그룹의 다른 구성원들과 원만한 관계에 있는 개인이라면 누구나 그룹에 참여 가능합니다. 구성원들이 서로 개인적으로 잘 알거나, 같은 커뮤니티 소속임이 권장됩니다.{br_} 예시: 지지하는 크리에이터들, 가족들, 친구들, 동료들, 이웃들 등";
@@ -262,7 +262,7 @@
 "Subscribe to our newsletter to be the first to know when the prototype is ready." = "뉴스레터를 구독하고, 프로토타입 준비 소식 알림을 먼저 받으세요.";
 
 /* components/Footer.vue */
-"Term & Conditons" = "이용약관";
+"Terms & Conditions" = "이용약관";
 
 /* components/Footer.vue */
 "Volunteer" = "자원봉사";

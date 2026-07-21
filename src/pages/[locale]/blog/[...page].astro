@@ -24,7 +24,7 @@ const { page } = Astro.props;
 const { locale } = Astro.locals;
 const { data, lastPage, url } = page
 const indexActive = (index: number, currentUrl: string) => {
-	return index === 0 ? currentUrl === '/blog' : currentUrl.endsWith(`${index + 1}`)
+	return index === 0 ? currentUrl.endsWith('/blog') : currentUrl.endsWith(`/${index + 1}`)
 }
 ---
 

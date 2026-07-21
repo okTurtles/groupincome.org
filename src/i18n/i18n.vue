@@ -10,11 +10,6 @@ const props = defineProps({
 			type: String,
 			default: "span",
 	},
-	area: {
-			type: String,
-			required: false,
-			default: "",
-	},
 	text: {
 			type: String,
 			required: false,

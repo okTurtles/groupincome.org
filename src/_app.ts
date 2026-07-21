@@ -3,13 +3,13 @@ import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 import { useTranslation } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.vue'
 
-// This is a flag to check whether this files runs during compilation time(NodeJS environment) or runtime(Browser context).
+// This is a flag to check whether this file runs during compilation time(NodeJS environment) or runtime(Browser context).
 const isNode = typeof globalThis.window === 'undefined' && typeof globalThis.document === 'undefined'
 
 const getLang = (): string => {
   return isNode
     ? (globalThis as any).giVueLocale || ''
-    : document.body.dataset.translation || '' // data-translation attribute is set in the DefaultLayout.astro file
+    : document.body.dataset.locale || '' // data-locale attribute is set in the DefaultLayout.astro file
 }
 const getIsBlogpost = (): boolean => {
   return isNode

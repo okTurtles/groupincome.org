@@ -55,7 +55,7 @@
     </div>
     <div class="c-bottom">
         <div class="c-bottom-links">
-            <i18n tag="a" v-href.locale="'/terms-and-conditions'">Term & Conditons</i18n>
+            <i18n tag="a" v-href.locale="'/terms-and-conditions'">Terms & Conditions</i18n>
             <i18n tag="a" v-href.locale="'/privacy-policy'">Privacy Policy</i18n>
         </div>
         <p class="copyright">{{ copyRightText }}</p>

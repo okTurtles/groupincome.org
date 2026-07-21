@@ -23,6 +23,3 @@ strings.mac
 
 # Astro
 .astro/
-
-# misc
-.env

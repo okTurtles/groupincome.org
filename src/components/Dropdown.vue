@@ -37,6 +37,10 @@ interface ComponentProps {
 }
 
 const props = defineProps<ComponentProps>()
+const emit = defineEmits<{
+  (e: 'select', option: MenuItem): void
+}>()
+
 const isMenuOpen = ref(false)
 const selectedOptionId = ref<string | null>(props.initialSelectedOptionId || null)
 
@@ -69,8 +73,9 @@ const checkAndCloseMenu = (e: MouseEvent) => {
   // click-away detection logic
   if (!isMenuOpen.value) return
 
-  const el = document.elementFromPoint(e.clientX, e.clientY)
-  if (el && !el.closest('.dropdown-menu')) {
+  const target = e.target as HTMLElement | null
+  if (target && !target.closest('.dropdown')) {
+    console.log('!@# clicked outside')
     closeMenu()
   }
 }
@@ -85,10 +90,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('click', checkAndCloseMenu)
 })
-
-const emit = defineEmits<{
-  (e: 'select', option: MenuItem): void
-}>()
 </script>
 
 <style lang="scss" scoped>

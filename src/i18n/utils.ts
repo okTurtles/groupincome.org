@@ -2,6 +2,8 @@
 import koreanTable from '../../strings/korean.json' with { type: 'json' }
 import frenchTable from '../../strings/french.json' with { type: 'json' }
 
+export type TranslationFn = (key: string, args?: Record<string, string>) => string
+
 const translationTables: { [index: string]: any } = {
   // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp
   'ko': koreanTable,
@@ -50,7 +52,7 @@ export function LTags (...tags: string[]): Record<string, string> {
   return o
 }
 
-export function useTranslation (lang: string = ''): any {
+export function useTranslation (lang: string = ''): TranslationFn {
   const noLookupNeeded = lang === defaultLanguage || !(lang in translationTables)
   const table = translationTables[lang]
   const removeWhiteSpaces = (text: string) => {

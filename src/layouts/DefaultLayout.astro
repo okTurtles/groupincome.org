@@ -24,7 +24,7 @@ const _description = description || SITE_DESCRIPTION;
 	<head>
 		<BaseHead title={_title} description={_description} image={image || ''} />
 	</head>
-	<body data-translation={locale} data-page-type={pageType}>
+	<body data-locale={locale} data-page-type={pageType}>
 		<PageWrapper client:load>
 			<Header client:load />
 			<main class={mainClasses}>

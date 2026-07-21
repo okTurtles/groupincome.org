@@ -52,7 +52,7 @@
 "A group is a number of people who have voluntarily chosen to work to provide each other with a mincome, or a basic income." = "Un groupe est un ensemble de personnes qui ont volontairement choisi d’œuvrer ensemble pour se fournir mutuellement un mincome, ou revenu de base.";
 
 /* components/FAQ.vue */
-"A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future." = "Une {a_}étude finlandaise{_a} a également révélé que les personnes ayant reçu le revenu de base universel expérimental déclaraient un meilleur bien-être financier, une meilleure santé mentale et de meilleures fonctions cognitives, ainsi qu’un niveau de confiance plus élevé dans l’avenir.";
+"A {a_}Finnish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future." = "Une {a_}étude finlandaise{_a} a également révélé que les personnes ayant reçu le revenu de base universel expérimental déclaraient un meilleur bien-être financier, une meilleure santé mentale et de meilleures fonctions cognitives, ainsi qu’un niveau de confiance plus élevé dans l’avenir.";
 
 /* components/FAQ.vue */
 "Any individual with a stable social relationship with the other members of a group. Members are encouraged to know each other personally and be part of the same community.{br_}E.g.: a group of supporting creators, family members, friends, coworkers, neighbors, etc." = "Toute personne ayant une relation sociale stable avec les autres membres du groupe. Les membres sont encouragés à se connaître personnellement et à faire partie de la même communauté.{br_}Ex. : un groupe de créateurs qui se soutiennent, des membres de la famille, des amis, des collègues, des voisins, etc.";
@@ -271,7 +271,7 @@
 "Subscribe to our newsletter to be the first to know when the prototype is ready." = "Abonnez-vous à notre newsletter pour être les premiers à savoir quand le prototype sera prêt.";
 
 /* components/Footer.vue */
-"Term & Conditons" = "Conditions générales";
+"Terms & Conditions" = "Conditions générales";
 
 /* components/Footer.vue */
 "Volunteer" = "Bénévole";

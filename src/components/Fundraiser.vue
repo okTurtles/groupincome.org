@@ -5,9 +5,9 @@
     <div class="progress-wrapper">
       <div class="progress-element">
         <div class="progress-container">
-          <progress max="100" :value="progress">${{ current }} ({{ pourcent }})</progress>
+          <progress max="100" :value="progress">${{ current }} ({{ percent }})</progress>
         </div>
-        <p class="progress-label">${{ current }} ({{ pourcent }})</p>
+        <p class="progress-label">${{ current }} ({{ percent }})</p>
       </div>
     </div>
     <a :href="resolvePath('/donate')" class="button">Donate now</a>
@@ -29,7 +29,7 @@ const $isFundraiserOpen = useStore(isFundraiserOpen);
 const total = 10000
 const current = 5405
 const progress = Math.round((current / total) * 100)
-const pourcent = `${progress}%`
+const percent = `${progress}%`
 </script>
 
 <style lang="scss" scoped>
@@ -161,7 +161,7 @@ progress {
 
 @keyframes progress {
   to {
-    width: v-bind(pourcent);
+    width: v-bind(percent);
   }
 }
 

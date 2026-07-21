@@ -19,7 +19,7 @@
 "A safe space to financially support each other." = "A safe space to financially support each other.";
 
 /* components/FAQ.vue */
-"A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future." = "A {a_}Finish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.";
+"A {a_}Finnish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future." = "A {a_}Finnish study{_a} also found that people who received the trial universal basic income reported better financial well-being, mental health, and cognitive functioning, as well as higher levels of confidence in the future.";
 
 /* pages/[locale]/about-us.astro */
 "ABOUT GROUP INCOME" = "ABOUT GROUP INCOME";
@@ -583,7 +583,7 @@
 "TO THE EXTENT WHICH IS PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION, OKTURTLES EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT OF THIRD PARTY RIGHTS, AND FITNESS FOR A PARTICULAR PURPOSE. NO INFORMATION OR ADVICE PROVIDED BY OKTURTLES OR AN OKTURTLES REPRESENTATIVE SHALL CREATE A WARRANTY OR IN ANY WAY CHANGE THE TERMS OF THIS WARRANTY. SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIRS, OR CORRECTIONS." = "TO THE EXTENT WHICH IS PERMITTED BY APPLICABLE LAW IN YOUR JURISDICTION, OKTURTLES EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT OF THIRD PARTY RIGHTS, AND FITNESS FOR A PARTICULAR PURPOSE. NO INFORMATION OR ADVICE PROVIDED BY OKTURTLES OR AN OKTURTLES REPRESENTATIVE SHALL CREATE A WARRANTY OR IN ANY WAY CHANGE THE TERMS OF THIS WARRANTY. SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIRS, OR CORRECTIONS.";
 
 /* components/Footer.vue */
-"Term & Conditons" = "Term & Conditons";
+"Terms & Conditions" = "Terms & Conditions";
 
 /* pages/[locale]/terms-and-conditions.astro */
 "Terms &amp; Conditions" = "Terms &amp; Conditions";
