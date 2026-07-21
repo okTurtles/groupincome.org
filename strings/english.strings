@@ -34,7 +34,7 @@
 "Additional notes on emails, password, and billing details" = "Additional notes on emails, password, and billing details";
 
 /* pages/[locale]/donate.astro */
-"After you make a crypto donation, email us at |a_|hi@okturtles.org|_a| so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!" = "After you make a crypto donation, email us at |a_|hi@okturtles.org|_a| so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!";
+"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!" = "After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!";
 
 /* pages/[locale]/privacy-policy.astro */
 "Any billing-relevant information" = "Any billing-relevant information";
@@ -70,7 +70,7 @@
 "Blog" = "Blog";
 
 /* pages/[locale]/terms-and-conditions.astro */
-"By accessing and using Services, you agree to be bound by these Terms and Conditions (\"Terms\"), and our |a_|Privacy Policy|_a|. If you do not agree with any part of these Terms, you must not use our Services." = "By accessing and using Services, you agree to be bound by these Terms and Conditions (\"Terms\"), and our |a_|Privacy Policy|_a|. If you do not agree with any part of these Terms, you must not use our Services.";
+"By accessing and using Services, you agree to be bound by these Terms and Conditions (\"Terms\"), and our {a_}Privacy Policy{_a}. If you do not agree with any part of these Terms, you must not use our Services." = "By accessing and using Services, you agree to be bound by these Terms and Conditions (\"Terms\"), and our {a_}Privacy Policy{_a}. If you do not agree with any part of these Terms, you must not use our Services.";
 
 /* pages/[locale]/privacy-policy.astro */
 "By default, all chatrooms in Group Income are end-to-end encrypted and are private to group members only. Really private - not even the server admin can read them." = "By default, all chatrooms in Group Income are end-to-end encrypted and are private to group members only. Really private - not even the server admin can read them.";
@@ -145,7 +145,7 @@
 "Crypto Donation Receipt" = "Crypto Donation Receipt";
 
 /* pages/[locale]/privacy-policy.astro */
-"Currently, we do not have any federated usage statistics, so we only know what you tell us via our |a_|community forums|_a|. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users." = "Currently, we do not have any federated usage statistics, so we only know what you tell us via our |a_|community forums|_a|. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.";
+"Currently, we do not have any federated usage statistics, so we only know what you tell us via our {a_}community forums{_a}. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users." = "Currently, we do not have any federated usage statistics, so we only know what you tell us via our {a_}community forums{_a}. We'd very much appreciate it if you do share your Group Income experiences with us, as it's always nice to hear from our users.";
 
 /* pages/[locale]/privacy-policy.astro */
 "Currently, we do not use your email for anything. In the future, we might use it to send you notifications that you've requested (e.g. \"please let me know when a new group member has joined\")." = "Currently, we do not use your email for anything. In the future, we might use it to send you notifications that you've requested (e.g. \"please let me know when a new group member has joined\").";
@@ -187,7 +187,7 @@
 "Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}" = "Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}";
 
 /* components/Servers.astro */
-"Edit the |a_|this page on Github|_a| to add your server here." = "Edit the |a_|this page on Github|_a| to add your server here.";
+"Edit the {a_}this page on Github{_a} to add your server here." = "Edit the {a_}this page on Github{_a} to add your server here.";
 
 /* components/HomeAnimation.vue */
 "Empower Your Community" = "Empower Your Community";
@@ -202,10 +202,10 @@
 "Every individual is valuable." = "Every individual is valuable.";
 
 /* pages/[locale]/privacy-policy.astro */
-"Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — |a_|attacks that cannot be protected against|_a|." = "Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — |a_|attacks that cannot be protected against|_a|.";
+"Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — {a_}attacks that cannot be protected against{_a}." = "Every online service, no matter what type of encryption is used, no matter how it's designed, has data risk. There is always a chink in even the best armor — {a_}attacks that cannot be protected against{_a}.";
 
 /* pages/[locale]/privacy-policy.astro */
-"Every part of Group Income, not just the frontend, is open-source. Because the protocol is a |a_|federated protocol|_a|, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers)." = "Every part of Group Income, not just the frontend, is open-source. Because the protocol is a |a_|federated protocol|_a|, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers).";
+"Every part of Group Income, not just the frontend, is open-source. Because the protocol is a {a_}federated protocol{_a}, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers)." = "Every part of Group Income, not just the frontend, is open-source. Because the protocol is a {a_}federated protocol{_a}, anyone can run a Group Income server if they do not trust ours (and can still interact with users on other servers).";
 
 /* components/FAQ.vue */
 "Everyone has something to contribute; money isn't the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There's value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.{br_}{br_}There's immeasurable value in non-monetary contributions." = "Everyone has something to contribute; money isn't the only way to help a group. Besides monetary pledges, all members can support each other with non-monetary contributions. There's value in your time, skills, and your willingness to support the group. Are you a fantastic cook? You can contribute with cooking lessons or offer to host a group dinner party. Is a member of the group struggling as a new parent? You can offer to babysit.{br_}{br_}There's immeasurable value in non-monetary contributions.";
@@ -271,7 +271,7 @@
 "Group Income can scale by connecting groups together. For example, a local family group may itself be a group member in a larger community group, which may be a group member in a city group, which may be a member in a countywide group, and so forth." = "Group Income can scale by connecting groups together. For example, a local family group may itself be a group member in a larger community group, which may be a group member in a city group, which may be a member in a countywide group, and so forth.";
 
 /* pages/[locale]/privacy-policy.astro */
-"Group Income does not have a traditional database to speak of. We do not use |a_|cookies|_a|. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default." = "Group Income does not have a traditional database to speak of. We do not use |a_|cookies|_a|. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.";
+"Group Income does not have a traditional database to speak of. We do not use {a_}cookies{_a}. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default." = "Group Income does not have a traditional database to speak of. We do not use {a_}cookies{_a}. In Group Income, most of the activity that traditionally occurs on the backend instead occurs on the frontend, and everything is end-to-end encrypted by default.";
 
 /* pages/[locale]/privacy-policy.astro */
 "Group Income does not share your data with any third-party service, and therefore we have no need of such agreements." = "Group Income does not share your data with any third-party service, and therefore we have no need of such agreements.";
@@ -292,16 +292,16 @@
 "Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others' mincome. This ensures that the pledge will not cause the pledger's income to fall below the mincome. This can provide predictability and stability for all members." = "Group Income is a voluntary basic income system. Therefore, group members can pledge the amount they are able and willing to contribute to others' mincome. This ensures that the pledge will not cause the pledger's income to fall below the mincome. This can provide predictability and stability for all members.";
 
 /* pages/[locale]/about-us.astro */
-"Group Income is an open-source project of the |a_|okTurtles Foundation|_a|, a non-profit organization that supports beneficial decentralization technologies." = "Group Income is an open-source project of the |a_|okTurtles Foundation|_a|, a non-profit organization that supports beneficial decentralization technologies.";
+"Group Income is an open-source project of the {a_}okTurtles Foundation{_a}, a non-profit organization that supports beneficial decentralization technologies." = "Group Income is an open-source project of the {a_}okTurtles Foundation{_a}, a non-profit organization that supports beneficial decentralization technologies.";
 
 /* components/HomeAnimation.vue */
 "Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}." = "Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.";
 
 /* pages/[locale]/about-us.astro */
-"Group Income is built on top of an |a_|open protocol|_a|, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours." = "Group Income is built on top of an |a_|open protocol|_a|, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.";
+"Group Income is built on top of an {a_}open protocol{_a}, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours." = "Group Income is built on top of an {a_}open protocol{_a}, and Group Income itself is 100% open-source (both the frontend and the backend). This means anyone can inspect our code, and anyone can create their own version of Group Income that interacts with ours.";
 
 /* pages/[locale]/about-us.astro */
-"Group Income is decentralized through |a_|federation|_a|. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers." = "Group Income is decentralized through |a_|federation|_a|. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers.";
+"Group Income is decentralized through {a_}federation{_a}. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers." = "Group Income is decentralized through {a_}federation{_a}. This means anyone can run a Group Income server themselves (if they want), and their users will still be able to interact with other users of Group Income, even across independently operated servers.";
 
 /* components/HomeAnimation.vue */
 "Group Income is end-to-end encrypted and self-hosted." = "Group Income is end-to-end encrypted and self-hosted.";
@@ -376,7 +376,7 @@
 "If you are using Group Income on a third-party server (one not hosted by us), please be advised that we have absolutely no control over that server, we cannot guarantee its integrity, we cannot guarantee that it's running the same code, we are not responsible for anything on it, and you should only use servers run by someone you trust." = "If you are using Group Income on a third-party server (one not hosted by us), please be advised that we have absolutely no control over that server, we cannot guarantee its integrity, we cannot guarantee that it's running the same code, we are not responsible for anything on it, and you should only use servers run by someone you trust.";
 
 /* pages/[locale]/terms-and-conditions.astro */
-"If you have any questions about these Terms, please contact us at |a_|hi@okturtles.org|_a|." = "If you have any questions about these Terms, please contact us at |a_|hi@okturtles.org|_a|.";
+"If you have any questions about these Terms, please contact us at {a_}hi@okturtles.org{_a}." = "If you have any questions about these Terms, please contact us at {a_}hi@okturtles.org{_a}.";
 
 /* pages/[locale]/donate.astro */
 "If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here's how:" = "If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here's how:";
@@ -384,20 +384,17 @@
 /* pages/[locale]/privacy-policy.astro */
 "If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), access our website over a VPN or Tor, and avoid exposing any information about yourself in an unencrypted, public chatroom." = "If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), access our website over a VPN or Tor, and avoid exposing any information about yourself in an unencrypted, public chatroom.";
 
-/* layouts/JobPost.astro */
-"If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team." = "If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.";
-
 /* pages/[locale]/privacy-policy.astro */
-"If your question wasn't answered on this page, please ask it on |a_|our community forums|_a|." = "If your question wasn't answered on this page, please ask it on |a_|our community forums|_a|.";
+"If your question wasn't answered on this page, please ask it on {a_}our community forums{_a}." = "If your question wasn't answered on this page, please ask it on {a_}our community forums{_a}.";
 
 /* pages/[locale]/privacy-policy.astro */
 "In addition to the end-to-end encryption offered by the Shelter Protocol, our server for Group Income uses full-disk encryption. Please note, full-disk encryption may not exist on other community-run servers." = "In addition to the end-to-end encryption offered by the Shelter Protocol, our server for Group Income uses full-disk encryption. Please note, full-disk encryption may not exist on other community-run servers.";
 
 /* pages/[locale]/privacy-policy.astro */
-"In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the |a_|Shelter Protocol|_a| for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password." = "In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the |a_|Shelter Protocol|_a| for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.";
+"In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the {a_}Shelter Protocol{_a} for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password." = "In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the {a_}Shelter Protocol{_a} for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.";
 
 /* pages/[locale]/privacy-policy.astro */
-"In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see |a_|\"surveillance capitalism\"|_a|)." = "In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see |a_|\"surveillance capitalism\"|_a|).";
+"In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see {a_}\"surveillance capitalism\"{_a})." = "In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see {a_}\"surveillance capitalism\"{_a}).";
 
 /* pages/[locale]/donate.astro */
 "Individual Sponsors" = "Individual Sponsors";
@@ -433,7 +430,7 @@
 "LEARN" = "LEARN";
 
 /* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
-"Last updated: |date|" = "Last updated: |date|";
+"Last updated: {date}" = "Last updated: {date}";
 
 /* components/HomeAnimation.vue */
 "Learn more about Basic Income." = "Learn more about Basic Income.";
@@ -466,7 +463,7 @@
 "Note on Third-party Servers" = "Note on Third-party Servers";
 
 /* pages/[locale]/about-us.astro */
-"On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|." = "On a mission to ensure|sp1_| basic|_span||sp2_| income|_span| security for|sp3_| everyone|_span|.";
+"On a mission to ensure{sp1_} basic{_span}{sp2_} income{_span} security for{sp3_} everyone{_span}." = "On a mission to ensure{sp1_} basic{_span}{sp2_} income{_span} security for{sp3_} everyone{_span}.";
 
 /* components/FAQ.vue */
 "One of the primary arguments for Basic Income is the notion that it is {a1_}better to give people money than vouchers{_a} because {a2_}people make better decisions about what they can and should do with their money{_a} than the state (or donor) can make for them." = "One of the primary arguments for Basic Income is the notion that it is {a1_}better to give people money than vouchers{_a} because {a2_}people make better decisions about what they can and should do with their money{_a} than the state (or donor) can make for them.";
@@ -505,10 +502,10 @@
 "Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them, and information shared in public chatrooms is… public (see section \"Note On Public Chatrooms\")." = "Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them, and information shared in public chatrooms is… public (see section \"Note On Public Chatrooms\").";
 
 /* pages/[locale]/other-ways-to-support.astro */
-"Please email |a_|hi@okturtles.org|_a|" = "Please email |a_|hi@okturtles.org|_a|";
+"Please email {a_}hi@okturtles.org{_a}" = "Please email {a_}hi@okturtles.org{_a}";
 
 /* pages/[locale]/tag/[tag].astro */
-"Posts Tagged: |span_| |tag| |_span|" = "Posts Tagged: |span_| |tag| |_span|";
+"Posts Tagged: {span_} {tag} {_span}" = "Posts Tagged: {span_} {tag} {_span}";
 
 /* components/Footer.vue */
 "Privacy Policy" = "Privacy Policy";
@@ -673,7 +670,7 @@
 "We do not have billing implemented. We plan to use the Bitcoin Lightning Network for billing and user-to-user payments in the future. Other payment options are possible, but our focus is on Bitcoin at the moment." = "We do not have billing implemented. We plan to use the Bitcoin Lightning Network for billing and user-to-user payments in the future. Other payment options are possible, but our focus is on Bitcoin at the moment.";
 
 /* pages/[locale]/privacy-policy.astro */
-"We do |i_|not|_i| have Third Party Service Agreements in place" = "We do |i_|not|_i| have Third Party Service Agreements in place";
+"We do {i_}not{_i} have Third Party Service Agreements in place" = "We do {i_}not{_i} have Third Party Service Agreements in place";
 
 /* components/FAQ.vue */
 "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. " = "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. ";
@@ -694,7 +691,7 @@
 "We were tired of Silicon Valley companies telling us that they \"take our privacy and security very seriously\", while having regular data breaches and storing our personal data unencrypted in their databases — ripe for the picking by hackers and rogue employees. We were tired of fake \"privacy settings\" that offered no real privacy." = "We were tired of Silicon Valley companies telling us that they \"take our privacy and security very seriously\", while having regular data breaches and storing our personal data unencrypted in their databases — ripe for the picking by hackers and rogue employees. We were tired of fake \"privacy settings\" that offered no real privacy.";
 
 /* layouts/JobPost.astro */
-"We're always looking for passionate people who share our vision and excitement for what's possible." = "We're always looking for passionate people who share our vision and excitement for what's possible.";
+"We're always looking for passionate people who share our vision and excitement for what's possible. If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team." = "We're always looking for passionate people who share our vision and excitement for what's possible. If you're genuinely interested in what Group Income is creating and stands for, you might want to join our team.";
 
 /* pages/[locale]/about-us.astro */
 "We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!" = "We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!";
@@ -757,7 +754,7 @@
 "When the group is created, the group members will set the group's mincome, as well as the percentage of votes needed to change the group's mincome. The group members may vote to change the group's mincome at any point, according to the voting thresholds set up when the group was created." = "When the group is created, the group members will set the group's mincome, as well as the percentage of votes needed to change the group's mincome. The group members may vote to change the group's mincome at any point, according to the voting thresholds set up when the group was created.";
 
 /* pages/[locale]/terms-and-conditions.astro */
-"While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone |a_|above and beyond in this regard|_a|), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data." = "While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone |a_|above and beyond in this regard|_a|), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data.";
+"While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone {a_}above and beyond in this regard{_a}), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data." = "While okTurtles strives to protect the security and integrity of your data (and, in our opinion, have gone {a_}above and beyond in this regard{_a}), we cannot guarantee the security of any information transmitted to or from the Services. Any transmission of data is at your own risk. okTurtles shall not be liable for any loss, misuse, unauthorized access, disclosure, alteration, or destruction of your data.";
 
 /* components/FAQ.vue */
 "Who can be part of a group?" = "Who can be part of a group?";
@@ -819,12 +816,12 @@
 /* layouts/JobPost.astro */
 "remote" = "remote";
 
+/* pages/[locale]/privacy-policy.astro */
+"{b_}To do this, we created a brand new end-to-end encrypted, federated protocol called {a_}Shelter Protocol{_a}.{_b}" = "{b_}To do this, we created a brand new end-to-end encrypted, federated protocol called {a_}Shelter Protocol{_a}.{_b}";
+
 /* components/FAQ.vue */
 "{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}" = "{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}";
 
 /* components/FAQ.vue */
 "{ul_}\n{li_}{a1_}Alaska Permanent Fund Dividend{_a} (resource-based){_li}\n{li_}{a2_}Land value tax{_a} (resource-based){_li}\n{li_}Group Income (voluntary monetization of human labor){_li}\n{li_}City sales tax (where freedom of motion is feasible){_li}\n{_ul}" = "{ul_}\n{li_}{a1_}Alaska Permanent Fund Dividend{_a} (resource-based){_li}\n{li_}{a2_}Land value tax{_a} (resource-based){_li}\n{li_}Group Income (voluntary monetization of human labor){_li}\n{li_}City sales tax (where freedom of motion is feasible){_li}\n{_ul}";
-
-/* pages/[locale]/privacy-policy.astro */
-"|b_|To do this, we created a brand new end-to-end encrypted, federated protocol called |a_|Shelter Protocol|_a|.|_b|" = "|b_|To do this, we created a brand new end-to-end encrypted, federated protocol called |a_|Shelter Protocol|_a|.|_b|";
 
