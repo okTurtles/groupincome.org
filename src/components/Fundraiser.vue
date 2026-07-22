@@ -10,7 +10,7 @@
         <p class="progress-label">${{ current }} ({{ percent }})</p>
       </div>
     </div>
-    <a :href="resolvePath('/donate')" class="button">Donate now</a>
+    <a v-href.locale="'/donate'" class="button">Donate now</a>
     <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
       tabindex="0"
       @click="closeFundraiser"
@@ -22,7 +22,6 @@
 <script setup>
 import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
-import { resolvePath } from '@/utils/helpers.js'
 
 const $isFundraiserOpen = useStore(isFundraiserOpen);
 

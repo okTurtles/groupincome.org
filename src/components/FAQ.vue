@@ -148,7 +148,7 @@ export default {
               {
                 ...LTags('a', 'ul', 'li'),
                 'ul_': '<ul class="bullet-list">',
-                'a_': '<a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund" target="_blank">',
+                'a1_': '<a href="https://en.wikipedia.org/wiki/Alaska_Permanent_Fund" target="_blank">',
                 'a2_': '<a href="https://en.wikipedia.org/wiki/Land_value_tax" target="_blank">'
               }
             )
@@ -162,6 +162,8 @@ export default {
               "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. ",
               { ...LTags('a'), 'a_': '<a href="https://www.businessnewsdaily.com/10625-businesses-collecting-data.html" target="_blank">' }
             ),
+            ' ', // add a space to separate the sentences
+            L("With a decentralized system on Group Income, groups don't need to trust a centralized \"service provider\". Groups will be able to be self-governing, and will also only make decisions for themselves.{br_}{br_}", { ...LTags('br') }),
             L(
               'This means that, besides helping you reach basic security, we also want you to be in control of your security and privacy online. We recognize that your data belongs to you, and we are not entitled to it.{br_}{br_}{strong_}Any data shared within a group will remain private to that group.{_strong}',
               { ...LTags('strong') }

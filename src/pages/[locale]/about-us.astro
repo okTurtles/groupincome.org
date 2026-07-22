@@ -6,6 +6,7 @@ import ScrollDownArrow from '@/components/ScrollDownArrow.vue'
 import { resolvePath } from '@/utils/helpers.js'
 import { getDynamicRoutes, LTags } from '@/i18n/utils'
 
+const { locale } = Astro.locals
 export async function getStaticPaths() {
   return getDynamicRoutes()
 }
@@ -149,7 +150,7 @@ export async function getStaticPaths() {
         <p class="c-container-para">
           <I18n>okTurtles Foundation is a 501(c)(3) non-profit. Our research, education, and development efforts go to supporting beneficial decentralization technologies. Our work has been covered in TechCrunch, VICE, Engadget, and elsewhere on the web.</I18n>
           <br/>
-          <I18n tag="a" class="c-container-link is-link" href={resolvePath("/donate")} data-test="donateLink">Donate to Group Income</I18n>
+          <I18n tag="a" class="c-container-link is-link" href={resolvePath("/donate", locale)} data-test="donateLink">Donate to Group Income</I18n>
         </p>
       </div>
     </section>
