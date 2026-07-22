@@ -166,7 +166,7 @@
 "This sounds like communism." = "Cela ressemble au communisme.";
 
 /* components/FAQ.vue */
-"We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. " = "Nous considérons le développement logiciel décentralisé comme vital pour l’avenir de la société. Nous ne sommes pas d’accord, et ne souhaitons pas perpétuer, la {a_}manière dont la plupart des entreprises, ainsi que le big data et les courtiers en données{_a}, utilisent actuellement les données pour manipuler ou influencer la volonté des personnes.";
+"We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will." = "Nous considérons le développement logiciel décentralisé comme vital pour l’avenir de la société. Nous ne sommes pas d’accord, et ne souhaitons pas perpétuer, la {a_}manière dont la plupart des entreprises, ainsi que le big data et les courtiers en données{_a}, utilisent actuellement les données pour manipuler ou influencer la volonté des personnes.";
 
 /* components/FAQ.vue */
 "We understand that the risk of deadbeats or freeloaders on a group may be a real concern for users. That being said, we expect this risk to be rare, as guaranteed basic income programs and {a_}studies have shown{_a}, in contrast to public opinion, that people with a guaranteed income only slightly reduce their workload, rather than stop working at all." = "Nous comprenons que le risque de profiteurs ou de tire-au-flanc au sein d’un groupe puisse être une préoccupation réelle pour les utilisateurs. Cela dit, nous pensons que ce risque sera rare, car les programmes de revenu garanti et {a_}les études l’ont montré{_a}, contrairement à l’opinion publique, les personnes disposant d’un revenu garanti ne réduisent que légèrement leur charge de travail, plutôt que d’arrêter de travailler complètement.";
@@ -244,6 +244,9 @@
 "Why would people who earn more than a basic income want to give any of it away?" = "Pourquoi des personnes qui gagnent plus qu’un revenu de base voudraient-elles en donner une partie ?";
 
 /* components/FAQ.vue */
+"With a decentralized system on Group Income, groups don't need to trust a centralized \"service provider\". Groups will be able to be self-governing, and will also only make decisions for themselves.{br_}{br_}" = "Avec un système décentralisé sur Group Income, les groupes n’ont pas besoin de faire confiance à un « fournisseur de services » centralisé. Les groupes pourront s’autogouverner et ne prendront des décisions que pour eux-mêmes.{br_}{br_}";
+
+/* components/FAQ.vue */
 "{br_}{br_}These questions of fairness can be addressed by making a voluntary basic income system. Some examples of voluntary basic income systems are:{br_}" = "{br_}{br_}Ces questions d’équité peuvent être abordées en mettant en place un système volontaire de revenu de base. Voici quelques exemples de systèmes volontaires de revenu de base :{br_}";
 
 /* components/FAQ.vue */
@@ -302,9 +305,6 @@
 
 /* components/GetStarted.vue */
 "Read more about our technology" = "En savoir plus sur notre technologie";
-
-/* components/GetStarted.vue */
-"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "Utilisez {a1_}notre serveur officiel{_a}, choisissez parmi {a2_}une liste de{_a} serveurs gérés indépendamment, ou hébergez le vôtre !";
 
 /* components/HomeAnimation.vue */
 "A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted." = "Un chat communautaire puissant avec réactions emoji, sondages, pièces jointes et bien plus encore — entièrement privé et chiffré de bout en bout.";
@@ -523,7 +523,7 @@
 "Donate with Donorbox" = "Faire un don avec Donorbox";
 
 /* pages/[locale]/donate.astro */
-"Group Income is a project developed by the okTurtles Foundation,\n        a non-profit organization that supports beneficial decentralization technologies.\n        If you want to help us succeed, consider becoming a sponsor." = "Group Income est un projet développé par la okTurtles Foundation,\nune organisation à but non lucratif qui soutient les technologies de décentralisation bénéfiques.\nSi vous souhaitez nous aider à réussir, envisagez de devenir sponsor.";
+"Group Income is a project developed by the okTurtles Foundation, a non-profit organization that supports beneficial decentralization technologies. If you want to help us succeed, consider becoming a sponsor." = "Group Income est un projet développé par la okTurtles Foundation, une organisation à but non lucratif qui soutient les technologies de décentralisation bénéfiques. Si vous souhaitez nous aider à réussir, envisagez de devenir sponsor.";
 
 /* pages/[locale]/donate.astro */
 "If you want to support our project and get rewards like early access to our development or your name listed on this page, you can back us! Here's how:" = "Si vous souhaitez soutenir notre projet et obtenir des avantages comme un accès anticipé à notre développement ou voir votre nom affiché sur cette page, vous pouvez nous soutenir ! Voici comment :";
@@ -824,4 +824,10 @@
 
 /* pages/[locale]/terms-and-conditions.astro */
 "okTurtles reserves the right to modify or update these Terms at any time. Your continued use of the Services after any such changes constitutes your acceptance of the new Terms." = "okTurtles se réserve le droit de modifier ou de mettre à jour ces Conditions à tout moment. Votre utilisation continue des Services après de telles modifications vaut acceptation des nouvelles Conditions.";
+
+/* Not currently used */
+"Group Income is a project developed by the okTurtles Foundation,\n        a non-profit organization that supports beneficial decentralization technologies.\n        If you want to help us succeed, consider becoming a sponsor." = "Group Income est un projet développé par la okTurtles Foundation,\nune organisation à but non lucratif qui soutient les technologies de décentralisation bénéfiques.\nSi vous souhaitez nous aider à réussir, envisagez de devenir sponsor.";
+
+/* Not currently used */
+"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "Utilisez {a1_}notre serveur officiel{_a}, choisissez parmi {a2_}une liste de{_a} serveurs gérés indépendamment, ou hébergez le vôtre !";
 

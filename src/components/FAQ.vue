@@ -159,7 +159,7 @@ export default {
           answer: [
             L('Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.{br_}{br_}', { ...LTags() }),
             L(
-              "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. ",
+              "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will.",
               { ...LTags('a'), 'a_': '<a href="https://www.businessnewsdaily.com/10625-businesses-collecting-data.html" target="_blank">' }
             ),
             ' ', // add a space to separate the sentences

@@ -283,7 +283,7 @@
 "Group Income is a federated system with multiple independently run servers. As far as our server goes, we have access to basic analytics like how many groups and how many users our server is hosting. We know how much space the data takes up. Like all web servers, we know the IP address that is used to access our servers. The IP address is useful in case our servers come under DoS attack (that way we can block malicious IPs)." = "Group Income is a federated system with multiple independently run servers. As far as our server goes, we have access to basic analytics like how many groups and how many users our server is hosting. We know how much space the data takes up. Like all web servers, we know the IP address that is used to access our servers. The IP address is useful in case our servers come under DoS attack (that way we can block malicious IPs).";
 
 /* pages/[locale]/donate.astro */
-"Group Income is a project developed by the okTurtles Foundation,\n        a non-profit organization that supports beneficial decentralization technologies.\n        If you want to help us succeed, consider becoming a sponsor." = "Group Income is a project developed by the okTurtles Foundation,\n        a non-profit organization that supports beneficial decentralization technologies.\n        If you want to help us succeed, consider becoming a sponsor.";
+"Group Income is a project developed by the okTurtles Foundation, a non-profit organization that supports beneficial decentralization technologies. If you want to help us succeed, consider becoming a sponsor." = "Group Income is a project developed by the okTurtles Foundation, a non-profit organization that supports beneficial decentralization technologies. If you want to help us succeed, consider becoming a sponsor.";
 
 /* components/FAQ.vue */
 "Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.{br_}{br_}" = "Group Income is a project of the okTurtles Foundation, a non-profit that supports beneficial decentralization technologies. The original goal of Group Income was to make open-source software sustainable. We wanted to make it possible for developers to produce high quality, open-source software, and still be able to provide for their families.{br_}{br_}";
@@ -654,9 +654,6 @@
 /* components/HomeAnimation.vue */
 "Try out the payments simulator." = "Try out the payments simulator.";
 
-/* components/GetStarted.vue */
-"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!";
-
 /* pages/[locale]/privacy-policy.astro */
 "Usernames registered" = "Usernames registered";
 
@@ -673,7 +670,7 @@
 "We do {i_}not{_i} have Third Party Service Agreements in place" = "We do {i_}not{_i} have Third Party Service Agreements in place";
 
 /* components/FAQ.vue */
-"We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. " = "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will. ";
+"We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will." = "We find decentralized software development vital for the future of society. We don't agree, nor want to perpetuate, the {a_}way most companies, as well as big data and data brokers{_a}, are currently using data to manipulate or tamper with people's will.";
 
 /* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
 "We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order." = "We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order.";
@@ -782,6 +779,9 @@
 
 /* components/FAQ.vue */
 "Why would people who earn more than a basic income want to give any of it away?" = "Why would people who earn more than a basic income want to give any of it away?";
+
+/* components/FAQ.vue */
+"With a decentralized system on Group Income, groups don't need to trust a centralized \"service provider\". Groups will be able to be self-governing, and will also only make decisions for themselves.{br_}{br_}" = "With a decentralized system on Group Income, groups don't need to trust a centralized \"service provider\". Groups will be able to be self-governing, and will also only make decisions for themselves.{br_}{br_}";
 
 /* pages/[locale]/privacy-policy.astro */
 "Your data is encrypted on your device with a key that doesn't leave your device. This encrypted data is stored encrypted on our servers. We do not have access to your keys. Data is decrypted locally, by your device. This means we cannot read your encrypted data." = "Your data is encrypted on your device with a key that doesn't leave your device. This encrypted data is stored encrypted on our servers. We do not have access to your keys. Data is decrypted locally, by your device. This means we cannot read your encrypted data.";
