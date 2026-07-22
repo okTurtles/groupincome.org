@@ -3,7 +3,7 @@
   <div class="c-feature-boxes">
     <div class="c-feature-box">
       <div class="c-feature-box-title">{{ L('Choose a Server') }}</div>
-      <div class="c-feature-box-para" v-html="L('Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!', { a1_: '<a href=\'https://groupincome.app\' class=\'is-link\'>', _a: '</a>', a2_: '<a class=\'is-link\' v-href=\'/get-started#servers\'>' })" />
+      <div class="c-feature-box-para" v-html="chooseServerHtml" />
     </div>
 
     <div class="c-feature-box">
@@ -32,7 +32,7 @@
       allowfullscreen>
     </iframe>
     <!-- <iframe style="width:100%; aspect-ratio:16 / 9;" class="has-deep-box-shadow"
-      src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k"
+      src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k"v-href=
       title="YouTube video player"
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
@@ -41,14 +41,27 @@
 </div>
 </template>
 
-<script>
+<script> 
 import { inject } from 'vue'
+import { resolvePath } from '@/utils/helpers.js'
 
 export default {
   name: 'GetStarted',
   setup () {
     const L = inject('L')
-    return { L }
+    const locale = inject('locale')
+    return { L, locale }
+  },
+  computed: {
+    localeAwareGetStartedLink () {
+      return resolvePath('get-started#server', this.locale)
+    },
+    chooseServerHtml () {
+      return this.L(
+        'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!',
+        { a1_: '<a href=\'https://groupincome.app\' class=\'is-link\'>', _a: '</a>', a2_: `<a class='is-link' href='${this.localeAwareGetStartedLink}'>` }
+      )
+    }
   }
 }
 </script>

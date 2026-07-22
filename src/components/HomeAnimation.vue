@@ -55,8 +55,8 @@
           <div class="is-title-3 c-container-posttitle">{{ L('What is Group Income?') }}</div>
           <p class="is-title-2 c-container-title">{{ L('A safe space to financially support each other.') }}</p>
           <p class="c-container-para">{{ L('Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.') }}</p>
-          <a class="c-container-link is-link" v-href="'/faq'">{{ L('Learn more about Basic Income.') }}</a>
-          <a class="is-link" v-href="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
+          <a class="c-container-link is-link" v-href.locale="'/faq'">{{ L('Learn more about Basic Income.') }}</a>
+          <a class="is-link" v-href.locale="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
         </div>
 
         <div class="span-2" id="circle-graph">
@@ -71,7 +71,7 @@
             <p class="is-title-2 c-container-title">{{ L('Every individual is valuable.') }}</p>
             <p class="c-container-para">{{ L('Many people contribute to our lives and our society, but are often not financially rewarded. From students to unpaid careers, from volunteers to care givers, from unemployed people to unwell.') }}</p>
             <p class="c-container-para c-mt-16">{{ L('Basic Income can improve the quality of life for millions of people, simply through providing them with basic financial security and the peace of mind that goes with it.') }}</p>
-            <a class="c-container-link is-link" v-href="'/faq'">{{ L('Learn more about Basic Income.') }}</a>
+            <a class="c-container-link is-link" v-href.locale="'/faq'">{{ L('Learn more about Basic Income.') }}</a>
           </div>
 
           <div class="span-2">
@@ -126,7 +126,7 @@
             <span v-html="L('Group Income is built on top of an end-to-end encrypted protocol called {a_}Shelter Protocol{_a}.', { a_: '<a class=\'is-link\' href=\'https://shelterprotocol.net\' target=\'_blank\'>', _a: '</a>' })"></span>
             {{ L('Your data is stored in encrypted form on servers, and decrypted locally on your device. The keys to decrypt that data are derived from your password and are also stored on your device.') }}
           </p>
-          <a class="c-container-link is-link" v-href="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
+          <a class="c-container-link is-link" v-href.locale="'/privacy-policy'">{{ L('Read more about our privacy and security.') }}</a>
         </div>
 
         <div class="span-2">
@@ -152,7 +152,7 @@
 
           <div class="c-buttons">
             <a class="c-navbar-item button is-big is-primary" v-href.locale="'/get-started'">{{ L('Get started') }}</a>
-            <a class="c-navbar-item button is-big is-outlined" v-href="'/donate'">{{ L('Donate') }}</a>
+            <a class="c-navbar-item button is-big is-outlined" v-href.locale="'/donate'">{{ L('Donate') }}</a>
           </div>
         </div>
 
