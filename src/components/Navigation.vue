@@ -45,7 +45,7 @@ onMounted(() => {
     { name: L('Home'), id: 'homeLink', path: '/' },
     { name: L('About us'), id: 'aboutUsLink', path: '/about-us' },
     { name: L('Blog'), id: 'blogLink', path: '/blog' },
-    { name: L('FAQS'), id: 'blogLink', path: '/faq' },
+    { name: L('FAQS'), id: 'faqLink', path: '/faq' },
     { name: L('Hiring'), id: 'hiringLink', path: '/hiring', badge: activeJobPostNames.length },
     { name: L('Donate'), id: 'donateLink', path: '/donate' }
   ].filter(Boolean)

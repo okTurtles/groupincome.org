@@ -20,7 +20,7 @@ const _description = description || SITE_DESCRIPTION;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale || 'en'}>
 	<head>
 		<BaseHead title={_title} description={_description} image={image || ''} />
 	</head>

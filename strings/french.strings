@@ -397,7 +397,7 @@
 "<Your Server>" = "<Votre serveur>";
 
 /* components/Servers.astro */
-"Edit the {a_}this page on Github{_a} to add your server here." = "Modifiez {a_}cette page sur Github{_a} pour ajouter votre serveur ici.";
+"Edit {a_}this page on Github{_a} to add your server here." = "Modifiez {a_}cette page sur Github{_a} pour ajouter votre serveur ici.";
 
 /* components/Servers.astro */
 "The official Group Income Server." = "Le serveur officiel Group Income.";
@@ -505,7 +505,7 @@
 "okTurtles Foundation is a 501(c)(3) non-profit. Our research, education, and development efforts go to supporting beneficial decentralization technologies. Our work has been covered in TechCrunch, VICE, Engadget, and elsewhere on the web." = "La okTurtles Foundation est une organisation à but non lucratif 501(c)(3). Nos efforts de recherche, d’éducation et de développement visent à soutenir des technologies de décentralisation bénéfiques. Notre travail a été couvert par TechCrunch, VICE, Engadget et ailleurs sur le web.";
 
 /* pages/[locale]/donate.astro */
-"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!" = "Après avoir effectué un don en cryptomonnaie, envoyez-nous un e-mail à {a_}hi@okturtles.org{_a} afin que nous puissions vous remercier et vous envoyer un reçu pour vos archives et obligations fiscales — et indiquez-nous si vous souhaitez que nous vous remerciions publiquement pour votre don !";
+"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know if you'd like us to publicly thank you for your donation!" = "Après avoir effectué un don en cryptomonnaie, envoyez-nous un e-mail à {a_}hi@okturtles.org{_a} afin que nous puissions vous remercier et vous envoyer un reçu pour vos archives et obligations fiscales — et indiquez-nous si vous souhaitez que nous vous remerciions publiquement pour votre don !";
 
 /* pages/[locale]/donate.astro */
 "Become a Sponsor" = "Devenir sponsor";

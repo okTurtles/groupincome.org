@@ -12,6 +12,7 @@ import { inject } from 'vue'
 import { supportedLangCodes, languageDisplayNames } from '@/i18n/utils'
 import Dropdown, { type MenuItem } from '@/components/Dropdown.vue'
 
+const basePath = import.meta.env.BASE_URL
 // helper function
 const capitalizeText = (text: string) => {
   return text.slice(0, 1).toUpperCase() + text.slice(1)
@@ -27,13 +28,16 @@ const optionsList = supportedLangCodes.map((code) => ({
 // methods
 const handleLanguageChange = (option: MenuItem) => {
   const newLocale = option.id
+  if (newLocale === currentLocale) return
 
-  if (newLocale !== currentLocale) {
-    const newUrl = window.location.pathname.replace(`/${currentLocale}`, `/${newLocale}`)
+  const path = window.location.pathname
+  const withoutBase = path.startsWith(basePath) ? path.slice(basePath.length) : path
+
+  if (currentLocale && withoutBase.startsWith(currentLocale)) {
+    const newUrl = `${basePath}${withoutBase.replace(currentLocale, newLocale)}${window.location.search}${window.location.hash}`
     window.location.href = newUrl
   }
 }
-
 </script>
 
 <style lang="scss" scoped>

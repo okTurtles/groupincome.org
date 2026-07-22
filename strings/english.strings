@@ -34,7 +34,7 @@
 "Additional notes on emails, password, and billing details" = "Additional notes on emails, password, and billing details";
 
 /* pages/[locale]/donate.astro */
-"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!" = "After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!";
+"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know if you'd like us to publicly thank you for your donation!" = "After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know if you'd like us to publicly thank you for your donation!";
 
 /* pages/[locale]/privacy-policy.astro */
 "Any billing-relevant information" = "Any billing-relevant information";
@@ -187,7 +187,7 @@
 "Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}" = "Each group will have a mechanism for removing members, just as there will be a mechanism for approving new members. Additionally, Group Income is a completely voluntary system, meaning that any group member can voluntarily leave their group at any time.{br_}{br_}";
 
 /* components/Servers.astro */
-"Edit the {a_}this page on Github{_a} to add your server here." = "Edit the {a_}this page on Github{_a} to add your server here.";
+"Edit {a_}this page on Github{_a} to add your server here." = "Edit {a_}this page on Github{_a} to add your server here.";
 
 /* components/HomeAnimation.vue */
 "Empower Your Community" = "Empower Your Community";

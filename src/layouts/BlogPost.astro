@@ -26,7 +26,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 	<section class="container grey-container">
 		<div class="l-1-2 c-blog-header">
 			<div class="c-header">
-				<a class="is-posttitle" href="/blog">BLOG</a>
+				<a class="is-posttitle" href={resolvePath('/blog', 'en')}>BLOG</a>
 				<h1 class="is-title-1 c-main-title">{title}</h1>
 				<p class="c-main-para">{author} • { date }</p>
 			</div>

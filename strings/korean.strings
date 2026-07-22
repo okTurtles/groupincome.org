@@ -391,7 +391,7 @@
 "<Your Server>" = "<귀하의 서버>";
 
 /* components/Servers.astro */
-"Edit the {a_}this page on Github{_a} to add your server here." = "Github에서 {a_}이 페이지{_a}를 편집하여 당신의 서버를 추가하세요.";
+"Edit {a_}this page on Github{_a} to add your server here." = "Github에서 {a_}이 페이지{_a}를 편집하여 당신의 서버를 추가하세요.";
 
 /* components/Servers.astro */
 "The official Group Income Server." = "공식 Group Income 서버.";
@@ -499,7 +499,7 @@
 "okTurtles Foundation is a 501(c)(3) non-profit. Our research, education, and development efforts go to supporting beneficial decentralization technologies. Our work has been covered in TechCrunch, VICE, Engadget, and elsewhere on the web." = "okTurtles Foundation은 501(c)(3) 비영리 단체입니다. 우리의 연구, 교육, 개발 노력은 유익한 분산화 기술을 지원하는 데 기여합니다. 우리의 작업은 TechCrunch, VICE, Engadget 및 웹의 다른 곳에서 다뤄졌습니다.";
 
 /* pages/[locale]/donate.astro */
-"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know us know if you'd like us to publicly thank you for your donation!" = "암호화폐 기부를 하신 후에는, 저희가 감사를 표하고 기부내역과 영수증을 보내드릴 수 있게 {a_}hi@okturtles.org{_a}로 이메일을 보내주세요. - 또한 저희가 기부에 대한 공개 감사를 표하길 원하시는지 알려주세요!";
+"After you make a crypto donation, email us at {a_}hi@okturtles.org{_a} so we can thank you and send you a receipt for your records and tax purposes — and let us know if you'd like us to publicly thank you for your donation!" = "암호화폐 기부를 하신 후에는, 저희가 감사를 표하고 기부내역과 영수증을 보내드릴 수 있게 {a_}hi@okturtles.org{_a}로 이메일을 보내주세요. - 또한 저희가 기부에 대한 공개 감사를 표하길 원하시는지 알려주세요!";
 
 /* pages/[locale]/donate.astro */
 "Become a Sponsor" = "스폰서가 되어주세요";

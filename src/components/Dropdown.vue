@@ -75,7 +75,6 @@ const checkAndCloseMenu = (e: MouseEvent) => {
 
   const target = e.target as HTMLElement | null
   if (target && !target.closest('.dropdown')) {
-    console.log('!@# clicked outside')
     closeMenu()
   }
 }
