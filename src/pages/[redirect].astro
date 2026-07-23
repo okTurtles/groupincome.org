@@ -1,0 +1,19 @@
+---
+export async function getStaticPaths() {
+  const pages = [
+    'about-us',
+    'donate',
+    'faq',
+    'get-started',
+    'other-ways-to-support',
+    'privacy-policy',
+    'terms-and-conditions',
+    'tag'
+  ]
+  return pages.map(page => ({ params: { redirect: page } }))
+}
+
+const { redirect } = Astro.params
+const redirectUrl = `${import.meta.env.BASE_URL}en/${redirect}`
+---
+<meta http-equiv="refresh" content={'0;url=' + redirectUrl} />
