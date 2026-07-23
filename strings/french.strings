@@ -502,7 +502,7 @@
 "See open positions" = "Voir les postes ouverts";
 
 /* pages/[locale]/about-us.astro */
-"Want to stay in the loop? Check the best way to get involve and get up-to-date." = "Vous souhaitez rester informé ? Découvrez la meilleure façon de vous impliquer et de rester à jour.";
+"Want to stay in the loop? Check the best way to get involved and get up-to-date." = "Vous souhaitez rester informé ? Découvrez la meilleure façon de vous impliquer et de rester à jour.";
 
 /* pages/[locale]/about-us.astro */
 "We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!" = "Nous avons eu la chance d’avoir des personnes formidables qui ont contribué à ce projet au fil des années, et nous ne serions pas là où nous en sommes aujourd’hui sans leur contribution. Merci !";

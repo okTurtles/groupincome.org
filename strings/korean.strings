@@ -496,7 +496,7 @@
 "See open positions" = "채용 공고 보기";
 
 /* pages/[locale]/about-us.astro */
-"Want to stay in the loop? Check the best way to get involve and get up-to-date." = "최신 소식을 받고 싶으신가요? 참여하고 최신 정보를 받을 수 있는 최선의 방법을 확인하세요.";
+"Want to stay in the loop? Check the best way to get involved and get up-to-date." = "최신 소식을 받고 싶으신가요? 참여하고 최신 정보를 받을 수 있는 최선의 방법을 확인하세요.";
 
 /* pages/[locale]/about-us.astro */
 "We've been lucky to have fantastic people contributing to this project throughout the years, and would not be where we are today without their contribution. Thank you!" = "수년간 이 프로젝트에 기여해준 훌륭한 사람들을 만날 수 있어 행운이었으며, 그들의 기여 없이는 오늘의 우리가 있을 수 없었습니다. 감사합니다!";
