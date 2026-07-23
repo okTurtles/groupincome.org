@@ -174,6 +174,9 @@
 /* components/Accordion.vue, components/Footer.vue, components/HomeAnimation.vue, components/Navigation.vue, pages/[locale]/other-ways-to-support.astro */
 "Donate" = "Donate";
 
+/* components/Fundraiser.vue */
+"Donate now" = "Donate now";
+
 /* components/Accordion.vue */
 "Donate time" = "Donate time";
 
@@ -327,6 +330,9 @@
 /* components/HomeAnimation.vue */
 "Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption." = "Help guarantee access to fundamental needs, independent of life circumstances in a safe and private environment thanks to end-to-end encryption.";
 
+/* components/Fundraiser.vue */
+"Help us reach our goal! 🙏" = "Help us reach our goal! 🙏";
+
 /* components/HomeAnimation.vue */
 "Here's how to get started:" = "Here's how to get started:";
 
@@ -478,7 +484,7 @@
 "Open Protocol" = "Open Protocol";
 
 /* pages/[locale]/other-ways-to-support.astro */
-"Other Ways Support" = "Other Ways Support";
+"Other Ways To Support" = "Other Ways To Support";
 
 /* pages/[locale]/donate.astro */
 "Other ways to Donate" = "Other ways to Donate";

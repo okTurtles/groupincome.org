@@ -282,6 +282,12 @@
 /* components/Footer.vue, components/Navigation.vue, pages/[locale]/blog/[...page].astro */
 "Blog" = "블로그";
 
+/* components/Fundraiser.vue */
+"Donate now" = "지금 기부하기";
+
+/* components/Fundraiser.vue */
+"Help us reach our goal! 🙏" = "목표 달성을 도와주세요! 🙏";
+
 /* components/GetStarted.vue */
 "Choose a Server" = "서버 선택하기";
 
@@ -592,7 +598,7 @@
 "Run your own server" = "본인만의 서버를 운영하세요";
 
 /* pages/[locale]/other-ways-to-support.astro */
-"Other Ways Support" = "기타 기부 방법";
+"Other Ways To Support" = "기타 기부 방법";
 
 /* pages/[locale]/other-ways-to-support.astro */
 "Please email {a_}hi@okturtles.org{_a}" = "{a_}hi@okturtles.org{_a}로 이메일을 보내주세요.";

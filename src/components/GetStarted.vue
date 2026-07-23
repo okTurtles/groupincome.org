@@ -32,7 +32,7 @@
       allowfullscreen>
     </iframe>
     <!-- <iframe style="width:100%; aspect-ratio:16 / 9;" class="has-deep-box-shadow"
-      src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k"v-href=
+      src="https://www.youtube-nocookie.com/embed/bCxvP_qwTD4?si=oKRH1nhY3qtMVA4k"
       title="YouTube video player"
       frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     localeAwareGetStartedLink () {
-      return resolvePath('get-started#server', this.locale)
+      return resolvePath('get-started#servers', this.locale)
     },
     chooseServerHtml () {
       return this.L(

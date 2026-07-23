@@ -36,7 +36,7 @@ export default (app: App) => {
     setResolvedPathToAttr('href', el, binding.value, binding.modifiers.locale)
   })
 
-  //  mixins
+  // global mixins
   app.mixin({
     resolvePath
   })

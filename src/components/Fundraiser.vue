@@ -1,7 +1,7 @@
 <template>
 <div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
-    <b>Help us reach our goal! 🙏</b>
+    <i18n tag="b">Help us reach our goal! 🙏</i18n>
     <div class="progress-wrapper">
       <div class="progress-element">
         <div class="progress-container">
@@ -10,7 +10,7 @@
         <p class="progress-label">${{ current }} ({{ percent }})</p>
       </div>
     </div>
-    <a v-href.locale="'/donate'" class="button">Donate now</a>
+    <i18n tag="a" v-href.locale="'/donate'" class="button">Donate now</i18n>
     <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
       tabindex="0"
       @click="closeFundraiser"

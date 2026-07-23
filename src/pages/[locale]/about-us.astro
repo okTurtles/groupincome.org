@@ -125,7 +125,7 @@ export async function getStaticPaths() {
       <p class="c-container-para-link">
         <I18n>Do you like our project and want to join our team?</I18n>
         <br/>
-        <I18n tag="a" class="c-container-link is-link" href={resolvePath("/hiring")} data-test="hiringLink">See open positions</I18n>
+        <I18n tag="a" class="c-container-link is-link" href={resolvePath("/hiring", locale)} data-test="hiringLink">See open positions</I18n>
       </p>
     </section>
     <section class="container grey-container">
@@ -136,7 +136,7 @@ export async function getStaticPaths() {
           <li><a href="https://github.com/okTurtles/group-income-simple" target="_blank"><img src={resolvePath("/images/about/community/github.svg")} /><I18n>Check and contribute on our code on Github.</I18n></a></li>
           <li><a href="https://join.slack.com/t/okturtles/shared_invite/zt-10jmpfgxj-tXQ1MKW7t8qqdyY6fB7uyQ" target="_blank"><img src={resolvePath("/images/about/community/slack.svg")} /><I18n>Join our Slack conversations.</I18n></a></li>
           <li><a href="https://www.reddit.com/r/basicincome" target="_blank"><img src={resolvePath("/images/about/community/reddit.svg")} /><I18n>Check Group Income and Basic Income on Reddit.</I18n></a></li>
-          <li><a href={resolvePath("/blog")} target="_blank"><img src={resolvePath("images/about/community/blog.svg")} /><I18n>Read our thoughts on the Blog.</I18n></a></li>
+          <li><a href={resolvePath("/blog", locale)} target="_blank"><img src={resolvePath("images/about/community/blog.svg")} /><I18n>Read our thoughts on the Blog.</I18n></a></li>
           <li><a href="https://twitter.com/Group_Income" target="_blank"><img src={resolvePath("/images/about/community/twitter.svg")} /><I18n>Follow us on Twitter.</I18n></a></li>
           <li><a href="https://crib.social/GroupIncome" target="_blank"><img src={resolvePath("/images/about/community/mastodon.svg")} /><I18n>Connect on the Fediverse.</I18n></a></li>
           <li><a href="https://www.youtube.com/c/groupincome" target="_blank"><img src={resolvePath("/images/about/community/youtube.svg")} /><I18n>Check our videos on YouTube.</I18n></a></li>

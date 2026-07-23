@@ -68,7 +68,6 @@
 <script>
 import { inject } from 'vue'
 import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
-import LanguageSwitch from '@/components/LanguageSwitch.vue'
 import { validateEmail } from '@/utils/helpers.js'
 import { openModal } from '@/store'
 
@@ -81,8 +80,7 @@ const EMAIL_BLACKLIST = [
 export default {
   name: 'Footer',
   components: {
-    NewsLetterWarningModal,
-    LanguageSwitch
+    NewsLetterWarningModal
   },
   setup () {
     const L = inject('L')

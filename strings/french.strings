@@ -288,6 +288,12 @@
 /* components/Footer.vue, components/Navigation.vue */
 "Home" = "Accueil";
 
+/* components/Fundraiser.vue */
+"Donate now" = "Faire un don";
+
+/* components/Fundraiser.vue */
+"Help us reach our goal! 🙏" = "Aidez-nous à atteindre notre objectif ! 🙏";
+
 /* components/GetStarted.vue */
 "Choose a Server" = "Choisir un serveur";
 
@@ -595,7 +601,7 @@
 "Run your own server" = "Hébergez votre propre serveur";
 
 /* pages/[locale]/other-ways-to-support.astro */
-"Other Ways Support" = "Autres moyens de soutien";
+"Other Ways To Support" = "Autres moyens de soutien";
 
 /* pages/[locale]/other-ways-to-support.astro */
 "Please email {a_}hi@okturtles.org{_a}" = "Veuillez envoyer un e-mail à {a_}hi@okturtles.org{_a}";
