@@ -1,0 +1,29 @@
+---
+import { sortedPosts, uniq } from '@/utils/helpers.js'
+export async function getStaticPaths() {
+  // Below are either 'tag/{string}' pages or 'blog/{number}' pages that were present before the localization of the website.
+  // The reason we don't extract these dynamically is because the pages generated after localization is deployed don't need to be set up for redirection.
+  // (Only the pages before localization need this)
+  const allTagPagesBeforeLocalization = [ 'hackathon', 'progress', 'prototype', 'voting' ].map(tag => `tag/${tag}`)
+  const allBlogPagesBeforeLocalization = [2, 3, 4, 5].map(n => `blog/${n}`)
+
+  const pages = [
+    'about-us',
+    'donate',
+    'faq',
+    'get-started',
+    'other-ways-to-support',
+    'privacy-policy',
+    'terms-and-conditions',
+    'tag',
+    'blog',
+    ...allBlogPagesBeforeLocalization,
+    ...allTagPagesBeforeLocalization
+  ]
+  return pages.map(page => ({ params: { redirect: page } }))
+}
+
+const { redirect } = Astro.params
+const redirectUrl = `${import.meta.env.BASE_URL}en/${redirect}`
+---
+<meta http-equiv="refresh" content={'0;url=' + redirectUrl} />
