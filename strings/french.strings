@@ -312,6 +312,9 @@
 /* components/GetStarted.vue */
 "Read more about our technology" = "En savoir plus sur notre technologie";
 
+/* components/GetStarted.vue */
+"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "Utilisez {a1_}notre serveur officiel{_a}, choisissez parmi {a2_}une liste de{_a} serveurs gérés indépendamment, ou hébergez le vôtre !";
+
 /* components/HomeAnimation.vue */
 "A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted." = "Un chat communautaire puissant avec réactions emoji, sondages, pièces jointes et bien plus encore — entièrement privé et chiffré de bout en bout.";
 
@@ -833,7 +836,4 @@
 
 /* Not currently used */
 "Group Income is a project developed by the okTurtles Foundation,\n        a non-profit organization that supports beneficial decentralization technologies.\n        If you want to help us succeed, consider becoming a sponsor." = "Group Income est un projet développé par la okTurtles Foundation,\nune organisation à but non lucratif qui soutient les technologies de décentralisation bénéfiques.\nSi vous souhaitez nous aider à réussir, envisagez de devenir sponsor.";
-
-/* Not currently used */
-"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "Utilisez {a1_}notre serveur officiel{_a}, choisissez parmi {a2_}une liste de{_a} serveurs gérés indépendamment, ou hébergez le vôtre !";
 

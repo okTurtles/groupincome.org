@@ -306,6 +306,9 @@
 /* components/GetStarted.vue */
 "Read more about our technology" = "기술에 대해 더 알아보기";
 
+/* components/GetStarted.vue */
+"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "{a1_}저희 공식 서버를{_a} 이용하거나, {a2_}독립 운영 서버 리스트에서{_a} 하나를 선택하거나, 혹은 본인만의 서버를 운영하세요!";
+
 /* components/HomeAnimation.vue */
 "A powerful community chat with emoji reactions, polls, file attachments, and more — all completely private and end-to-end encrypted." = "이모지 리액션, 투표, 파일 첨부 등 다양한 기능을 제공하는 강력한 커뮤니티 채팅 소프트웨어, 모두 비밀이며 엔드-투-엔드(E2E) 암호화를 적용합니다.";
 
@@ -833,7 +836,4 @@
 
 /* Not currently used */
 "Group Income is a project developed by the okTurtles Foundation,\n        a non-profit organization that supports beneficial decentralization technologies.\n        If you want to help us succeed, consider becoming a sponsor." = "Group Income은 okTurtles Foundation이라는 비영리 단체에서 진행되는 프로젝트로, 유익한 분산화 기술(Decentralization technologies)을 지원합니다. 저희의 성공을 돕고 싶다면, 스폰서가 되어주세요.";
-
-/* Not currently used */
-"Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!" = "{a1_}저희 공식 서버를{_a} 이용하거나, {a2_}독립 운영 서버 리스트에서{_a} 하나를 선택하거나, 혹은 본인만의 서버를 운영하세요!";
 

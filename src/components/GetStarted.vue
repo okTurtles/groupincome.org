@@ -57,7 +57,8 @@ export default {
       return resolvePath('get-started#servers', this.locale)
     },
     chooseServerHtml () {
-      return this.L(
+      const L = this.L
+      return L(
         'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!',
         { a1_: '<a href=\'https://groupincome.app\' class=\'is-link\'>', _a: '</a>', a2_: `<a class='is-link' href='${this.localeAwareGetStartedLink}'>` }
       )
