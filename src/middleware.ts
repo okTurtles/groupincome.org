@@ -1,8 +1,10 @@
 import { defineMiddleware } from "astro:middleware";
+import { loadTranslationTable } from "./i18n/utils";
 
 // https://docs.astro.build/en/guides/middleware/
-export const onRequest = defineMiddleware((context, next) => {
+export const onRequest = defineMiddleware(async (context, next) => {
   if (context.params.locale) {
+    await loadTranslationTable(context.params.locale)
     // storing data in context.locals: https://docs.astro.build/en/guides/middleware/#storing-data-in-contextlocals
 
     // 'locale' param captured here(eg. any page route with [locale]/page-name.astro) needs to be available globally to all .astro and .vue files without having to do messy prop-drilling everywhere.

@@ -1,14 +1,10 @@
-// tables
-import koreanTable from '../../strings/korean.json' with { type: 'json' }
-import frenchTable from '../../strings/french.json' with { type: 'json' }
-
 export type TranslationFn = (key: string, args?: Record<string, string>) => string
 
-const translationTables: { [index: string]: any } = {
-  // language-code reference: https://www.w3schools.com/tags/ref_language_codes.asp
-  'ko': koreanTable,
-  'fr': frenchTable
+const tableLoaders: Record<string, () => Promise<any>> = {
+  'ko': () => import('../../strings/korean.json').then(module => module.default),
+  'fr': () => import('../../strings/french.json').then(module => module.default)
 }
+const translationTables: Record<string, any> = {}
 
 export const languageDisplayNames: Record<string, string> = {
   // language display names in their own languages
@@ -18,7 +14,12 @@ export const languageDisplayNames: Record<string, string> = {
 }
 
 export const defaultLanguage = 'en'
-export const supportedLangCodes: string[] = [defaultLanguage, ...Object.keys(translationTables)]
+export const supportedLangCodes: string[] = [defaultLanguage, ...Object.keys(tableLoaders)]
+
+export async function loadTranslationTable (lang: string): Promise<void> {
+  if (!tableLoaders[lang] || translationTables[lang]) return
+  translationTables[lang] = await tableLoaders[lang]()
+}
 
 // dynamic route definitions to be used in getStaticPaths() function of each page
 // (reference: https://docs.astro.build/en/reference/routing-reference/#getstaticpaths)

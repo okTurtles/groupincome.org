@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
-import { useTranslation } from '@/i18n/utils'
+import { useTranslation, loadTranslationTable } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.vue'
 
 // This is a flag to check whether this file runs during compilation time(NodeJS environment) or runtime(Browser context).
@@ -21,7 +21,7 @@ const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: strin
   el.setAttribute(attrName, resolvePath(relPath, useLocale ? getLang() : '') || '')
 }
 
-export default (app: App) => {
+export default async (app: App) => {
   // custom-directives
   app.directive('src', (el, binding) => {
     setResolvedPathToAttr('src', el, binding.value, binding.modifiers.locale)
@@ -45,6 +45,7 @@ export default (app: App) => {
   app.component('I18n', I18n)
 
   const locale = getLang()
+  await loadTranslationTable(locale)
   const L = useTranslation(locale)
 
   // global provides (reference: https://vuejs.org/guide/components/provide-inject.html#app-level-provide)

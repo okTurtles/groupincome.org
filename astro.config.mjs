@@ -41,13 +41,16 @@ const siteMap = {
   'staging': 'https://okturtles.github.io',
   'production': 'https://groupincome.org'
 }
+const base = BUILD_TARGET === 'staging' ? '/groupincome.org/' : '/'
+// NOTE: keep in sync with supportedLangCodes in src/i18n/utils.ts
+const sitemapLocales = ['en', 'ko', 'fr']
 // Reference:
 // https://docs.astro.build/en/reference/configuration-reference/
 // https://vite.dev/config/
 
 export default defineConfig({
   site: siteMap[BUILD_TARGET],
-  base: BUILD_TARGET === 'staging' ? '/groupincome.org/' : '/',
+  base,
   // Sass-related options
   css: {
     preprocessorOptions: {
@@ -58,7 +61,20 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      // Legacy pre-localization URLs (e.g. `/hiring`, `/blog/2`, `/tag/voting`) are just
+      // client-side meta-refresh redirect — exclude them so only the real,
+      // locale-prefixed pages under /en/, /ko/, /fr/ etc. are indexed.
+      filter: (page) => {
+        const path = new URL(page).pathname.replace(base, '')
+        return sitemapLocales.some(locale => path.startsWith(`${locale}/`))
+      },
+      i18n: {
+        // i18n option reference: https://docs.astro.build/en/guides/integrations-guide/sitemap/#i18n
+        defaultLocale: 'en',
+        locales: Object.fromEntries(sitemapLocales.map(locale => [locale, locale]))
+      }
+    }),
     vue({ appEntrypoint: '/src/_app' })
   ],
   markdown: {
@@ -75,4 +91,5 @@ export default defineConfig({
       }
     }
   }
+  // NOTE: Never set build.concurrency option to anything higher than 1. It will break the translations of the website. 
 })
