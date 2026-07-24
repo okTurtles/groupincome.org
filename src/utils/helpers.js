@@ -6,8 +6,14 @@ export function resolvePath (relPath = '', lang = '') {
   // lang here is the locale prefix to the path if it's passed in. (eg. 'en/', 'fr/', etc.)
   if (!relPath) { return undefined }
 
-  relPath = relPath.startsWith('/') ? relPath.slice(1) : relPath
-  return `${import.meta.env.BASE_URL}${lang ? lang + '/' : ''}${relPath}`
+  const baseUrl = import.meta.env.BASE_URL
+  if (baseUrl !== '/' && relPath.startsWith(baseUrl)) {
+    // If the relPath already has the baseUrl like /groupincome.org/ prefix in staging.
+    return relPath
+  } else {
+    relPath = relPath.startsWith('/') ? relPath.slice(1) : relPath
+    return `${baseUrl}${lang ? lang + '/' : ''}${relPath}`
+  }
 }
 
 export function sortedPosts (matches) {
