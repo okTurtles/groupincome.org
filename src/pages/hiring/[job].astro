@@ -2,6 +2,7 @@
 /* logic to redirect existing https://www.groupincome.org/jobs/job-name links out there to https://www.groupincome.org/en/hiring/job-name */
 
 import { sortedPosts } from '@/utils/helpers'
+import { defaultLanguage } from '@/i18n/utils'
 export async function getStaticPaths() {
   const jobs =  sortedPosts(import.meta.glob('../../jobs/*.{md,mdx}', { eager: true }));
   return jobs.map(job => {
@@ -16,7 +17,18 @@ export async function getStaticPaths() {
 }
 
 const { job: slug } = Astro.params
-const redirectUrl = `${import.meta.env.BASE_URL}en/hiring/${slug}`
+const baseUrl = import.meta.env.BASE_URL
 ---
 
-<meta http-equiv="refresh" content={'0;url=' + redirectUrl} />
+<script>
+  import { getRedirectLocale } from '@/i18n/utils'
+  const baseUrl = import.meta.env.BASE_URL
+  const { pathname, search, hash } = window.location
+  const subPath = pathname.slice(baseUrl.length) // strip the base to get 'hiring/<job>/'
+  window.location.replace(`${baseUrl}${getRedirectLocale()}/${subPath}${search}${hash}`)
+</script>
+
+<!-- Fallback for visitors with JavaScript disabled: redirect to the default language. -->
+<noscript>
+  <meta http-equiv="refresh" content={`0;url=${baseUrl}${defaultLanguage}/hiring/${slug}`} />
+</noscript>

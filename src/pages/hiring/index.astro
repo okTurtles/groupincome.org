@@ -1,5 +1,21 @@
 ---
-const redirectUrl = `${import.meta.env.BASE_URL}en/hiring`
+/* Redirect existing https://www.groupincome.org/hiring links out there to a locale-prefixed page.
+   The visitor's preferred language is detected client-side via getRedirectLocale(); visitors with
+   JavaScript disabled fall back to the default language via the <noscript> tag below. */
+import { defaultLanguage } from '@/i18n/utils'
+
+const baseUrl = import.meta.env.BASE_URL
 ---
 
-<meta http-equiv="refresh" content={'0;url=' + redirectUrl} />
+<script>
+  import { getRedirectLocale } from '@/i18n/utils'
+  const baseUrl = import.meta.env.BASE_URL
+  const { pathname, search, hash } = window.location
+  const subPath = pathname.slice(baseUrl.length) // strip the base to get 'hiring/'
+  window.location.replace(`${baseUrl}${getRedirectLocale()}/${subPath}${search}${hash}`)
+</script>
+
+<!-- Fallback for visitors with JavaScript disabled: redirect to the default language. -->
+<noscript>
+  <meta http-equiv="refresh" content={`0;url=${baseUrl}${defaultLanguage}/hiring`} />
+</noscript>

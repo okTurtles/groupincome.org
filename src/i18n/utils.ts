@@ -27,6 +27,17 @@ export async function loadTranslationTable (lang: string): Promise<void> {
   translationTables[lang] = await tableLoaders[lang]()
 }
 
+// Figures out the visitor's preferred language from their browser/OS settings — exposed by the
+// browser via navigator.languages (e.g. a Korean-configured device reports ['ko-KR', 'ko', ...]) —
+// and returns the locale we should redirect them to: the first language in their preference order
+// that we actually translate the site into, falling back to the default language otherwise.
+export function getRedirectLocale (): string {
+  const preferred = navigator.languages?.length ? navigator.languages : [navigator.language]
+  return preferred
+    .map((lang) => lang.split('-')[0].toLowerCase()) // 'ko-KR' -> 'ko'
+    .find((code) => supportedLangCodes.includes(code)) || defaultLanguage
+}
+
 // dynamic route definitions to be used in getStaticPaths() function of each page
 // (reference: https://docs.astro.build/en/reference/routing-reference/#getstaticpaths)
 export function getDynamicRoutes(): Array<any> {
