@@ -3,26 +3,37 @@
   <Dropdown class="c-dropdown"
     :menuOptions="optionsList"
     :initialSelectedOptionId="currentLocale"
-    @select="handleLanguageChange" />
+    @select="handleLanguageChange">
+    <template #selected-text="{ option }">
+      <span class="flag-emoji is-larger">{{ getLangEmoji(option.id) }}</span>
+    </template>
+    <template #menu-item-text="{ option }">
+      <span class="flag-emoji has-right-margin">{{ getLangEmoji(option.id) }}</span>
+      <span class="locale-display-name">- {{ option.name }}</span>
+    </template>
+  </Dropdown>
 </div>
 </template>
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { supportedLangCodes, languageDisplayNames } from '@/i18n/utils'
+import { supportedLangCodes, languageDisplayNames, flagEmojiMap } from '@/i18n/utils'
 import Dropdown, { type MenuItem } from '@/components/Dropdown.vue'
 
 const basePath = import.meta.env.BASE_URL
 // helper function
-const capitalizeText = (text: string) => {
-  return text.slice(0, 1).toUpperCase() + text.slice(1)
+const getLangEmoji = (locale: string) => {
+  return flagEmojiMap[locale] || ''
+}
+const capitalizeLocale = (locale: string) => {
+  return locale.slice(0, 1).toUpperCase() + locale.slice(1)
 }
 
 const currentLocale = inject<string>('locale')
 const optionsList = supportedLangCodes.map((code) => ({
   id: code,
-  name: languageDisplayNames[code] ? `${capitalizeText(code)} - ${languageDisplayNames[code]}` : code,
-  selectedName: capitalizeText(code)
+  name: languageDisplayNames[code] || code,
+  selectedName: `${getLangEmoji(code)} ${capitalizeLocale(code)}`
 }))
 
 // methods
@@ -52,6 +63,20 @@ const handleLanguageChange = (option: MenuItem) => {
       right: unset;
       left: 50%;
       transform: translateX(-50%) translateY(0.5rem);
+    }
+  }
+
+  .flag-emoji {
+    display: inline-block;
+    font-size: 1.175em;
+    transform: translateY(1px);
+
+    &.has-right-margin {
+      margin-right: 0.25rem;
+    }
+
+    &.is-larger {
+      font-size: 1.275em;
     }
   }
 }

@@ -13,6 +13,12 @@ export const languageDisplayNames: Record<string, string> = {
   fr: 'Français'
 }
 
+export const flagEmojiMap: Record<string, string> = {
+  en: '🇬🇧',
+  ko: '🇰🇷',
+  fr: '🇫🇷'
+}
+
 export const defaultLanguage = 'en'
 export const supportedLangCodes: string[] = [defaultLanguage, ...Object.keys(tableLoaders)]
 

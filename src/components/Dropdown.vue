@@ -3,7 +3,10 @@
   <button class="is-unstyled dropdown-toggle"
     :aria-expanded="isMenuOpen"
     @click.stop="onToggleMenuClick">
-    <span class="toggle-btn-text">{{ menuBtnText }}</span>
+    <span v-if="$slots['selected-text'] && selectedOption" class="toggle-btn-text">
+      <slot name="selected-text" :option="selectedOption"></slot>
+    </span>
+    <span v-else class="toggle-btn-text">{{ menuBtnText }}</span>
     <i class="icon-chevron-bottom toggle-btn-icon"></i>
   </button>
 
@@ -14,7 +17,10 @@
       tabindex="0"
       role="menuitem"
       @click.stop="onSelect(option)">
-      <span class="dropdown-menu-item-text">{{ option.name }}</span>
+      <span v-if="$slots['menu-item-text']" class="dropdown-menu-item-text">
+        <slot name="menu-item-text" :option="option"></slot>
+      </span>
+      <span v-else class="dropdown-menu-item-text">{{ option.name }}</span>
       <i v-if="isItemSelected(option.id)" class="icon-check dropdown-menu-item-icon"></i>
     </li>
   </ul>
@@ -43,11 +49,12 @@ const emit = defineEmits<{
 
 const isMenuOpen = ref(false)
 const selectedOptionId = ref<string | null>(props.initialSelectedOptionId || null)
-
+const selectedOption = computed(() => {
+  return selectedOptionId.value ? props.menuOptions.find(option => option.id === selectedOptionId.value) : null
+})
 const menuBtnText = computed(() => {
-  const foundOption = props.menuOptions.find(option => option.id === selectedOptionId.value)
-  return foundOption
-    ? foundOption?.selectedName || foundOption?.name || ''
+  return selectedOption.value
+    ? selectedOption.value?.selectedName || selectedOption.value?.name || ''
     : props.defaultText || ''
 })
 
