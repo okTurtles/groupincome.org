@@ -16,7 +16,7 @@
         <span v-if="entry.badge" class="c-badge">{{ entry.badge }}</span>
       </a>
 
-      <LanguageSwitch v-if="!isBlogpost" class="c-language-switch" />
+      <LanguageSwitch v-if="!isBlogpost" class="c-language-switch hide-touch" />
 
       <a class="c-get-started-btn button is-primary" v-href.locale="'/get-started'" @click="closeNavigation">{{ L('Get started') }}</a>
     </div>

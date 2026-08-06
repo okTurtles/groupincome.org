@@ -55,17 +55,6 @@ const handleLanguageChange = (option: MenuItem) => {
 @use "../styles/variables" as *;
 
 .c-dropdown {
-  @include touch {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-
-    :deep(.dropdown-menu) {
-      right: unset;
-      left: 50%;
-      transform: translateX(-50%) translateY(0.5rem);
-    }
-  }
-
   .flag-emoji {
     display: inline-block;
     font-size: 1.175em;
@@ -77,6 +66,14 @@ const handleLanguageChange = (option: MenuItem) => {
 
     &.is-larger {
       font-size: 1.275em;
+    }
+  }
+
+  @include touch {
+    margin-top: 0.825rem;
+
+    .flag-emoji.is-larger {
+      font-size: 1.325em;
     }
   }
 }
