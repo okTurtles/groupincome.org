@@ -1,13 +1,15 @@
 <template>
   <ul>
     <li class="c-crypto-item" v-for="crypto in cryptos" @click="copyToClipBoard(crypto.id)" :key="crypto.id">
-      <label class="c-crypto-label">{{crypto.name}} ({{crypto.abreviation}})</label>
+      <label class="c-crypto-label">{{crypto.name}} ({{crypto.abbreviation}})</label>
 
       <div class="c-crypto-field">
         <span class="c-address-text">{{crypto.id}}</span>
       </div>
 
-      <div class="c-copied-feedback" :class="{ 'is-active': copied === crypto.id }">Copied to clipboard!</div>
+      <div class="c-copied-feedback" :class="{ 'is-active': copied === crypto.id }">
+        <i18n>Copied to clipboard!</i18n>
+      </div>
     </li>
   </ul>
 </template>
@@ -20,19 +22,19 @@ export default {
       cryptos: [
         {
           name: 'Bitcoin',
-          abreviation: 'BTC',
+          abbreviation: 'BTC',
           id: '39ekronaSx3pBUuftNYfuwoWbGipnFrBv6'
         }, {
-          name: 'Etherium',
-          abreviation: 'ETH',
+          name: 'Ethereum',
+          abbreviation: 'ETH',
           id: '0x62992467ecd54d45fe5a028b4ccd082486ccc9a8'
         }, {
           name: 'Monero',
-          abreviation: 'XMR',
+          abbreviation: 'XMR',
           id: '899WAZkTAHv71bxeVu3coHcyCynEpbKWvhSfAxpRu41qXCfrMPz9cae7jzMS7mVAFb63mVxCm64NdVSFZ7Aey1nvE1Dgb7E'
         }, {
           name: 'Zcash',
-          abreviation: 'ZEC',
+          abbreviation: 'ZEC',
           id: 't1Vk6YJK4g7YYPPD8ENMoHBeNDqoQ67mCHx'
         }
       ],

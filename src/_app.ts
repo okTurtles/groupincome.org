@@ -1,14 +1,30 @@
 import type { App } from 'vue'
 import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
+import { useTranslation, loadTranslationTable } from '@/i18n/utils'
+import I18n from '@/i18n/i18n.vue'
 
-const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string) => {
-  el.setAttribute(attrName, resolvePath(relPath) || '')
+// This is a flag to check whether this file runs during compilation time(NodeJS environment) or runtime(Browser context).
+const isNode = typeof globalThis.window === 'undefined' && typeof globalThis.document === 'undefined'
+
+const getLang = (): string => {
+  return isNode
+    ? (globalThis as any).giVueLocale || ''
+    : document.body.dataset.locale || '' // data-locale attribute is set in the DefaultLayout.astro file
+}
+const getIsBlogpost = (): boolean => {
+  return isNode
+    ? (globalThis as any).giVueIsBlogpost || false
+    : document.body.dataset.pageType === 'blogpost' // data-page-type attribute is set in the DefaultLayout.astro file
 }
 
-export default (app: App) => {
+const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, useLocale: boolean = false) => {
+  el.setAttribute(attrName, resolvePath(relPath, useLocale ? getLang() : '') || '')
+}
+
+export default async (app: App) => {
   // custom-directives
   app.directive('src', (el, binding) => {
-    setResolvedPathToAttr('src', el, binding.value)
+    setResolvedPathToAttr('src', el, binding.value, binding.modifiers.locale)
   })
   app.directive('srcset', (el, binding) => {
     el.setAttribute(
@@ -16,10 +32,24 @@ export default (app: App) => {
       imgPathToSrcSet(binding.value, parseInt(binding.arg || '1'))
     )
   })
-  app.directive('href', (el, binding) => setResolvedPathToAttr('href', el, binding.value))
+  app.directive('href', (el, binding) => {
+    setResolvedPathToAttr('href', el, binding.value, binding.modifiers.locale)
+  })
 
   // global mixins
   app.mixin({
     resolvePath
   })
+
+  // global components
+  app.component('I18n', I18n)
+
+  const locale = getLang()
+  await loadTranslationTable(locale)
+  const L = useTranslation(locale)
+
+  // global provides (reference: https://vuejs.org/guide/components/provide-inject.html#app-level-provide)
+  app.provide('L', L)
+  app.provide('locale', locale)
+  app.provide('isBlogpost', getIsBlogpost())
 }

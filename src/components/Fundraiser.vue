@@ -1,16 +1,16 @@
 <template>
 <div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
-    <b>Help us reach our goal! 🙏</b>
+    <i18n tag="b">Help us reach our goal! 🙏</i18n>
     <div class="progress-wrapper">
       <div class="progress-element">
         <div class="progress-container">
-          <progress max="100" :value="progress">${{ current }} ({{ pourcent }})</progress>
+          <progress max="100" :value="progress">${{ current }} ({{ percent }})</progress>
         </div>
-        <p class="progress-label">${{ current }} ({{ pourcent }})</p>
+        <p class="progress-label">${{ current }} ({{ percent }})</p>
       </div>
     </div>
-    <a :href="resolvePath('/donate')" class="button">Donate now</a>
+    <i18n tag="a" v-href.locale="'/donate'" class="button">Donate now</i18n>
     <i class="icon-times icon-button c-close-btn has-shallow-box-shadow"
       tabindex="0"
       @click="closeFundraiser"
@@ -22,14 +22,13 @@
 <script setup>
 import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
-import { resolvePath } from '@/utils/helpers.js'
 
 const $isFundraiserOpen = useStore(isFundraiserOpen);
 
 const total = 10000
 const current = 5405
 const progress = Math.round((current / total) * 100)
-const pourcent = `${progress}%`
+const percent = `${progress}%`
 </script>
 
 <style lang="scss" scoped>
@@ -161,7 +160,7 @@ progress {
 
 @keyframes progress {
   to {
-    width: v-bind(pourcent);
+    width: v-bind(percent);
   }
 }
 

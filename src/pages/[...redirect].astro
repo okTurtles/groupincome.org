@@ -1,0 +1,45 @@
+---
+import { sortedPosts, uniq } from '@/utils/helpers.js'
+export async function getStaticPaths() {
+  // Below are either 'tag/{string}' pages or 'blog/{number}' pages that were present before the localization of the website.
+  // The reason we don't extract these dynamically is because the pages generated after localization is deployed don't need to be set up for redirection.
+  // (Only the pages before localization need this)
+  const allTagPagesBeforeLocalization = [ 'hackathon', 'progress', 'prototype', 'voting' ].map(tag => `tag/${tag}`)
+  const allBlogPagesBeforeLocalization = [2, 3, 4, 5].map(n => `blog/${n}`)
+
+  const pages = [
+    'about-us',
+    'donate',
+    'faq',
+    'get-started',
+    'other-ways-to-support',
+    'privacy-policy',
+    'terms-and-conditions',
+    'tag',
+    'blog',
+    ...allBlogPagesBeforeLocalization,
+    ...allTagPagesBeforeLocalization
+  ]
+  return pages.map(page => ({ params: { redirect: page } }))
+}
+
+import { defaultLanguage } from '@/i18n/utils'
+
+const { redirect } = Astro.params
+const baseUrl = import.meta.env.BASE_URL
+---
+
+<script>
+  import { getRedirectLocale } from '@/i18n/utils'
+  const baseUrl = import.meta.env.BASE_URL
+  // Preserve the requested path (e.g. 'faq', 'blog/2') by deriving it from the URL — a processed
+  // script is bundled once and shared, so it can't read the per-page `redirect` frontmatter var.
+  const { pathname, search, hash } = window.location
+  const subPath = pathname.slice(baseUrl.length) // strip the base to get 'faq', 'blog/2', ...
+  window.location.replace(`${baseUrl}${getRedirectLocale()}/${subPath}${search}${hash}`)
+</script>
+
+<!-- Fallback for visitors with JavaScript disabled: redirect to the default language. -->
+<noscript>
+  <meta http-equiv="refresh" content={`0;url=${baseUrl}${defaultLanguage}/${redirect}`} />
+</noscript>

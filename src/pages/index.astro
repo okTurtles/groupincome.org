@@ -1,7 +1,19 @@
 ---
-import Layout from '../layouts/DefaultLayout.astro';
-import HomeAnimation from '../components/HomeAnimation.vue';
+/* Redirect existing https://www.groupincome.org links out there to a locale-prefixed page.
+   The visitor's preferred language is detected client-side via getRedirectLocale() (a static
+   site has no server to read the Accept-Language header); visitors with JavaScript disabled
+   fall back to the default language via the <noscript> tag below. */
+import { defaultLanguage } from '@/i18n/utils'
+
+const baseUrl = import.meta.env.BASE_URL
 ---
-<Layout>
-  <HomeAnimation client:load />
-</Layout>
+
+<script>
+  import { getRedirectLocale } from '@/i18n/utils'
+  window.location.replace(`${import.meta.env.BASE_URL}${getRedirectLocale()}/`)
+</script>
+
+<!-- Fallback for visitors with JavaScript disabled: redirect to the default language. -->
+<noscript>
+  <meta http-equiv="refresh" content={`0;url=${baseUrl}${defaultLanguage}/`} />
+</noscript>

@@ -3,21 +3,27 @@
   <Fundraiser></Fundraiser>
   <div class="c-header-wrapper">
     <div class="c-wrapper" role="banner">
-      <a class="c-logo" v-href="'/'">
+      <a class="c-logo" v-href.locale="'/'">
         <span class="is-hidden">Group Income</span>
         <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
       </a>
       <Navigation client:load></Navigation>
     </div>
+
+    <LanguageSwitch v-if="!isBlogpost" class="c-language-switch-on-header hide-desktop" />
     <Hamburger></Hamburger>
   </div>
 </header>
 </template>
 
 <script setup>
+import { inject } from 'vue'
 import Navigation from './Navigation.vue'
 import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
+import LanguageSwitch from './LanguageSwitch.vue'
+
+const isBlogpost = inject('isBlogpost')
 </script>
 
 <style lang="scss" scoped>
@@ -80,5 +86,15 @@ import Hamburger from './Hamburger.vue'
   background: none;
   border: 0;
   font-size: 2em;
+}
+
+.c-language-switch-on-header {
+  :deep(button.dropdown-toggle) {
+    padding: 0.25rem 0.75rem;
+  }
+
+  :deep(.dropdown-menu-item) {
+    padding: 0.5rem 1rem;
+  }
 }
 </style>

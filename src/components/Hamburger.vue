@@ -20,7 +20,7 @@ const $isNavigationOpen = useStore(isNavigationOpen);
   right: 0;
   margin: 0;
   padding: 0;
-  width: 5rem;
+  width: 4.75rem;
   height: 4rem;
   font-size: 0;
   text-indent: -9999px;
@@ -45,8 +45,9 @@ const $isNavigationOpen = useStore(isNavigationOpen);
     background-color: $general_0;
     transition: transform .1s ease-in-out;
     position: absolute;
-    right: 1rem;
+    right: 50%;
     top: 50%;
+    transform: translateX(50%);
   }
 
   &::before {
@@ -61,12 +62,12 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 .open-nav {
   .c-hamburger {
     &::before {
-      transform: rotate(45deg);
+      transform: translateX(50%) rotate(45deg);
       margin-top: 0.3rem;
     }
 
     &::after {
-      transform: rotate(-45deg);
+      transform: translateX(50%) rotate(-45deg);
       margin-top: 0.3rem;
     }
   }

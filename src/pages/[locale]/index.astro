@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/DefaultLayout.astro'
+import HomeAnimation from '@/components/HomeAnimation.vue'
+import { getDynamicRoutes } from '@/i18n/utils'
+
+
+export async function getStaticPaths() {
+  return getDynamicRoutes()
+}
+
+---
+<Layout>
+  <HomeAnimation client:load />
+</Layout>
