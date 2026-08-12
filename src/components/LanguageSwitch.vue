@@ -30,9 +30,15 @@ const capitalizeLocale = (locale: string) => {
 }
 
 const currentLocale = inject<string>('locale')
-const englishLanguageNames = new Intl.DisplayNames(['en'], { type: 'language' })
+const sortingLocale = currentLocale || 'en'
+const localizedLanguageNames = new Intl.DisplayNames([sortingLocale], { type: 'language' })
+const languageNameCollator = new Intl.Collator(sortingLocale)
 const optionsList = [...supportedLangCodes]
-  .sort((a, b) => (englishLanguageNames.of(a) || a).localeCompare(englishLanguageNames.of(b) || b, 'en'))
+  .sort((a, b) => {
+    if (a === currentLocale) return -1
+    if (b === currentLocale) return 1
+    return languageNameCollator.compare(localizedLanguageNames.of(a) || a, localizedLanguageNames.of(b) || b)
+  })
   .map((code) => ({
     id: code,
     name: languageDisplayNames[code] || code,
