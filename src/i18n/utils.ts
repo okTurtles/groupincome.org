@@ -22,6 +22,8 @@ export const flagEmojiMap: Record<string, string> = {
   he: '🇮🇱'
 }
 
+const rtlLangCodes: string[] = ['he']
+
 export const defaultLanguage = 'en'
 export const supportedLangCodes: string[] = [defaultLanguage, ...Object.keys(tableLoaders)]
 
@@ -39,6 +41,10 @@ export function getRedirectLocale (): string {
   return preferred
     .map((lang) => lang.split('-')[0].toLowerCase()) // 'ko-KR' -> 'ko'
     .find((code) => supportedLangCodes.includes(code)) || defaultLanguage
+}
+
+export function isLocaleRTL (locale: string = ''): boolean {
+  return rtlLangCodes.includes(locale)
 }
 
 // dynamic route definitions to be used in getStaticPaths() function of each page
