@@ -43,7 +43,7 @@ const siteMap = {
 }
 const base = BUILD_TARGET === 'staging' ? '/groupincome.org/' : '/'
 // NOTE: keep in sync with supportedLangCodes in src/i18n/utils.ts
-const sitemapLocales = ['en', 'ko', 'fr', 'he']
+const sitemapLocales = ['en', 'ko', 'fr', 'zh', 'de', 'ja', 'ru', 'es', 'he']
 // Reference:
 // https://docs.astro.build/en/reference/configuration-reference/
 // https://vite.dev/config/
@@ -63,8 +63,8 @@ export default defineConfig({
     mdx(),
     sitemap({
       // Legacy pre-localization URLs (e.g. `/hiring`, `/blog/2`, `/tag/voting`) are just
-      // client-side meta-refresh redirect — exclude them so only the real,
-      // locale-prefixed pages under /en/, /ko/, /fr/ etc. are indexed.
+      // client-side meta-refresh redirects — exclude them so only the real,
+      // locale-prefixed pages under paths such as /en/, /ko/, /fr/, etc. are indexed.
       filter: (page) => {
         const path = new URL(page).pathname.replace(base, '')
         return sitemapLocales.some(locale => path.startsWith(`${locale}/`))

@@ -3,6 +3,11 @@ export type TranslationFn = (key: string, args?: Record<string, string>) => stri
 const tableLoaders: Record<string, () => Promise<any>> = {
   'ko': () => import('../../strings/korean.json').then(module => module.default),
   'fr': () => import('../../strings/french.json').then(module => module.default),
+  'zh': () => import('../../strings/chinese.json').then(module => module.default),
+  'de': () => import('../../strings/german.json').then(module => module.default),
+  'ja': () => import('../../strings/japanese.json').then(module => module.default),
+  'ru': () => import('../../strings/russian.json').then(module => module.default),
+  'es': () => import('../../strings/spanish.json').then(module => module.default),
   'he': () => import('../../strings/hebrew.json').then(module => module.default)
 }
 const translationTables: Record<string, any> = {}
@@ -12,6 +17,11 @@ export const languageDisplayNames: Record<string, string> = {
   en: 'English',
   ko: '한국어',
   fr: 'Français',
+  zh: '中文',
+  de: 'Deutsch',
+  ja: '日本語',
+  ru: 'Русский',
+  es: 'Español',
   he: 'עברית'
 }
 
@@ -19,6 +29,11 @@ export const flagEmojiMap: Record<string, string> = {
   en: '🇬🇧',
   ko: '🇰🇷',
   fr: '🇫🇷',
+  zh: '🇨🇳',
+  de: '🇩🇪',
+  ja: '🇯🇵',
+  ru: '🇷🇺',
+  es: '🇪🇸',
   he: '🇮🇱'
 }
 
