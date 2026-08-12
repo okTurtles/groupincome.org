@@ -18,3 +18,11 @@ eg. spacing in navigation menu breaks when viewed in French.
     word-break: break-word;
   }
 }
+
+@include is-locale("es") {
+  .c-navbar-main {
+    @include desktop {
+      width: 57rem;
+    }
+  }
+}
