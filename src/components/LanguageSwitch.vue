@@ -30,11 +30,14 @@ const capitalizeLocale = (locale: string) => {
 }
 
 const currentLocale = inject<string>('locale')
-const optionsList = supportedLangCodes.map((code) => ({
-  id: code,
-  name: languageDisplayNames[code] || code,
-  selectedName: `${getLangEmoji(code)} ${capitalizeLocale(code)}`
-}))
+const englishLanguageNames = new Intl.DisplayNames(['en'], { type: 'language' })
+const optionsList = [...supportedLangCodes]
+  .sort((a, b) => (englishLanguageNames.of(a) || a).localeCompare(englishLanguageNames.of(b) || b, 'en'))
+  .map((code) => ({
+    id: code,
+    name: languageDisplayNames[code] || code,
+    selectedName: `${getLangEmoji(code)} ${capitalizeLocale(code)}`
+  }))
 
 // methods
 const handleLanguageChange = (option: MenuItem) => {
