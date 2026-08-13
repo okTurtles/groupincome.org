@@ -65,6 +65,14 @@ $maxDesktop: 1180px;
   }
 }
 
+// Applies styles only when the page direction is RTL. Must be included inside a rule
+// (the trailing `&` makes it a descendant of :root, rather than nesting :root inside it).
+@mixin is-rtl {
+  :root[dir="rtl"] & {
+    @content;
+  }
+}
+
 @mixin page-wrapper-common {
   position: relative;
   display: block;

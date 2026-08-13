@@ -61,17 +61,18 @@ const isBlogpost = inject('isBlogpost')
 }
 
 .c-logo {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   width: 45%;
   max-width: 255px;
-  margin-left: 0.5rem;
+  margin-inline-start: 0.75rem;
   margin-top: -2px;
   z-index: 1;
   transition: all ease-in .2s;
 
   @include desktop {
-    margin-left: 3px;
+    margin-inline-start: 3px;
   }
 }
 
@@ -95,6 +96,13 @@ const isBlogpost = inject('isBlogpost')
 
   :deep(.dropdown-menu-item) {
     padding: 0.5rem 1rem;
+  }
+
+  @include is-rtl {
+    :deep(.dropdown-menu) {
+      right: unset;
+      left: 0;
+    }
   }
 }
 </style>
