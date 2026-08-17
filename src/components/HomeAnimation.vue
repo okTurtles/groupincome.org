@@ -1,12 +1,8 @@
 <template>
   <div class="c-wrapper" ref="wrapper">
-    <Sides color="#5DC9F1"
-      :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"
-      class="right-side c-side-blue"></Sides>
-    <Sides color="#F89202" :styles="{ 'top': '120rem' }"></Sides>
-    <Sides color="#A1D10E"
-      :styles="{ 'top': '180rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
-      class="right-side"></Sides>
+    <Sides class="c-side-blue" color="#5DC9F1" :styles="config.sideArchStyles.first"></Sides>
+    <Sides color="#F89202" :styles="config.sideArchStyles.second"></Sides>
+    <Sides color="#A1D10E" :styles="config.sideArchStyles.third"></Sides>
 
     <div class="graphic-wrapper">
       <section class="container c-main-container">
@@ -184,7 +180,46 @@ export default {
   },
   setup () {
     const L = inject('L')
-    return { L }
+    const langDir = inject('langDir')
+    return { L, langDir }
+  },
+  data () {
+    const isRTL = this.langDir === 'rtl'
+    return {
+      config: {
+        sideArchStyles: {
+          first: isRTL
+            ? {
+              top: '40rem',
+              left: 0
+            }
+            : {
+              top: '40rem',
+              right: 0,
+              transform: 'rotate(-180deg)'
+            },
+          second: isRTL
+            ? {
+              top: '120rem',
+              right: 0,
+              transform: 'rotate(-180deg)'
+            }
+            : {
+              top: '120rem'
+            },
+          third: isRTL
+            ? {
+              top: '180rem',
+              left: 0
+            }
+            : {
+              top: '180rem',
+              transform: 'rotate(-180deg)',
+              right: 0
+            }
+        }
+      }
+    }
   }
 }
 </script>
@@ -250,6 +285,10 @@ export default {
       flex-shrink: 0;
       border-radius: 0.5rem;
     }
+
+    @include is-rtl {
+      transform: translateX(1rem);
+    }
   }
 
   @include desktop {
@@ -277,6 +316,10 @@ export default {
 
       .c-chat-image {
         width: 50vw;
+      }
+
+      @include is-rtl {
+        transform: translateX(-3rem);
       }
     }
   }
@@ -558,7 +601,7 @@ export default {
   }
 
   @include desktop {
-    text-align: left;
+    text-align: start;
     justify-content: space-between;
     flex-direction: row;
   }
@@ -611,7 +654,8 @@ export default {
     margin: 0 auto;
 
     @include desktop {
-      margin-right: 25%;
+      // Logical, so the empty gutter stays on the trailing side in RTL too.
+      margin-inline-end: 25%;
     }
   }
 
