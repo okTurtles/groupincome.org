@@ -133,7 +133,7 @@ export default {
 .c-video-wrapper {
   position: relative;
   width: calc(100% + 2rem);
-  margin: 8rem auto 5rem -1rem;
+  margin: 8rem -1rem 5rem;
 
   @include tablet {
     width: 100%;

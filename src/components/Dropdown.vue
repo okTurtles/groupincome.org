@@ -10,7 +10,7 @@
     <i class="icon-chevron-bottom toggle-btn-icon"></i>
   </button>
 
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu" :class="`is-dir-${props.direction}`">
     <li v-for="option in props.menuOptions"
       :class="['dropdown-menu-item', { 'is-selected': isItemSelected(option.id) }]"
       :key="option.id"
@@ -39,7 +39,8 @@ export type MenuItem = {
 interface ComponentProps {
   menuOptions: Array<MenuItem>,
   defaultText?: string,
-  initialSelectedOptionId?: string
+  initialSelectedOptionId?: string,
+  direction?: 'left' | 'right'
 }
 
 const props = defineProps<ComponentProps>()
@@ -166,6 +167,11 @@ onBeforeUnmount(() => {
     z-index: $zindex-tooltip;
     transform: translateY(0.5rem);
     opacity: 0;
+
+    &.is-dir-left {
+      right: unset;
+      left: 0;
+    }
   }
 
   .dropdown-menu-item {

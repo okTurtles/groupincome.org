@@ -97,12 +97,5 @@ const isBlogpost = inject('isBlogpost')
   :deep(.dropdown-menu-item) {
     padding: 0.5rem 1rem;
   }
-
-  @include is-rtl {
-    :deep(.dropdown-menu) {
-      right: unset;
-      left: 0;
-    }
-  }
 }
 </style>

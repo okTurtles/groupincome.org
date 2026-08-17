@@ -5,6 +5,7 @@ import { loadTranslationTable, isLocaleRTL } from "./i18n/utils";
 export const onRequest = defineMiddleware(async (context, next) => {
   if (context.params.locale) {
     const locale = context.params.locale;
+    const langDir = isLocaleRTL(locale) ? 'rtl' : 'ltr';
     await loadTranslationTable(locale)
     // storing data in context.locals: https://docs.astro.build/en/guides/middleware/#storing-data-in-contextlocals
 
@@ -12,13 +13,15 @@ export const onRequest = defineMiddleware(async (context, next) => {
     // Astro.locals is available to all .astro files by default, but not to .vue files. So we store the locale info in globalThis.giVueLocale as a workaround, so that it can be accessed in _app.ts
     // when all Vue islands of the page are initialized during compilation.
     context.locals.locale = locale;
-    context.locals.langDir = isLocaleRTL(locale) ? 'rtl' : 'ltr';
+    context.locals.langDir = langDir;
     (globalThis as any).giVueLocale = locale;
+    (globalThis as any).giVueLangDir = langDir;
   } else {
     // Ensure the locale that was set in the previous request(where the locale info existed in the url) is cleared,
     // so that it doesn't spill over to wrong files/pages.
     // This is a fix for a bug where some vue islands present random translated texts for when the locale is 'en' 
     delete (globalThis as any).giVueLocale;
+    delete (globalThis as any).giVueLangDir;
   }
 
   if (context.params.blogpost) {
