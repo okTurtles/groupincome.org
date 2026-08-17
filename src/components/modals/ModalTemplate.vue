@@ -82,7 +82,7 @@ defineExpose({ close })
     "m-footer";
   background-color: $background_0;
   color: $text_0;
-  text-align: left;
+  text-align: start;
   opacity: 0;
   animation: modal-content-in 300ms ease-out forwards;
   animation-delay: 100ms;
@@ -102,7 +102,7 @@ defineExpose({ close })
     font-size: 1.85rem;
     font-weight: 600;
     width: 100%;
-    text-align: left;
+    text-align: start;
     flex-grow: 1;
     line-height: 1.5;
     margin-top: 0.5rem;

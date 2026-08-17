@@ -783,7 +783,7 @@ export default {
       }
 
       &:first-child {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     }
   }

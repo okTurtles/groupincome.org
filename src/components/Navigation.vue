@@ -160,7 +160,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
     background-color: $primary_0;
     color: #fff;
     transform: translateY(-3px);
-    margin-left: 2px;
+    margin-inline-start: 2px;
   }
 
   @include desktop {

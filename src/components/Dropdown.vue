@@ -139,7 +139,7 @@ onBeforeUnmount(() => {
     .toggle-btn-text {
       display: inline-block;
       flex-grow: 1;
-      text-align: left;
+      text-align: start;
       font-weight: 500;
     }
 
@@ -178,7 +178,7 @@ onBeforeUnmount(() => {
     display: flex;
     align-items: center;
     padding: 0.675rem 1.175rem;
-    text-align: left;
+    text-align: start;
     cursor: pointer;
     transition: background-color 0.2s ease-out;
     color: $text_1;
@@ -195,7 +195,7 @@ onBeforeUnmount(() => {
       display: inline-block;
       flex-shrink: 0;
       font-size: 0.675em;
-      margin-left: 1rem;
+      margin-inline-start: 1rem;
     }
 
     &.is-selected {

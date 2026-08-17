@@ -144,7 +144,7 @@ export default {
   @include desktop {
     margin: 4rem auto 2rem auto;
     padding: 4rem 1rem 0 1rem;
-    text-align: left;
+    text-align: start;
   }
 }
 
@@ -223,7 +223,7 @@ export default {
 .c-logo-img {
   width: 3.25rem;
   height: 3.25rem;
-  margin-right: 1.875rem;
+  margin-inline-end: 1.875rem;
 
   @include until($desktop) {
     margin-bottom: 1rem;
