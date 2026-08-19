@@ -5,7 +5,7 @@
     <div class="c-wrapper" role="banner">
       <a class="c-logo" v-href.locale="'/'">
         <span class="is-hidden">Group Income</span>
-        <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
+        <img class="c-logo-img" v-src="logoSrc" />
       </a>
       <Navigation client:load></Navigation>
     </div>
@@ -24,6 +24,8 @@ import Hamburger from './Hamburger.vue'
 import LanguageSwitch from './LanguageSwitch.vue'
 
 const isBlogpost = inject('isBlogpost')
+const langDir = inject('langDir')
+const logoSrc = `images/logo-transparent${langDir === 'rtl' ? '-rtl' : ''}.svg`
 </script>
 
 <style lang="scss" scoped>
