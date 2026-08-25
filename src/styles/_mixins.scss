@@ -1,5 +1,7 @@
 @use "./colors" as *;
 @use "./font_variables" as *;
+@use "sass:list";
+@use "sass:string";
 
 // Breakpoints
 $gap: 1rem;
@@ -87,6 +89,20 @@ $maxDesktop: 1180px;
   // Useful for adjusting styles for different locales.
   // e.g.) Certain text translated to french is longer than in english and needs some spacing adjustments.
   body[data-locale="#{$locale}"] {
+    @content;
+  }
+}
+
+@mixin is-locale-multiple($locales) {
+  // Same as is-locale(), but for multiple locales.
+  // Usage: @include is-locale-multiple(("fr", "es", "de")) { ... }
+  $selectors: ();
+
+  @each $locale in $locales {
+    $selectors: list.append($selectors, string.unquote('body[data-locale="#{$locale}"]'), comma);
+  }
+
+  #{$selectors} {
     @content;
   }
 }

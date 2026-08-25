@@ -26,3 +26,11 @@ eg. spacing in navigation menu breaks when viewed in French.
     }
   }
 }
+
+@include is-locale("de") {
+  @include desktop {
+    .c-footer .c-links-group.contribute-section a {
+      max-width: 9.75rem;
+    }
+  }
+}

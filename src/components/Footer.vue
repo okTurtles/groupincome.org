@@ -34,7 +34,7 @@
               <i18n tag="a" v-href.locale="'/faq'">FAQ</i18n>
             </div>
 
-            <div class="c-links-group">
+            <div class="c-links-group contribute-section">
               <i18n tag="h4" class="is-title-6">CONTRIBUTE</i18n>
               <i18n tag="a" v-href.locale="'/hiring/volunteering/'">Volunteer</i18n>
               <i18n tag="a" v-href.locale="'/hiring/'">Join our team</i18n>
@@ -245,6 +245,12 @@ export default {
   line-height: 2rem;
   margin-top: 2rem;
   padding: 0 2rem;
+
+  a:hover,
+  a:focus,
+  a:focus-within {
+    text-decoration: underline;
+  }
 
   @include tablet {
     flex-direction: row;
