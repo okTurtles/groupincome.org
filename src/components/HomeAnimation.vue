@@ -228,7 +228,7 @@ export default {
 @use "../styles/variables" as *;
 
 @mixin phone_narrow {
-  @media screen and (max-width: 430px) {
+  @media screen and (max-width: $phone_narrow) {
     @content;
   }
 }
