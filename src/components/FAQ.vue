@@ -21,7 +21,9 @@
       <dl>
         <div v-for="q, qindex in faq.qa" :key="qindex">
           <dt @click="openTab(index, qindex)" :class="{active: q.active === true}" :id="`q_${index}${qindex}`">
-            <p class="c-question" v-html="q.question"></p><i class="icon-chevron-up" v-if="q.active === true"></i><i class="icon-chevron-right" v-else></i>
+            <p class="c-question" v-html="q.question"></p>
+            <i class="icon-chevron-up" v-if="q.active === true"></i>
+            <i :class="isRTL ? 'icon-chevron-left' : 'icon-chevron-right'" v-else></i>
           </dt>
           <dd :class="{active: q.active === true}">
             <div v-html="q.answer" class="l-faq"></div>
@@ -40,7 +42,9 @@ export default {
   name: 'FAQ',
   setup () {
     const L = inject('L')
-    return { L }
+    const langDir = inject('langDir')
+    const isRTL = langDir === 'rtl'
+    return { L, isRTL }
   },
   data () {
     const L = this.L
@@ -307,7 +311,7 @@ export default {
     flex-wrap: nowrap;
     height: auto;
     width: calc(100% + 2rem);
-    margin-left: -1rem;
+    margin-inline-start: -1rem;
     font-size: 0.85rem;
 
     li {
