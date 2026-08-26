@@ -2,16 +2,16 @@
   <section class="container c-container" id="faqContainer">
     <ul class="c-nav">
       <li class="scrollingLink">
-        <i18n tag="button" class="is-unstyled" @click="scrollTo('#general')">General</i18n>
+        <i18n tag="button" class="is-unstyled faq-menu-btn" @click="scrollTo('#general')">General</i18n>
       </li>
       <li class="scrollingLink">
-        <i18n tag="button" class="is-unstyled" @click="scrollTo('#groups')">Groups</i18n>
+        <i18n tag="button" class="is-unstyled faq-menu-btn" @click="scrollTo('#groups')">Groups</i18n>
       </li>
       <li class="scrollingLink">
-        <i18n tag="button" class="is-unstyled" @click="scrollTo('#our-philosophy')">Our Philosophy</i18n>
+        <i18n tag="button" class="is-unstyled faq-menu-btn" @click="scrollTo('#our-philosophy')">Our Philosophy</i18n>
       </li>
       <li>
-        <button class="is-unstyled" @click="toggleExpand">
+        <button class="is-unstyled faq-menu-btn" @click="toggleExpand">
           {{ allItemsExpanded ? L('Close all') : L('Expand all') }}
         </button>
       </li>
@@ -420,6 +420,17 @@ dd {
 .l-faq {
   a {
     @include m.link-style;
+  }
+}
+
+@include m.is-locale-multiple(("fr", "de")) {
+  @include m.until(430px) {
+    .c-nav button.faq-menu-btn {
+      max-width: 6.75rem;;
+      text-align: center;
+      white-space: normal;
+      line-height: 1.25;
+    }
   }
 }
 </style>
