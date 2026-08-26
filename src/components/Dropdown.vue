@@ -157,6 +157,11 @@ onBeforeUnmount(() => {
     right: 0;
     display: block;
     width: max-content;
+    // Reserve the scrollbar gutter up front.
+    // `width: max-content` sizes the menu to exactly its widest row.
+    // So a browser (Firefox) that leaves the gutter out of that
+    // intrinsic width ends up ~17px short and the longest rows wrap.
+    scrollbar-gutter: stable;
     max-height: 0;
     overflow: hidden;
     background-color: $background_0;
@@ -173,6 +178,7 @@ onBeforeUnmount(() => {
     align-items: center;
     padding: 0.675rem 1.175rem;
     text-align: left;
+    // white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.2s ease-out;
     color: $text_1;

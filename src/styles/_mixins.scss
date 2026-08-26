@@ -1,7 +1,6 @@
 @use "./colors" as *;
 @use "./font_variables" as *;
 @use "sass:list";
-@use "sass:string";
 
 // Breakpoints
 $gap: 1rem;
@@ -99,7 +98,7 @@ $maxDesktop: 1180px;
   $selectors: ();
 
   @each $locale in $locales {
-    $selectors: list.append($selectors, string.unquote('body[data-locale="#{$locale}"]'), comma);
+    $selectors: list.append($selectors, 'body[data-locale="#{$locale}"]', comma);
   }
 
   #{$selectors} {

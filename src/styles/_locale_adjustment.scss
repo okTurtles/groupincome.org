@@ -21,7 +21,7 @@ eg. spacing in navigation menu breaks when viewed in French.
   }
 }
 
-@include is-locale-multiple(("de", "fr", "es")) {
+@include is-locale-multiple(("de", "fr", "es", "ru")) {
   @include desktop {
     .c-footer .c-links-group.contribute-section a {
       display: inline-block;

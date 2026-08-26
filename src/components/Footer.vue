@@ -247,8 +247,7 @@ export default {
   padding: 0 2rem;
 
   a:hover,
-  a:focus,
-  a:focus-within {
+  a:focus {
     text-decoration: underline;
   }
 
