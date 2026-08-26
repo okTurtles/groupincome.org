@@ -6,17 +6,30 @@ import ScrollDownArrow from '@/components/ScrollDownArrow.vue'
 import { resolvePath } from '@/utils/helpers.js'
 import { getDynamicRoutes, LTags } from '@/i18n/utils'
 
-const { locale } = Astro.locals
 export async function getStaticPaths() {
   return getDynamicRoutes()
+}
+
+const { locale, langDir } = Astro.locals
+const isRTL = langDir === 'rtl'
+const sidesStyles = {
+  first: isRTL
+    ? { top: '40rem', right: 0, transform: 'rotate(180deg)' }
+    : { top: '40rem', left: 0 },
+  second: isRTL
+    ? { top: '110rem', left: 0 }
+    : { top: '110rem', right: 0,  transform: 'rotate(-180deg)' },
+  third: isRTL
+    ? { top: '250rem', right: 0, transform: 'rotate(-180deg)' }
+    : { top: '250rem', left: 0 }
 }
 ---
 
 <Layout>
   <div class="c-about-us-content-wrapper">
-    <Sides color="#5DC9F1" styles={{'top': '40rem'}}></Sides>
-    <Sides color="#A1D10E" styles={{'top': '110rem', 'right': 0, 'transform': 'rotate(-180deg)'}}></Sides>
-    <Sides color="#F89202" styles={{'top': '250rem'}}></Sides>
+    <Sides color="#5DC9F1" styles={sidesStyles.first}></Sides>
+    <Sides color="#A1D10E" styles={sidesStyles.second}></Sides>
+    <Sides color="#F89202" styles={sidesStyles.third}></Sides>
     <section class="container c-main-container">
       <div class="c-main-wrapper" id="header1">
         <I18n tag="div" class="is-posttitle">ABOUT GROUP INCOME</I18n>
