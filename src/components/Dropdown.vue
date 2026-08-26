@@ -178,7 +178,6 @@ onBeforeUnmount(() => {
     align-items: center;
     padding: 0.675rem 1.175rem;
     text-align: left;
-    // white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.2s ease-out;
     color: $text_1;

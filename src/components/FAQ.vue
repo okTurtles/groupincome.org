@@ -424,9 +424,9 @@ dd {
 }
 
 @include m.is-locale-multiple(("fr", "de")) {
-  @include m.until(430px) {
+  @include m.until(m.$phone_narrow) {
     .c-nav button.faq-menu-btn {
-      max-width: 6.75rem;;
+      max-width: 6.75rem;
       text-align: center;
       white-space: normal;
       line-height: 1.25;
