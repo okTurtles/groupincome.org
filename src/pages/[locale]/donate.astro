@@ -235,6 +235,11 @@ b:has(+ .c-main-para) {
     top: 0;
     height: 100%;
     width: auto;
+
+    @include is-rtl {
+      right: auto;
+      left: -4rem;
+    }
   }
 
   &::after,
