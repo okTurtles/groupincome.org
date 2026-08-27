@@ -260,7 +260,7 @@ export default {
 
   @include desktop {
     justify-content: space-between;
-    margin-left: 5.2rem;
+    margin-inline-start: 5.2rem;
     margin-top: 0;
     padding: 0;
   }
