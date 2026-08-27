@@ -407,6 +407,19 @@ export default {
     left: 19%;
     transform: scale(.8);
   }
+
+  @include is-rtl {
+    left: auto;
+    right: 20%;
+
+    @include tablet {
+      left: 10%;
+    }
+
+    @include desktop {
+      right: 19%;
+    }
+  }
 }
 
 #face-2 {
@@ -420,7 +433,15 @@ export default {
 
   @include desktop {
     top: 59vh;
-    left: 4%;
+  }
+
+  @include is-rtl {
+    left: auto;
+    right: 1%;
+
+    @include tablet {
+      right: 4%;
+    }
   }
 }
 
@@ -442,6 +463,15 @@ export default {
     left: 6%;
     transform: scale(.8);
   }
+
+  @include is-rtl {
+    left: auto;
+    right: 4%;
+
+    @include desktop {
+      right: 6%;
+    }
+  }
 }
 
 #face-4 {
@@ -457,6 +487,19 @@ export default {
     top: 69vh;
     left: 84%;
     transform: scale(1.1);
+  }
+
+  @include is-rtl {
+    left: auto;
+    right: 56%;
+
+    @include tablet {
+      right: 73%;
+    }
+
+    @include desktop {
+      right: 84%;
+    }
   }
 }
 
@@ -477,6 +520,19 @@ export default {
     top: 15vh;
     left: 16%;
   }
+
+  @include is-rtl {
+    left: auto;
+    right: 39%;
+
+    @include tablet {
+      right: 29%;
+    }
+
+    @include desktop {
+      right: 16%;
+    }
+  }
 }
 
 #face-6 {
@@ -491,6 +547,19 @@ export default {
   @include desktop {
     top: 45vh;
     left: 97%;
+  }
+
+  @include is-rtl {
+    left: auto;
+    right: 82%;
+
+    @include tablet {
+      right: 89%;
+    }
+
+    @include desktop {
+      right: 97%;
+    }
   }
 }
 
@@ -511,6 +580,19 @@ export default {
   @include desktop {
     top: 46vh;
     left: 85%;
+  }
+
+  @include is-rtl {
+    left: auto;
+    right: 61%;
+
+    @include tablet {
+      right: 73%;
+    }
+
+    @include desktop {
+      right: 85%;
+    }
   }
 }
 
@@ -539,6 +621,23 @@ export default {
     left: 92%;
     transform: scale(1.2);
   }
+
+  @include is-rtl {
+    left: auto;
+    right: 75%;
+
+    @include phone_narrow {
+      right: 72%;
+    }
+
+    @include tablet {
+      right: 87%;
+    }
+
+    @include desktop {
+      right: 92%;
+    }
+  }
 }
 
 .c-face {
@@ -555,7 +654,7 @@ export default {
   max-width: fit-content;
 
   @include desktop {
-    margin-left: -50%;
+    margin-inline-start: -50%;
   }
 }
 

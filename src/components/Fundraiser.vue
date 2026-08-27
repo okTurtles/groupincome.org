@@ -1,5 +1,5 @@
 <template>
-<div class="fundraiser" v-if="$isFundraiserOpen">
+<div class="fundraiser" v-if="$isFundraiserOpen || true">
   <div class="wrapper">
     <i18n tag="b">Help us reach our goal! 🙏</i18n>
     <div class="progress-wrapper">
@@ -59,7 +59,13 @@ b {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   min-height: 2.5rem;
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
+
+  @include is-rtl {
+    @include tablet {
+      min-width: 10rem;
+    }
+  }
 }
 
 .wrapper {
@@ -90,6 +96,12 @@ b {
   height: 2rem;
   border-radius: 2rem;
   transform: translate(35%, -35%);
+
+  @include is-rtl {
+    left: 0;
+    right: auto;
+    transform: translate(-35%, -35%);
+  }
 }
 
 progress {
@@ -155,6 +167,13 @@ progress {
       right: 0;
       animation: progress-text 1s ease-in forwards;
     }
+  }
+}
+
+.progress-label::after {
+  @include is-rtl {
+    right: auto;
+    left: 0;
   }
 }
 
