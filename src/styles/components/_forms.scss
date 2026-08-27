@@ -161,8 +161,8 @@ legend.legend {
 
 .selectbox {
   .select {
-    padding-right: 2rem;
-    padding-left: 1rem;
+    padding-inline-end: 2rem;
+    padding-inline-start: 1rem;
     min-width: 6.5rem;
 
     option:disabled,
@@ -207,12 +207,12 @@ legend.legend {
 
 .inputgroup {
   .input {
-    padding-right: 5rem; /* avg of suffix width */
+    padding-inline-end: 5rem; /* avg of suffix width */
     flex-grow: 1;
   }
 
   .prefix + .input {
-    padding-left: 2.5rem;
+    padding-inline-start: 2.5rem;
   }
 
   .prefix {

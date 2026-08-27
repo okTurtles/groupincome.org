@@ -190,7 +190,7 @@ export default {
   position: relative;
 
   input {
-    padding-right: 2.75rem;
+    padding-inline-end: 2.75rem;
     border-radius: 0.5rem;
   }
 }
@@ -198,7 +198,7 @@ export default {
 .c-email-err {
   position: relative;
   width: 100%;
-  padding-left: 2px;
+  padding-inline-start: 2px;
 }
 
 .c-send-btn {
@@ -217,6 +217,11 @@ export default {
   &:focus {
     border: 1px solid $primary_0;
     box-shadow: 0 0 0 2px $primary_1;
+  }
+
+  @include is-rtl {
+    right: auto;
+    left: 0.5rem;
   }
 }
 

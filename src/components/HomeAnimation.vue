@@ -379,7 +379,7 @@ export default {
     width: 56px;
     height: 24px;
     margin-top: -12px;
-    padding-right: 6px;
+    padding-inline-end: 6px;
     font-family: 'Poppins';
     font-weight: 500;
     font-size: 12px;
