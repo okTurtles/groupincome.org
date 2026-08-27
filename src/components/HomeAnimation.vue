@@ -305,7 +305,7 @@ export default {
       width: max-content;
       max-width: 36vw;
       flex-shrink: 0;
-      margin-right: 1.25rem;
+      margin-inline-end: 1.25rem;
     }
 
     .c-chat-img-container {

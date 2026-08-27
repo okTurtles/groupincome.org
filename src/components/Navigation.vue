@@ -68,7 +68,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: center;
-  margin-right: -5px;
+  margin-inline-end: -5px;
   background-color: #fff;
 
   @include touch {

@@ -71,10 +71,6 @@ const handleLanguageChange = (option: MenuItem) => {
     font-size: 1.175em;
     transform: translateY(1px);
 
-    &.has-right-margin {
-      margin-right: 0.25rem;
-    }
-
     &.is-larger {
       font-size: 1.275em;
     }
