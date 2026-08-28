@@ -158,5 +158,11 @@ $bg: #eceef0;
   @include phone {
     font-size: 0.8em;
   }
+  
+  @include is-rtl {
+    @include tablet {
+      transform: translate(-100%, 100%);
+    }
+  }
 }
 </style>

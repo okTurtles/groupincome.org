@@ -150,6 +150,11 @@ progress {
       width: 0;
       background: #0288D1;
       animation: progress 1s ease-in forwards;
+
+      @include is-rtl {
+        left: auto;
+        right: 0;
+      }
     }
   }
 
