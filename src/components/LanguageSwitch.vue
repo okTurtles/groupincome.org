@@ -70,6 +70,7 @@ const handleLanguageChange = (option: MenuItem) => {
     display: inline-block;
     font-size: 1.175em;
     transform: translateY(1px);
+    margin-inline-end: 0.25rem;
 
     &.is-larger {
       font-size: 1.275em;
