@@ -14,6 +14,30 @@
 }
 
 @font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Medium.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 500;
+}
+
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-SemiBold.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 600;
+}
+
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Bold.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 700;
+}
+
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Regular.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 400;
+}
+
+@font-face {
   src: url(/fonts/Poppins/Poppins-Medium.ttf);
   font-family: "Poppins";
   font-weight: 500;
@@ -54,6 +78,14 @@ body {
   font-size: $size_5; // 14px
   line-height: 1.5; // 21/14
   color: $text_0;
+
+  &[data-locale="he"] {
+    font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+
+    [class^="is-title-"] {
+      font-family: "NotoSansHebrew";
+    }
+  }
 }
 
 h1,
@@ -97,6 +129,10 @@ $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
 
     @include desktop {
       letter-spacing: #{list.nth($letterSpacing, $i)}px;
+    }
+
+    @include is-locale("he") {
+      font-family: "NotoSansHebrew";
     }
   }
 }
