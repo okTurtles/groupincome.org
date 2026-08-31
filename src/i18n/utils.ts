@@ -57,9 +57,9 @@ export async function loadTranslationTable (lang: string): Promise<void> {
 //   1. an exact match                             ('he-IL' -> 'he-IL')
 //   2. progressively shorter prefixes of it        ('he-IL' -> 'he')
 //   3. any supported code in the same language     ('he'    -> 'he-IL')
-// Preference order beats match precision, so a visitor listing 'pt-PT' ahead of 'en-US' gets 'pt-BR'
-// rather than English. BCP 47 tags are case-insensitive, so we match on lowercased copies but always
-// return the code as spelled in supportedLangCodes — it is used verbatim as the /:locale segment.
+// Preference order beats match precision (e.g. A user listing 'pt-PT' ahead of 'en-US' can get 'pt-BR')
+// BCP 47 tags are case-insensitive, so we match on lowercased copies,
+// but always return the code as spelled in supportedLangCodes.
 export function getRedirectLocale (): string {
   const preferred = navigator.languages?.length ? navigator.languages : [navigator.language]
   const byLowerCase = new Map(
@@ -67,21 +67,27 @@ export function getRedirectLocale (): string {
   )
 
   for (const tag of preferred) {
-    const subtags = (tag || '').toLowerCase().split('-')
+    const lowercaseWholeTag = (tag || '').toLowerCase()
+    const primarySubtag = lowercaseWholeTag.split('-')[0]
+    // 1. Check for an exact match first.
+    let exactMatch = byLowerCase.get(lowercaseWholeTag)
 
-    // 1 and 2: the whole tag, then each shorter prefix of it.
-    for (let len = subtags.length; len > 0; len--) {
-      const exact = byLowerCase.get(subtags.slice(0, len).join('-'))
-      if (exact) return exact
+    if (exactMatch) { 
+      return exactMatch
+    } else if (primarySubtag !== lowercaseWholeTag) {
+      // 2. Check for a primary subtag match next if the tag is in primary-region format.
+      const matchingCode = byLowerCase.get(primarySubtag)
+      if (matchingCode) { return matchingCode }
     }
 
-    // 3: nothing matched, so settle for any region of the same language. When several qualify we
-    // take the first one listed, which makes it the de facto default region for that language.
-    const languagePrefix = `${subtags[0]}-`
+    // 3: If no matches were found, settle for any region of the same language.
+    //    When several qualify we take the first one listed.
+    const languagePrefix = `${primarySubtag}-`
     const sameLanguage = supportedLangCodes.find((code) => code.toLowerCase().startsWith(languagePrefix))
     if (sameLanguage) return sameLanguage
   }
 
+  // If none of the above matches, return the default language.
   return defaultLanguage
 }
 

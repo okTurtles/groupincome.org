@@ -85,6 +85,8 @@ export const flagEmojiMap = {
 }
 ```
 
+> **Right-to-left languages** (Hebrew, Arabic, Persian, Urdu) need a fourth variable, `rtlLangCodes`, plus a round of layout work. Finish the steps below first, then see [Adding a right-to-left (RTL) language](#adding-a-right-to-left-rtl-language).
+
 Adding the locale key to `tableLoaders` is what registers it: `supportedLangCodes` is derived from that map, so everything else follows automatically, including:
 
 - the `/es/...` routes (via `getDynamicRoutes()`)
@@ -127,4 +129,96 @@ In that case, add locale-specific style adjustments to `src/styles/_locale_adjus
 
 ```scss
 @include is-locale("es") { ... }
+```
+
+# Adding a right-to-left (RTL) language
+
+Hebrew, Arabic, Persian etc are written right-to-left. Follow the whole "Adding a language" flow above first — nothing in it changes — then do the following on top.
+
+## 4. Register the locale as RTL
+
+`src/i18n/utils.ts` has a fourth list for this:
+
+```ts
+const rtlLangCodes: string[] = ['he']
+```
+
+That single line drives everything else. `isLocaleRTL()` reads it, `src/middleware.ts` turns it into `context.locals.langDir`, and `DefaultLayout.astro` puts it on the root element:
+
+```astro
+<html lang={locale || 'en'} dir={langDir || 'ltr'}>
+```
+
+## 5. Hooking into the direction from code
+
+| Context | How |
+| --- | --- |
+| SCSS | `@include is-rtl { ... }` (from `src/styles/_mixins.scss`) |
+| `.astro` | `const { langDir } = Astro.locals` |
+| `.vue` | `const langDir = inject('langDir')` — provided app-wide in `src/_app.ts` |
+
+The mixin expands to `:root[dir="rtl"] &`, so it must be included **inside** a rule, not at the top level of a file:
+
+```scss
+.c-thing {
+  padding-left: 2rem;
+
+  @include is-rtl {
+    padding-left: 0;
+    padding-right: 2rem;
+  }
+}
+```
+
+`src/components/Header.vue` is a small worked example — it swaps in `logo-transparent-rtl.svg` when `langDir === 'rtl'`.
+
+## 6. Prefer logical properties over `is-rtl` overrides
+
+Most of the time you shouldn't need the mixin at all. Replacing a physical property with its logical equivalent makes the rule mirror itself, which is both less code and impossible to forget to update later:
+
+| Physical | Logical |
+| --- | --- |
+| `margin-left` / `margin-right` | `margin-inline-start` / `margin-inline-end` |
+| `padding-left` / `padding-right` | `padding-inline-start` / `padding-inline-end` |
+| `left` / `right` | `inset-inline-start` / `inset-inline-end` |
+| `border-left` / `border-right` | `border-inline-start` / `border-inline-end` |
+| `text-align: left` / `right` | `text-align: start` / `end` |
+| `float: left` / `right` | `float: inline-start` / `inline-end` |
+
+`text-align` is the one people miss, because it doesn't turn up in a grep for `margin-*` or `padding-*`. Grep for `text-align:\s*(left|right)` separately.
+
+Reach for `@include is-rtl` only when there's no logical equivalent — `transform: translateX()`, `background-position`, a mirrored asset, or a value that isn't simply flipped.
+
+## 7. Untranslated English inside an RTL page
+
+Blog titles, job posts and other CMS content stay in English even on `/he/` pages. There are two defensible ways to present a block of opposite-direction text, and the right one depends on how much of it there is.
+
+**A. Keep the page's direction, fix only the ordering.** Set `unicode-bidi: plaintext` on the text-bearing elements. Each block picks its bidi paragraph direction from its own first strong character, so English reads left-to-right and its trailing punctuation and `user@example.com` strings come out right — while `direction` stays `rtl`, so alignment and list markers still match the surrounding page. This is what `src/layouts/JobPost.astro` does:
+
+```scss
+@include is-rtl {
+  p, li, h1, h2, h3, h4, blockquote, td, th {
+    unicode-bidi: plaintext;
+  }
+}
+```
+
+**B. Treat the block as an LTR island.** Put `dir="auto"` on the container and let the whole thing lay out left-to-right, markers and all. Better for long-form English body copy, where right-aligned text is ragged-*left* and noticeably harder to read across multiple lines.
+
+Rule of thumb: short strings interleaved with translated UI (a blog card title next to a Hebrew date) want **A**; a wholesale English document inside RTL chrome has a good claim on **B**.
+
+Three things that will bite you here:
+
+- **`unicode-bidi` is not inherited.** It has to be set on each element that forms a bidi paragraph (`p`, `li`, `h1`…), never once on a wrapping `<article>`.
+- **List markers follow `direction`, not `text-align`.** Under the default `list-style-position: outside` the marker sits outside the line box, so no amount of `text-align` will move it. If your `<ol>` numbers are stranded on the wrong side, something has changed `direction` — most likely a `dir="auto"` that resolved to `ltr`.
+- **`dir="auto"` changes `direction`; `unicode-bidi: plaintext` doesn't.** That's the whole difference between the two options above. Don't combine `dir="auto"` with a `text-align` override — they fight, and the markers lose.
+
+## 8. Fonts
+
+`src/styles/_typography.scss` loads Lato and Poppins, and **neither covers Hebrew or Arabic** — those scripts currently fall back to whatever the OS provides, which varies between machines. If you want a consistent look, add an RTL-capable webfont (e.g. Noto Sans Hebrew) and scope it to the locale:
+
+```scss
+@include is-locale("he") {
+  font-family: "Noto Sans Hebrew", "Poppins", sans-serif;
+}
 ```
