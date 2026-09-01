@@ -113,22 +113,40 @@ $bg: #eceef0;
   &::after {
     content: '';
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     width: 3rem;
     height: 100%;
-    background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
   }
+
+  &::before {
+    background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
+
+    @include is-rtl {
+      background: linear-gradient(-90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
+    }
+  }
+
   &::after {
-    background: url(/svgs/copy.svg) no-repeat right .875rem center;
+    background-image: url(/svgs/copy.svg);
+    background-repeat: no-repeat;
+    background-position: right .875rem center;
+
+    @include is-rtl {
+      background-position: left .875rem center;
+    }
   }
 
   &:hover {
     background: #D0DEEA;
     border-color: $bg;
     cursor: pointer;
+  }
 
-    &::before {
-      background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, #D0DEEA 25%);
+  &:hover::before {
+    background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, #D0DEEA 25%);
+
+    @include is-rtl {
+      background: linear-gradient(-90deg, rgb(245 248 251 / 0%) 0%, #D0DEEA 25%);
     }
   }
 }
