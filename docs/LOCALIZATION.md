@@ -183,42 +183,35 @@ Most of the time you shouldn't need the mixin at all. Replacing a physical prope
 | `left` / `right` | `inset-inline-start` / `inset-inline-end` |
 | `border-left` / `border-right` | `border-inline-start` / `border-inline-end` |
 | `text-align: left` / `right` | `text-align: start` / `end` |
-| `float: left` / `right` | `float: inline-start` / `inline-end` |
 
 `text-align` is the one people miss, because it doesn't turn up in a grep for `margin-*` or `padding-*`. Grep for `text-align:\s*(left|right)` separately.
 
 Reach for `@include is-rtl` only when there's no logical equivalent — `transform: translateX()`, `background-position`, a mirrored asset, or a value that isn't simply flipped.
 
-## 7. Untranslated English inside an RTL page
+## 7. Fonts
 
-Blog titles, job posts and other CMS content stay in English even on `/he/` pages. There are two defensible ways to present a block of opposite-direction text, and the right one depends on how much of it there is.
+The website's Latin fonts — Lato and Poppins — have no Hebrew or Arabic glyphs, so an RTL locale needs a webfont of its own.
+Hebrew is already set up, and it's the pattern to copy:
 
-**A. Keep the page's direction, fix only the ordering.** Set `unicode-bidi: plaintext` on the text-bearing elements. Each block picks its bidi paragraph direction from its own first strong character, so English reads left-to-right and its trailing punctuation and `user@example.com` strings come out right — while `direction` stays `rtl`, so alignment and list markers still match the surrounding page. This is what `src/layouts/JobPost.astro` does:
+- Add font files (`.ttf`) to `public/fonts` (e.g. `public/fonts/NotoSansHebrew`)
+- Then declare the `@font-face` blocks in `src/styles/_typography.scss`, preferably for 4 weights(400, 500, 600, 700 — the same set as Poppins):
 
 ```scss
-@include is-rtl {
-  p, li, h1, h2, h3, h4, blockquote, td, th {
-    unicode-bidi: plaintext;
-  }
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Regular.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 400;
 }
 ```
 
-**B. Treat the block as an LTR island.** Put `dir="auto"` on the container and let the whole thing lay out left-to-right, markers and all. Better for long-form English body copy, where right-aligned text is ragged-*left* and noticeably harder to read across multiple lines.
-
-Rule of thumb: short strings interleaved with translated UI (a blog card title next to a Hebrew date) want **A**; a wholesale English document inside RTL chrome has a good claim on **B**.
-
-Three things that will bite you here:
-
-- **`unicode-bidi` is not inherited.** It has to be set on each element that forms a bidi paragraph (`p`, `li`, `h1`…), never once on a wrapping `<article>`.
-- **List markers follow `direction`, not `text-align`.** Under the default `list-style-position: outside` the marker sits outside the line box, so no amount of `text-align` will move it. If your `<ol>` numbers are stranded on the wrong side, something has changed `direction` — most likely a `dir="auto"` that resolved to `ltr`.
-- **`dir="auto"` changes `direction`; `unicode-bidi: plaintext` doesn't.** That's the whole difference between the two options above. Don't combine `dir="auto"` with a `text-align` override — they fight, and the markers lose.
-
-## 8. Fonts
-
-`src/styles/_typography.scss` loads Lato and Poppins, and **neither covers Hebrew or Arabic** — those scripts currently fall back to whatever the OS provides, which varies between machines. If you want a consistent look, add an RTL-capable webfont (e.g. Noto Sans Hebrew) and scope it to the locale:
+It's switched on by prepending it to the body stack for that locale:
 
 ```scss
-@include is-locale("he") {
-  font-family: "Noto Sans Hebrew", "Poppins", sans-serif;
+body {
+  font-family: "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+
+  &[data-locale="he"] {
+    font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+  }
 }
 ```
