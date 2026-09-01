@@ -5,7 +5,7 @@ eg. spacing in navigation menu breaks when viewed in French.
 
 @use "./variables" as *;
 
-@include is-locale("fr") {
+@include is-locale-multiple(("fr", "ja", "de")) {
   .c-navbar-main {
     @include desktop {
       width: 51.75rem;

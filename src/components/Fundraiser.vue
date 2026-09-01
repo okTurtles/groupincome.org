@@ -1,5 +1,5 @@
 <template>
-<div class="fundraiser" v-if="$isFundraiserOpen || true">
+<div class="fundraiser" v-if="$isFundraiserOpen">
   <div class="wrapper">
     <i18n tag="b">Help us reach our goal! 🙏</i18n>
     <div class="progress-wrapper">
