@@ -218,7 +218,7 @@ legend.legend {
   .prefix {
     position: absolute;
     top: 50%;
-    left: 0.75rem;
+    inset-inline-start: 0.75rem;
     transform: translateY(-50%);
     color: $general_0;
     pointer-events: none;
@@ -228,7 +228,7 @@ legend.legend {
   .suffix {
     position: absolute;
     top: 0;
-    right: 0;
+    inset-inline-end: 0;
     padding: 0 1rem;
     font-weight: normal;
     font-size: 1rem;
@@ -244,7 +244,7 @@ legend.legend {
     position: absolute;
     display: flex;
     top: 0;
-    right: 0;
+    inset-inline-end: 0;
     height: 100%;
 
     button.is-icon {
@@ -371,7 +371,7 @@ p.error {
       background-color: $background_0;
       margin-top: 1px;
       top: 50%;
-      left: 7px;
+      inset-inline-start: 7px;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 150ms;
     }
@@ -416,7 +416,7 @@ p.error {
       width: 6px;
       height: 6px;
       top: 9px;
-      left: 5px;
+      inset-inline-start: 5px;
       color: $background_0;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 150ms;
@@ -472,7 +472,7 @@ p.error {
     width: 1.1875rem;
     height: 1.1875rem;
     position: absolute;
-    left: 0.25rem;
+    inset-inline-start: 0.25rem;
     top: 0.2rem;
     background: $white;
     transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);

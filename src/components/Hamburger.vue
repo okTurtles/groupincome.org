@@ -17,7 +17,7 @@ const $isNavigationOpen = useStore(isNavigationOpen);
 .c-hamburger {
   background-color: transparent;
   display: flex;
-  right: 0;
+  inset-inline-end: 0;
   margin: 0;
   padding: 0;
   width: 4.75rem;

@@ -232,15 +232,10 @@ b:has(+ .c-main-para) {
 
   @include desktop {
     flex-direction: row;
-    right: -4rem;
+    inset-inline-end: -4rem;
     top: 0;
     height: 100%;
     width: auto;
-
-    @include is-rtl {
-      right: auto;
-      left: -4rem;
-    }
   }
 
   &::after,

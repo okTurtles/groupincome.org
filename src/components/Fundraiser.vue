@@ -1,5 +1,5 @@
 <template>
-<div class="fundraiser" v-if="$isFundraiserOpen">
+<div class="fundraiser" v-if="$isFundraiserOpen || true">
   <div class="wrapper">
     <i18n tag="b">Help us reach our goal! 🙏</i18n>
     <div class="progress-wrapper">
@@ -91,15 +91,13 @@ b {
 .c-close-btn {
   position: absolute;
   top: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 2rem;
   height: 2rem;
   border-radius: 2rem;
   transform: translate(35%, -35%);
 
   @include is-rtl {
-    left: 0;
-    right: auto;
     transform: translate(-35%, -35%);
   }
 }
@@ -128,8 +126,8 @@ progress {
     flex-direction: column;
 
     @include tablet {
-      border-right: 1px solid #DFE4EA;
-      border-left: 1px solid #DFE4EA;
+      border-inline-end: 1px solid #DFE4EA;
+      border-inline-start: 1px solid #DFE4EA;
       padding: 1.34rem;
     }
   }
@@ -145,16 +143,11 @@ progress {
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
       height: 100%;
       width: 0;
       background: #0288D1;
       animation: progress 1s ease-in forwards;
-
-      @include is-rtl {
-        left: auto;
-        right: 0;
-      }
     }
   }
 
@@ -169,16 +162,9 @@ progress {
       content: "$"counter(num);
       position: absolute;
       top: .4rem;
-      right: 0;
+      inset-inline-end: 0;
       animation: progress-text 1s ease-in forwards;
     }
-  }
-}
-
-.progress-label::after {
-  @include is-rtl {
-    right: auto;
-    left: 0;
   }
 }
 

@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
   .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0;
+    inset-inline-end: 0;
     display: block;
     width: max-content;
     // Reserve the scrollbar gutter up front.
@@ -172,11 +172,6 @@ onBeforeUnmount(() => {
     z-index: $zindex-tooltip;
     transform: translateY(0.5rem);
     opacity: 0;
-
-    &.is-dir-left {
-      right: unset;
-      left: 0;
-    }
   }
 
   .dropdown-menu-item {

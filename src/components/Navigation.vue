@@ -106,11 +106,11 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   text-align: center;
   width: 42.75rem;
   max-height: 30rem;
-  border-left: none;
+  border-inline-start: none;
 
   @include touch {
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     top: 0;
     flex-direction: column;
     align-items: stretch;
@@ -120,14 +120,22 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
     width: min(22.75rem, 100vw);
     padding: 2.75rem 1.25rem 3.75rem;
     background-color: #fff;
-    border-left: 1px solid $general_1;
+    border-inline-start: 1px solid $general_1;
     pointer-events: inherit;
     z-index: 1;
     transform: translateX(110%);
 
+    @include is-rtl {
+      transform: translateX(-110%);
+    }
+
     .is-open & {
       transition: transform 250ms ease-out;
       transform: translateX(0%);
+
+      @include is-rtl {
+        transform: translateX(0%);
+      }
     }
   }
 

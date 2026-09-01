@@ -207,7 +207,7 @@ export default {
   align-items: center;
   justify-content: center;
   top: 50%;
-  right: 0.5rem;
+  inset-inline-end: 0.5rem;
   transform: translateY(-50%);
   width: 1.75rem;
   height: 1.75rem;
@@ -217,11 +217,6 @@ export default {
   &:focus {
     border: 1px solid $primary_0;
     box-shadow: 0 0 0 2px $primary_1;
-  }
-
-  @include is-rtl {
-    right: auto;
-    left: 0.5rem;
   }
 }
 
