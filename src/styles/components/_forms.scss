@@ -143,10 +143,6 @@ legend.legend {
       }
     }
   }
-
-  .is-btn-shifted {
-    margin-left: 0.5rem;
-  }
 }
 
 // Input with select
@@ -156,7 +152,7 @@ legend.legend {
     @include i.icon(sort-down);
     position: absolute;
     top: 50%;
-    right: 1rem;
+    inset-inline-end: 1rem;
     transform: translateY(calc(-50% - 2px));
     pointer-events: none;
     z-index: 2; // be above input, even when :hover it.
@@ -165,8 +161,8 @@ legend.legend {
 
 .selectbox {
   .select {
-    padding-right: 2rem;
-    padding-left: 1rem;
+    padding-inline-end: 2rem;
+    padding-inline-start: 1rem;
     min-width: 6.5rem;
 
     option:disabled,
@@ -201,45 +197,28 @@ legend.legend {
     min-width: 6rem; // customized based on the context
     width: auto;
     border-radius: 0 $radius $radius 0;
-    margin-left: -1px; // collapse border
+    margin-inline-start: -1px; // collapse border
 
     &.is-empty {
       color: $text_1;
-    }
-  }
-
-  &.is-reversed {
-    .select {
-      border-radius: $radius 0 0 $radius;
-      margin-left: 0;
-    }
-
-    .input {
-      border-radius: 0 $radius $radius 0;
-      margin-left: -1px; // collapse border
-    }
-
-    &::after {
-      left: 4rem; // customized based on the context
-      right: auto;
     }
   }
 }
 
 .inputgroup {
   .input {
-    padding-right: 5rem; /* avg of suffix width */
+    padding-inline-end: 5rem; /* avg of suffix width */
     flex-grow: 1;
   }
 
   .prefix + .input {
-    padding-left: 2.5rem;
+    padding-inline-start: 2.5rem;
   }
 
   .prefix {
     position: absolute;
     top: 50%;
-    left: 0.75rem;
+    inset-inline-start: 0.75rem;
     transform: translateY(-50%);
     color: $general_0;
     pointer-events: none;
@@ -249,7 +228,7 @@ legend.legend {
   .suffix {
     position: absolute;
     top: 0;
-    right: 0;
+    inset-inline-end: 0;
     padding: 0 1rem;
     font-weight: normal;
     font-size: 1rem;
@@ -265,7 +244,7 @@ legend.legend {
     position: absolute;
     display: flex;
     top: 0;
-    right: 0;
+    inset-inline-end: 0;
     height: 100%;
 
     button.is-icon {
@@ -305,12 +284,12 @@ p.error {
   margin-top: 0.5rem;
   margin-bottom: 0;
   color: var(--danger_0);
-  text-align: left;
+  text-align: start;
   font-size: $size_6;
 
   &::before {
     @include i.icon(times-circle);
-    margin-right: 0.25rem;
+    margin-inline-end: 0.25rem;
   }
 
   & + .helper {
@@ -324,7 +303,7 @@ p.error {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  margin-right: 1.5rem;
+  margin-inline-end: 1.5rem;
 
   .input {
     position: absolute;
@@ -379,7 +358,7 @@ p.error {
     &::before {
       width: 14px;
       height: 14px;
-      margin-right: 0.5rem;
+      margin-inline-end: 0.5rem;
       border: 1px solid $general_0;
       transform: translateY(2px);
       transition: box-shadow 150ms, background-color 150ms;
@@ -392,7 +371,7 @@ p.error {
       background-color: $background_0;
       margin-top: 1px;
       top: 50%;
-      left: 7px;
+      inset-inline-start: 7px;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 150ms;
     }
@@ -424,7 +403,7 @@ p.error {
       content: "";
       width: 14px;
       height: 14px;
-      margin-right: 0.5rem;
+      margin-inline-end: 0.5rem;
       border: 1px solid $general_0;
       transform: translateY(2px);
       transition: box-shadow 150ms, background-color 150ms;
@@ -437,7 +416,7 @@ p.error {
       width: 6px;
       height: 6px;
       top: 9px;
-      left: 5px;
+      inset-inline-start: 5px;
       color: $background_0;
       transform: translate(-50%, -50%) scale(0);
       transition: transform 150ms;
@@ -493,7 +472,7 @@ p.error {
     width: 1.1875rem;
     height: 1.1875rem;
     position: absolute;
-    left: 0.25rem;
+    inset-inline-start: 0.25rem;
     top: 0.2rem;
     background: $white;
     transition: transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);

@@ -15,7 +15,7 @@
                     <input :class="['input', { error: emailErr }]"
                       type="email" name="email" id="bd-email"
                       :placeholder="L('Your email address')"
-                      v-model.trim="email" />
+                      v-model.trim="email" dir="ltr" />
                     <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
                       <i class="icon-paper-plane"></i>
                     </button>
@@ -144,7 +144,7 @@ export default {
   @include desktop {
     margin: 4rem auto 2rem auto;
     padding: 4rem 1rem 0 1rem;
-    text-align: left;
+    text-align: start;
   }
 }
 
@@ -192,13 +192,19 @@ export default {
   input {
     padding-right: 2.75rem;
     border-radius: 0.5rem;
+
+    @include is-rtl {
+      text-align: right;
+      padding-left: 2.75rem;
+      padding-right: 0.625rem;
+    }
   }
 }
 
 .c-email-err {
   position: relative;
   width: 100%;
-  padding-left: 2px;
+  padding-inline-start: 2px;
 }
 
 .c-send-btn {
@@ -207,7 +213,7 @@ export default {
   align-items: center;
   justify-content: center;
   top: 50%;
-  right: 0.5rem;
+  inset-inline-end: 0.5rem;
   transform: translateY(-50%);
   width: 1.75rem;
   height: 1.75rem;
@@ -223,11 +229,11 @@ export default {
 .c-logo-img {
   width: 3.25rem;
   height: 3.25rem;
-  margin-right: 1.875rem;
+  margin-inline-end: 1.875rem;
 
   @include until($desktop) {
     margin-bottom: 1rem;
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 
@@ -260,7 +266,7 @@ export default {
 
   @include desktop {
     justify-content: space-between;
-    margin-left: 5.2rem;
+    margin-inline-start: 5.2rem;
     margin-top: 0;
     padding: 0;
   }

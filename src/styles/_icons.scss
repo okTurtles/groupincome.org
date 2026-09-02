@@ -109,11 +109,11 @@ $icons: (
   }
 
   &.is-prefix {
-    margin-right: 0.5rem;
+    margin-inline-end: 0.5rem;
   }
 
   &.is-suffix {
-    margin-left: 0.5rem;
+    margin-inline-start: 0.5rem;
   }
 }
 

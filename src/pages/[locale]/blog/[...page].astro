@@ -39,13 +39,13 @@ const indexActive = (index: number, currentUrl: string) => {
 		}
 		<div class="pagination">
 			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? resolvePath(url.prev) : null}>
-				<i class="icon-chevron-left"></i>
+				<i class="icon-chevron-left prev-arrow"></i>
 			</a>
 			{[...Array(lastPage)].map((x, i) =>
 				<a class={indexActive(i, url.current) ? 'active' : ''} href={resolvePath(`/${locale}/blog${i > 0 ? '/' + (i + 1) : ''}`)}>{i+1}</a>
 			)}
 			<a href={url.next ? resolvePath(url.next) : null} class={ url.next ? '' : 'inactive' }>
-				<i class="icon-chevron-right"></i>
+				<i class="icon-chevron-right next-arrow"></i>
 			</a>
 		</div>
 	</section>
@@ -218,7 +218,6 @@ section {
 }
 
 .c-info {
-	font-weight: .5rem;
 	margin: 1rem 0 3rem 0;
 
 	time::before {
@@ -244,43 +243,11 @@ section {
 	}
 }
 
-.c-article-link {
-	display: flex;
-	align-items: flex-start;
-
-	strong {
-		color: #0AA5DE;
-		size: $size_4;
-	}
-
-	img {
-		width: 16rem;
-		height: auto;
-		max-width: 100%;
-		margin-right: 2rem;
-		object-fit: cover;
-	}
-
-	.c-blog-title {
-		max-width: 21rem;
-		margin-top: .2rem;
-		margin-bottom: -.5rem;
-	}
-
-	@include phone {
-		flex-direction: column;
-
-		img {
-			width: 100%;
-			margin-right: 0;
-			margin-bottom: 2rem;
-		}
-	}
-}
-
 .pagination {
 	display: flex;
 	gap: .5rem;
+	width: 100%;
+	justify-content: center;
 
 	a {
 		width: 2rem;
@@ -297,6 +264,17 @@ section {
 
 		i {
 			font-size: .7rem;
+		}
+	}
+
+	@include desktop {
+		justify-content: flex-start;
+	}
+
+	@include is-rtl {
+		.prev-arrow,
+		.next-arrow {
+			transform: rotate(180deg);
 		}
 	}
 }

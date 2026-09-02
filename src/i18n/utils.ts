@@ -7,7 +7,8 @@ const tableLoaders: Record<string, () => Promise<any>> = {
   'de': () => import('../../strings/german.json').then(module => module.default),
   'ja': () => import('../../strings/japanese.json').then(module => module.default),
   'ru': () => import('../../strings/russian.json').then(module => module.default),
-  'es': () => import('../../strings/spanish.json').then(module => module.default)
+  'es': () => import('../../strings/spanish.json').then(module => module.default),
+  'he': () => import('../../strings/hebrew.json').then(module => module.default)
 }
 const translationTables: Record<string, any> = {}
 
@@ -20,7 +21,8 @@ export const languageDisplayNames: Record<string, string> = {
   de: 'Deutsch',
   ja: '日本語',
   ru: 'Русский',
-  es: 'Español'
+  es: 'Español',
+  he: 'עברית'
 }
 
 export const flagEmojiMap: Record<string, string> = {
@@ -31,8 +33,11 @@ export const flagEmojiMap: Record<string, string> = {
   de: '🇩🇪',
   ja: '🇯🇵',
   ru: '🇷🇺',
-  es: '🇪🇸'
+  es: '🇪🇸',
+  he: '🇮🇱'
 }
+
+const rtlLangCodes: string[] = ['he']
 
 export const defaultLanguage = 'en'
 export const supportedLangCodes: string[] = [defaultLanguage, ...Object.keys(tableLoaders)]
@@ -44,13 +49,51 @@ export async function loadTranslationTable (lang: string): Promise<void> {
 
 // Figures out the visitor's preferred language from their browser/OS settings — exposed by the
 // browser via navigator.languages (e.g. a Korean-configured device reports ['ko-KR', 'ko', ...]) —
-// and returns the locale we should redirect them to: the first language in their preference order
-// that we actually translate the site into, falling back to the default language otherwise.
+// and returns the locale we should redirect them to, falling back to the default language.
+//
+// Both sides of the comparison may carry a region subtag: the browser almost always sends one, and
+// supportedLangCodes may hold either a bare language ('he') or a region-qualified code ('he-IL').
+// So for each browser tag, in the visitor's own order of preference, we try three things:
+//   1. an exact match                             ('he-IL' -> 'he-IL')
+//   2. primary subtag match                       ('he-IL' -> 'he')
+//   3. any supported code in the same language    ('he'    -> 'he-IL')
+// Preference order beats match precision (e.g. A user listing 'pt-PT' ahead of 'en-US' can get 'pt-BR')
+// BCP 47 tags are case-insensitive, so we match on lowercased copies,
+// but always return the code as spelled in supportedLangCodes.
 export function getRedirectLocale (): string {
   const preferred = navigator.languages?.length ? navigator.languages : [navigator.language]
-  return preferred
-    .map((lang) => lang.split('-')[0].toLowerCase()) // 'ko-KR' -> 'ko'
-    .find((code) => supportedLangCodes.includes(code)) || defaultLanguage
+  const byLowerCase = new Map(
+    supportedLangCodes.map((code): [string, string] => [code.toLowerCase(), code])
+  )
+
+  for (const tag of preferred) {
+    const lowercaseWholeTag = (tag || '').toLowerCase()
+    const primarySubtag = lowercaseWholeTag.split('-')[0]
+    // 1. Check for an exact match first.
+    const exactMatch = byLowerCase.get(lowercaseWholeTag)
+
+    if (exactMatch) {
+      return exactMatch
+    } else if (primarySubtag !== lowercaseWholeTag) {
+      // 2. Check for a primary subtag match next if the tag is in 'primary-region' format.
+      const matchingCode = byLowerCase.get(primarySubtag)
+      if (matchingCode) { return matchingCode }
+    }
+
+    // 3: If no matches were found, settle for any region of the same language.
+    //    When several qualify we take the first one listed.
+    const languagePrefix = `${primarySubtag}-`
+    const sameLanguage = supportedLangCodes.find((code) => code.toLowerCase().startsWith(languagePrefix))
+    if (sameLanguage) return sameLanguage
+  }
+
+  // If none of the above matches, return the default language.
+  return defaultLanguage
+}
+
+// Unlike how general the name of the function sounds, its purpose is literally to check whether rtlLangCodes variable contains a passed locale code.
+export function isLocaleRTL (locale: string = ''): boolean {
+  return rtlLangCodes.includes(locale)
 }
 
 // dynamic route definitions to be used in getStaticPaths() function of each page

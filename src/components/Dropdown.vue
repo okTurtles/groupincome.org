@@ -16,7 +16,8 @@
       :key="option.id"
       tabindex="0"
       role="menuitem"
-      @click.stop="onSelect(option)">
+      @click.stop="onSelect(option)"
+      @keyup.enter="onSelect(option)">
       <span v-if="$slots['menu-item-text']" class="dropdown-menu-item-text">
         <slot name="menu-item-text" :option="option"></slot>
       </span>
@@ -138,7 +139,7 @@ onBeforeUnmount(() => {
     .toggle-btn-text {
       display: inline-block;
       flex-grow: 1;
-      text-align: left;
+      text-align: start;
       font-weight: 500;
     }
 
@@ -154,7 +155,7 @@ onBeforeUnmount(() => {
   .dropdown-menu {
     position: absolute;
     top: 100%;
-    right: 0;
+    inset-inline-end: 0;
     display: block;
     width: max-content;
     // Reserve the scrollbar gutter up front.
@@ -177,7 +178,7 @@ onBeforeUnmount(() => {
     display: flex;
     align-items: center;
     padding: 0.675rem 1.175rem;
-    text-align: left;
+    text-align: start;
     cursor: pointer;
     transition: background-color 0.2s ease-out;
     color: $text_1;
@@ -194,7 +195,7 @@ onBeforeUnmount(() => {
       display: inline-block;
       flex-shrink: 0;
       font-size: 0.675em;
-      margin-left: 1rem;
+      margin-inline-start: 1rem;
     }
 
     &.is-selected {

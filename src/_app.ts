@@ -16,6 +16,11 @@ const getIsBlogpost = (): boolean => {
     ? (globalThis as any).giVueIsBlogpost || false
     : document.body.dataset.pageType === 'blogpost' // data-page-type attribute is set in the DefaultLayout.astro file
 }
+const getLangDir = (): string => {
+  return isNode
+    ? (globalThis as any).giVueLangDir || 'ltr'
+    : document.documentElement.dir || 'ltr' // html dir attribute is set on the <html> tag in the DefaultLayout.astro file
+}
 
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, useLocale: boolean = false) => {
   el.setAttribute(attrName, resolvePath(relPath, useLocale ? getLang() : '') || '')
@@ -51,5 +56,6 @@ export default async (app: App) => {
   // global provides (reference: https://vuejs.org/guide/components/provide-inject.html#app-level-provide)
   app.provide('L', L)
   app.provide('locale', locale)
+  app.provide('langDir', getLangDir())
   app.provide('isBlogpost', getIsBlogpost())
 }

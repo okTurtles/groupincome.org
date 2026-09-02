@@ -99,7 +99,7 @@ export default {
 }
 
 .c-collapse-title {
-  font-family: Poppins;
+  font-family: var(--font-display, "Poppins");
   font-style: normal;
   font-weight: bold;
   font-size: 24px;

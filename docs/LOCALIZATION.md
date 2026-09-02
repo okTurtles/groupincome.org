@@ -85,6 +85,8 @@ export const flagEmojiMap = {
 }
 ```
 
+> **Right-to-left languages** (Hebrew, Arabic, Persian, Urdu) need a fourth variable, `rtlLangCodes`, plus a round of layout work. Finish the steps below first, then see [Adding a right-to-left (RTL) language](#adding-a-right-to-left-rtl-language).
+
 Adding the locale key to `tableLoaders` is what registers it: `supportedLangCodes` is derived from that map, so everything else follows automatically, including:
 
 - the `/es/...` routes (via `getDynamicRoutes()`)
@@ -128,3 +130,91 @@ In that case, add locale-specific style adjustments to `src/styles/_locale_adjus
 ```scss
 @include is-locale("es") { ... }
 ```
+
+# Adding a right-to-left (RTL) language
+
+Hebrew, Arabic, Persian etc. are written right-to-left. Follow the whole "Adding a language" flow above first — nothing in it changes — then do the following on top.
+
+## 4. Register the locale as RTL
+
+`src/i18n/utils.ts` has a fourth list for this:
+
+```ts
+const rtlLangCodes: string[] = ['he']
+```
+
+That single line drives everything else. `isLocaleRTL()` reads it, `src/middleware.ts` turns it into `context.locals.langDir`, and `DefaultLayout.astro` puts it on the root element:
+
+```astro
+<html lang={locale || 'en'} dir={langDir || 'ltr'}>
+```
+
+## 5. Hooking into the direction from code
+
+| Context | How |
+| --- | --- |
+| SCSS | `@include is-rtl { ... }` (from `src/styles/_mixins.scss`) |
+| `.astro` | `const { langDir } = Astro.locals` |
+| `.vue` | `const langDir = inject('langDir')` — provided app-wide in `src/_app.ts` |
+
+The mixin expands to `:root[dir="rtl"] &`, so it must be included **inside** a rule, not at the top level of a file:
+
+```scss
+.c-thing {
+  padding-left: 2rem;
+
+  @include is-rtl {
+    padding-left: 0;
+    padding-right: 2rem;
+  }
+}
+```
+
+`src/components/Header.vue` is a small worked example — it swaps in `logo-transparent-rtl.svg` when `langDir === 'rtl'`.
+
+## 6. Prefer logical properties over `is-rtl` overrides
+
+Most of the time you shouldn't need the mixin at all. Replacing a physical property with its logical equivalent makes the rule mirror itself, which is both less code and impossible to forget to update later:
+
+| Physical | Logical |
+| --- | --- |
+| `margin-left` / `margin-right` | `margin-inline-start` / `margin-inline-end` |
+| `padding-left` / `padding-right` | `padding-inline-start` / `padding-inline-end` |
+| `left` / `right` | `inset-inline-start` / `inset-inline-end` |
+| `border-left` / `border-right` | `border-inline-start` / `border-inline-end` |
+| `text-align: left` / `right` | `text-align: start` / `end` |
+
+`text-align` is the one people miss, because it doesn't turn up in a grep for `margin-*` or `padding-*`. Grep for `text-align:\s*(left|right)` separately.
+
+Reach for `@include is-rtl` only when there's no logical equivalent — `transform: translateX()`, `background-position`, a mirrored asset, or a value that isn't simply flipped.
+
+## 7. Fonts
+
+The website's Latin fonts — Lato and Poppins — have no Hebrew or Arabic glyphs, so an RTL locale needs a webfont of its own.
+Hebrew is already set up, and it's the pattern to copy:
+
+- Add font files (`.ttf`) to `public/fonts` (e.g. `public/fonts/NotoSansHebrew`)
+- Then declare the `@font-face` blocks in `src/styles/_typography.scss`, preferably for 4 weights (400, 500, 600, 700 — the same set as Poppins):
+
+```scss
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Regular.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 400;
+}
+```
+
+It's switched on by prepending it to the body stack for that locale:
+
+```scss
+body {
+  font-family: "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+
+  &[data-locale="he"] {
+    --font-display: "NotoSansHebrew";
+    font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+  }
+}
+```
+
+Note that the example sets `--font-display` as well as `font-family`. Both are needed: elements that declare their own `font-family` — buttons, headings, table headers — never inherit the body stack, so they read `var(--font-display, "Poppins")` instead. That variable is the only way the locale's font reaches them.

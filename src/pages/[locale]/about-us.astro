@@ -6,17 +6,30 @@ import ScrollDownArrow from '@/components/ScrollDownArrow.vue'
 import { resolvePath } from '@/utils/helpers.js'
 import { getDynamicRoutes, LTags } from '@/i18n/utils'
 
-const { locale } = Astro.locals
 export async function getStaticPaths() {
   return getDynamicRoutes()
+}
+
+const { locale, langDir } = Astro.locals
+const isRTL = langDir === 'rtl'
+const sidesStyles = {
+  first: isRTL
+    ? { top: '40rem', right: 0, transform: 'rotate(180deg)' }
+    : { top: '40rem', left: 0 },
+  second: isRTL
+    ? { top: '110rem', left: 0 }
+    : { top: '110rem', right: 0,  transform: 'rotate(-180deg)' },
+  third: isRTL
+    ? { top: '250rem', right: 0, transform: 'rotate(-180deg)' }
+    : { top: '250rem', left: 0 }
 }
 ---
 
 <Layout>
   <div class="c-about-us-content-wrapper">
-    <Sides color="#5DC9F1" styles={{'top': '40rem'}}></Sides>
-    <Sides color="#A1D10E" styles={{'top': '110rem', 'right': 0, 'transform': 'rotate(-180deg)'}}></Sides>
-    <Sides color="#F89202" styles={{'top': '250rem'}}></Sides>
+    <Sides color="#5DC9F1" styles={sidesStyles.first}></Sides>
+    <Sides color="#A1D10E" styles={sidesStyles.second}></Sides>
+    <Sides color="#F89202" styles={sidesStyles.third}></Sides>
     <section class="container c-main-container">
       <div class="c-main-wrapper" id="header1">
         <I18n tag="div" class="is-posttitle">ABOUT GROUP INCOME</I18n>
@@ -189,7 +202,7 @@ export async function getStaticPaths() {
   }
 
   @include desktop {
-    text-align: left;
+    text-align: start;
     justify-content: space-between;
     flex-direction: row-reverse;
     align-items: center;
@@ -220,20 +233,12 @@ export async function getStaticPaths() {
 .span-2 {
   position: relative;
 
+  .c-container-para {
+    margin-inline-start: 0;
+  }
+
   @include desktop {
     width: 30rem;
-  }
-}
-
-.sections-container {
-  position: relative;
-  height: 80vh;
-
-  section {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
   }
 }
 
@@ -278,7 +283,7 @@ export async function getStaticPaths() {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  max-width: calc(100vw - 2rem);
+  max-width: calc(100% - 2rem);
   margin-left: 0;
   margin-right: 0;
 
@@ -346,13 +351,6 @@ export async function getStaticPaths() {
   background-size: 100%;
   color: #fff;
 
-  @include phone {
-    background-size: 200% 100%;
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-    margin-top: -4rem;
-  }
-
   .c-container-para-link,
   .c-container-para,
   .c-container-title {
@@ -368,6 +366,13 @@ export async function getStaticPaths() {
   .is-posttitle {
     text-transform: capitalize;
     margin-bottom: .5rem;
+  }
+
+  @include phone {
+    background-size: 200% 100%;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    margin-top: -4rem;
   }
 }
 
@@ -412,7 +417,7 @@ export async function getStaticPaths() {
 
   @include desktop {
     flex-direction: row;
-    text-align: left;
+    text-align: start;
   }
 }
 

@@ -59,7 +59,13 @@ b {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   min-height: 2.5rem;
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
+
+  @include is-rtl {
+    @include tablet {
+      min-width: 10rem;
+    }
+  }
 }
 
 .wrapper {
@@ -85,11 +91,15 @@ b {
 .c-close-btn {
   position: absolute;
   top: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 2rem;
   height: 2rem;
   border-radius: 2rem;
   transform: translate(35%, -35%);
+
+  @include is-rtl {
+    transform: translate(-35%, -35%);
+  }
 }
 
 progress {
@@ -116,8 +126,7 @@ progress {
     flex-direction: column;
 
     @include tablet {
-      border-right: 1px solid #DFE4EA;
-      border-left: 1px solid #DFE4EA;
+      border-inline: 1px solid #DFE4EA;
       padding: 1.34rem;
     }
   }
@@ -133,7 +142,7 @@ progress {
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
       height: 100%;
       width: 0;
       background: #0288D1;
@@ -152,7 +161,7 @@ progress {
       content: "$"counter(num);
       position: absolute;
       top: .4rem;
-      right: 0;
+      inset-inline-end: 0;
       animation: progress-text 1s ease-in forwards;
     }
   }

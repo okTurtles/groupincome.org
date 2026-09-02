@@ -261,7 +261,6 @@ const { Content } = Astro.props
   }
 
   .c-info {
-    font-weight: .5rem;
     margin: 1rem 0 3rem 0;
 
     time::before {
@@ -285,40 +284,6 @@ const { Content } = Astro.props
     h2 {
       font-size: 2rem;
       font-weight: 600;
-    }
-  }
-
-  .c-article-link {
-    display: flex;
-    align-items: flex-start;
-
-    strong {
-      color: #0AA5DE;
-      size: $size_4;
-    }
-
-    img {
-      width: 16rem;
-      height: auto;
-      max-width: 100%;
-      margin-right: 2rem;
-      object-fit: cover;
-    }
-
-    .c-blog-title {
-      max-width: 21rem;
-      margin-top: .2rem;
-      margin-bottom: -.5rem;
-    }
-
-    @include phone {
-      flex-direction: column;
-
-      img {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 2rem;
-      }
     }
   }
 </style>

@@ -5,7 +5,7 @@
     <div class="c-wrapper" role="banner">
       <a class="c-logo" v-href.locale="'/'">
         <span class="is-hidden">Group Income</span>
-        <img class="c-logo-img" v-src="'/images/logo-transparent.svg'" />
+        <img class="c-logo-img" v-src="logoSrc" />
       </a>
       <Navigation client:load></Navigation>
     </div>
@@ -24,6 +24,8 @@ import Hamburger from './Hamburger.vue'
 import LanguageSwitch from './LanguageSwitch.vue'
 
 const isBlogpost = inject('isBlogpost')
+const langDir = inject('langDir')
+const logoSrc = `images/logo-transparent${langDir === 'rtl' ? '-rtl' : ''}.svg`
 </script>
 
 <style lang="scss" scoped>
@@ -61,17 +63,18 @@ const isBlogpost = inject('isBlogpost')
 }
 
 .c-logo {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   width: 45%;
   max-width: 255px;
-  margin-left: 0.5rem;
+  margin-inline-start: 0.75rem;
   margin-top: -2px;
   z-index: 1;
   transition: all ease-in .2s;
 
   @include desktop {
-    margin-left: 3px;
+    margin-inline-start: 3px;
   }
 }
 

@@ -2,8 +2,8 @@
 <article class="c-article">
   <a class="c-link-wrapper" :href="postUrl" :target="isLocaleEn ? '_self' : '_blank'">
     <img class="c-article-image has-deep-box-shadow" :src="imgSrc" />
-    <h2 class="c-blog-title">{{ title }}</h2>
-    <p class="c-blog-desc">{{ description }}</p>
+    <h2 class="c-blog-title" dir="auto">{{ title }}</h2>
+    <p class="c-blog-desc" dir="auto">{{ description }}</p>
     <div class="c-info">{{ author }}<time v-if="createdDate">{{ getDateDisplay(createdDate) }}</time></div>
   </a>
 </article>
@@ -71,12 +71,18 @@ const getDateDisplay = (dateString) => {
 	}
 
   .c-info {
-    font-weight: .5rem;
     margin: 1rem 0 3rem 0;
     color: #939393;
 
     time::before {
       content: ' • ';
+    }
+  }
+
+  @include is-rtl {
+    .c-blog-title,
+    .c-blog-desc {
+      text-align: right;
     }
   }
 }

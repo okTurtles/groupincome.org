@@ -32,7 +32,7 @@ const yourServer = L('<Your Server>')
                 srcset={imgPathToSrcSet(server.imgSrc, 2)}
                 alt={server.name} />
               <h4 class="card-category"></h4>
-              <h3 class="card-title">{ server.name }</h3>
+              <h3 class="card-title is-font-poppin">{ server.name }</h3>
               <p class="card-text">{ server.description }</p>
               <p class="card-text"><b>Admin:</b> <a class="" href={server.adminContact}>{ server.admin }</a></p>
             </div>
@@ -73,7 +73,7 @@ const yourServer = L('<Your Server>')
 
 .c-server-grid-container {
   width: 70rem;
-  max-width: calc(100vw - 2rem);
+  max-width: 100%;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(16.6rem, 1fr));
@@ -134,7 +134,7 @@ const yourServer = L('<Your Server>')
   }
 
   .card-text {
-    font-family: 'Poppins';
+    font-family: var(--font-display, "Poppins");
     font-style: normal;
     font-weight: 400;
     font-size: 0.875rem;

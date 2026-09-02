@@ -14,6 +14,30 @@
 }
 
 @font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Medium.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 500;
+}
+
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-SemiBold.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 600;
+}
+
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Bold.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 700;
+}
+
+@font-face {
+  src: url(/fonts/NotoSansHebrew/NotoSansHebrew-Regular.ttf);
+  font-family: "NotoSansHebrew";
+  font-weight: 400;
+}
+
+@font-face {
   src: url(/fonts/Poppins/Poppins-Medium.ttf);
   font-family: "Poppins";
   font-weight: 500;
@@ -37,6 +61,10 @@
   font-weight: 400;
 }
 
+:root {
+  --font-display: "Poppins";
+}
+
 html {
   background-color: white;
   font-size: var(--text-size);
@@ -54,6 +82,11 @@ body {
   font-size: $size_5; // 14px
   line-height: 1.5; // 21/14
   color: $text_0;
+
+  &[data-locale="he"] {
+    --font-display: "NotoSansHebrew";
+    font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
+  }
 }
 
 h1,
@@ -82,7 +115,7 @@ $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
   $i: list.index($titles, $size);
 
   .is-title-#{$i} {
-    font-family: "Poppins";
+    font-family: var(--font-display, "Poppins");
     font-size: $size;
     line-height: #{list.nth($lineHeight, $i) * .5}rem;
 
