@@ -15,7 +15,7 @@
 
   th {
     text-transform: uppercase;
-    font-family: "Poppins";
+    font-family: var(--font-display, "Poppins");
     font-size: $size_5;
     color: $text-1;
   }

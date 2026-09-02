@@ -98,7 +98,7 @@ defineExpose({ close })
   background-color: var(--general_2);
 
   h1 {
-    font-family: "Poppins";
+    font-family: var(--font-display, "Poppins");
     font-size: 1.85rem;
     font-weight: 600;
     width: 100%;

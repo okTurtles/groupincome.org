@@ -126,8 +126,7 @@ progress {
     flex-direction: column;
 
     @include tablet {
-      border-inline-end: 1px solid #DFE4EA;
-      border-inline-start: 1px solid #DFE4EA;
+      border-inline: 1px solid #DFE4EA;
       padding: 1.34rem;
     }
   }

@@ -55,8 +55,8 @@ export async function loadTranslationTable (lang: string): Promise<void> {
 // supportedLangCodes may hold either a bare language ('he') or a region-qualified code ('he-IL').
 // So for each browser tag, in the visitor's own order of preference, we try three things:
 //   1. an exact match                             ('he-IL' -> 'he-IL')
-//   2. progressively shorter prefixes of it        ('he-IL' -> 'he')
-//   3. any supported code in the same language     ('he'    -> 'he-IL')
+//   2. primary subtag match                       ('he-IL' -> 'he')
+//   3. any supported code in the same language    ('he'    -> 'he-IL')
 // Preference order beats match precision (e.g. A user listing 'pt-PT' ahead of 'en-US' can get 'pt-BR')
 // BCP 47 tags are case-insensitive, so we match on lowercased copies,
 // but always return the code as spelled in supportedLangCodes.
@@ -70,12 +70,12 @@ export function getRedirectLocale (): string {
     const lowercaseWholeTag = (tag || '').toLowerCase()
     const primarySubtag = lowercaseWholeTag.split('-')[0]
     // 1. Check for an exact match first.
-    let exactMatch = byLowerCase.get(lowercaseWholeTag)
+    const exactMatch = byLowerCase.get(lowercaseWholeTag)
 
-    if (exactMatch) { 
+    if (exactMatch) {
       return exactMatch
     } else if (primarySubtag !== lowercaseWholeTag) {
-      // 2. Check for a primary subtag match next if the tag is in primary-region format.
+      // 2. Check for a primary subtag match next if the tag is in 'primary-region' format.
       const matchingCode = byLowerCase.get(primarySubtag)
       if (matchingCode) { return matchingCode }
     }

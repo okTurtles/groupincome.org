@@ -104,7 +104,7 @@ $bg: #eceef0;
   border-radius: 0.5rem;
   height: 2.5rem;
   padding: 0 .5rem;
-  font-family: Lato;
+  font-family: var(--font-display, "Lato");
   letter-spacing: -0.3px;
   color: #363636;
   overflow-x: hidden;
@@ -176,7 +176,7 @@ $bg: #eceef0;
   @include phone {
     font-size: 0.8em;
   }
-  
+
   @include is-rtl {
     @include tablet {
       transform: translate(-100%, 100%);

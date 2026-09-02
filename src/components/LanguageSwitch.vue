@@ -3,13 +3,12 @@
   <Dropdown class="c-dropdown"
     :menuOptions="optionsList"
     :initialSelectedOptionId="currentLocale"
-    :direction="langDir === 'rtl' ? 'left' : 'right'"
     @select="handleLanguageChange">
     <template #selected-text="{ option }">
       <span class="flag-emoji is-larger">{{ getLangEmoji(option.id) }}</span>
     </template>
     <template #menu-item-text="{ option }">
-      <span class="flag-emoji has-right-margin">{{ getLangEmoji(option.id) }}</span>
+      <span class="flag-emoji">{{ getLangEmoji(option.id) }}</span>
       <span class="locale-display-name">- {{ option.name }}</span>
     </template>
   </Dropdown>
@@ -31,7 +30,6 @@ const capitalizeLocale = (locale: string) => {
 }
 
 const currentLocale = inject<string>('locale')
-const langDir = inject<string>('langDir')
 const sortingLocale = currentLocale || 'en'
 const localizedLanguageNames = new Intl.DisplayNames([sortingLocale], { type: 'language' })
 const languageNameCollator = new Intl.Collator(sortingLocale)

@@ -133,7 +133,7 @@ In that case, add locale-specific style adjustments to `src/styles/_locale_adjus
 
 # Adding a right-to-left (RTL) language
 
-Hebrew, Arabic, Persian etc are written right-to-left. Follow the whole "Adding a language" flow above first — nothing in it changes — then do the following on top.
+Hebrew, Arabic, Persian etc. are written right-to-left. Follow the whole "Adding a language" flow above first — nothing in it changes — then do the following on top.
 
 ## 4. Register the locale as RTL
 
@@ -194,7 +194,7 @@ The website's Latin fonts — Lato and Poppins — have no Hebrew or Arabic glyp
 Hebrew is already set up, and it's the pattern to copy:
 
 - Add font files (`.ttf`) to `public/fonts` (e.g. `public/fonts/NotoSansHebrew`)
-- Then declare the `@font-face` blocks in `src/styles/_typography.scss`, preferably for 4 weights(400, 500, 600, 700 — the same set as Poppins):
+- Then declare the `@font-face` blocks in `src/styles/_typography.scss`, preferably for 4 weights (400, 500, 600, 700 — the same set as Poppins):
 
 ```scss
 @font-face {

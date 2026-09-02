@@ -61,6 +61,10 @@
   font-weight: 400;
 }
 
+:root {
+  --font-display: "Poppins";
+}
+
 html {
   background-color: white;
   font-size: var(--text-size);
@@ -80,11 +84,8 @@ body {
   color: $text_0;
 
   &[data-locale="he"] {
+    --font-display: "NotoSansHebrew";
     font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
-
-    [class^="is-title-"] {
-      font-family: "NotoSansHebrew";
-    }
   }
 }
 
@@ -114,7 +115,7 @@ $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
   $i: list.index($titles, $size);
 
   .is-title-#{$i} {
-    font-family: "Poppins";
+    font-family: var(--font-display, "Poppins");
     font-size: $size;
     line-height: #{list.nth($lineHeight, $i) * .5}rem;
 
@@ -130,15 +131,15 @@ $lineHeight: 5, 3.875, 1.875, 1.6875, 1.5, 1.5;
     @include desktop {
       letter-spacing: #{list.nth($letterSpacing, $i)}px;
     }
-
-    @include is-locale("he") {
-      font-family: "NotoSansHebrew";
-    }
   }
 }
 
 .is-font-poppin {
   font-family: "Poppins";
+
+  @include is-locale("he") {
+    font-family: "NotoSansHebrew";
+  }
 }
 
 .is-posttitle {

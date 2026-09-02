@@ -48,8 +48,7 @@ button,
   height: auto; // Usability purposes
   min-height: 2.75rem; // A11Y purposes
   border-radius: 2.75rem;
-  padding-left: 1rem; // nav change from 1.5?
-  padding-right: 1rem; // nav change from 1.5?
+  padding-inline: 1rem; // nav change from 1.5?
   border-color: transparent;
   background-color: $primary_0;
   border-width: 1px;
@@ -57,7 +56,7 @@ button,
   color: $background_0;
   transition: box-shadow 150ms ease-in;
   white-space: nowrap;
-  font-family: "Poppins";
+  font-family: var(--font-display, "Poppins");
   font-size: $size_4;
   outline: none;
 
@@ -78,8 +77,7 @@ button,
 
   &.is-small {
     min-height: 1.688rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-inline: 1rem;
     padding-bottom: 0;
     line-height: 1em;
   }
@@ -87,8 +85,7 @@ button,
   &.is-big {
     @include desktop {
       min-height: 4rem;
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-inline: 3rem;
     }
   }
 

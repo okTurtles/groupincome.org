@@ -71,7 +71,6 @@ const getDateDisplay = (dateString) => {
 	}
 
   .c-info {
-    font-weight: .5rem;
     margin: 1rem 0 3rem 0;
     color: #939393;
 

@@ -287,7 +287,7 @@ export default {
     }
 
     @include is-rtl {
-      transform: translateX(1rem);
+      transform: translateX(-1rem);
     }
   }
 
@@ -380,7 +380,7 @@ export default {
     height: 24px;
     margin-top: -12px;
     padding-inline-end: 6px;
-    font-family: 'Poppins';
+    font-family: var(--font-display, "Poppins");
     font-weight: 500;
     font-size: 12px;
     z-index: 2;
@@ -395,63 +395,41 @@ export default {
 
 #face-1 {
   top: 78vh;
-  left: 20%;
+  inset-inline-start: 20%;
 
   @include tablet {
     top: 74vh;
-    left: 10%;
+    inset-inline-start: 10%;
   }
 
   @include desktop {
     top: 72vh;
-    left: 19%;
+    inset-inline-start: 19%;
     transform: scale(.8);
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 20%;
-
-    @include tablet {
-      left: 10%;
-    }
-
-    @include desktop {
-      right: 19%;
-    }
   }
 }
 
 #face-2 {
   top: 68vh;
-  left: 1%;
+  inset-inline-start: 1%;
 
   @include tablet {
     top: 45vh;
-    left: 4%;
+    inset-inline-start: 4%;
   }
 
   @include desktop {
     top: 59vh;
   }
-
-  @include is-rtl {
-    left: auto;
-    right: 1%;
-
-    @include tablet {
-      right: 4%;
-    }
-  }
 }
 
 #face-3 {
   top: 6vh;
-  left: 4%;
+  inset-inline-start: 4%;
 
   @include tablet {
     top: 13vh;
-    left: 8%;
+    inset-inline-start: 8%;
   }
 
   @include tall {
@@ -460,56 +438,34 @@ export default {
 
   @include desktop {
     top: 35vh;
-    left: 6%;
+    inset-inline-start: 6%;
     transform: scale(.8);
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 4%;
-
-    @include desktop {
-      right: 6%;
-    }
   }
 }
 
 #face-4 {
   top: 79vh;
-  left: 56%;
+  inset-inline-start: 56%;
 
   @include tablet {
-    left: 73%;
+    inset-inline-start: 73%;
     transform: scale(0.8);
   }
 
   @include desktop {
     top: 69vh;
-    left: 84%;
+    inset-inline-start: 84%;
     transform: scale(1.1);
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 56%;
-
-    @include tablet {
-      right: 73%;
-    }
-
-    @include desktop {
-      right: 84%;
-    }
   }
 }
 
 #face-5 {
   top: 3vh;
-  left: 39%;
+  inset-inline-start: 39%;
 
   @include tablet {
     top: 5vh;
-    left: 29%;
+    inset-inline-start: 29%;
   }
 
   @include tall {
@@ -518,125 +474,69 @@ export default {
 
   @include desktop {
     top: 15vh;
-    left: 16%;
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 39%;
-
-    @include tablet {
-      right: 29%;
-    }
-
-    @include desktop {
-      right: 16%;
-    }
+    inset-inline-start: 16%;
   }
 }
 
 #face-6 {
   top: 72vh;
-  left: 82%;
+  inset-inline-start: 82%;
 
   @include tablet {
     top: 47vh;
-    left: 89%;
+    inset-inline-start: 89%;
   }
 
   @include desktop {
     top: 45vh;
-    left: 97%;
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 82%;
-
-    @include tablet {
-      right: 89%;
-    }
-
-    @include desktop {
-      right: 97%;
-    }
+    inset-inline-start: 97%;
   }
 }
 
 #face-7 {
   top: 1.5vh;
-  left: 61%;
+  inset-inline-start: 61%;
 
   @include tablet {
     top: 4vh;
-    left: 73%;
+    inset-inline-start: 73%;
   }
 
   @include tall {
     top: 12vh;
-    left: 57%;
+    inset-inline-start: 57%;
   }
 
   @include desktop {
     top: 46vh;
-    left: 85%;
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 61%;
-
-    @include tablet {
-      right: 73%;
-    }
-
-    @include desktop {
-      right: 85%;
-    }
+    inset-inline-start: 85%;
   }
 }
 
 #face-8 {
   top: 10vh;
-  left: 75%;
+  inset-inline-start: 75%;
 
   @include phone_narrow {
     top: 8vh;
-    left: 72%;
+    inset-inline-start: 72%;
     transform: scale(0.4);
   }
 
   @include tablet {
     top: 12vh;
-    left: 87%;
+    inset-inline-start: 87%;
   }
 
   @include tall {
     top: 22vh;
-    left: 79%;
+    inset-inline-start: 79%;
   }
 
   @include desktop {
     top: 24vh;
-    left: 92%;
+    inset-inline-start: 92%;
     transform: scale(1.2);
-  }
-
-  @include is-rtl {
-    left: auto;
-    right: 75%;
-
-    @include phone_narrow {
-      right: 72%;
-    }
-
-    @include tablet {
-      right: 87%;
-    }
-
-    @include desktop {
-      right: 92%;
-    }
   }
 }
 

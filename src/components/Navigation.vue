@@ -149,7 +149,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
   display: inline-block;
   white-space: nowrap;
   text-decoration: none;
-  font-family: "Poppins";
+  font-family: var(--font-display, "Poppins");
   font-size: 1rem;
   font-weight: 500;
   text-transform: uppercase;
