@@ -227,7 +227,7 @@ export default {
 
   @include until($desktop) {
     margin-bottom: 1rem;
-    margin-right: 0;
+    margin-inline-end: 0;
   }
 }
 

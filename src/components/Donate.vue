@@ -104,10 +104,14 @@ $bg: #eceef0;
   border-radius: 0.5rem;
   height: 2.5rem;
   padding: 0 .5rem;
-  font-family: var(--font-display, "Lato");
+  font-family: "Lato";
   letter-spacing: -0.3px;
   color: #363636;
   overflow-x: hidden;
+
+  @include is-locale("he") {
+    font-family: "NotoSansHebrew", "Lato";
+  }
 
   &::before,
   &::after {
