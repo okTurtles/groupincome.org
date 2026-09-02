@@ -109,10 +109,6 @@ $bg: #eceef0;
   color: #363636;
   overflow-x: hidden;
 
-  @include is-locale("he") {
-    font-family: "NotoSansHebrew", "Lato";
-  }
-
   &::before,
   &::after {
     content: '';
@@ -183,8 +179,14 @@ $bg: #eceef0;
 
   @include is-rtl {
     @include tablet {
-      transform: translate(-100%, 100%);
+      transform: translate(-110%, 100%);
     }
+  }
+}
+
+@include is-locale("he") {
+  .c-crypto-field {
+    font-family: "NotoSansHebrew", "Lato";
   }
 }
 </style>

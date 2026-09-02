@@ -68,7 +68,7 @@ defineExpose({ close })
 .c-modal-content {
   position: relative;
   border-radius: 0.375rem;
-  width: calc(100vw - 3rem);
+  width: calc(100% - 3rem);
   max-width: 40rem;
   height: auto;
   max-height: calc(100% - 5rem);

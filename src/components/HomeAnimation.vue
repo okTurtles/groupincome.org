@@ -233,11 +233,6 @@ export default {
   }
 }
 
-// Rpevent rendering glitch
-.right-side {
-  right: 0;
-}
-
 .c-side-blue {
   z-index: 3;
 }

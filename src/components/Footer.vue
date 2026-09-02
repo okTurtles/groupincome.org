@@ -15,7 +15,7 @@
                     <input :class="['input', { error: emailErr }]"
                       type="email" name="email" id="bd-email"
                       :placeholder="L('Your email address')"
-                      v-model.trim="email" />
+                      v-model.trim="email" dir="ltr" />
                     <button class="is-unstyled c-send-btn" type="submit" value="Subscribe">
                       <i class="icon-paper-plane"></i>
                     </button>
@@ -190,8 +190,14 @@ export default {
   position: relative;
 
   input {
-    padding-inline-end: 2.75rem;
+    padding-right: 2.75rem;
     border-radius: 0.5rem;
+
+    @include is-rtl {
+      text-align: right;
+      padding-left: 2.75rem;
+      padding-right: 0.625rem;
+    }
   }
 }
 

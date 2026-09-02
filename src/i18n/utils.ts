@@ -91,6 +91,7 @@ export function getRedirectLocale (): string {
   return defaultLanguage
 }
 
+// Unlike how general the name of the function sounds, its purpose is literally to check whether rtlLangCodes variable contains a passed locale code.
 export function isLocaleRTL (locale: string = ''): boolean {
   return rtlLangCodes.includes(locale)
 }

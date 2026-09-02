@@ -152,7 +152,7 @@ legend.legend {
     @include i.icon(sort-down);
     position: absolute;
     top: 50%;
-    right: 1rem;
+    inset-inline-end: 1rem;
     transform: translateY(calc(-50% - 2px));
     pointer-events: none;
     z-index: 2; // be above input, even when :hover it.
@@ -284,7 +284,7 @@ p.error {
   margin-top: 0.5rem;
   margin-bottom: 0;
   color: var(--danger_0);
-  text-align: left;
+  text-align: start;
   font-size: $size_6;
 
   &::before {
