@@ -8,7 +8,7 @@
       <span class="flag-emoji is-larger">{{ getLangEmoji(option.id) }}</span>
     </template>
     <template #menu-item-text="{ option }">
-      <span class="flag-emoji">{{ getLangEmoji(option.id) }}</span>
+      <span class="flag-emoji for-menu-item">{{ getLangEmoji(option.id) }}</span>
       <span class="locale-display-name">- {{ option.name }}</span>
     </template>
   </Dropdown>
@@ -68,10 +68,13 @@ const handleLanguageChange = (option: MenuItem) => {
     display: inline-block;
     font-size: 1.175em;
     transform: translateY(1px);
-    margin-inline-end: 0.25rem;
 
     &.is-larger {
       font-size: 1.275em;
+    }
+
+    &.for-menu-item {
+      margin-inline-end: 0.25rem;
     }
   }
 

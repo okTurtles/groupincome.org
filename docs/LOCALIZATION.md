@@ -211,7 +211,10 @@ body {
   font-family: "Poppins", "Lato", "Helvetica Neue", "sans-serif";
 
   &[data-locale="he"] {
+    --font-display: "NotoSansHebrew";
     font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
   }
 }
 ```
+
+Note that the example sets `--font-display` as well as `font-family`. Both are needed: elements that declare their own `font-family` — buttons, headings, table headers — never inherit the body stack, so they read `var(--font-display, "Poppins")` instead. That variable is the only way the locale's font reaches them.

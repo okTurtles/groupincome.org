@@ -60,7 +60,7 @@
         </div>
       </section>
 
-      <div class="sections-container" id="freeze-wrapper">
+      <div id="freeze-wrapper">
         <section class="container span-container" id="container3">
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">{{ L('Why it matters') }}</div>
