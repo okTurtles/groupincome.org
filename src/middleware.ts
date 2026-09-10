@@ -1,11 +1,11 @@
 import { defineMiddleware } from "astro:middleware";
-import { loadTranslationTable, isLocaleRTL } from "./i18n/utils";
+import { loadTranslationTable, isPageRTL } from "./i18n/utils";
 
 // https://docs.astro.build/en/guides/middleware/
 export const onRequest = defineMiddleware(async (context, next) => {
   if (context.params.locale) {
     const locale = context.params.locale;
-    const langDir = isLocaleRTL(locale) ? 'rtl' : 'ltr';
+    const langDir = isPageRTL(locale) ? 'rtl' : 'ltr';
     await loadTranslationTable(locale)
     // storing data in context.locals: https://docs.astro.build/en/guides/middleware/#storing-data-in-contextlocals
 

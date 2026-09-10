@@ -189,14 +189,20 @@ legend.legend {
   }
 
   .input {
-    border-radius: $radius 0 0 $radius;
+    border-start-start-radius: $radius;
+    border-end-start-radius: $radius;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
     flex-grow: 1;
   }
 
   .select {
     min-width: 6rem; // customized based on the context
     width: auto;
-    border-radius: 0 $radius $radius 0;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+    border-start-end-radius: $radius;
+    border-end-end-radius: $radius;
     margin-inline-start: -1px; // collapse border
 
     &.is-empty {
@@ -483,6 +489,10 @@ p.error {
 
     &::after {
       transform: translateX(1.1875rem);
+
+      @include is-rtl {
+        transform: translateX(-1.1875rem);
+      }
     }
 
     &:hover {

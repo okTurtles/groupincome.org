@@ -133,6 +133,7 @@ $zindex-navigation-on-mobile: $zindex-banner + 1;
       transition: transform 250ms ease-out;
       transform: translateX(0%);
 
+      // This is necessary here to override the above 'transform: translateX(-110%);', do not remove this.
       @include is-rtl {
         transform: translateX(0%);
       }

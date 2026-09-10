@@ -91,9 +91,9 @@ export function getRedirectLocale (): string {
   return defaultLanguage
 }
 
-// Unlike how general the name of the function sounds, its purpose is literally to check whether rtlLangCodes variable contains a passed locale code.
-export function isLocaleRTL (locale: string = ''): boolean {
-  return rtlLangCodes.includes(locale)
+// Check if the locale segment in the page url is registered as RTL(rtlLangCodes variable).
+export function isPageRTL (localeCode: string): boolean {
+  return rtlLangCodes.includes(localeCode)
 }
 
 // dynamic route definitions to be used in getStaticPaths() function of each page

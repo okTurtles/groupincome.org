@@ -143,7 +143,7 @@ Hebrew, Arabic, Persian etc. are written right-to-left. Follow the whole "Adding
 const rtlLangCodes: string[] = ['he']
 ```
 
-That single line drives everything else. `isLocaleRTL()` reads it, `src/middleware.ts` turns it into `context.locals.langDir`, and `DefaultLayout.astro` puts it on the root element:
+That single line drives everything else. `isPageRTL()` reads it, `src/middleware.ts` turns it into `context.locals.langDir`, and `DefaultLayout.astro` puts it on the root element:
 
 ```astro
 <html lang={locale || 'en'} dir={langDir || 'ltr'}>
