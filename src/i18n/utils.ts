@@ -63,7 +63,7 @@ export async function loadTranslationTable (lang: string): Promise<void> {
 //   1. an exact match                             ('he-IL' -> 'he-IL')
 //   2. primary subtag match                       ('he-IL' -> 'he')
 //   3. any supported code in the same language    ('he'    -> 'he-IL')
-// Preference order beats match precision (e.g. A user listing 'pt-PT' ahead of 'en-US' can get 'pt-BR')
+// Preference order beats match precision (e.g. a user listing 'pt-PT' ahead of 'en-US' gets a Portuguese locale, not 'en-US').
 // BCP 47 tags are case-insensitive, so we match on lowercased copies,
 // but always return the code as spelled in supportedLangCodes.
 export function getRedirectLocale (): string {
@@ -97,7 +97,7 @@ export function getRedirectLocale (): string {
   return defaultLanguage
 }
 
-// Check if the locale segment in the page url is registered as RTL(rtlLangCodes variable).
+// Check if the locale segment in the page url is registered as RTL (rtlLangCodes variable).
 export function isPageRTL (localeCode: string): boolean {
   return rtlLangCodes.includes(localeCode)
 }

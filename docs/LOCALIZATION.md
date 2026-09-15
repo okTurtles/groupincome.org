@@ -125,7 +125,7 @@ Select Spanish in the language dropdown in the header and check that the transla
 
 Some UI can break when presented with a particular language (e.g. the "Donate" button in the header becomes wider with the French translation "Faire un don", requiring a wider container element).
 
-In that case, add locale-specific style adjustments to `src/styles/_locale_adjustment.scss` using the `is-locale(...)` mixin — it scopes the rules to `body[data-locale="..."]`, which `DefaultLayout.astro` sets. See how `@include is-locale("fr")` is used there for reference:
+In that case, add locale-specific style adjustments to `src/styles/_locale_adjustment.scss` using the `is-locale(...)` mixin — it scopes the rules to `body[data-locale="..."]`, which `DefaultLayout.astro` sets. See how `@include is-locale("es")` is used there for reference:
 
 ```scss
 @include is-locale("es") { ... }
@@ -211,7 +211,7 @@ body {
   font-family: "Poppins", "Lato", "Helvetica Neue", "sans-serif";
 
   &[data-locale="he"] {
-    --font-display: "NotoSansHebrew";
+    --font-display: "NotoSansHebrew", "Poppins";
     font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
   }
 }

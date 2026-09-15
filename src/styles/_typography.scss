@@ -84,7 +84,7 @@ body {
   color: $text_0;
 
   &[data-locale="he"] {
-    --font-display: "NotoSansHebrew";
+    --font-display: "NotoSansHebrew", "Poppins";
     font-family: "NotoSansHebrew", "Poppins", "Lato", "Helvetica Neue", "sans-serif";
   }
 }

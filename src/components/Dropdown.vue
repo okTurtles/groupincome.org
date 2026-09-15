@@ -17,7 +17,7 @@
       tabindex="0"
       role="menuitem"
       @click.stop="onSelect(option)"
-      @keyup.enter="onSelect(option)">
+      @keydown.enter="onSelect(option)">
       <span v-if="$slots['menu-item-text']" class="dropdown-menu-item-text">
         <slot name="menu-item-text" :option="option"></slot>
       </span>

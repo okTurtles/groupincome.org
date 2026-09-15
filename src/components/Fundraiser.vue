@@ -56,8 +56,7 @@ b {
 .button {
   font-size: 1rem;
   border-radius: .5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-inline: 1.5rem;
   min-height: 2.5rem;
   margin-inline-start: 1rem;
 
