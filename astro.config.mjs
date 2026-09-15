@@ -43,7 +43,7 @@ const siteMap = {
 }
 const base = BUILD_TARGET === 'staging' ? '/groupincome.org/' : '/'
 // NOTE: keep in sync with supportedLangCodes in src/i18n/utils.ts
-const sitemapLocales = ['en', 'ko', 'fr', 'zh', 'de', 'ja', 'ru', 'es', 'pt', 'pt-BR', 'he']
+const sitemapLocales = ['en', 'ko', 'fr', 'zh', 'de', 'ja', 'ru', 'es', 'pt', 'pt-BR', 'he', 'ar']
 // Reference:
 // https://docs.astro.build/en/reference/configuration-reference/
 // https://vite.dev/config/

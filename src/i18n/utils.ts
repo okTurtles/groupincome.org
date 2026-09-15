@@ -10,7 +10,8 @@ const tableLoaders: Record<string, () => Promise<any>> = {
   'es': () => import('../../strings/spanish.json').then(module => module.default),
   'pt': () => import('../../strings/portuguese.json').then(module => module.default),
   'pt-BR': () => import('../../strings/br-portuguese.json').then(module => module.default),
-  'he': () => import('../../strings/hebrew.json').then(module => module.default)
+  'he': () => import('../../strings/hebrew.json').then(module => module.default),
+  'ar': () => import('../../strings/arabic.json').then(module => module.default)
 }
 const translationTables: Record<string, any> = {}
 
@@ -26,7 +27,8 @@ export const languageDisplayNames: Record<string, string> = {
   es: 'Español',
   pt: 'Português',
   'pt-BR': 'Português (BR)',
-  he: 'עברית'
+  he: 'עברית',
+  ar: 'العربية'
 }
 
 export const flagEmojiMap: Record<string, string> = {
@@ -40,10 +42,11 @@ export const flagEmojiMap: Record<string, string> = {
   es: '🇪🇸',
   pt: '🇵🇹',
   'pt-BR': '🇧🇷',
-  he: '🇮🇱'
+  he: '🇮🇱',
+  ar: '🇸🇦'
 }
 
-const rtlLangCodes: string[] = ['he']
+const rtlLangCodes: string[] = ['he', 'ar']
 
 export const defaultLanguage = 'en'
 export const supportedLangCodes: string[] = [defaultLanguage, ...Object.keys(tableLoaders)]
