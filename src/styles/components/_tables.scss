@@ -15,7 +15,7 @@
 
   th {
     text-transform: uppercase;
-    font-family: "Poppins";
+    font-family: var(--font-display, "Poppins");
     font-size: $size_5;
     color: $text-1;
   }
@@ -29,36 +29,5 @@
   td {
     padding: 0;
     vertical-align: middle;
-  }
-}
-
-.table-in-card {
-  @include removeSideCardPadding;
-
-  th,
-  td {
-    &:first-child {
-      padding-left: 1rem;
-
-      @include tablet {
-        padding-left: 1.5rem;
-      }
-
-      @include desktop {
-        padding-left: 2.5rem;
-      }
-    }
-
-    &:last-child {
-      padding-right: 1rem;
-
-      @include tablet {
-        padding-right: 1.5rem;
-      }
-
-      @include desktop {
-        padding-right: 2.5rem;
-      }
-    }
   }
 }

@@ -104,7 +104,7 @@ $bg: #eceef0;
   border-radius: 0.5rem;
   height: 2.5rem;
   padding: 0 .5rem;
-  font-family: Lato;
+  font-family: "Lato";
   letter-spacing: -0.3px;
   color: #363636;
   overflow-x: hidden;
@@ -113,22 +113,40 @@ $bg: #eceef0;
   &::after {
     content: '';
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     width: 3rem;
     height: 100%;
-    background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
   }
+
+  &::before {
+    background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
+
+    @include is-rtl {
+      background: linear-gradient(-90deg, rgb(245 248 251 / 0%) 0%, $bg 25%);
+    }
+  }
+
   &::after {
-    background: url(/svgs/copy.svg) no-repeat right .875rem center;
+    background-image: url(/svgs/copy.svg);
+    background-repeat: no-repeat;
+    background-position: right .875rem center;
+
+    @include is-rtl {
+      background-position: left .875rem center;
+    }
   }
 
   &:hover {
     background: #D0DEEA;
     border-color: $bg;
     cursor: pointer;
+  }
 
-    &::before {
-      background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, #D0DEEA 25%);
+  &:hover::before {
+    background: linear-gradient(90deg, rgb(245 248 251 / 0%) 0%, #D0DEEA 25%);
+
+    @include is-rtl {
+      background: linear-gradient(-90deg, rgb(245 248 251 / 0%) 0%, #D0DEEA 25%);
     }
   }
 }
@@ -157,6 +175,18 @@ $bg: #eceef0;
 
   @include phone {
     font-size: 0.8em;
+  }
+
+  @include is-rtl {
+    @include tablet {
+      transform: translate(-110%, 100%);
+    }
+  }
+}
+
+@include is-locale("he") {
+  .c-crypto-field {
+    font-family: "NotoSansHebrew", "Lato";
   }
 }
 </style>

@@ -166,9 +166,10 @@ b:has(+ .c-main-para) {
   grid-template-rows: 1fr;
 
   @include desktop {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     grid-template-rows: auto;
     grid-gap: 0 7.5rem;
+    max-width: 60rem;
   }
 }
 
@@ -231,7 +232,7 @@ b:has(+ .c-main-para) {
 
   @include desktop {
     flex-direction: row;
-    right: -4rem;
+    inset-inline-end: -4rem;
     top: 0;
     height: 100%;
     width: auto;
@@ -314,27 +315,6 @@ b:has(+ .c-main-para) {
       font-size: 2.75rem;
       line-height: 1.15;
     }
-  }
-}
-
-.c-silver-sponsor {
-  width: 22rem;
-  display: flex;
-  background-color: #C0C5DA;
-  border-radius: .5rem;
-  padding: .5rem;
-  font-size: 1rem;
-  color: #000;
-
-  &:hover {
-    background-color: #fff;
-  }
-
-  img {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    margin-right: 1rem;
   }
 }
 

@@ -42,7 +42,7 @@ const links: any[] = [
 
 .c-url-list {
   position: relative;
-  margin-left: 1.25rem;
+  margin-inline-start: 1.25rem;
   list-style-type: disc;
 
   li {

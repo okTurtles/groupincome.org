@@ -14,13 +14,13 @@ export interface Props {
 }
 
 const { title, description, image, mainClasses = '', pageType = 'default'} = Astro.props;
-const { locale } = Astro.locals;
+const { locale, langDir } = Astro.locals;
 const _title = title || SITE_TITLE;
 const _description = description || SITE_DESCRIPTION;
 ---
 
 <!DOCTYPE html>
-<html lang={locale || 'en'}>
+<html lang={locale || 'en'} dir={langDir || 'ltr'}>
 	<head>
 		<BaseHead title={_title} description={_description} image={image || ''} />
 	</head>

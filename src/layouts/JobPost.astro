@@ -12,17 +12,27 @@ const jobs =  sortedPosts(import.meta.glob('../jobs/*.{md,mdx}', { eager: true }
 const pathname = new URL(Astro.request.url).pathname;
 const path = pathname.split("/");
 const currentPath = path[path.length - 2];
-const { locale } = Astro.locals
+const { locale, langDir } = Astro.locals
 const L = useTranslation(locale)
+const isRTL = langDir === 'rtl'
+const sidesStyles = {
+  first: isRTL
+    ? { top: '10rem', right: 0, transform: 'rotate(-180deg)' }
+    : { top: '10rem', left: 0 },
+  second: isRTL
+    ? { top: '60rem', left: 0 }
+    : { top: '60rem', right: 0, transform: 'rotate(180deg)' }
+}
 
 const typeDisplayMap: Record<string, string> = {
   "remote": L("remote")
 }
+
 ---
 <Layout pageType="jobpost">
 <div class="c-wrapper">
-  <Sides color="#5DC9F1" :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"></Sides>
-  <Sides color="#F89202" :styles="{ top: 120rem }"></Sides>
+  <Sides color="#F89202" styles={sidesStyles.first}></Sides>
+  <Sides color="#5DC9F1" styles={sidesStyles.second}></Sides>
 
   <section class="container grey-container">
     <I18n tag="div" class="is-posttitle">JOBS</I18n>
@@ -161,6 +171,15 @@ const typeDisplayMap: Record<string, string> = {
 .l-job {
   a {
     @extend %link-style;
+  }
+
+  @include is-rtl {
+    text-align: right;
+
+    p, li, h1, h2, h3, h4, blockquote, td, th {
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/unicode-bidi
+      unicode-bidi: plaintext;
+    }
   }
 }
 </style>

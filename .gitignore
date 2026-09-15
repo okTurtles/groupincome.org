@@ -23,4 +23,5 @@ strings.mac
 
 # Astro
 .astro/
+.claude/
 /.omp/

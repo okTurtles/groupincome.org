@@ -1,12 +1,8 @@
 <template>
   <div class="c-wrapper" ref="wrapper">
-    <Sides color="#5DC9F1"
-      :styles="{ 'top': '40rem', 'right': 0, 'transform': 'rotate(-180deg)' }"
-      class="right-side c-side-blue"></Sides>
-    <Sides color="#F89202" :styles="{ 'top': '120rem' }"></Sides>
-    <Sides color="#A1D10E"
-      :styles="{ 'top': '180rem', 'transform': 'rotate(-180deg)', 'right': 0, 'transform': 'rotate(-180deg)' }"
-      class="right-side"></Sides>
+    <Sides class="c-side-blue" color="#5DC9F1" :styles="config.sideArchStyles.first"></Sides>
+    <Sides color="#F89202" :styles="config.sideArchStyles.second"></Sides>
+    <Sides color="#A1D10E" :styles="config.sideArchStyles.third"></Sides>
 
     <div class="graphic-wrapper">
       <section class="container c-main-container">
@@ -64,7 +60,7 @@
         </div>
       </section>
 
-      <div class="sections-container" id="freeze-wrapper">
+      <div id="freeze-wrapper">
         <section class="container span-container" id="container3">
           <div class="span-2 c-container-header" id="header3">
             <div class="is-title-3 c-container-posttitle">{{ L('Why it matters') }}</div>
@@ -184,7 +180,46 @@ export default {
   },
   setup () {
     const L = inject('L')
-    return { L }
+    const langDir = inject('langDir')
+    return { L, langDir }
+  },
+  data () {
+    const isRTL = this.langDir === 'rtl'
+    return {
+      config: {
+        sideArchStyles: {
+          first: isRTL
+            ? {
+              top: '40rem',
+              left: 0
+            }
+            : {
+              top: '40rem',
+              right: 0,
+              transform: 'rotate(-180deg)'
+            },
+          second: isRTL
+            ? {
+              top: '120rem',
+              right: 0,
+              transform: 'rotate(-180deg)'
+            }
+            : {
+              top: '120rem'
+            },
+          third: isRTL
+            ? {
+              top: '180rem',
+              left: 0
+            }
+            : {
+              top: '180rem',
+              transform: 'rotate(-180deg)',
+              right: 0
+            }
+        }
+      }
+    }
   }
 }
 </script>
@@ -196,11 +231,6 @@ export default {
   @media screen and (max-width: $phone_narrow) {
     @content;
   }
-}
-
-// Rpevent rendering glitch
-.right-side {
-  right: 0;
 }
 
 .c-side-blue {
@@ -250,6 +280,10 @@ export default {
       flex-shrink: 0;
       border-radius: 0.5rem;
     }
+
+    @include is-rtl {
+      transform: translateX(-1rem);
+    }
   }
 
   @include desktop {
@@ -266,7 +300,7 @@ export default {
       width: max-content;
       max-width: 36vw;
       flex-shrink: 0;
-      margin-right: 1.25rem;
+      margin-inline-end: 1.25rem;
     }
 
     .c-chat-img-container {
@@ -277,6 +311,10 @@ export default {
 
       .c-chat-image {
         width: 50vw;
+      }
+
+      @include is-rtl {
+        transform: translateX(-3rem);
       }
     }
   }
@@ -336,8 +374,8 @@ export default {
     width: 56px;
     height: 24px;
     margin-top: -12px;
-    padding-right: 6px;
-    font-family: 'Poppins';
+    padding-inline-end: 6px;
+    font-family: var(--font-display, "Poppins");
     font-weight: 500;
     font-size: 12px;
     z-index: 2;
@@ -352,42 +390,41 @@ export default {
 
 #face-1 {
   top: 78vh;
-  left: 20%;
+  inset-inline-start: 20%;
 
   @include tablet {
     top: 74vh;
-    left: 10%;
+    inset-inline-start: 10%;
   }
 
   @include desktop {
     top: 72vh;
-    left: 19%;
+    inset-inline-start: 19%;
     transform: scale(.8);
   }
 }
 
 #face-2 {
   top: 68vh;
-  left: 1%;
+  inset-inline-start: 1%;
 
   @include tablet {
     top: 45vh;
-    left: 4%;
+    inset-inline-start: 4%;
   }
 
   @include desktop {
     top: 59vh;
-    left: 4%;
   }
 }
 
 #face-3 {
   top: 6vh;
-  left: 4%;
+  inset-inline-start: 4%;
 
   @include tablet {
     top: 13vh;
-    left: 8%;
+    inset-inline-start: 8%;
   }
 
   @include tall {
@@ -396,34 +433,34 @@ export default {
 
   @include desktop {
     top: 35vh;
-    left: 6%;
+    inset-inline-start: 6%;
     transform: scale(.8);
   }
 }
 
 #face-4 {
   top: 79vh;
-  left: 56%;
+  inset-inline-start: 56%;
 
   @include tablet {
-    left: 73%;
+    inset-inline-start: 73%;
     transform: scale(0.8);
   }
 
   @include desktop {
     top: 69vh;
-    left: 84%;
+    inset-inline-start: 84%;
     transform: scale(1.1);
   }
 }
 
 #face-5 {
   top: 3vh;
-  left: 39%;
+  inset-inline-start: 39%;
 
   @include tablet {
     top: 5vh;
-    left: 29%;
+    inset-inline-start: 29%;
   }
 
   @include tall {
@@ -432,68 +469,68 @@ export default {
 
   @include desktop {
     top: 15vh;
-    left: 16%;
+    inset-inline-start: 16%;
   }
 }
 
 #face-6 {
   top: 72vh;
-  left: 82%;
+  inset-inline-start: 82%;
 
   @include tablet {
     top: 47vh;
-    left: 89%;
+    inset-inline-start: 89%;
   }
 
   @include desktop {
     top: 45vh;
-    left: 97%;
+    inset-inline-start: 97%;
   }
 }
 
 #face-7 {
   top: 1.5vh;
-  left: 61%;
+  inset-inline-start: 61%;
 
   @include tablet {
     top: 4vh;
-    left: 73%;
+    inset-inline-start: 73%;
   }
 
   @include tall {
     top: 12vh;
-    left: 57%;
+    inset-inline-start: 57%;
   }
 
   @include desktop {
     top: 46vh;
-    left: 85%;
+    inset-inline-start: 85%;
   }
 }
 
 #face-8 {
   top: 10vh;
-  left: 75%;
+  inset-inline-start: 75%;
 
   @include phone_narrow {
     top: 8vh;
-    left: 72%;
+    inset-inline-start: 72%;
     transform: scale(0.4);
   }
 
   @include tablet {
     top: 12vh;
-    left: 87%;
+    inset-inline-start: 87%;
   }
 
   @include tall {
     top: 22vh;
-    left: 79%;
+    inset-inline-start: 79%;
   }
 
   @include desktop {
     top: 24vh;
-    left: 92%;
+    inset-inline-start: 92%;
     transform: scale(1.2);
   }
 }
@@ -512,7 +549,7 @@ export default {
   max-width: fit-content;
 
   @include desktop {
-    margin-left: -50%;
+    margin-inline-start: -50%;
   }
 }
 
@@ -558,7 +595,7 @@ export default {
   }
 
   @include desktop {
-    text-align: left;
+    text-align: start;
     justify-content: space-between;
     flex-direction: row;
   }
@@ -611,7 +648,8 @@ export default {
     margin: 0 auto;
 
     @include desktop {
-      margin-right: 25%;
+      // Logical, so the empty gutter stays on the trailing side in RTL too.
+      margin-inline-end: 25%;
     }
   }
 
@@ -739,7 +777,7 @@ export default {
       }
 
       &:first-child {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     }
   }
