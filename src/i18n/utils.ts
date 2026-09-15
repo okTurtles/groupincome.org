@@ -8,6 +8,8 @@ const tableLoaders: Record<string, () => Promise<any>> = {
   'ja': () => import('../../strings/japanese.json').then(module => module.default),
   'ru': () => import('../../strings/russian.json').then(module => module.default),
   'es': () => import('../../strings/spanish.json').then(module => module.default),
+  'pt': () => import('../../strings/portuguese.json').then(module => module.default),
+  'pt-BR': () => import('../../strings/br-portuguese.json').then(module => module.default),
   'he': () => import('../../strings/hebrew.json').then(module => module.default)
 }
 const translationTables: Record<string, any> = {}
@@ -22,6 +24,8 @@ export const languageDisplayNames: Record<string, string> = {
   ja: '日本語',
   ru: 'Русский',
   es: 'Español',
+  pt: 'Português',
+  'pt-BR': 'Português (BR)',
   he: 'עברית'
 }
 
@@ -34,6 +38,8 @@ export const flagEmojiMap: Record<string, string> = {
   ja: '🇯🇵',
   ru: '🇷🇺',
   es: '🇪🇸',
+  pt: '🇵🇹',
+  'pt-BR': '🇧🇷',
   he: '🇮🇱'
 }
 
