@@ -648,6 +648,9 @@
 /* components/FAQ.vue */
 "This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?" = "This can translate into a group of altruistic, trusting, creative, and confident people that boost and improve each other's existence. Who wouldn't want to be a part of that?";
 
+/* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
+"This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.";
+
 /* components/FAQ.vue */
 "This is not communism. One reason communism failed is because power was centralized, which led to a small group making decisions for everyone, and concentration/abuse of power.{br_}{br_}\nGroup Income is decentralized, which ensures that each group is making decisions only for itself and that no one will have power over that group." = "This is not communism. One reason communism failed is because power was centralized, which led to a small group making decisions for everyone, and concentration/abuse of power.{br_}{br_}\nGroup Income is decentralized, which ensures that each group is making decisions only for itself and that no one will have power over that group.";
 

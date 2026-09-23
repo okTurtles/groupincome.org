@@ -21,7 +21,12 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       <I18n tag="h1" class="is-title-1 c-main-title">Security & Privacy</I18n>
     </section>
     <section class="c-container-middle">
+      <I18n tag="div" class="banner-simple c-translation-notice">
+        This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.
+      </I18n>
+
       <I18n class="has-text-italic" is:raw tag="p" args={{ date: lastUpdatedDate }}>Last updated: {date}</I18n>
+
       <I18n tag="p">
         We were tired of Silicon Valley companies telling us that they "take our privacy and security very seriously", while having regular data breaches and storing our personal data unencrypted in their databases — ripe for the picking by hackers and rogue employees. We were tired of fake "privacy settings" that offered no real privacy.
       </I18n>
@@ -223,6 +228,11 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
   .c-line {
     margin: 3rem 0;
     border-bottom: 1px solid #D0DEEA;
+  }
+
+  .c-translation-notice {
+    margin-bottom: 3rem;
+    font-size: $size_6;
   }
 }
 </style>
