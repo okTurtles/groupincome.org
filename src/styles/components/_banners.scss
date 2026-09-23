@@ -18,4 +18,9 @@
     height: 100%;
     background-color: $primary_0;
   }
+
+  &.translation-notice {
+    margin-bottom: 3rem;
+    font-size: $size_6;
+  }
 }

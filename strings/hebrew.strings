@@ -778,7 +778,7 @@
 "We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order." = "אנו מנהלים רשימת שרתי צד שלישי באתר שלנו, אך איננו יכולים לאמת את שלמותם של אף אחד מהם. השתמשו רק בשרת שאתם סומכים עליו, או הריצו שרת משלכם. נסיר מהרשימה כל שרת שלגביו נקבל צו חוקי.";
 
 /* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
-"{strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.{_strong}" = "{strong_}שים לב:{_strong} מסמך זה נוסח באנגלית; כל התרגומים מסופקים לנוחות בלבד, ובמקרה של סתירה או אי-התאמה בין תרגום כלשהו לבין הגרסה האנגלית, הגרסה האנגלית המקורית תגבר ותהיה המחייבת.{_strong}";
+"{strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "{strong_}שים לב:{_strong} מסמך זה נוסח באנגלית; כל התרגומים מסופקים לנוחות בלבד, ובמקרה של סתירה או אי-התאמה בין תרגום כלשהו לבין הגרסה האנגלית, הגרסה האנגלית המקורית תגבר ותהיה המחייבת.";
 
 /* pages/[locale]/tag/[tag].astro */
 "Posts Tagged: {span_} {tag} {_span}" = "פוסטים המתויגים: {span_} {tag} {_span}";
@@ -836,7 +836,4 @@
 
 /* pages/[locale]/terms-and-conditions.astro */
 "okTurtles reserves the right to modify or update these Terms at any time. Your continued use of the Services after any such changes constitutes your acceptance of the new Terms." = "okTurtles שומרת לעצמה את הזכות לשנות או לעדכן תנאים אלה בכל עת. המשך השימוש שלכם בשירותים לאחר שינויים כאלה מהווה את הסכמתכם לתנאים החדשים.";
-
-/* Not currently used */
-"This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "מסמך זה נוסח באנגלית; כל התרגומים מסופקים לנוחות בלבד, ובמקרה של סתירה או אי-התאמה בין תרגום כלשהו לבין הגרסה האנגלית, הגרסה האנגלית המקורית תגבר ותהיה המחייבת.";
 

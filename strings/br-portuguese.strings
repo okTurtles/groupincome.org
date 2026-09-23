@@ -778,7 +778,7 @@
 "We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order." = "Mantemos uma lista de servidores de terceiros no nosso site, mas não podemos verificar a integridade de nenhum deles. Use apenas um servidor em que confie, ou rode o seu próprio. Removeremos da lista qualquer servidor a respeito do qual recebamos uma ordem judicial.";
 
 /* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
-"{strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.{_strong}" = "{strong_}NOTA:{_strong} Este documento foi redigido em inglês; todas as traduções são fornecidas apenas por conveniência e, em caso de conflito ou divergência entre uma tradução e a versão em inglês, prevalecerá e vigorará a versão original em inglês.{_strong}";
+"{strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "{strong_}NOTA:{_strong} Este documento foi redigido em inglês; todas as traduções são fornecidas apenas por conveniência e, em caso de conflito ou divergência entre uma tradução e a versão em inglês, prevalecerá e vigorará a versão original em inglês.";
 
 /* pages/[locale]/tag/[tag].astro */
 "Posts Tagged: {span_} {tag} {_span}" = "Publicações com a tag: {span_} {tag} {_span}";
@@ -836,7 +836,4 @@
 
 /* pages/[locale]/terms-and-conditions.astro */
 "okTurtles reserves the right to modify or update these Terms at any time. Your continued use of the Services after any such changes constitutes your acceptance of the new Terms." = "A okTurtles reserva-se o direito de modificar ou atualizar estes Termos a qualquer momento. O uso continuado dos Serviços após essas alterações constitui a sua aceitação dos novos Termos.";
-
-/* Not currently used */
-"This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "Este documento foi redigido em inglês; todas as traduções são fornecidas apenas por conveniência e, em caso de conflito ou divergência entre uma tradução e a versão em inglês, prevalecerá e vigorará a versão original em inglês.";
 
