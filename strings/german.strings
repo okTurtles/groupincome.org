@@ -18,9 +18,6 @@
 /* MISSING TRANSLATION - pages/[locale]/faq.astro */
 "Group Income Shorts" = "Group Income Shorts";
 
-/* MISSING TRANSLATION - pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
-"This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.";
-
 /* components/Accordion.vue */
 "Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂" = "Sind Sie Expertin oder Experte für JavaScript? Kennen Sie die Sprache und ihre Werkzeuge in- und auswendig? Programmieren Sie seit mindestens 4 Jahren? Kennen Sie mehrere Programmiersprachen? Großartig! Dann könnten Sie gut zu dieser Stelle passen. 🙂";
 
@@ -780,6 +777,9 @@
 /* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
 "We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order." = "Wir führen auf unserer Website eine Liste von Servern von Drittanbietern, können jedoch die Integrität keines davon überprüfen. Nutze nur einen Server, dem du vertraust, oder betreibe deinen eigenen. Wir werden jeden Server aus der Liste entfernen, für den wir eine rechtmäßige Anordnung erhalten.";
 
+/* pages/[locale]/privacy-policy.astro, pages/[locale]/terms-and-conditions.astro */
+"{strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.{_strong}" = "{strong_}HINWEIS:{_strong} Dieses Dokument wurde in englischer Sprache verfasst; alle Übersetzungen dienen ausschließlich der Vereinfachung, und im Falle von Widersprüchen oder Unstimmigkeiten zwischen einer Übersetzung und der englischen Fassung ist die englische Originalfassung maßgeblich und ausschlaggebend.{_strong}";
+
 /* pages/[locale]/tag/[tag].astro */
 "Posts Tagged: {span_} {tag} {_span}" = "Beiträge mit Schlagwort: {span_} {tag} {_span}";
 
@@ -836,4 +836,7 @@
 
 /* pages/[locale]/terms-and-conditions.astro */
 "okTurtles reserves the right to modify or update these Terms at any time. Your continued use of the Services after any such changes constitutes your acceptance of the new Terms." = "okTurtles behält sich das Recht vor, diese Bedingungen jederzeit zu ändern oder zu aktualisieren. Ihre fortgesetzte Nutzung der Dienste nach solchen Änderungen gilt als Zustimmung zu den neuen Bedingungen.";
+
+/* Not currently used */
+"This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern." = "Dieses Dokument wurde in englischer Sprache verfasst; alle Übersetzungen dienen ausschließlich der Vereinfachung, und im Falle von Widersprüchen oder Unstimmigkeiten zwischen einer Übersetzung und der englischen Fassung ist die englische Originalfassung maßgeblich und ausschlaggebend.";
 

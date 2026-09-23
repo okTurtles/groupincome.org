@@ -4,8 +4,18 @@
   position: relative;
   background-color: $primary_2;
   color: $primary_0;
-  padding: 1rem;
-  display: flex;
-  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  padding-inline-start: 1.5rem;
   border-radius: $radius-large;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 0.25rem;
+    height: 100%;
+    background-color: $primary_0;
+  }
 }

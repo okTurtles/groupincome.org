@@ -1,5 +1,4 @@
 {
-  "This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.": "This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.",
   "Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂": "자바스크립트에 전문가인가요? 언어와 도구를 아주 잘 알고 있나요? 4년 이상 프로그래밍을 해오셨나요? 여러 프로그래밍 언어를 알고 있나요? 좋습니다! 이 직무에 적합할 수 있습니다. 🙂",
   "Car donation": "차량 기부",
   "Check": "수표 기부",
@@ -259,6 +258,7 @@
   "If you are using Group Income on a third-party server (one not hosted by us), please be advised that we have absolutely no control over that server, we cannot guarantee its integrity, we cannot guarantee that it's running the same code, we are not responsible for anything on it, and you should only use servers run by someone you trust.": "제3자 서버(우리가 호스팅하지 않는 서버)에서 Group Income을 사용하는 경우, 우리는 해당 서버에 대해 전혀 제어할 수 없으며, 그 무결성을 보장할 수 없고, 동일한 코드를 실행하고 있다고 보장할 수 없으며, 그 위의 어떤 것에 대해서도 책임을 지지 않으며, 신뢰하는 사람이 운영하는 서버만 사용해야 합니다.",
   "Last updated: {date}": "마지막 업데이트: {date}",
   "We maintain a list of third-party servers on our website, but we cannot verify the integrity of any of them. Only use a server you trust, or run your own. We will remove any server from the list for which we receive a lawful order.": "웹사이트에 제3자 서버 목록을 유지하지만, 그 중 어떤 것의 무결성도 확인할 수 없습니다. 신뢰하는 서버만 사용하거나 자신의 서버를 실행하세요. 법적 명령을 받은 서버는 목록에서 제거할 것입니다.",
+  "{strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.{_strong}": "{strong_}참고:{_strong} 본 문서는 영어로 작성되었으며, 모든 번역본은 편의를 위해서만 제공됩니다. 번역본과 영어 원본 사이에 충돌이나 불일치가 있는 경우 영어 원본이 우선하며 효력을 갖습니다.{_strong}",
   "Posts Tagged: {span_} {tag} {_span}": "{span_} {tag} {_span} 태그가 붙은 게시물:",
   "Acceptance of Terms": "약관 수락",
   "By accessing and using Services, you agree to be bound by these Terms and Conditions (\"Terms\"), and our {a_}Privacy Policy{_a}. If you do not agree with any part of these Terms, you must not use our Services.": "서비스에 접속하여 이용함으로써, 귀하는 본 이용약관(\"약관\") 및 당사의 {a_}개인정보 처리방침{_a}을 준수하는 데 동의하는 것으로 간주됩니다. 본 약관의 내용에 일부라도 동의하지 않는 경우, 당사의 서비스를 이용해서는 안 됩니다.",
