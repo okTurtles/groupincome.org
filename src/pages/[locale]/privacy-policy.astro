@@ -9,6 +9,7 @@ export async function getStaticPaths() {
 }
 
 const { locale } = Astro.locals
+const isLocaleEn = locale === 'en'
 const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 ---
 
@@ -21,9 +22,14 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       <I18n tag="h1" class="is-title-1 c-main-title">Security & Privacy</I18n>
     </section>
     <section class="c-container-middle">
-      <I18n is:raw tag="div" class="banner-simple c-translation-notice" args={{ ...LTags('strong') }}>
-        {strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.{_strong}
-      </I18n>
+
+      {
+        !isLocaleEn && (
+          <I18n is:raw tag="div" class="banner-simple c-translation-notice" args={{ ...LTags('strong') }}>
+            {strong_}NOTE:{_strong} This document was drafted in English; all translations are provided for convenience only, and in the event of any conflict or inconsistency between a translation and the English version, the original English version shall prevail and govern.{_strong}
+          </I18n>
+        )
+      }
 
       <I18n class="has-text-italic" is:raw tag="p" args={{ date: lastUpdatedDate }}>Last updated: {date}</I18n>
 
