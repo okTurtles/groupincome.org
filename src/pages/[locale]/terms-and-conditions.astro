@@ -132,6 +132,9 @@ const lastUpdatedDate = localeAwareDateString('2024-07-20', locale)
 
     @include phone {
       max-width: 30rem;
+      // Below is a bugfix for the overflowing word problem.
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overflow-wrap
+      overflow-wrap: anywhere;
     }
   }
 }
