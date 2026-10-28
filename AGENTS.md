@@ -91,7 +91,7 @@ layout: "../layouts/JobPost.astro"
 
 ### Other Endpoints
 
-- `/rss.xml` — RSS feed via `@astrojs/rss`
+- `/rss.xml` — RSS feed via `@astrojs/rss` (`src/pages/rss.xml.js`): the blog posts from `src/posts` (title, description, date, link; no full text), newest first. `BaseHead.astro` links to it from every page.
 - `/sitemap` — auto-generated via `@astrojs/sitemap`
 - `/tags/[tag]` — tag-based blog post filtering
 
