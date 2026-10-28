@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import remarkBreaks from 'remark-breaks'; // improves support for newlines in markdown files
 import remarkGfm from 'remark-gfm'; // support rendering tables in markdown files
@@ -51,14 +52,10 @@ const sitemapLocales = ['en', 'ko', 'fr', 'zh', 'de', 'ja', 'ru', 'es', 'pt', 'p
 export default defineConfig({
   site: siteMap[BUILD_TARGET],
   base,
-  // Sass-related options
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler'
-      }
-    }
-  },
+  // Astro 7 strips the whitespace between elements like JSX ('jsx'), which removes the space
+  // between inline elements written on separate lines in the templates. `true` keeps the
+  // HTML whitespace rules of Astro 6 and older (one space stays).
+  compressHTML: true,
   integrations: [
     mdx(),
     sitemap({
@@ -78,8 +75,12 @@ export default defineConfig({
     vue({ appEntrypoint: '/src/_app' })
   ],
   markdown: {
-    remarkPlugins: [/* remarkEmbedPlugin, */ remarkGfm, remarkBreaks, remarkMath],
-    rehypePlugins: [[rehypeKatex, {}]]
+    // Astro 7 renders Markdown with Sätteri by default, which runs no remark/rehype plugins.
+    // The unified processor keeps the remark/rehype pipeline (for .md and .mdx posts).
+    processor: unified({
+      remarkPlugins: [/* remarkEmbedPlugin, */ remarkGfm, remarkBreaks, remarkMath],
+      rehypePlugins: [[rehypeKatex, {}]]
+    })
   },
   devToolbar: {
     enabled: false, // hide the dev toolbar

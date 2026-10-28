@@ -61,18 +61,16 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 
       <I18n tag="h3">We use end-to-end encryption</I18n>
 
-      <p>
-        <ul class="indented-list">
-          <I18n tag="li" is:raw
-            args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://en.wikipedia.org//wiki/Surveillance_capitalism" target="_blank">'}}>
-            In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see {a_}"surveillance capitalism"{_a}).
-          </I18n>
-          <I18n tag="li" is:raw
-            args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
-            In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the {a_}Shelter Protocol{_a} for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.
-          </I18n>
-        </ul>
-      </p>
+      <ul class="indented-list">
+        <I18n tag="li" is:raw
+          args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://en.wikipedia.org//wiki/Surveillance_capitalism" target="_blank">'}}>
+          In layman's terms: Group Income's privacy and security is better than websites like Facebook, Twitter, Google, and even your bank's website, as these services do not even attempt to end-to-end encrypt your data because it undermines their business model (see {a_}"surveillance capitalism"{_a}).
+        </I18n>
+        <I18n tag="li" is:raw
+          args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://shelterprotocol.net" target="_blank">'}}>
+          In geek terms: your data is end-to-end encrypted using keys derived from your password, a hardening algorithm (scrypt), and a random salt. See the {a_}Shelter Protocol{_a} for details. Note that although we do take steps to strengthen your password, using a weak password can still undermine your security, so pick a strong, unique password.
+        </I18n>
+      </ul>
 
       <I18n tag="p" is:raw
         args={{ ...LTags('a'), 'a_': '<a class="is-link" href="https://gist.github.com/taoeffect/43455a09bb2ba3d5becda9f7441894df" target="_blank">'}}>
@@ -107,11 +105,9 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       </ul>
 
       <I18n tag="p">The following metadata is public:</I18n>
-      <p>
-        <ul class="indented-list">
-          <I18n tag="li">If you already know the username of someone on a server, you can get their identity contractID. This doesn't tell you anything about them (as the contents of an identity contract are encrypted by default), but perhaps it could be useful for something.</I18n>
-        </ul>
-      </p>
+      <ul class="indented-list">
+        <I18n tag="li">If you already know the username of someone on a server, you can get their identity contractID. This doesn't tell you anything about them (as the contents of an identity contract are encrypted by default), but perhaps it could be useful for something.</I18n>
+      </ul>
 
       <I18n tag="p">If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), access our website over a VPN or Tor, and avoid exposing any information about yourself in an unencrypted, public chatroom.</I18n>
 
