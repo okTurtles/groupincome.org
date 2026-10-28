@@ -1,0 +1,69 @@
+---
+// The isso comments of a blog post. isso (https://isso-comments.de/) is a
+// comment server outside this repo: the turtledock nginx sends /isso to it.
+// So the comments show only where that nginx serves the site (after
+// `npm run build:prod`), not in `npm run dev` or `npm run preview`. The
+// /isso paths are at the root of the host, so they skip `resolvePath()`.
+// The isso client reads the `data-isso-*` attributes from every script on
+// the page, so only the script that this component adds may have them.
+// `data-isso-id` must be the raw `permalink`, never `resolvePath(permalink)`:
+// it is the thread uri in the isso database (the old WordPress post path).
+export interface Props {
+	title: string;
+	permalink: string;
+	author?: string;
+}
+
+// isso marks the comments of the post author by the 12-character `hash` that
+// its API returns for each commenter (made from the email). The value
+// changes if the `[hash]` settings of the isso site config change.
+const COMMENT_AUTHOR_HASHES: Record<string, string> = {
+	'Greg Slepak': 'fb2ba1502b36',
+}
+
+const { title, permalink, author } = Astro.props
+const authorHash = (author && COMMENT_AUTHOR_HASHES[author]) || ''
+
+// The script below starts the isso client only after the Vue island around
+// the page body (`PageWrapper` in DefaultLayout.astro) has hydrated. That
+// hydration makes all the body DOM again from the server HTML (Vue sets the
+// `innerHTML` of `<astro-slot>` again). If isso starts before it, isso
+// writes into removed elements: the heading stays empty, or no comments
+// show, and the visible form is a copy that cannot send. Astro's nested
+// islands wait for the same `astro:hydrate` event.
+---
+
+<script is:inline define:vars={{ authorHash }}>
+	const pageIsland = document.currentScript.closest('astro-island[ssr]')
+	const startIsso = () => {
+		const isso = document.createElement('script')
+		Object.assign(isso.dataset, {
+			isso: '/isso',
+			issoLang: 'en',
+			issoVote: 'false',
+			issoMaxCommentsNested: 'inf',
+		})
+		if (authorHash) isso.dataset.issoPageAuthorHashes = authorHash
+		isso.src = '/isso/js/embed.min.js'
+		document.head.append(isso)
+	}
+	if (pageIsland) {
+		pageIsland.addEventListener('astro:hydrate', startIsso, { once: true })
+	} else {
+		startIsso()
+	}
+</script>
+<section id="isso-thread" data-title={title} data-isso-id={permalink}>
+	<noscript>Turn on JavaScript to see the comments.</noscript>
+</section>
+
+<style lang="scss" is:global>
+// isso adds the Website field to the main form and to each reply form. The
+// field is hidden against spam links. Hide it with CSS only: when isso sends
+// a comment, it reads `[name=website]`, and without the input it throws and
+// sends nothing. New comments are then saved with `website` null. The isso
+// API still accepts `website` from a program that posts to it directly.
+#isso-thread .isso-input-wrapper:has(> [name="website"]) {
+	display: none;
+}
+</style>

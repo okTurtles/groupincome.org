@@ -1,5 +1,6 @@
 ---
 import Layout from './DefaultLayout.astro';
+import Comments from '@/components/Comments.astro';
 import { resolvePath } from '@/utils/helpers.js'
 
 export interface Props {
@@ -12,11 +13,12 @@ export interface Props {
 		updatedDate?: string;
 		image?: string;
 		url: string;
+		permalink: string;
 	},
 }
 
 const {
-	content: { title, author, description, date, image, url },
+	content: { title, author, description, date, image, url, permalink },
 } = Astro.props;
 const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 
@@ -41,6 +43,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 			<article class="c-article c-blog-wrapper">
 				<slot />
 			</article>
+			<Comments title={title} permalink={permalink} author={author} />
 	</section>
 </Layout>
 
