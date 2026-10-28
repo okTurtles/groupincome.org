@@ -42,13 +42,6 @@ In our <a href={resolvePath('/2016/06/what-makes-a-good-voting-system')}>previou
   .sidenote b {
     color: #6C7E8F !important;
   }
-
-  hr {
-    margin: 0;
-  }
-  hr + p {
-    text-align: center;
-  }
   `}
 </style>
 
@@ -121,15 +114,15 @@ To answer these questions, let's look at its context and then examine the four c
 <a name="context"></a>
 ### Context of May's Theorem
 
-May says the theorem is about a vote between "two alternatives" $x$ and $y$. As we'll see, this isn't exactly true. More accurately, May's Theorem concerns itself with a _proposal_ $x$, the _status quo_ $y$,[^1] and a third option we'll call *z*.
+May says the theorem is about a vote between "two alternatives" $x$ and $y$. As we'll see, this isn't exactly true. More accurately, May's Theorem concerns itself with a _proposal_ $x$, the _status quo_ $y$,[^1] and a third option we'll call $z$.
 
 May considers various _group decision functions_ that could be used to decide between the choices $x$ and $y$, and focuses on one with a 50% _threshold_ called "majority rule".
 
 Let's define these terms:
 
-- **Group decision function:** A voting rule that tallies votes in favor or against a proposition and outputs *1*, *-1*, or $0$.
+- **Group decision function:** A voting rule that tallies votes in favor or against a proposition and outputs $1$, $-1$, or $0$.
 - **Threshold** or **turnout threshold:** The percentage of votes in favor _above which_ the motion will pass, when votes of $0$ (indifference or abstention) are ignored.
-- **Abstention threshold:** Like threshold, except votes of $0$ are counted and are used to increase the likelihood of impasse. So, with a 50% abstention threshold and the votes $\small\\{1,1,-1,0,0\\}$, the outcome is not $x$ but either $y$ or $z$, depending on the decision function. Abstention thresholds are similar to _supermajority rules_ but are specifically useful when it makes sense to encourage a high _turnout_.
+- **Abstention threshold:** Like threshold, except votes of $0$ are counted and are used to increase the likelihood of impasse. So, with a 50% abstention threshold and the votes $\small\{1,1,-1,0,0\}$, the outcome is not $x$ but either $y$ or $z$, depending on the decision function. Abstention thresholds are similar to _supermajority rules_ but are specifically useful when it makes sense to encourage a high _turnout_.
 - **Turnout:** The percentage (or number) of voters who did not abstain from voting.
 - **Unweighted:** 1-person-1-vote style voting (as opposed to 1-dollar-1-vote style voting).
 - **Majority rule:** Unweighted voting rule with a threshold of 50%.
@@ -142,12 +135,12 @@ Let's define these terms:
 
 May assigns meaning to the output of the group decision function like so:
 
-> We assume *n* individuals and two alternatives $x$ and $y$. Symbolizing "the $i$th individual prefers $x$ to $y$" by $xP_iy$ and "the $i$th individual is indifferent to $x$ and $y$" by $xl_iy$, we assume that for each $i$ one and only one of the following holds: $yP_ix$, $yI_ix$, or $xP_iy$. With each individual we associate a variable $D_i$ that takes the values $-1, 0, 1$ respectively for each of these situations. Similarly, for the group, we write $D = -1, 0, 1$ according as $yPx$, $yIx$, or $xPy$, i.e., according as the group decision is in favor of $y$, indifference, or in favor of $x$.
+> We assume $n$ individuals and two alternatives $x$ and $y$. Symbolizing "the $i$th individual prefers $x$ to $y$" by $xP_iy$ and "the $i$th individual is indifferent to $x$ and $y$" by $xI_iy$, we assume that for each $i$ one and only one of the following holds: $yP_ix$, $yI_ix$, or $xP_iy$. With each individual we associate a variable $D_i$ that takes the values $-1, 0, 1$ respectively for each of these situations. Similarly, for the group, we write $D = -1, 0, 1$ according as $yPx$, $yIx$, or $xPy$, i.e., according as the group decision is in favor of $y$, indifference, or in favor of $x$.
 
 **In plain English:** the individual votes and the group decision can have one of three values:
 
 $$
-\begin{aligned}-1 &= against \\ 0 &= indifferent, indifference \\ 1 &= in favor \end{aligned}
+\begin{aligned}-1 &= \text{against} \\ 0 &= \text{indifferent, indifference} \\ 1 &= \text{in favor}\end{aligned}
 $$
 
 Had May recognized the significance of $0$ as an outcome, the world might have turned out differently.
@@ -161,27 +154,11 @@ What is the outcome in this situation? In the real world, different groups have 
 
 May's confusion around $D=0$ results in an even more serious problem, for it can be used to represent semantically *opposite* concepts:
 
-<table>
-<tr><th>Votes</th><th>Possible meaning</th></tr>
-<tr>
-  <td>
-    <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span>
-  </td>
-  <td>"Nobody cares" aka "Indifference"</td>
-</tr>
-<tr>
-  <td>
-    <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span>
-  </td>
-  <td>"Everybody cares"</td>
-</tr>
-<tr>
-  <td>
-    <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&lt;</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>0</mn><mo>&gt;</mo></mrow><annotation encoding="application/x-tex">&lt;0,0,0,0&gt;</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">-1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span></span></span></span></span>
-  </td>
-  <td>"Some care"</td>
-</tr>
-</table>
+| Votes | Possible meaning |
+| :--- | :--- |
+| $<0,0,0,0>$ | “Nobody cares” aka “Indifference” |
+| $<1,1,-1,-1>$ | “Everybody cares” |
+| $<0,1,-1,0>$ | “Some care” |
 
 Our <a href={resolvePath('/2016/06/what-makes-a-good-voting-system')}>previous post</a> explains why $D=0$ does not (typically) mean "indifference" but is indicative of disagreement:
 
@@ -189,7 +166,7 @@ Our <a href={resolvePath('/2016/06/what-makes-a-good-voting-system')}>previous p
 
 However, even if we used the turnout to measure "indifference", that is also not necessarily a reliable way of representing indifference. For example, a low turnout in a presidential election *might* mean that people do not care, or it could mean that they care but do not approve of either option.
 
-During our discussion of [Condition IV](#condition-iv-positive-responsiveness), we will see why it can be more helpful to think of *z* as a "no-win" outcome, rather than "a tie".
+During our discussion of [Condition IV](#condition-iv-positive-responsiveness), we will see why it can be more helpful to think of $z$ as a "no-win" outcome, rather than "a tie".
 
 Onward!
 
@@ -202,12 +179,11 @@ Here's a screenshot of Condition I from May's paper:
 
 That may sound fancy, but all it says is: "A _group decision function_ is a [function](https://en.wikipedia.org/w/index.php?title=Function_(mathematics)&oldid=735355683) _[that outputs -1, 0, or 1]_."[^3]
 
-[^3]: That last part comes from the definition of $\footnotesize{U}$, found earlier in the paper: _"It seems appropriate to call it a group decision function.<sup>4</sup> It maps the $\footnotesize{n}$-fold cartesian product $\footnotesize{U \times U \times \cdots \times U}$ onto $\footnotesize{U}$, where $\footnotesize{U = \\{-1, 0, 1\\}}$."_
+[^3]: That last part comes from the definition of $\footnotesize{U}$, found earlier in the paper: _"It seems appropriate to call it a group decision function.<sup>4</sup> It maps the $\footnotesize{n}$-fold cartesian product $\footnotesize{U \times U \times \cdots \times U}$ onto $\footnotesize{U}$, where $\footnotesize{U = \{-1, 0, 1\}}$."_
 
 May gives the following example of "something" that does not satisfy this condition:
 
-___
-  $D = 1$ for $N(1)-N(-1) \geq 0, D =-1$ for $N(1)-N(-1) \leq 0$
+<center>$D = 1$ for $N(1)-N(-1) \geq 0$, $D =-1$ for $N(1)-N(-1) \leq 0$</center>
 
 We say "something" because the above, having multiple values for $0$, is called a _[multivalued function](https://en.wikipedia.org/w/index.php?title=Multivalued_function&oldid=711620746)_, which is not a function:
 
@@ -219,10 +195,9 @@ As we'll see, each one of May's conditions comes with an _English description_ t
 
 Consider May's example of a jury decision rule, which he says is "always decisive":
 
-___
-$D = -1, 1,$ or $0$ according as $N(-1)=n,N(1)=n,$ or otherwise.
+<center>$D = -1, 1,$ or $0$ according as $N(-1)=n,N(1)=n,$ or otherwise.</center>
 
-Is a <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung jury</a> therefore "decisive" when it <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103"><i>cannot agree upon a verdict"</i></a>? We'll forgive May this one time and say they're "decisive about their indecision."
+Is a <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung jury</a> therefore "decisive" when it <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103"><i>"cannot agree upon a verdict"</i></a>? We'll forgive May this one time and say they're "decisive about their indecision."
 
 ## Condition II: "egalitarian" or "anonymity"
 
@@ -242,7 +217,7 @@ Clearly, it does not matter whether or not majority rule is used in these situat
 
 Therefore, the math of Condition II is not represented by the English.[^5]
 
-[^5]: This "trick"—that of mapping misleading terms to math that works out—is considered by some mathematicians to be sufficient to declare the resulting misleading English of a theorem to be "true". In our opinion, allowing lay persons to then walk away with an entirely _untrue_ understanding, especially when it results in _real harm_ to their lives (and then $blaming them!$), is severe professional negligence. Besides, if this were acceptable, one would be able to "mathematically prove" literally any English statement, no matter how absurd.
+[^5]: This "trick"—that of mapping misleading terms to math that works out—is considered by some mathematicians to be sufficient to declare the resulting misleading English of a theorem to be "true". In our opinion, allowing lay persons to then walk away with an entirely _untrue_ understanding, especially when it results in _real harm_ to their lives (and then _blaming them!_), is severe professional negligence. Besides, if this were acceptable, one would be able to "mathematically prove" literally any English statement, no matter how absurd.
 
 <a name="condition-iii-neutrality"></a>
 ## Condition III: "neutrality"
@@ -298,15 +273,13 @@ That probably sounds very sensible. However, as [noted earlier](#z-the-missing-t
 
 We can piece together a better understanding of **Condition IV** by returning to our [discussion](#z-the-missing-third-alternative) about the misunderstood $D=0$ result, and by considering the examples May gives for voting rules satisfying all but one of the four conditions:
 
-- May's so-called ["always decisive"](condition-i-always-decisive) jury decision rule violates only **Condition IV**:
+- May's so-called ["always decisive"](#condition-i-always-decisive) jury decision rule violates only **Condition IV**:
 
-___
-  $D = -1, 1,$ or $0$ according as $N(-1)=n,N(1)=n,$ or otherwise.
+<center>$D = -1, 1,$ or $0$ according as $N(-1)=n,N(1)=n,$ or otherwise.</center>
 
 - What May calls the "familiar two-thirds majority rule" violates only **Condition III**:
 
-___
-  $D = -1, 0, 1$ according as $N(1)-2N(-1)$ is less than, equal to, or greater than zero.
+<center>$D = -1, 0, 1$ according as $N(1)-2N(-1)$ is less than, equal to, or greater than zero.</center>
 
 In neither example does $D=0$ represent "indifference". A jury is not "indifferent" when it is <a href="https://en.wikipedia.org/w/index.php?title=Hung_jury&oldid=737199103">hung</a>, nor is a group that's split 2 to 3.
 
@@ -347,7 +320,7 @@ Sometimes there is confusion about what is or is not called "majority rule". May
 
 We have to recognize that there is a fundamental difference between "majority rule" that affects only those who can vote, and "majority rule" that affects a population _[~600,000 times larger](https://fixingtao.com/2016/04/lets-end-hotdog-worship-in-america/)_ than the voting group. These are so different that they deserve different terms. At the very least, we should not refer to the latter as "majority rule".
 
-Similarly, sometimes a "51% majority vote" is called "majority rule" when it is not. Per [Condition II](condition-ii-egalitarian-or-anonymity), shareholder voting, [proof-of-work](https://en.bitcoin.it/wiki/Proof_of_work), [proof-of-stake](https://en.wikipedia.org/wiki/Proof-of-stake)—none of these are majority rule.
+Similarly, sometimes a "51% majority vote" is called "majority rule" when it is not. Per [Condition II](#condition-ii-egalitarian-or-anonymity), shareholder voting, [proof-of-work](https://en.bitcoin.it/wiki/Proof_of_work), [proof-of-stake](https://en.wikipedia.org/wiki/Proof-of-stake)—none of these are majority rule.
 
 <a name="confusion-over-minority"></a>
 ## Confusion Over 'Minority'
@@ -385,7 +358,7 @@ Day after tomorrow we'll cover the final topics:
 - **Avoiding May's Mistake**
 - **Repeating May's Mistake For Great Profit**
 
-_Thanks to [Simon Grondin](http://simongrondin.name/), [Andrea Devers](https://twitter.com/dotmacro), and [Jason Krueger](https://twitter.com/grandcamel) for reviewing this post, and to the members of `r/math` and `r/askmath` for their insightful feedback, with special thanks to RosaDecidua and wonkey_monkey. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter.
+_Thanks to [Simon Grondin](http://simongrondin.name/), [Andrea Devers](https://twitter.com/dotmacro), and [Jason Krueger](https://twitter.com/grandcamel) for reviewing this post, and to the members of `r/math` and `r/askmath` for their insightful feedback, with special thanks to RosaDecidua and wonkey_monkey. You can follow [the author](https://twitter.com/taoeffect) and [Group Income](https://twitter.com/Group_Income) on twitter._
 
 ## A note
 

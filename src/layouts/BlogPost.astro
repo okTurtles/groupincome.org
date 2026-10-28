@@ -37,7 +37,7 @@ const imgSrc = image ? resolvePath(image) : resolvePath(`images/${url}.jpeg`)
 		</div>
 	</section>
 
-	<section class="l-1">
+	<section class="l-1 c-blog-body">
 			<article class="c-article c-blog-wrapper">
 				<slot />
 			</article>
@@ -88,6 +88,12 @@ section {
 
 	@include from ($tablet) {
 		padding: 0 2rem;
+	}
+}
+
+.c-blog-body {
+	@include desktop {
+		max-width: 50rem;
 	}
 }
 

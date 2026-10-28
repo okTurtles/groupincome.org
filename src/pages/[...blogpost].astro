@@ -1,5 +1,9 @@
 ---
 import { sortedPosts } from '@/utils/helpers'
+import '@fontsource/gelasio/400.css'
+import '@fontsource/gelasio/400-italic.css'
+import '@fontsource/gelasio/700.css'
+import '@fontsource/gelasio/700-italic.css'
 export async function getStaticPaths() {
   const posts = sortedPosts(import.meta.glob('../posts/*.{md,mdx}', { eager: true }))
   return posts.map(post => {
@@ -22,6 +26,18 @@ const { Content } = Astro.props
   @use "../styles/variables" as *;
 
   .c-blog-wrapper {
+    // Post content keeps the serif font of the old WordPress blog; the rest of the site stays sans-serif.
+    // Georgia's license does not allow self-hosting it, so readers without it get Gelasio, a free font
+    // made to match Georgia's metrics. Browsers only download Gelasio when Georgia is missing.
+    font-family: Georgia, Gelasio, "Times New Roman", Times, serif;
+    // At 18px the serif's lowercase letters are as tall as the site's 16px Poppins text.
+    font-size: $size_4;
+
+    // Narrow phone columns fit too few words per line at 18px.
+    @include phone {
+      font-size: 1.0625rem;
+    }
+
     .icon-link {
       display: none;
     }
@@ -77,6 +93,7 @@ const { Content } = Astro.props
 
     a {
       @extend %link-style;
+      font-size: inherit;
     }
 
     @keyframes link-hover-ani {
@@ -153,14 +170,10 @@ const { Content } = Astro.props
       margin-top: 4rem;
       padding-top: 2rem;
       border-top: 1px solid $divider_0;
-      font-size: .8rem;
+      font-size: .85em;
 
       ol {
         margin-left: 0;
-      }
-
-      a {
-        font-size: inherit;
       }
     }
 
