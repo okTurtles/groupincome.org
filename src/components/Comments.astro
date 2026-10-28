@@ -427,6 +427,12 @@ const authorHash = (author && COMMENT_AUTHOR_HASHES[author]) || ''
 		background-color: $primary_0_1;
 	}
 
+	// Keyboard focus ring also on devices without hover (an iPad with a
+	// keyboard). `:focus-visible`, so that a tap leaves no ring.
+	&:focus-visible {
+		box-shadow: 0 0 0 2px $primary_1;
+	}
+
 	@media (hover: hover) {
 		&:hover,
 		&:focus {
