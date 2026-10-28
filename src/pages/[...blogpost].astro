@@ -29,7 +29,7 @@ const { Content } = Astro.props
     // Post content keeps the serif font of the old WordPress blog; the rest of the site stays sans-serif.
     // Georgia's license does not allow self-hosting it, so readers without it get Gelasio, a free font
     // made to match Georgia's metrics. Browsers only download Gelasio when Georgia is missing.
-    font-family: Georgia, Gelasio, "Times New Roman", Times, serif;
+    font-family: $blog_serif;
     // At 18px the serif's lowercase letters are as tall as the site's 16px Poppins text.
     font-size: $size_4;
 

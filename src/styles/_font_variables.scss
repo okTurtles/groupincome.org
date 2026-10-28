@@ -20,3 +20,7 @@ $size_normal: $size_4;
 $size_medium: $size_3;
 $size_large: $size_2;
 $size_extra-large: $size_1;
+
+// The serif font of the blog post text and its comments. `[...blogpost].astro`
+// tells why, and it loads Gelasio.
+$blog_serif: Georgia, Gelasio, "Times New Roman", Times, serif;

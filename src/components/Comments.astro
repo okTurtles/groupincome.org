@@ -31,6 +31,11 @@ const authorHash = (author && COMMENT_AUTHOR_HASHES[author]) || ''
 // writes into removed elements: the heading stays empty, or no comments
 // show, and the visible form is a copy that cannot send. Astro's nested
 // islands wait for the same `astro:hydrate` event.
+//
+// isso writes the heading text only once, when it loads the thread, and the
+// styles below hide the heading while the thread is empty. So the "no
+// comments" text shows only above the first new comment: it is the text of
+// one comment, not isso's "No Comments Yet".
 ---
 
 <script is:inline define:vars={{ authorHash }}>
@@ -42,6 +47,7 @@ const authorHash = (author && COMMENT_AUTHOR_HASHES[author]) || ''
 			issoLang: 'en',
 			issoVote: 'false',
 			issoMaxCommentsNested: 'inf',
+			issoNoCommentsTextEn: 'One Comment',
 		})
 		if (authorHash) isso.dataset.issoPageAuthorHashes = authorHash
 		isso.src = '/isso/js/embed.min.js'
@@ -58,6 +64,413 @@ const authorHash = (author && COMMENT_AUTHOR_HASHES[author]) || ''
 </section>
 
 <style lang="scss" is:global>
+@use "../styles/variables" as *;
+
+// isso adds its isso.css to <head> after the site CSS, so every rule here
+// starts with #isso-thread (or #isso-root inside it) to win. isso.css also
+// adds side space (avatar margins, text padding, a reply indent, and
+// `max-width` with auto margins). It is all removed here, so the comments
+// and the form are exactly as wide as the post text above them.
+#isso-thread {
+	--isso-pre-color: #{$text_0};
+	--isso-pre-background-color: #{$general_2};
+	--isso-pre-border-color: #{$general_0};
+	--isso-target-fade-background-color: #{$primary_2};
+
+	display: flex;
+	flex-direction: column;
+}
+
+// isso adds the heading, then the form, then the comments. Here the form
+// comes last, under its own heading.
+#isso-thread > .isso-thread-heading {
+	order: 1;
+}
+
+#isso-thread > #isso-root {
+	margin-bottom: 3rem;
+	order: 2;
+}
+
+#isso-thread > .isso-postbox {
+	order: 3;
+}
+
+#isso-thread > .isso-thread-heading,
+#isso-thread > .isso-postbox::before {
+	color: $text_0;
+	font-family: var(--font-display, "Poppins");
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.3;
+	margin: 0 0 1.5rem;
+
+	@include tablet {
+		font-size: 2rem;
+	}
+}
+
+#isso-thread > .isso-postbox::before {
+	content: "Leave a Comment";
+	display: block;
+}
+
+#isso-thread:has(> #isso-root:empty) > .isso-thread-heading,
+#isso-thread > #isso-root:empty {
+	display: none;
+}
+
+// One comment: the round avatar with the name and the time beside it, then
+// the text, the links and the replies below, across the full width. With
+// `display: contents`, the parts of `.isso-text-wrapper` (also a reply form,
+// or the textarea when the reader edits a comment) are grid items.
+#isso-thread .isso-comment {
+	margin: 0;
+	max-width: none;
+}
+
+#isso-root .isso-comment {
+	border-top: 0;
+	column-gap: 0.75rem;
+	display: grid;
+	grid-template-columns: 2.75rem minmax(0, 1fr);
+	padding: 0;
+	// A link to one comment (`#isso-N`, as in the time links) puts it below
+	// the fixed site header, like the footnotes in [...blogpost].astro.
+	scroll-margin-top: calc(var(--gi-header-height) + 30px);
+}
+
+#isso-root > .isso-comment + .isso-comment {
+	border-top: 1px solid $general_0;
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+}
+
+#isso-root .isso-avatar {
+	float: none;
+	grid-column: 1;
+	grid-row: 1;
+	margin: 0;
+}
+
+#isso-root .isso-avatar img {
+	border-radius: 50%;
+	height: 2.75rem;
+	width: 2.75rem;
+}
+
+#isso-thread .isso-text-wrapper {
+	padding: 0;
+}
+
+#isso-root .isso-text-wrapper {
+	display: contents;
+}
+
+#isso-root .isso-text-wrapper > *,
+#isso-root .isso-follow-up {
+	grid-column: 1 / -1;
+}
+
+#isso-root .isso-text-wrapper > .isso-comment-header {
+	align-items: baseline;
+	align-self: center;
+	column-gap: 0.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: $size_5;
+	grid-column: 2;
+	grid-row: 1;
+}
+
+// The name (and the "Author" mark) on the first line, the time on the
+// second: the `::after` item is a full-width line break.
+#isso-thread .isso-comment-header::after {
+	content: "";
+	flex-basis: 100%;
+	order: 1;
+}
+
+#isso-thread .isso-comment-header .isso-permalink,
+#isso-thread .isso-comment-header .isso-note {
+	order: 2;
+}
+
+#isso-thread .isso-comment-header .isso-spacer,
+#isso-thread .isso-note:empty,
+#isso-root .isso-follow-up:empty {
+	display: none;
+}
+
+#isso-thread .isso-author {
+	color: $text_0;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+#isso-thread a.isso-author {
+	color: $primary_0;
+
+	&:hover,
+	&:focus {
+		color: $primary_0_1;
+	}
+}
+
+#isso-thread .isso-page-author-suffix {
+	background-color: $primary_2;
+	border-radius: $radius;
+	color: $primary_0;
+	font-size: 0.75rem;
+	font-weight: 600;
+	line-height: 1;
+	padding: 0.25rem 0.375rem;
+	text-transform: uppercase;
+}
+
+#isso-thread .isso-permalink,
+#isso-thread .isso-note {
+	color: $text_2;
+	float: none;
+	font-size: $size_6;
+}
+
+#isso-thread .isso-permalink:hover,
+#isso-thread .isso-permalink:focus {
+	color: $text_1;
+}
+
+#isso-root .isso-text-wrapper > .isso-text,
+#isso-root .isso-text-wrapper > .isso-textarea-wrapper {
+	margin-top: 0.75rem;
+}
+
+#isso-thread .isso-text {
+	font-family: $blog_serif;
+	font-size: 1.0625rem;
+
+	p,
+	ul,
+	ol,
+	blockquote,
+	pre {
+		margin: 0 0 0.75rem;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+
+	ul,
+	ol {
+		padding-left: 1.5rem;
+	}
+
+	ul {
+		list-style: disc;
+	}
+
+	ol {
+		list-style: decimal;
+	}
+
+	// Like a quote in the post text
+	blockquote {
+		border-left: 5px solid rgba(0, 0, 0, .15);
+		font-style: italic;
+		padding: 0.625rem 1.125rem;
+	}
+
+	a {
+		@include link-style;
+		font-size: inherit;
+	}
+}
+
+#isso-thread .isso-comment-footer {
+	font-size: $size_6;
+	margin-top: 0.5rem;
+}
+
+#isso-thread .isso-comment-footer a {
+	color: $primary_0;
+	font-weight: 500;
+	position: static;
+
+	&:hover,
+	&:focus {
+		color: $primary_0_1;
+		text-shadow: none;
+	}
+}
+
+// The replies to a comment: indented, with a line below the middle of the
+// avatar.
+#isso-root .isso-follow-up {
+	border-left: 2px solid $general_0;
+	margin: 1.25rem 0 0 calc(1.375rem - 1px);
+	padding-left: 1rem;
+}
+
+#isso-root .isso-follow-up > .isso-comment + .isso-comment {
+	margin-top: 1.25rem;
+}
+
+// The main form and the reply forms, with the fields and buttons of the
+// site (`_forms.scss`, `_buttons.scss`).
+#isso-thread .isso-postbox {
+	margin: 0;
+	max-width: none;
+}
+
+#isso-root .isso-text-wrapper > .isso-postbox {
+	margin-top: 1rem;
+}
+
+// isso.css shows and hides the textarea, the preview and the buttons with
+// `display`, so the rules below never set it on them.
+#isso-thread .isso-textarea,
+#isso-thread .isso-preview,
+#isso-thread .isso-input-wrapper input {
+	background-color: $background_0;
+	border: 1px solid $general_0;
+	border-radius: $radius;
+	box-shadow: none;
+	color: $text_0;
+	font: inherit;
+	line-height: 1.5rem;
+	margin: 0;
+	max-width: none;
+	outline: none;
+	padding: 0.625rem;
+	width: 100%;
+}
+
+#isso-thread .isso-textarea,
+#isso-thread .isso-input-wrapper input {
+	&:hover,
+	&:focus {
+		border-color: $primary_0;
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 2px $primary_1;
+		outline: none;
+	}
+}
+
+#isso-thread .isso-textarea,
+#isso-thread .isso-preview {
+	min-height: 7.5rem;
+	vertical-align: top;
+}
+
+#isso-thread .isso-textarea {
+	resize: vertical;
+}
+
+#isso-thread .isso-preview {
+	background: $general_2;
+}
+
+// Name and Email side by side (one below the other on a phone), then the
+// buttons in a row below them. `display: contents` makes each button a flex
+// item, so a hidden button leaves no gap.
+#isso-thread .isso-auth-section {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 0.75rem;
+	margin-top: 1rem;
+}
+
+#isso-thread .isso-input-wrapper {
+	flex: 1 1 100%;
+	margin: 0;
+
+	@include tablet {
+		flex-basis: calc(50% - 0.375rem);
+	}
+}
+
+#isso-thread .isso-input-wrapper label {
+	font-weight: 600;
+	height: auto;
+	line-height: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+#isso-thread .isso-input-wrapper input {
+	height: 2.75rem;
+	padding: 0 0.625rem;
+}
+
+#isso-thread .isso-post-action {
+	display: contents;
+}
+
+#isso-thread .isso-post-action > input {
+	background-color: $primary_0;
+	border: 1px solid transparent;
+	border-radius: 2.75rem;
+	box-shadow: none;
+	color: $background_0;
+	cursor: pointer;
+	font-family: var(--font-display, "Poppins");
+	font-size: $size_4;
+	line-height: normal;
+	min-height: 2.75rem;
+	outline: none;
+	padding: 0 1.5rem;
+	transition: box-shadow 150ms ease-in;
+
+	&:active {
+		background-color: $primary_0_1;
+	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			background-color: $primary_0_1;
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 2px $primary_1;
+		}
+	}
+}
+
+// "Preview" and "Edit", like `.button.is-outlined`
+#isso-thread .isso-post-action > input[type="button"] {
+	background-color: $background_0;
+	border-color: $general_0;
+	color: $text_0;
+
+	&:active {
+		border-color: $primary_0_1;
+		color: $primary_0_1;
+	}
+
+	@media (hover: hover) {
+		&:hover,
+		&:focus {
+			background-color: $background_0;
+			border-color: $primary_0_1;
+			color: $primary_0_1;
+		}
+	}
+}
+
+// The preview of a reply form is inside #isso-root, in comment markup: it
+// must not get the comment layout above.
+#isso-root .isso-preview .isso-comment,
+#isso-root .isso-preview .isso-text-wrapper {
+	display: block;
+}
+
+#isso-root .isso-preview .isso-text {
+	margin-top: 0;
+}
+
 // isso adds the Website field to the main form and to each reply form. The
 // field is hidden against spam links. Hide it with CSS only: when isso sends
 // a comment, it reads `[name=website]`, and without the input it throws and
