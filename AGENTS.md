@@ -46,7 +46,7 @@ This matters because all asset paths must go through `resolvePath()` (see below)
 ### Layout System
 
 - **`DefaultLayout.astro`** — wraps all pages: BaseHead → Header → `<slot>` → Footer, plus Matomo analytics
-- **`BlogPost.astro`** — wraps individual blog posts with hero image + metadata
+- **`BlogPost.astro`** — wraps individual blog posts with hero image + metadata, then the comments (`Comments.astro`, see "Comments (isso)")
 - **`JobPost.astro`** — wraps job listings with sidebar navigation of open positions
 
 ## Content Model
@@ -94,6 +94,15 @@ layout: "../layouts/JobPost.astro"
 - `/rss.xml` — RSS feed via `@astrojs/rss`
 - `/sitemap` — auto-generated via `@astrojs/sitemap`
 - `/tags/[tag]` — tag-based blog post filtering
+
+## Comments (isso)
+
+Blog posts show comments from an [isso](https://isso-comments.de/) server outside this repo: it runs in turtledock, whose nginx sends `/isso` to it. `src/components/Comments.astro` has the embed code and all the comment styles.
+
+- Comments show only where the turtledock nginx serves the site: on this machine, https://groupincome.org after `npm run build:prod`. Not in `npm run dev`, `npm run preview` or on GitHub Pages (no `/isso` there, so the section stays empty).
+- `data-isso-id` is the raw frontmatter `permalink`, never `resolvePath(permalink)`: it must equal the thread uri in the isso database. Changing the `permalink` of a post hides its comments.
+- The Website field of the comment form is hidden with CSS only, against spam links. The input must stay in the DOM (the isso client reads it when it sends). The isso API still accepts `website` from a program that posts to it directly.
+- The old WordPress comments come from turtledock's `./cmd import isso-wp groupincome.org <path-to-xml>`, which writes `vol/isso/groupincome.org.{cfg,db}` there. Running it again starts over from the export: it keeps the `.cfg` and renames the old database to a `.bak`, so comments added after the first import are not in the new database.
 
 ## Styling
 
@@ -155,4 +164,4 @@ Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at
 6. **Footer.vue uses Options API** while most other Vue components use `<script setup>` (Composition API) — both patterns coexist.
 7. **Blog post images** historically reference `/wp-content/uploads/...` paths (legacy from WordPress). New posts can use any path under `public/`.
 8. **The newsletter form** in Footer.vue blacklists Gmail/Google addresses and shows a warning modal instead — this is intentional.
-9. **`waitForElement()`** in helpers.js exists because `<script>` tags in `.astro` files sometimes execute before DOM rendering completes — use it when querying DOM elements from Astro page scripts.
+9. **The `PageWrapper` Vue island (`client:load` in `DefaultLayout.astro`) wraps the whole page body.** When it hydrates (about 50 ms after `DOMContentLoaded`), Vue makes all the body DOM again from the server HTML. A page script that finds elements or adds listeners before that works on removed elements. Wait for the island's `astro:hydrate` event, as `Comments.astro` does. This is probably also why `waitForElement()` in helpers.js exists: it first looks 100 ms later.
