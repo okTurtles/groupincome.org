@@ -25,3 +25,4 @@ strings.mac
 .astro/
 .claude/
 /.omp/
+.agents/
