@@ -75,7 +75,7 @@ tags: [...]            # used for tag filtering at /tag/[tag]
 draft: true            # if present, post is excluded from builds
 ```
 
-Posts are collected via `import.meta.glob('../posts/*.{md,mdx}', { eager: true })`, sorted by `pubDate` descending using `sortedPosts()` helper. Blog listing is paginated at 4 posts per page (`src/pages/blog/[...page].astro`). Individual blog post routes come from `src/pages/[...blog].astro`.
+Posts are collected via `import.meta.glob('../posts/*.{md,mdx}', { eager: true })`, sorted by `pubDate` descending using `sortedPosts()` helper. Blog listing is paginated at 4 posts per page (`src/pages/[locale]/blog/[...page].astro`). Individual blog post routes come from `src/pages/[...blogpost].astro`.
 
 ### News Posts (`src/posts/news/*.md`)
 
@@ -150,7 +150,7 @@ Component-scoped styles use BEM-like `c-` prefix for classes (e.g. `.c-header`, 
 
 ### SCSS in Vue Components
 
-Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at the top. For styles that need to affect slot content (transcluded from Astro), use `<style lang="scss" is:global>` instead of scoped — see `[...blog].astro` and `JobPost.astro` for examples.
+Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at the top. For styles that need to affect slot content (transcluded from Astro), use `<style lang="scss" is:global>` instead of scoped — see `[...blogpost].astro` and `JobPost.astro` for examples.
 
 ## Deployment
 
