@@ -26,7 +26,7 @@ const { Content } = Astro.props
   @use "../styles/variables" as *;
 
   // With a classic (not overlay) scrollbar, 100vw is wider than the page. The full-width post images
-  // below would then make the page scroll sideways a little. Clip that overflow.
+  // and videos below would then make the page scroll sideways a little. Clip that overflow.
   body[data-page-type="blogpost"] main {
     @include phone {
       overflow-x: clip;
@@ -113,6 +113,11 @@ const { Content } = Astro.props
       margin: 2rem 0;
     }
 
+    iframe {
+      margin: 2rem auto;
+      max-width: 100%;
+    }
+
     // On phones, an image can grow up to the screen width and is centered on the screen, so a wide
     // image touches both screen edges whatever the side padding of the post section is. margin-left
     // puts the left edge of the image at the middle of the text column, and the transform moves the
@@ -129,6 +134,21 @@ const { Content } = Astro.props
           margin-left: 50%;
           transform: translateX(-50%);
         }
+      }
+
+      // A video embed (an iframe directly in the post body) is exactly as wide as the screen and 16:9
+      // high, whatever its width and height attributes say. min-width, not width: some embeds have
+      // `width:100%` in their style attribute, which wins over a stylesheet width. Keep the iframe
+      // inline: as a block, its top margin would collapse with the bottom margin of the paragraph before
+      // it, and the space above the video would shrink. Because it is inline, the transform of the
+      // images does not work here: the line box would keep the untransformed position and stick out on
+      // the right. The negative margin puts the iframe at the left screen edge instead. This rule must
+      // come after the general `iframe` rule above: both have the same specificity.
+      > iframe {
+        min-width: 100vw;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin-left: calc(50% - 50vw);
       }
     }
 
@@ -152,11 +172,6 @@ const { Content } = Astro.props
 
     ul {
       list-style-type: disc;
-    }
-
-    iframe {
-      margin: 2rem auto;
-      max-width: 100%;
     }
 
     pre {
