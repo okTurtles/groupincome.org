@@ -2,19 +2,23 @@
 
 ## Project Overview
 
-This is the **marketing website** for [Group Income](https://groupincome.org), not the app itself. It's a static site built with **Astro 5** + **Vue 3** + **SCSS**, deployed to GitHub Pages. The app lives in a separate repository (`okTurtles/group-income`).
+This is the **marketing website** for [Group Income](https://groupincome.org), not the app itself. It's a static site built with **Astro 7** + **Vue 3** + **SCSS**, deployed to GitHub Pages. The app lives in a separate repository (`okTurtles/group-income`).
 
 ## Commands
 
 | Command | Purpose |
 |---|---|
-| `npm run dev` | Start dev server (default `localhost:3000`) |
+| `npm run dev` | Start dev server (`localhost:4321`). In an AI agent shell, Astro starts it in the background: stop it with `npx astro dev stop` |
 | `npm run build` | Build for staging (`BUILD_TARGET=staging` → `okturtles.github.io/groupincome.org/`) |
 | `npm run build:prod` | Build for production (`BUILD_TARGET=production` → `groupincome.org`) |
 | `npm run preview` | Preview staging build locally |
 | `npm run preview:prod` | Preview production build locally |
 
 No test suite or linter is configured in this project.
+
+Every `astro` script in `package.json` starts with `ASTRO_TELEMETRY_DISABLED=1`. Keep it there when you add or change a script.
+
+`.npmrc` has `save-exact = true` and `min-release-age=14`: npm does not install a release that is younger than 14 days. So the newest version of a package is sometimes not available yet.
 
 ## Architecture
 
@@ -30,6 +34,7 @@ This matters because all asset paths must go through `resolvePath()` (see below)
 ### Hybrid Astro + Vue
 
 - **Astro** handles pages, layouts, routing, and markdown/mdx content
+- Markdown and MDX go through the `unified()` processor from `@astrojs/markdown-remark` (`markdown.processor` in `astro.config.mjs`). Add remark/rehype plugins there.
 - **Vue 3** powers interactive island components (Header, Footer, Navigation, HomeAnimation, etc.)
 - Vue components are hydrated with `client:load` or `client:only="vue"` directives
 - The Vue app entry point is `src/_app.ts` (registered via `@astrojs/vue` integration), which sets up custom directives and mixins
@@ -46,7 +51,7 @@ This matters because all asset paths must go through `resolvePath()` (see below)
 ### Layout System
 
 - **`DefaultLayout.astro`** — wraps all pages: BaseHead → Header → `<slot>` → Footer, plus Matomo analytics
-- **`BlogPost.astro`** — wraps individual blog posts with hero image + metadata
+- **`BlogPost.astro`** — wraps individual blog posts with hero image + metadata, then the comments (`Comments.astro`, see "Comments (isso)")
 - **`JobPost.astro`** — wraps job listings with sidebar navigation of open positions
 
 ## Content Model
@@ -70,7 +75,7 @@ tags: [...]            # used for tag filtering at /tag/[tag]
 draft: true            # if present, post is excluded from builds
 ```
 
-Posts are collected via `import.meta.glob('../posts/*.{md,mdx}', { eager: true })`, sorted by `pubDate` descending using `sortedPosts()` helper. Blog listing is paginated at 4 posts per page (`src/pages/blog/[...page].astro`). Individual blog post routes come from `src/pages/[...blog].astro`.
+Posts are collected via `import.meta.glob('../posts/*.{md,mdx}', { eager: true })`, sorted by `pubDate` descending using `sortedPosts()` helper. Blog listing is paginated at 4 posts per page (`src/pages/[locale]/blog/[...page].astro`). Individual blog post routes come from `src/pages/[...blogpost].astro`.
 
 ### News Posts (`src/posts/news/*.md`)
 
@@ -91,9 +96,19 @@ layout: "../layouts/JobPost.astro"
 
 ### Other Endpoints
 
-- `/rss.xml` — RSS feed via `@astrojs/rss`
+- `/rss.xml` — RSS feed via `@astrojs/rss` (`src/pages/rss.xml.js`): the blog posts from `src/posts` (title, description, date, link; no full text), newest first. `BaseHead.astro` links to it from every page.
 - `/sitemap` — auto-generated via `@astrojs/sitemap`
 - `/tags/[tag]` — tag-based blog post filtering
+
+## Comments (isso)
+
+Blog posts show comments from an [isso](https://isso-comments.de/) server outside this repo: it runs in turtledock, whose nginx sends `/isso` to it. `src/components/Comments.astro` has the embed code and all the comment styles.
+
+- Comments show on groupincome.org and in `npm run dev`: there, `vite.server.proxy` in `astro.config.mjs` sends `/isso` to https://groupincome.org, so you see the live comments. Not in `npm run preview` or on GitHub Pages (no `/isso` there, so the section stays empty).
+- If no comments show in `npm run dev` and `npx astro dev logs` has `http proxy error: /isso/... unable to verify the first certificate`, Node does not trust the certificate of the server that groupincome.org resolves to (for example a local turtledock with a mkcert certificate). Start the dev server with `NODE_OPTIONS=--use-system-ca npm run dev`.
+- `data-isso-id` is the raw frontmatter `permalink`, never `resolvePath(permalink)`: it must equal the thread uri in the isso database. Changing the `permalink` of a post hides its comments.
+- The Website field of the comment form is hidden with CSS only, against spam links. The input must stay in the DOM (the isso client reads it when it sends). The isso API still accepts `website` from a program that posts to it directly.
+- The old WordPress comments come from turtledock's `./cmd import isso-wp groupincome.org <path-to-xml>`, which writes `vol/isso/groupincome.org.{cfg,db}` there. Running it again starts over from the export: it keeps the `.cfg` and renames the old database to a `.bak`, so comments added after the first import are not in the new database.
 
 ## Styling
 
@@ -136,13 +151,13 @@ Component-scoped styles use BEM-like `c-` prefix for classes (e.g. `.c-header`, 
 
 ### SCSS in Vue Components
 
-Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at the top. For styles that need to affect slot content (transcluded from Astro), use `<style lang="scss" is:global>` instead of scoped — see `[...blog].astro` and `JobPost.astro` for examples.
+Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at the top. For styles that need to affect slot content (transcluded from Astro), use `<style lang="scss" is:global>` instead of scoped — see `[...blogpost].astro` and `JobPost.astro` for examples.
 
 ## Deployment
 
 - **Platform**: GitHub Pages
 - **Branch**: `master` (not `main`)
-- **CI**: `.github/workflows/astro.yml` — builds with Node 20, uses `withastro/action`
+- **CI**: `.github/workflows/astro.yml` — on Node 24 runs `npm install && npm run build` (staging), then uploads `dist` with `actions/upload-pages-artifact`
 - **Legacy**: `deploy.yml` exists but appears superseded by `astro.yml`
 
 ## Gotchas
@@ -155,4 +170,7 @@ Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at
 6. **Footer.vue uses Options API** while most other Vue components use `<script setup>` (Composition API) — both patterns coexist.
 7. **Blog post images** historically reference `/wp-content/uploads/...` paths (legacy from WordPress). New posts can use any path under `public/`.
 8. **The newsletter form** in Footer.vue blacklists Gmail/Google addresses and shows a warning modal instead — this is intentional.
-9. **`waitForElement()`** in helpers.js exists because `<script>` tags in `.astro` files sometimes execute before DOM rendering completes — use it when querying DOM elements from Astro page scripts.
+9. **The `PageWrapper` Vue island (`client:load` in `DefaultLayout.astro`) wraps the whole page body.** When it hydrates (about 50 ms after `DOMContentLoaded`), Vue makes all the body DOM again from the server HTML. A page script that finds elements or adds listeners before that works on removed elements. Wait for the island's `astro:hydrate` event, as `Comments.astro` does. This is probably also why `waitForElement()` in helpers.js exists: it first looks 100 ms later.
+10. **On phones, post images and videos can be wider than the text column.** Rules in `[...blogpost].astro` let an image grow up to the screen width and center it on the screen. They apply to images that are direct children of the post body or of a `<p>` (or `<p><a>`) in it, except `alignleft`/`alignright`. A small inline icon there would also move: wrap it, for example in a `<span>`. Every `<iframe>` that is a direct child of the post body (an embed on its own line in Markdown) becomes exactly as wide as the screen and 16:9 high, whatever its `width`/`height`. So put video embeds on their own line, and wrap an embed that is not a 16:9 video, for example in a `<div>`. On post pages, `main` clips content that goes past the sides of the screen.
+11. **The Astro compiler does not repair bad HTML nesting.** Never put a `<ul>`, `<div>` or other block element inside a `<p>`: the browser then closes the `<p>` early and adds an empty `<p>`.
+12. **Astro escapes `{expression}` attribute values.** In JS strings write a plain `&` (for example in URLs), not `&amp;`, or the HTML gets `&amp;amp;`.

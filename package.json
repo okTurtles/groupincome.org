@@ -4,32 +4,34 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "BUILD_TARGET=staging astro build",
-    "preview": "BUILD_TARGET=staging astro preview",
-    "build:prod": "BUILD_TARGET=production astro build",
-    "preview:prod": "BUILD_TARGET=production astro preview",
-    "astro": "astro"
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "start": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 BUILD_TARGET=staging astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 BUILD_TARGET=staging astro preview",
+    "build:prod": "ASTRO_TELEMETRY_DISABLED=1 BUILD_TARGET=production astro build",
+    "preview:prod": "ASTRO_TELEMETRY_DISABLED=1 BUILD_TARGET=production astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
   },
   "dependencies": {
-    "@nanostores/vue": "^1.0.0",
-    "nanostores": "^1.0.1",
-    "plyr": "^3.7.8",
-    "vue": "^3.5.17"
+    "@fontsource/gelasio": "5.3.0",
+    "@nanostores/vue": "1.0.0",
+    "nanostores": "1.0.1",
+    "plyr": "3.7.8",
+    "vue": "3.5.44"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^4.3.0",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.4.1",
-    "@astrojs/vue": "^5.1.0",
-    "@remark-embedder/core": "^3.0.3",
-    "@remark-embedder/transformer-oembed": "^5.0.1",
-    "astro": "^5.10.1",
-    "rehype-katex": "^7.0.1",
-    "remark-breaks": "^4.0.0",
-    "remark-gfm": "^4.0.1",
-    "remark-math": "^6.0.0",
-    "sass": "^1.89.2"
+    "@astrojs/markdown-remark": "7.3.2",
+    "@astrojs/mdx": "8.0.3",
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.4",
+    "@astrojs/vue": "7.0.3",
+    "@remark-embedder/core": "3.0.3",
+    "@remark-embedder/transformer-oembed": "5.0.1",
+    "astro": "7.3.8",
+    "rehype-katex": "7.0.1",
+    "remark-breaks": "4.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0",
+    "sass": "1.105.1"
   }
 }

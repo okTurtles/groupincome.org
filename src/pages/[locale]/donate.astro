@@ -13,7 +13,10 @@ const { locale } = Astro.locals
 ---
 
 <Layout>
-  <script src="https://donorbox.org/widget.js" paypalExpress="true"></script>
+  {/* No paypalExpress="true" (Donorbox embed code has it): with it, widget.js
+    also loads PayPal's checkout and tag manager scripts, which this page does
+    not use. Astro 5 dropped the attribute, so the page never loaded them. */}
+  <script src="https://donorbox.org/widget.js"></script>
   <div class="c-donate-content-wrapper">
     <section class="container grey-container">
       <I18n tag="div" class="is-posttitle">SUPPORT OUR DEVELOPMENT</I18n>

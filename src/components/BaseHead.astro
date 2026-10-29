@@ -1,6 +1,7 @@
 ---
 import '../styles/main.scss';
 import { resolvePath } from '@/utils/helpers.js'
+import { SITE_TITLE } from '@/config'
 
 export interface Props {
 	title: string;
@@ -16,6 +17,7 @@ const { title, description, image = resolvePath('/placeholder-social.jpg') } = A
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href={resolvePath("/favicon.svg")} />
 <meta name="generator" content={Astro.generator} />
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL(resolvePath('/rss.xml'), Astro.url)} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

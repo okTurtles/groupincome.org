@@ -1,5 +1,9 @@
 ---
 import { sortedPosts } from '@/utils/helpers'
+import '@fontsource/gelasio/400.css'
+import '@fontsource/gelasio/400-italic.css'
+import '@fontsource/gelasio/700.css'
+import '@fontsource/gelasio/700-italic.css'
 export async function getStaticPaths() {
   const posts = sortedPosts(import.meta.glob('../posts/*.{md,mdx}', { eager: true }))
   return posts.map(post => {
@@ -21,7 +25,27 @@ const { Content } = Astro.props
 <style lang="scss" is:global>
   @use "../styles/variables" as *;
 
+  // With a classic (not overlay) scrollbar, 100vw is wider than the page. The full-width post images
+  // and videos below would then make the page scroll sideways a little. Clip that overflow.
+  body[data-page-type="blogpost"] main {
+    @include phone {
+      overflow-x: clip;
+    }
+  }
+
   .c-blog-wrapper {
+    // Post content keeps the serif font of the old WordPress blog; the rest of the site stays sans-serif.
+    // Georgia's license does not allow self-hosting it, so readers without it get Gelasio, a free font
+    // made to match Georgia's metrics. Browsers only download Gelasio when Georgia is missing.
+    font-family: $blog_serif;
+    // At 18px the serif's lowercase letters are as tall as the site's 16px Poppins text.
+    font-size: $size_4;
+
+    // Narrow phone columns fit too few words per line at 18px.
+    @include phone {
+      font-size: 1.0625rem;
+    }
+
     .icon-link {
       display: none;
     }
@@ -77,6 +101,7 @@ const { Content } = Astro.props
 
     a {
       @extend %link-style;
+      font-size: inherit;
     }
 
     @keyframes link-hover-ani {
@@ -86,6 +111,45 @@ const { Content } = Astro.props
 
     img {
       margin: 2rem 0;
+    }
+
+    iframe {
+      margin: 2rem auto;
+      max-width: 100%;
+    }
+
+    // On phones, an image can grow up to the screen width and is centered on the screen, so a wide
+    // image touches both screen edges whatever the side padding of the post section is. margin-left
+    // puts the left edge of the image at the middle of the text column, and the transform moves the
+    // image back by half of its own width. A narrow image keeps its size and is centered. Floats,
+    // galleries and images in lists are not matched.
+    // Keeping narrow images left-aligned would need a size container (100cqw) on the article. Do not add
+    // one: it stops the top margin of the first element of the post from collapsing, which adds space.
+    @include phone {
+      > img,
+      > p > img,
+      > p > a > img {
+        &:not(.alignleft, .alignright) {
+          max-width: 100vw;
+          margin-left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      // A video embed (an iframe directly in the post body) is exactly as wide as the screen and 16:9
+      // high, whatever its width and height attributes say. min-width, not width: some embeds have
+      // `width:100%` in their style attribute, which wins over a stylesheet width. Keep the iframe
+      // inline: as a block, its top margin would collapse with the bottom margin of the paragraph before
+      // it, and the space above the video would shrink. Because it is inline, the transform of the
+      // images does not work here: the line box would keep the untransformed position and stick out on
+      // the right. The negative margin puts the iframe at the left screen edge instead. This rule must
+      // come after the general `iframe` rule above: both have the same specificity.
+      > iframe {
+        min-width: 100vw;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin-left: calc(50% - 50vw);
+      }
     }
 
     table {
@@ -108,11 +172,6 @@ const { Content } = Astro.props
 
     ul {
       list-style-type: disc;
-    }
-
-    iframe {
-      margin: 2rem auto;
-      max-width: 100%;
     }
 
     pre {
@@ -153,14 +212,10 @@ const { Content } = Astro.props
       margin-top: 4rem;
       padding-top: 2rem;
       border-top: 1px solid $divider_0;
-      font-size: .8rem;
+      font-size: .85em;
 
       ol {
         margin-left: 0;
-      }
-
-      a {
-        font-size: inherit;
       }
     }
 
