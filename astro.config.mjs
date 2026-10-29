@@ -90,6 +90,13 @@ export default defineConfig({
       alias: {
         '@': path.resolve(__dirname, './src')
       }
+    },
+    // Astro's own `server` option has no `proxy`. In `npm run dev`, Vite sends /isso to the
+    // live site, so the blog posts show the real comments.
+    server: {
+      proxy: {
+        '/isso': { target: 'https://groupincome.org', changeOrigin: true }
+      }
     }
   }
   // NOTE: Never set build.concurrency option to anything higher than 1. It will break the translations of the website. 

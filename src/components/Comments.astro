@@ -1,8 +1,8 @@
 ---
 // The isso comments of a blog post. isso (https://isso-comments.de/) is a
 // comment server outside this repo: the turtledock nginx sends /isso to it.
-// So the comments show only where that nginx serves the site (after
-// `npm run build:prod`), not in `npm run dev` or `npm run preview`. The
+// So the comments show on groupincome.org, and in `npm run dev` through the
+// /isso proxy in astro.config.mjs, but not in `npm run preview`. The
 // /isso paths are at the root of the host, so they skip `resolvePath()`.
 // The isso client reads the `data-isso-*` attributes from every script on
 // the page, so only the script that this component adds may have them.
