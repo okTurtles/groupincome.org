@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 
 const { locale } = Astro.locals
 const isLocaleEn = locale === 'en'
-const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
+const lastUpdatedDate = localeAwareDateString('2026-11-02', locale)
 ---
 
 <Layout>
@@ -78,19 +78,11 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
       </I18n>
 
       <I18n tag="p">In addition to the end-to-end encryption offered by the Shelter Protocol, our server for Group Income uses full-disk encryption. Please note, full-disk encryption may not exist on other community-run servers.</I18n>
-      <I18n>By default, all chatrooms in Group Income are end-to-end encrypted. However, we provide the option for users to create public chatrooms to give communities options when it comes to building open and inclusive communities. As their name suggests, public chatrooms are not end-to-end encrypted to make it easy for users of Group Income to bridge them with other services, should they choose to do so. Please see the section titled "Note On Public Chatrooms" below for more details.</I18n>
 
       <I18n tag="h3" is:raw args={{ ...LTags('i') }}>We do {i_}not{_i} have Third Party Service Agreements in place</I18n>
 
       <I18n tag="p">Group Income does not share your data with any third-party service, and therefore we have no need of such agreements.</I18n>
-      <I18n>As mentioned in previous sections, the data in public unencrypted chatrooms is public and should be treated with the same care and expectations of privacy that you should have with normal social media: that is, you should have zero expectation of any privacy for the content you post to public chatrooms. By default, chatrooms are non-public, and like direct messages, they are end-to-end encrypted.</I18n>
       <I18n>Certain possible future features might necessarily require some of your data passing through third-party servers. For example, while we can end-to-end encrypt some types of notifications (push notifications), other types such as email are more difficult to encrypt. We will update this privacy policy in the future as necessary to give any disclosures should we choose to implement email notifications (or other notifications) that cannot be encrypted. In all cases, such notifications will be opt-in on the part of the user.</I18n>
-
-      <I18n tag="h3">Note On Public Chatrooms</I18n>
-
-      <I18n>By default, all chatrooms in Group Income are end-to-end encrypted and are private to group members only. Really private - not even the server admin can read them.</I18n>
-      <I18n>However, Group Income has the ability to let users create public chatrooms. The data in public chatrooms is intended to be completely public and should be treated with the same care and expectations of privacy that one has with normal social media: that is, you should have zero expectation of any privacy for the content you post to public chatrooms.</I18n>
-      <I18n>For this reason, public chatrooms are moderated by both the group admins and the server admins. Each server and group can have its own moderation rules. Posting illegal content to such chatrooms could get your entire group banned. Admins may choose to completely disable the option of public chatrooms to avoid moderation headaches.</I18n>
 
       <I18n tag="h3">Note On Metadata</I18n>
       <I18n>The following metadata is visible to us and not anyone else:</I18n>
@@ -109,7 +101,7 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
         <I18n tag="li">If you already know the username of someone on a server, you can get their identity contractID. This doesn't tell you anything about them (as the contents of an identity contract are encrypted by default), but perhaps it could be useful for something.</I18n>
       </ul>
 
-      <I18n tag="p">If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), access our website over a VPN or Tor, and avoid exposing any information about yourself in an unencrypted, public chatroom.</I18n>
+      <I18n tag="p">If you'd like to use Group Income completely anonymously, pick a unique username that you've never used on any other service before, sign up with a completely fake/made up email (we do not verify them), and access our website over a VPN or Tor.</I18n>
 
       <I18n tag="h3">Additional notes on emails, password, and billing details</I18n>
 
@@ -140,7 +132,7 @@ const lastUpdatedDate = localeAwareDateString('2024-08-02', locale)
 
       <I18n tag="p">Nobody. If we are forced by a court to share information with a government body, the data we can share with them is described above in the section "Note On Metadata".</I18n>
       <I18n tag="p">Future features that cannot avoid using third-party services (e.g. some types of notifications) may necessarily expose limited data to some third-party providers should users choose to enable such features. See the section above on third-party agreements for more details.</I18n>
-      <I18n tag="p">Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them, and information shared in public chatrooms is… public (see section "Note On Public Chatrooms").</I18n>
+      <I18n tag="p">Please bear in mind, everyone you've authorized to read your messages (e.g. the other people in your group), clearly have access to whatever information you choose to disclose or share with them.</I18n>
       <I18n tag="p">Group members can read the information in the group because they share a secret key. Again, this secret key is available only to group members, not us. Similarly, direct messages can only be read by sender and recipient.</I18n>
 
       <hr class="c-line"/>
