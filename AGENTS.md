@@ -110,6 +110,14 @@ Blog posts show comments from an [isso](https://isso-comments.de/) server outsid
 - The Website field of the comment form is hidden with CSS only, against spam links. The input must stay in the DOM (the isso client reads it when it sends). The isso API still accepts `website` from a program that posts to it directly.
 - The old WordPress comments come from turtledock's `./cmd import isso-wp groupincome.org <path-to-xml>`, which writes `vol/isso/groupincome.org.{cfg,db}` there. Running it again starts over from the export: it keeps the `.cfg` and renames the old database to a `.bak`, so comments added after the first import are not in the new database.
 
+## Translations
+
+The English text is the translation key. `src/i18n/utils.ts` loads `strings/<language>.json`. The [okTurtles/strings](https://github.com/okTurtles/strings) tool makes these files from the `strings/<language>.strings` files. Never edit the `.json` files or `english.strings`.
+
+1. After you change English text, run `strings.linux src` (on macOS: `strings.mac src`) from the project root.
+2. In each `<language>.strings`, replace the English value of each `/* MISSING TRANSLATION */` entry that you added or changed. Do not translate `/* Not currently used */` entries. Some older missing entries (for example `Github`, `Paypal`) stay in English on purpose.
+3. Run the command again. It updates the `.json` files and removes the `MISSING TRANSLATION` comments.
+
 ## Styling
 
 ### SCSS Architecture
