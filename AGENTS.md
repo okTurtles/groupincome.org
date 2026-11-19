@@ -13,8 +13,9 @@ This is the **marketing website** for [Group Income](https://groupincome.org), n
 | `npm run build:prod` | Build for production (`BUILD_TARGET=production` → `groupincome.org`) |
 | `npm run preview` | Preview staging build locally |
 | `npm run preview:prod` | Preview production build locally |
+| `npm run typecheck` | Type-check with `vue-tsc --noEmit`: all `.ts` files and the `<script lang="ts">` blocks of `.vue` files |
 
-No test suite or linter is configured in this project.
+No test suite or linter is configured in this project. `npm run typecheck` does not report errors in `.js` files or in `.vue` files without `lang="ts"` (`checkJs` is off), and it does not check `.astro` files (that needs `astro check`).
 
 Every `astro` script in `package.json` starts with `ASTRO_TELEMETRY_DISABLED=1`. Keep it there when you add or change a script.
 
