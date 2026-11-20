@@ -19,73 +19,70 @@
 </div>
 </template>
 
-<script>
-import { inject } from 'vue'
+<script setup lang="ts">
+import { inject, ref } from 'vue'
 
-export default {
-  name: 'Accordion',
-  setup () {
-    const L = inject('L')
-    return { L }
-  },
-  data () {
-    const L = this.L
+type AccordionItem = {
+  title: string
+  id: string
+  description: string
+  link: string
+  linkCopy: string
+  active?: boolean
+}
 
-    return {
-      list: [{
-        title: 'Github',
-        id: 'github',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate'),
-        active: true
-      }, {
-        title: L('Car donation'),
-        id: 'car-donation',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate')
-      }, {
-        title: L('Check'),
-        id: 'check',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate')
-      }, {
-        title: L('Paypal'),
-        id: 'paypal',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate')
-      }, {
-        title: L('Online purchases'),
-        id: 'online-purchases',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate')
-      }, {
-        title: L('Stock donations'),
-        id: 'stock-donations',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate')
-      }, {
-        title: L('Donate time'),
-        id: 'donate-time',
-        description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-        link: 'https://github.com/sponsors/okTurtles',
-        linkCopy: L('Donate')
-      }],
-      previous: 0
-    }
-  },
-  methods: {
-    toggleTab (index) {
-      if (index !== this.previous) this.list[this.previous].active = false
-      this.previous = index
-      this.list[index].active = !this.list[index].active
-    },
-  }
+const L = inject<any>('L')
+
+const list = ref<AccordionItem[]>([{
+  title: 'Github',
+  id: 'github',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate'),
+  active: true
+}, {
+  title: L('Car donation'),
+  id: 'car-donation',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate')
+}, {
+  title: L('Check'),
+  id: 'check',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate')
+}, {
+  title: L('Paypal'),
+  id: 'paypal',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate')
+}, {
+  title: L('Online purchases'),
+  id: 'online-purchases',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate')
+}, {
+  title: L('Stock donations'),
+  id: 'stock-donations',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate')
+}, {
+  title: L('Donate time'),
+  id: 'donate-time',
+  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
+  link: 'https://github.com/sponsors/okTurtles',
+  linkCopy: L('Donate')
+}])
+const previous = ref(0)
+
+function toggleTab (index: number) {
+  if (index !== previous.value) list.value[previous.value].active = false
+  previous.value = index
+  list.value[index].active = !list.value[index].active
 }
 </script>
 
