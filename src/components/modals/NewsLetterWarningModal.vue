@@ -18,9 +18,10 @@
 import ModalTemplate from './ModalTemplate.vue'
 import { inject } from 'vue'
 
+// TODO: replace below any with something concrete
 const L: any = inject('L')
 const modalTitle = L('Sorry Gmail users!')
-const links: any[] = [
+const links: { id: string, url: string }[] = [
   { id: 'tuta', url: 'https://tuta.com/' },
   { id: 'startmail', url: 'https://www.startmail.com/' },
   { id: 'proton', url: 'https://proton.me/mail' },

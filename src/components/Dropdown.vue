@@ -50,10 +50,10 @@ const emit = defineEmits<{
 
 const isMenuOpen = ref(false)
 const selectedOptionId = ref<string | null>(props.initialSelectedOptionId || null)
-const selectedOption = computed(() => {
+const selectedOption = computed<MenuItem | null>(() => {
   return selectedOptionId.value ? props.menuOptions.find(option => option.id === selectedOptionId.value) : null
 })
-const menuBtnText = computed(() => {
+const menuBtnText = computed<string>(() => {
   return selectedOption.value
     ? selectedOption.value?.selectedName || selectedOption.value?.name || ''
     : props.defaultText || ''

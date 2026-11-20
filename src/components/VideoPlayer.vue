@@ -21,8 +21,8 @@ const props = defineProps<ComponentProps>()
 const videoEl = ref<HTMLElement | null>(null)
 const player = ref<any>(null)
 
-const resolvedSrc = computed(() => resolvePath(props.src))
-const resolvedPoster = computed(() => props.poster ? resolvePath(props.poster) : undefined)
+const resolvedSrc = computed<string | undefined>(() => resolvePath(props.src))
+const resolvedPoster = computed<string | undefined>(() => props.poster ? resolvePath(props.poster) : undefined)
 
 onMounted(async () => {
   const { default: Plyr } = await import('plyr')
