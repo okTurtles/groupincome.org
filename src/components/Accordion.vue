@@ -20,7 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
+import { useL } from '@/composables/translations'
 
 type AccordionItem = {
   title: string
@@ -31,7 +32,7 @@ type AccordionItem = {
   active?: boolean
 }
 
-const L = inject<any>('L')
+const L = useL()
 
 const list = ref<AccordionItem[]>([{
   title: 'Github',

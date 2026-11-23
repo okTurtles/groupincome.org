@@ -16,10 +16,10 @@
 
 <script setup lang="ts">
 import ModalTemplate from './ModalTemplate.vue'
-import { inject } from 'vue'
+import { useL } from '@/composables/translations'
 
 // TODO: replace below any with something concrete
-const L: any = inject('L')
+const L = useL()
 const modalTitle = L('Sorry Gmail users!')
 const links: { id: string, url: string }[] = [
   { id: 'tuta', url: 'https://tuta.com/' },
