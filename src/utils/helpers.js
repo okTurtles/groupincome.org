@@ -16,6 +16,11 @@ export function resolvePath (relPath = '', lang = '') {
   }
 }
 
+/**
+ * @template {{ frontmatter: { draft?: boolean, pubDate: string } }} T
+ * @param {Record<string, T>} matches
+ * @returns {T[]}
+ */
 export function sortedPosts (matches) {
   // NOTE: This function assumes that matches passed in is the result of import.meta.glob()
   // reference: https://docs.astro.build/en/guides/imports/#importmetaglob

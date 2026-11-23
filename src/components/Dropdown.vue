@@ -51,7 +51,7 @@ const emit = defineEmits<{
 const isMenuOpen = ref(false)
 const selectedOptionId = ref<string | null>(props.initialSelectedOptionId || null)
 const selectedOption = computed<MenuItem | null>(() => {
-  return selectedOptionId.value ? props.menuOptions.find(option => option.id === selectedOptionId.value) : null
+  return selectedOptionId.value ? props.menuOptions.find(option => option.id === selectedOptionId.value) ?? null : null
 })
 const menuBtnText = computed<string>(() => {
   return selectedOption.value

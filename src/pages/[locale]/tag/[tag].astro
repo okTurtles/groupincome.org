@@ -4,17 +4,19 @@ import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { sortedPosts, uniq } from '@/utils/helpers.js'
 import { supportedLangCodes, LTags } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.astro'
+import type { MarkdownInstance } from 'astro'
+import type { PostFrontmatter } from '@/types'
 
 export async function getStaticPaths () {
-  const allPosts = sortedPosts(import.meta.glob('../../../posts/*.{md,mdx}', { eager: true }))
+  const allPosts = sortedPosts(import.meta.glob<MarkdownInstance<PostFrontmatter>>('../../../posts/*.{md,mdx}', { eager: true }))
   const uniqueTags = uniq(
-    allPosts.map((post: any) => post.frontmatter?.tags || []).flat()
+    allPosts.map((post) => post.frontmatter?.tags || []).flat()
   )
 
   const result = supportedLangCodes.flatMap((langCode: string) => {
     return uniqueTags.map((tag: string) => {
       const filteredPosts = allPosts.filter(
-        (post: any) => Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.includes(tag)
+        (post) => Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.includes(tag)
       )
 
       return {
@@ -25,6 +27,10 @@ export async function getStaticPaths () {
   })
 
   return result
+}
+
+type Props = {
+  posts: MarkdownInstance<PostFrontmatter>[]
 }
 
 const { tag } = Astro.params
@@ -45,7 +51,7 @@ const { posts } = Astro.props
   <div class="c-post-list">
     {
       Boolean(posts.length) &&
-      posts.map((post: any) => <BlogPostEntry client:only="vue" postFrontmatter={post.frontmatter} />)
+      posts.map((post) => <BlogPostEntry client:only="vue" postFrontmatter={post.frontmatter} />)
     }
   </div>
 </div>
