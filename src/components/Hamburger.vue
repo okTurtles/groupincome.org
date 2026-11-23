@@ -4,7 +4,7 @@
     @click="toggleNavigation">Toggle menu</button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { isNavigationOpen, toggleNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 
