@@ -41,30 +41,18 @@
 </div>
 </template>
 
-<script> 
-import { inject } from 'vue'
+<script setup lang="ts"> 
+import { useL, useLocale } from '@/composables/translations'
 import { resolvePath } from '@/utils/helpers.js'
 
-export default {
-  name: 'GetStarted',
-  setup () {
-    const L = inject('L')
-    const locale = inject('locale')
-    return { L, locale }
-  },
-  computed: {
-    localeAwareGetStartedLink () {
-      return resolvePath('get-started#servers', this.locale)
-    },
-    chooseServerHtml () {
-      const L = this.L
-      return L(
-        'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!',
-        { a1_: '<a href=\'https://groupincome.app\' class=\'is-link\'>', _a: '</a>', a2_: `<a class='is-link' href='${this.localeAwareGetStartedLink}'>` }
-      )
-    }
-  }
-}
+const L = useL()
+const locale = useLocale()
+
+const localeAwareGetStartedLink = resolvePath('get-started#servers', locale)
+const chooseServerHtml = L(
+  'Use {a1_}our official server{_a}, choose from {a2_}a list of{_a} independently operated servers, or run your own!',
+  { a1_: '<a href=\'https://groupincome.app\' class=\'is-link\'>', _a: '</a>', a2_: `<a class='is-link' href='${localeAwareGetStartedLink}'>` }
+)
 </script>
 
 <style lang="scss" scoped>
