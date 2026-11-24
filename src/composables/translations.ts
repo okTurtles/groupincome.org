@@ -1,5 +1,6 @@
 import { inject } from 'vue'
 import type { TranslationFn } from '../i18n/utils'
+import type { LangDir } from '@/types'
 
 function injectOrThrow<T> (key: string): T {
   const value = inject<T>(key)
@@ -13,5 +14,5 @@ function injectOrThrow<T> (key: string): T {
 
 export const useL = () => injectOrThrow<TranslationFn>('L')
 export const useLocale = () => injectOrThrow<string>('locale')
-export const useLangDir = () => injectOrThrow<string>('langDir')
+export const useLangDir = () => injectOrThrow<LangDir>('langDir')
 export const useIsBlogpost = () => injectOrThrow<boolean>('isBlogpost')

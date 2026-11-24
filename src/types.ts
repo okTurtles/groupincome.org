@@ -33,3 +33,5 @@ export type NewsFrontmatter = {
   title: string
   createdAt: Date // written as an unquoted YAML timestamp, so it's parsed into a Date, not a string
 }
+
+export type LangDir = 'ltr' | 'rtl'

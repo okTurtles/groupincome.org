@@ -18,7 +18,6 @@
 import ModalTemplate from './ModalTemplate.vue'
 import { useL } from '@/composables/translations'
 
-// TODO: replace below any with something concrete
 const L = useL()
 const modalTitle = L('Sorry Gmail users!')
 const links: { id: string, url: string }[] = [

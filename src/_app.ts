@@ -2,24 +2,26 @@ import type { App } from 'vue'
 import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 import { useTranslation, loadTranslationTable } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.vue'
+import type { LangDir } from '@/types'
 
 // This is a flag to check whether this file runs during compilation time(NodeJS environment) or runtime(Browser context).
 const isNode = typeof globalThis.window === 'undefined' && typeof globalThis.document === 'undefined'
 
 const getLang = (): string => {
   return isNode
-    ? (globalThis as any).giVueLocale || ''
+    ? globalThis.giVueLocale || ''
     : document.body.dataset.locale || '' // data-locale attribute is set in the DefaultLayout.astro file
 }
 const getIsBlogpost = (): boolean => {
   return isNode
-    ? (globalThis as any).giVueIsBlogpost || false
+    ? globalThis.giVueIsBlogpost || false
     : document.body.dataset.pageType === 'blogpost' // data-page-type attribute is set in the DefaultLayout.astro file
 }
-const getLangDir = (): string => {
-  return isNode
-    ? (globalThis as any).giVueLangDir || 'ltr'
-    : document.documentElement.dir || 'ltr' // html dir attribute is set on the <html> tag in the DefaultLayout.astro file
+const getLangDir = (): LangDir => {
+  const dir = isNode
+    ? globalThis.giVueLangDir
+    : document.documentElement.dir // html dir attribute is set on the <html> tag in the DefaultLayout.astro file
+  return dir === 'rtl' ? 'rtl' : 'ltr'
 }
 
 const setResolvedPathToAttr = (attrName: string, el: HTMLElement, relPath: string, useLocale: boolean = false) => {

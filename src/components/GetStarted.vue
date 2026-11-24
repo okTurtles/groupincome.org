@@ -41,7 +41,7 @@
 </div>
 </template>
 
-<script setup lang="ts"> 
+<script setup lang="ts">
 import { useL, useLocale } from '@/composables/translations'
 import { resolvePath } from '@/utils/helpers.js'
 

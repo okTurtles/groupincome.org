@@ -19,10 +19,9 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
 
-const { color = '#D0DEEA', styles, y = 0 } = defineProps<{
+const { color = '#D0DEEA', styles } = defineProps<{
   color?: string
   styles?: CSSProperties
-  y?: number
 }>()
 </script>
 
