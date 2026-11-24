@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { isNavigationOpen, isFundraiserOpen } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 
