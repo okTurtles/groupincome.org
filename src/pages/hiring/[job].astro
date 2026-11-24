@@ -3,8 +3,10 @@
 
 import { sortedPosts } from '@/utils/helpers'
 import { defaultLanguage } from '@/i18n/utils'
+import type { MarkdownInstance } from 'astro'
+import type { JobFrontmatter } from '@/types'
 export async function getStaticPaths() {
-  const jobs =  sortedPosts(import.meta.glob('../../jobs/*.{md,mdx}', { eager: true }));
+  const jobs =  sortedPosts(import.meta.glob<MarkdownInstance<JobFrontmatter>>('../../jobs/*.{md,mdx}', { eager: true }));
   return jobs.map(job => {
     return {
       params: {

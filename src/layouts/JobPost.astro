@@ -4,9 +4,11 @@ import Sides from '../components/graphics/Sides.vue';
 import { resolvePath, sortedPosts } from '@/utils/helpers.js'
 import I18n from '@/i18n/i18n.astro'
 import { useTranslation } from '@/i18n/utils'
+import type { MarkdownInstance } from 'astro'
+import type { JobFrontmatter } from '@/types'
 
-const jobs =  sortedPosts(import.meta.glob('../jobs/*.{md,mdx}', { eager: true })).filter(job => {
-  return !job.file.split('/').pop().startsWith('_')
+const jobs =  sortedPosts(import.meta.glob<MarkdownInstance<JobFrontmatter>>('../jobs/*.{md,mdx}', { eager: true })).filter(job => {
+  return !job.file.split('/').pop()!.startsWith('_')
 })
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -46,7 +48,7 @@ const typeDisplayMap: Record<string, string> = {
     <section class="container c-container-top">
       <I18n tag="h2" class="is-title-2 c-container-title">Open Positions</I18n>
       <div class="c-job-links">
-        {jobs.map((job: any) => (
+        {jobs.map((job) => (
           <a class={currentPath === job.frontmatter.permalink.replaceAll("/", "") ? "active-link" : ""}
             href={resolvePath(`/hiring${job.frontmatter.permalink}`, locale)}>
             <span class="c-job-title">{job.frontmatter.title}</span>
