@@ -16,24 +16,14 @@
 
 </template>
 
-<script>
-export default {
-  name: 'Sides',
-  props: {
-    color: {
-      type: String,
-      default: '#D0DEEA'
-    },
-    styles: {
-      type: Object,
-      default () {}
-    },
-    y: {
-      type: Number,
-      default: 0
-    }
-  }
-}
+<script setup lang="ts">
+import type { CSSProperties } from 'vue'
+
+const { color = '#D0DEEA', styles, y = 0 } = defineProps<{
+  color?: string
+  styles?: CSSProperties
+  y?: number
+}>()
 </script>
 
 <style lang="scss" scoped>

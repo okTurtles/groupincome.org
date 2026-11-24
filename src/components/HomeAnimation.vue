@@ -161,6 +161,7 @@
 </template>
 
 <script setup lang="ts">
+import type { CSSProperties } from 'vue'
 import { useL, useLangDir } from '@/composables/translations'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
@@ -168,16 +169,9 @@ import GetStarted from './GetStarted.vue'
 import ScrollDownArrow from './ScrollDownArrow.vue'
 import VideoPlayer from './VideoPlayer.vue'
 
-type PositionProps = {
-  top: string
-  left?: string | number
-  right?: string | number
-  transform?: string
-}
-
 const L = useL()
 const isRTL = useLangDir() === 'rtl'
-const sideArchStyles: Record<string, PositionProps> = {
+const sideArchStyles: Record<'first' | 'second' | 'third', CSSProperties> = {
   first: isRTL
     ? {
       top: '40rem',

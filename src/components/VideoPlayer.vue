@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import type Plyr from 'plyr'
 import { resolvePath } from '@/utils/helpers.js'
 
 interface ComponentProps {
@@ -18,8 +19,8 @@ interface ComponentProps {
 
 const props = defineProps<ComponentProps>()
 
-const videoEl = ref<HTMLElement | null>(null)
-const player = ref<any>(null)
+const videoEl = ref<HTMLVideoElement | null>(null)
+const player = ref<Plyr | null>(null)
 
 const resolvedSrc = computed<string | undefined>(() => resolvePath(props.src))
 const resolvedPoster = computed<string | undefined>(() => props.poster ? resolvePath(props.poster) : undefined)

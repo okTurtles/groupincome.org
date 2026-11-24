@@ -176,7 +176,7 @@ Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at
 3. **Blog post permalinks** must start and end with `/` — the `getStaticPaths()` functions strip these via `.slice(1).slice(0, -1)` to create URL params.
 4. **`_variables.scss` cannot contain CSS classes** — only Sass variables, mixins, functions, and `@forward` rules. This file is included in Vue component `<style>` blocks, and any classes would be duplicated across components.
 5. **`helpers.js` is plain JavaScript** (not TypeScript) — uses `'use strict'` and CommonJS-compatible `export function` syntax.
-6. **`graphics/Sides.vue` still uses the Options API**, while the other Vue components use `<script setup>` (Composition API): both patterns coexist.
+6. **All Vue components use `<script setup>` (Composition API)**, and all except `src/i18n/i18n.vue` use `lang="ts"`. Write new components with `<script setup lang="ts">`, not the Options API.
 7. **Blog post images** historically reference `/wp-content/uploads/...` paths (legacy from WordPress). New posts can use any path under `public/`.
 8. **The newsletter form** in Footer.vue blacklists Gmail/Google addresses and shows a warning modal instead — this is intentional.
 9. **The `PageWrapper` Vue island (`client:load` in `DefaultLayout.astro`) wraps the whole page body.** When it hydrates (about 50 ms after `DOMContentLoaded`), Vue makes all the body DOM again from the server HTML. A page script that finds elements or adds listeners before that works on removed elements. Wait for the island's `astro:hydrate` event, as `Comments.astro` does. This is probably also why `waitForElement()` in helpers.js exists: it first looks 100 ms later.
