@@ -166,8 +166,8 @@ Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at
 
 - **Platform**: GitHub Pages
 - **Branch**: `master` (not `main`)
-- **CI**: `.github/workflows/astro.yml` — on Node 24 runs `npm install && npm run build` (staging), then uploads `dist` with `actions/upload-pages-artifact`
-- **Legacy**: `deploy.yml` exists but appears superseded by `astro.yml`
+- **Staging deploy**: `.github/workflows/astro.yml` — on pushes to `master` (or a manual run), on Node 24 runs `npm install && npm run build` (staging), then uploads `dist` with `actions/upload-pages-artifact`. The production site is not deployed from this workflow.
+- **Type check**: `.github/workflows/ci.yml` — on pushes to `master` and on PRs, on Node 24 runs `npm ci && npm run typecheck`. `npm ci` fails when `package-lock.json` is out of sync with `package.json`.
 
 ## Gotchas
 

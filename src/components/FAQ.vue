@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { LTags } from '@/i18n/utils'
-import { useL, useLangDir } from '@/composables/translations'
+import { useL, useIsRTL } from '@/composables/translations'
 
 type FaqItem = {
   question: string
@@ -52,7 +52,7 @@ type FaqSection = {
 }
 
 const L = useL()
-const isRTL = useLangDir() === 'rtl'
+const isRTL = useIsRTL()
 
 const faqs = ref<FaqSection[]>([{
   title: L('General'),

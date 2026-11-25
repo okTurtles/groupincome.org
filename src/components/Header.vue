@@ -17,15 +17,15 @@
 </template>
 
 <script setup lang="ts">
-import { useLangDir, useIsBlogpost } from '@/composables/translations'
+import { useIsRTL, useIsBlogpost } from '@/composables/translations'
 import Navigation from './Navigation.vue'
 import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
 import LanguageSwitch from './LanguageSwitch.vue'
 
 const isBlogpost = useIsBlogpost()
-const langDir = useLangDir()
-const logoSrc = `images/logo-transparent${langDir === 'rtl' ? '-rtl' : ''}.svg`
+const isRTL = useIsRTL()
+const logoSrc = `images/logo-transparent${isRTL ? '-rtl' : ''}.svg`
 </script>
 
 <style lang="scss" scoped>

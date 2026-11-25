@@ -19,5 +19,5 @@ export const IsBlogpostKey: InjectionKey<boolean> = Symbol('isBlogpost')
 
 export const useL = () => injectOrThrow(LKey)
 export const useLocale = () => injectOrThrow(LocaleKey)
-export const useLangDir = () => injectOrThrow(LangDirKey)
+export const useIsRTL = () => injectOrThrow(LangDirKey) === 'rtl'
 export const useIsBlogpost = () => injectOrThrow(IsBlogpostKey)

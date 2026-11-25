@@ -78,11 +78,11 @@ const list = ref<AccordionItem[]>([{
   link: 'https://github.com/sponsors/okTurtles',
   linkCopy: L('Donate')
 }])
-const previous = ref(0)
+let previous = 0
 
 function toggleTab (index: number) {
-  if (index !== previous.value) list.value[previous.value].active = false
-  previous.value = index
+  if (index !== previous) list.value[previous].active = false
+  previous = index
   list.value[index].active = !list.value[index].active
 }
 </script>

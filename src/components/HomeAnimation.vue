@@ -162,7 +162,7 @@
 
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
-import { useL, useLangDir } from '@/composables/translations'
+import { useL, useIsRTL } from '@/composables/translations'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
 import GetStarted from './GetStarted.vue'
@@ -170,7 +170,7 @@ import ScrollDownArrow from './ScrollDownArrow.vue'
 import VideoPlayer from './VideoPlayer.vue'
 
 const L = useL()
-const isRTL = useLangDir() === 'rtl'
+const isRTL = useIsRTL()
 const sideArchStyles: Record<'first' | 'second' | 'third', CSSProperties> = {
   first: isRTL
     ? {
