@@ -34,49 +34,54 @@ type AccordionItem = {
 
 const L = useL()
 
+// Shared by every item for now
+const description = L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂')
+const donateLink = 'https://github.com/sponsors/okTurtles'
+const linkCopy = L('Donate')
+
 const list = ref<AccordionItem[]>([{
   title: 'Github',
   id: 'github',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate'),
+  description,
+  link: donateLink,
+  linkCopy,
   active: true
 }, {
   title: L('Car donation'),
   id: 'car-donation',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate')
+  description,
+  link: donateLink,
+  linkCopy
 }, {
   title: L('Check'),
   id: 'check',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate')
+  description,
+  link: donateLink,
+  linkCopy
 }, {
   title: L('Paypal'),
   id: 'paypal',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate')
+  description,
+  link: donateLink,
+  linkCopy
 }, {
   title: L('Online purchases'),
   id: 'online-purchases',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate')
+  description,
+  link: donateLink,
+  linkCopy
 }, {
   title: L('Stock donations'),
   id: 'stock-donations',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate')
+  description,
+  link: donateLink,
+  linkCopy
 }, {
   title: L('Donate time'),
   id: 'donate-time',
-  description: L('Are you an expert at JavaScript? Know the language and tools inside-out? Been programming for at least 4 years? Know several programming languages? Great! You might be a fit for this position. 🙂'),
-  link: 'https://github.com/sponsors/okTurtles',
-  linkCopy: L('Donate')
+  description,
+  link: donateLink,
+  linkCopy
 }])
 let previous = 0
 

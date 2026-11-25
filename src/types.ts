@@ -9,7 +9,7 @@ export type PostFrontmatter = {
   isoDate: string // ISO 8601
   pubDate: string // ISO 8601, used for sorting
   image?: string // absolute path from public/
-  layout: string // layout file path from src/layouts/
+  layout: string // layout file path, relative to the markdown file (e.g. "../layouts/BlogPost.astro")
   permalink: string
   categories?: string[]
   tags?: string[]
@@ -24,7 +24,7 @@ export type JobFrontmatter = {
   pubDate: string // ISO 8601, used for sorting
   type: string // e.g. 'remote'
   permalink: string
-  layout: string // layout file path from src/layouts/
+  layout: string // layout file path, relative to the markdown file (e.g. "../layouts/JobPost.astro")
   draft?: boolean // not used by any job post yet, but sortedPosts() in helpers.js excludes it if true
 }
 

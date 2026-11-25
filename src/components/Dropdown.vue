@@ -55,7 +55,7 @@ const selectedOption = computed<MenuItem | null>(() => {
 })
 const menuBtnText = computed<string>(() => {
   return selectedOption.value
-    ? selectedOption.value?.selectedName || selectedOption.value?.name || ''
+    ? selectedOption.value.selectedName || selectedOption.value.name || ''
     : props.defaultText || ''
 })
 
