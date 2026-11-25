@@ -1,18 +1,23 @@
-import { inject } from 'vue'
+import { inject, type InjectionKey } from 'vue'
 import type { TranslationFn } from '../i18n/utils'
 import type { LangDir } from '@/types'
 
-function injectOrThrow<T> (key: string): T {
+function injectOrThrow<T> (key: InjectionKey<T>): T {
   const value = inject<T>(key)
 
   if (value === undefined) {
-    throw new Error(`[translations.ts] ${key} is not provided`)
+    throw new Error(`[translations.ts] ${key.description} is not provided`)
   }
 
   return value
 }
 
-export const useL = () => injectOrThrow<TranslationFn>('L')
-export const useLocale = () => injectOrThrow<string>('locale')
-export const useLangDir = () => injectOrThrow<LangDir>('langDir')
-export const useIsBlogpost = () => injectOrThrow<boolean>('isBlogpost')
+export const LKey: InjectionKey<TranslationFn> = Symbol('L')
+export const LocaleKey: InjectionKey<string> = Symbol('locale')
+export const LangDirKey: InjectionKey<LangDir> = Symbol('langDir')
+export const IsBlogpostKey: InjectionKey<boolean> = Symbol('isBlogpost')
+
+export const useL = () => injectOrThrow(LKey)
+export const useLocale = () => injectOrThrow(LocaleKey)
+export const useLangDir = () => injectOrThrow(LangDirKey)
+export const useIsBlogpost = () => injectOrThrow(IsBlogpostKey)

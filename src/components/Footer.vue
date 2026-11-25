@@ -92,7 +92,7 @@ const validateEmailField = (): boolean => {
   let passed = true
 
   if (!validateEmail(email.value)) {
-    emailErr.value = L('Please enter correct email format.')
+    emailErr.value = L('Please enter a valid email address.')
     passed = false
   } else if (EMAIL_BLACKLIST.includes(getAddressSegment(email.value))) {
     openModal('NewsLetterWarningModal')

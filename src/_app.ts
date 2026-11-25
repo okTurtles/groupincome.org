@@ -2,6 +2,7 @@ import type { App } from 'vue'
 import { resolvePath, imgPathToSrcSet } from '@/utils/helpers.js'
 import { useTranslation, loadTranslationTable } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.vue'
+import { LKey, LocaleKey, LangDirKey, IsBlogpostKey } from '@/composables/translations'
 import type { LangDir } from '@/types'
 
 // This is a flag to check whether this file runs during compilation time(NodeJS environment) or runtime(Browser context).
@@ -56,8 +57,8 @@ export default async (app: App) => {
   const L = useTranslation(locale)
 
   // global provides (reference: https://vuejs.org/guide/components/provide-inject.html#app-level-provide)
-  app.provide('L', L)
-  app.provide('locale', locale)
-  app.provide('langDir', getLangDir())
-  app.provide('isBlogpost', getIsBlogpost())
+  app.provide(LKey, L)
+  app.provide(LocaleKey, locale)
+  app.provide(LangDirKey, getLangDir())
+  app.provide(IsBlogpostKey, getIsBlogpost())
 }

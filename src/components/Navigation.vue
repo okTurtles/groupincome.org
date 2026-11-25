@@ -42,7 +42,7 @@ const isBlogpost = useIsBlogpost()
 
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
-let menuList = ref<NavMenuItem[]>([])
+const menuList = ref<NavMenuItem[]>([])
 
 const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
   .map((filepath) => filepath.split('/').pop())

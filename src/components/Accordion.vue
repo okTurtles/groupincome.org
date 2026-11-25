@@ -4,10 +4,10 @@
       <dt @click="toggleTab(index)" :class="{active: item.active === true}">
         <h2 class="c-collapse-title" :id="item.id">{{item.title}}</h2>
         <i v-if="item.active === true">
-          <img class="c-icon" src="/svgs/minus-circle.svg" />
+          <img class="c-icon" v-src="'/svgs/minus-circle.svg'" />
         </i>
         <i v-else>
-          <img class="c-icon" src="/svgs/plus-circle.svg" />
+          <img class="c-icon" v-src="'/svgs/plus-circle.svg'" />
         </i>
       </dt>
       <dd :class="{active: item.active === true}">

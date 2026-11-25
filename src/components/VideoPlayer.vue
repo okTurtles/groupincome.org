@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, useTemplateRef, computed, onMounted } from 'vue'
 import type Plyr from 'plyr'
 import { resolvePath } from '@/utils/helpers.js'
 
@@ -19,7 +19,7 @@ interface ComponentProps {
 
 const props = defineProps<ComponentProps>()
 
-const videoEl = ref<HTMLVideoElement | null>(null)
+const videoEl = useTemplateRef<HTMLVideoElement>('videoEl')
 const player = ref<Plyr | null>(null)
 
 const resolvedSrc = computed<string | undefined>(() => resolvePath(props.src))

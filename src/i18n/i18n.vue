@@ -21,8 +21,9 @@ const props = defineProps({
 
 const slots = useSlots()
 const L = useL()
-const textToTranslate =
-	props.text || (slots.default ? (slots.default()[0].children as string) : "") || "";
+const firstChild = slots.default?.()[0]
+const slotText = typeof firstChild?.children === "string" ? firstChild.children : "";
+const textToTranslate = props.text || slotText;
 const translated = L(textToTranslate.trim(), props.args);
 const rendered = computed(() => h(props.tag, { innerHTML: translated }));
 </script>
