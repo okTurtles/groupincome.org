@@ -492,6 +492,9 @@
 /* pages/[locale]/other-ways-to-support.astro */
 "Please email {a_}hi@okturtles.org{_a}" = "Please email {a_}hi@okturtles.org{_a}";
 
+/* components/Footer.vue */
+"Please enter a valid email address." = "Please enter a valid email address.";
+
 /* pages/[locale]/tag/[tag].astro */
 "Posts Tagged: {span_} {tag} {_span}" = "Posts Tagged: {span_} {tag} {_span}";
 

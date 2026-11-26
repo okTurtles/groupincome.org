@@ -1,12 +1,12 @@
 <template>
-  <div class="c-wrapper" ref="wrapper">
-    <Sides class="c-side-blue" color="#5DC9F1" :styles="config.sideArchStyles.first"></Sides>
-    <Sides color="#F89202" :styles="config.sideArchStyles.second"></Sides>
-    <Sides color="#A1D10E" :styles="config.sideArchStyles.third"></Sides>
+  <div class="c-wrapper">
+    <Sides class="c-side-blue" color="#5DC9F1" :styles="sideArchStyles.first"></Sides>
+    <Sides color="#F89202" :styles="sideArchStyles.second"></Sides>
+    <Sides color="#A1D10E" :styles="sideArchStyles.third"></Sides>
 
     <div class="graphic-wrapper">
       <section class="container c-main-container">
-        <div class="c-faces" ref="faces">
+        <div class="c-faces">
           <div class="c-face" v-for="i in 8" :id="`face-${i}`" :key="i">
             <img class="c-face-img" v-src="`/images/faces/${i}.jpg`" v-srcset:2="`/images/faces/${i}.jpg`" />
           </div>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="span-2" id="circle-graph">
-          <img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'" ref="panel1Circle" />
+          <img class="c-container-image" v-src="'/images/temp/homepage-panel2.jpg'" />
         </div>
       </section>
 
@@ -71,7 +71,7 @@
           </div>
 
           <div class="span-2">
-            <img class="c-container-image" v-src="'/images/temp/homepage-panel3.png'" ref="graph1" />
+            <img class="c-container-image" v-src="'/images/temp/homepage-panel3.png'" />
           </div>
         </section>
 
@@ -160,67 +160,47 @@
   </div>
 </template>
 
-<script>
-import { inject } from 'vue'
+<script setup lang="ts">
+import type { CSSProperties } from 'vue'
+import { useL, useIsRTL } from '@/composables/translations'
 import Swoosh from './graphics/Swoosh.vue'
 import Sides from './graphics/Sides.vue'
-import Browser from './graphics/Browser.vue'
 import GetStarted from './GetStarted.vue'
 import ScrollDownArrow from './ScrollDownArrow.vue'
 import VideoPlayer from './VideoPlayer.vue'
 
-export default {
-  components: {
-    Swoosh,
-    Browser,
-    Sides,
-    GetStarted,
-    ScrollDownArrow,
-    VideoPlayer
-  },
-  setup () {
-    const L = inject('L')
-    const langDir = inject('langDir')
-    return { L, langDir }
-  },
-  data () {
-    const isRTL = this.langDir === 'rtl'
-    return {
-      config: {
-        sideArchStyles: {
-          first: isRTL
-            ? {
-              top: '40rem',
-              left: 0
-            }
-            : {
-              top: '40rem',
-              right: 0,
-              transform: 'rotate(-180deg)'
-            },
-          second: isRTL
-            ? {
-              top: '120rem',
-              right: 0,
-              transform: 'rotate(-180deg)'
-            }
-            : {
-              top: '120rem'
-            },
-          third: isRTL
-            ? {
-              top: '180rem',
-              left: 0
-            }
-            : {
-              top: '180rem',
-              transform: 'rotate(-180deg)',
-              right: 0
-            }
-        }
-      }
+const L = useL()
+const isRTL = useIsRTL()
+const sideArchStyles: Record<'first' | 'second' | 'third', CSSProperties> = {
+  first: isRTL
+    ? {
+      top: '40rem',
+      left: 0
     }
-  }
+    : {
+      top: '40rem',
+      right: 0,
+      transform: 'rotate(-180deg)'
+    },
+  second: isRTL
+    ? {
+      top: '120rem',
+      right: 0,
+      transform: 'rotate(-180deg)'
+    }
+    : {
+      top: '120rem'
+    },
+  third: isRTL
+    ? {
+      top: '180rem',
+      left: 0
+    }
+    : {
+      top: '180rem',
+      transform: 'rotate(-180deg)',
+      right: 0
+    }
 }
 </script>
 

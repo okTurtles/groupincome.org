@@ -253,6 +253,9 @@
 "Join our team" = "הצטרפו לצוות שלנו";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "נא להזין כתובת דוא\"ל תקינה.";
+
+/* components/Footer.vue */
 "Privacy Policy" = "מדיניות פרטיות";
 
 /* components/Footer.vue */

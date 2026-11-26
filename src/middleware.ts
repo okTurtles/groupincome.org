@@ -14,22 +14,22 @@ export const onRequest = defineMiddleware(async (context, next) => {
     // when all Vue islands of the page are initialized during compilation.
     context.locals.locale = locale;
     context.locals.langDir = langDir;
-    (globalThis as any).giVueLocale = locale;
-    (globalThis as any).giVueLangDir = langDir;
+    globalThis.giVueLocale = locale;
+    globalThis.giVueLangDir = langDir;
   } else {
     // Ensure the locale that was set in the previous request(where the locale info existed in the url) is cleared,
     // so that it doesn't spill over to wrong files/pages.
     // This is a fix for a bug where some vue islands present random translated texts for when the locale is 'en' 
-    delete (globalThis as any).giVueLocale;
-    delete (globalThis as any).giVueLangDir;
+    delete globalThis.giVueLocale;
+    delete globalThis.giVueLangDir;
   }
 
   if (context.params.blogpost) {
     context.locals.isBlogpost = true;
-    (globalThis as any).giVueIsBlogpost = true;
+    globalThis.giVueIsBlogpost = true;
   } else {
     // Likewise as above, ensure the wrong giVueIsBlogpost doesn't spill over to wrong files/pages.
-    delete (globalThis as any).giVueIsBlogpost;
+    delete globalThis.giVueIsBlogpost;
   }
 
   return next();

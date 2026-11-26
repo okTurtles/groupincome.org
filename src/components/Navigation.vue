@@ -23,22 +23,30 @@
   </nav>
 </template>
 
-<script setup>
-import { onMounted, ref, inject } from 'vue'
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import { isNavigationOpen, closeNavigation } from '../store.ts';
 import { useStore } from '@nanostores/vue';
+import { useL, useIsBlogpost } from '@/composables/translations';
 import LanguageSwitch from '@/components/LanguageSwitch.vue';
 
-const L = inject('L')
-const isBlogpost = inject('isBlogpost')
+type NavMenuItem = {
+  name: string,
+  id: string,
+  path: string,
+  badge?: number
+}
+
+const L = useL()
+const isBlogpost = useIsBlogpost()
 
 // local-state
 const $isNavigationOpen = useStore(isNavigationOpen);
-let menuList = ref([])
+const menuList = ref<NavMenuItem[]>([])
 
 const activeJobPostNames = Object.keys(import.meta.glob('../jobs/*.md'))
   .map((filepath) => filepath.split('/').pop())
-  .filter(fileName => !fileName.startsWith('_'))
+  .filter(fileName => fileName && !fileName.startsWith('_'))
 
 onMounted(() => {
   menuList.value = [

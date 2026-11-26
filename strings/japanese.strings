@@ -253,6 +253,9 @@
 "Join our team" = "チームに参加する";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "有効なメールアドレスを入力してください。";
+
+/* components/Footer.vue */
 "Privacy Policy" = "プライバシーポリシー";
 
 /* components/Footer.vue */

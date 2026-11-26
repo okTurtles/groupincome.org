@@ -2,8 +2,9 @@
   <component :is="rendered" />
 </template>
 
-<script setup>
-import { inject, useSlots, h, computed } from "vue";
+<script setup lang="ts">
+import { useSlots, h, computed } from "vue";
+import { useL } from '@/composables/translations';
 
 const props = defineProps({
 	tag: {
@@ -19,9 +20,10 @@ const props = defineProps({
 });
 
 const slots = useSlots()
-const L = inject("L")
-const textToTranslate =
-	props.text || (slots.default ? slots.default()[0].children : "") || "";
+const L = useL()
+const firstChild = slots.default?.()[0]
+const slotText = typeof firstChild?.children === "string" ? firstChild.children : "";
+const textToTranslate = props.text || slotText;
 const translated = L(textToTranslate.trim(), props.args);
 const rendered = computed(() => h(props.tag, { innerHTML: translated }));
 </script>

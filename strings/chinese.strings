@@ -253,6 +253,9 @@
 "Join our team" = "加入我们的团队";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "请输入有效的电子邮件地址。";
+
+/* components/Footer.vue */
 "Privacy Policy" = "隐私政策";
 
 /* components/Footer.vue */

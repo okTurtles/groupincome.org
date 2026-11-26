@@ -16,16 +16,16 @@
 </header>
 </template>
 
-<script setup>
-import { inject } from 'vue'
+<script setup lang="ts">
+import { useIsRTL, useIsBlogpost } from '@/composables/translations'
 import Navigation from './Navigation.vue'
 import Fundraiser from './Fundraiser.vue'
 import Hamburger from './Hamburger.vue'
 import LanguageSwitch from './LanguageSwitch.vue'
 
-const isBlogpost = inject('isBlogpost')
-const langDir = inject('langDir')
-const logoSrc = `images/logo-transparent${langDir === 'rtl' ? '-rtl' : ''}.svg`
+const isBlogpost = useIsBlogpost()
+const isRTL = useIsRTL()
+const logoSrc = `images/logo-transparent${isRTL ? '-rtl' : ''}.svg`
 </script>
 
 <style lang="scss" scoped>

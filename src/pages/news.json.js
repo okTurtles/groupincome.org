@@ -1,9 +1,13 @@
+/** @typedef {import('astro').MarkdownInstance<import('@/types').NewsFrontmatter>} NewsPost */
+
+/** @param {{ createdAt: Date }} post */
 const getPostDate = (post) => {
   return new Date(post.createdAt).getTime()
 }
 
 // reference: https://docs.astro.build/en/guides/endpoints/#static-file-endpoints
 export function GET () {
+  /** @type {NewsPost[]} */
   const newsPosts = Object.values(import.meta.glob('../posts/news/*.md', { eager: true }))
   const newsJSONarray = newsPosts.map(post => {
     return {

@@ -14,46 +14,38 @@
   </ul>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      isDonationBoxLoaded: false,
-      cryptos: [
-        {
-          name: 'Bitcoin',
-          abbreviation: 'BTC',
-          id: '39ekronaSx3pBUuftNYfuwoWbGipnFrBv6'
-        }, {
-          name: 'Ethereum',
-          abbreviation: 'ETH',
-          id: '0x62992467ecd54d45fe5a028b4ccd082486ccc9a8'
-        }, {
-          name: 'Monero',
-          abbreviation: 'XMR',
-          id: '899WAZkTAHv71bxeVu3coHcyCynEpbKWvhSfAxpRu41qXCfrMPz9cae7jzMS7mVAFb63mVxCm64NdVSFZ7Aey1nvE1Dgb7E'
-        }, {
-          name: 'Zcash',
-          abbreviation: 'ZEC',
-          id: 't1Vk6YJK4g7YYPPD8ENMoHBeNDqoQ67mCHx'
-        }
-      ],
-      copied: ''
-    }
-  },
+<script setup lang="ts">
+import { ref } from 'vue'
 
-  methods: {
-    copyToClipBoard (value) {
-      navigator.clipboard.writeText(value)
-
-      clearTimeout(this.timeoutId)
-      this.copied = value
-
-      this.timeoutId = setTimeout(() => {
-        this.copied = ''
-      }, 1600)
-    }
+const cryptos: { name: string, abbreviation: string, id: string }[] = [
+  {
+    name: 'Bitcoin',
+    abbreviation: 'BTC',
+    id: '39ekronaSx3pBUuftNYfuwoWbGipnFrBv6'
+  }, {
+    name: 'Ethereum',
+    abbreviation: 'ETH',
+    id: '0x62992467ecd54d45fe5a028b4ccd082486ccc9a8'
+  }, {
+    name: 'Monero',
+    abbreviation: 'XMR',
+    id: '899WAZkTAHv71bxeVu3coHcyCynEpbKWvhSfAxpRu41qXCfrMPz9cae7jzMS7mVAFb63mVxCm64NdVSFZ7Aey1nvE1Dgb7E'
+  }, {
+    name: 'Zcash',
+    abbreviation: 'ZEC',
+    id: 't1Vk6YJK4g7YYPPD8ENMoHBeNDqoQ67mCHx'
   }
+]
+const copied = ref('')
+let timeoutId: ReturnType<typeof setTimeout> | undefined = undefined
+
+const copyToClipBoard = (value: string) => {
+  clearTimeout(timeoutId)
+  navigator.clipboard.writeText(value)
+  copied.value = value
+  timeoutId = setTimeout(() => {
+    copied.value = ''
+  }, 1600)
 }
 </script>
 
