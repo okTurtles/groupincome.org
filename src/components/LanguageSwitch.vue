@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { useLocale } from '@/composables/translations'
 import { supportedLangCodes, languageDisplayNames, flagEmojiMap } from '@/i18n/utils'
 import Dropdown, { type MenuItem } from '@/components/Dropdown.vue'
 
@@ -29,7 +29,7 @@ const capitalizeLocale = (locale: string) => {
   return locale.slice(0, 1).toUpperCase() + locale.slice(1)
 }
 
-const currentLocale = inject<string>('locale')
+const currentLocale = useLocale()
 const sortingLocale = currentLocale || 'en'
 const localizedLanguageNames = new Intl.DisplayNames([sortingLocale], { type: 'language' })
 const languageNameCollator = new Intl.Collator(sortingLocale)

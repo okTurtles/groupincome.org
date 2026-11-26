@@ -253,6 +253,9 @@
 "Join our team" = "Присоединиться к нашей команде";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "Пожалуйста, введите действительный адрес электронной почты.";
+
+/* components/Footer.vue */
 "Privacy Policy" = "Политика конфиденциальности";
 
 /* components/Footer.vue */

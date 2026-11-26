@@ -65,9 +65,10 @@
 </footer>
 </template>
 
-<script>
-import { inject } from 'vue'
+<script setup lang="ts">
+import { ref, watch, useTemplateRef } from 'vue'
 import NewsLetterWarningModal from '@/components/modals/NewsLetterWarningModal.vue'
+import { useL } from '@/composables/translations'
 import { validateEmail } from '@/utils/helpers.js'
 import { openModal } from '@/store'
 
@@ -77,58 +78,41 @@ const EMAIL_BLACKLIST = [
   'google.com'
 ]
 
-export default {
-  name: 'Footer',
-  components: {
-    NewsLetterWarningModal
-  },
-  setup () {
-    const L = inject('L')
-  
-    return { L }
-  },
-  data () {
-    return {
-      email: '',
-      emailErr: '',
-      isSubmitting: false
-    }
-  },
-  computed: {
-    copyRightText () {
-      const thisYear = new Date().getFullYear()
-      return `Copyright © 2015-${thisYear} okTurtles Foundation`
-    }
-  },
-  methods: {
-    validateEmailField () {
-      const getAddressSegment = str => str.split('@')[1]
-      let passed = true
+const L = useL()
 
-      if (!validateEmail(this.email)) {
-        this.emailErr = 'Please enter correct email format.'
-        passed = false
-      } else if (EMAIL_BLACKLIST.includes(getAddressSegment(this.email))) {
-        openModal('NewsLetterWarningModal')
-        passed = false
-      }
-      return passed
-    },
-    onFormSubmit () {
-      if (this.validateEmailField()) {
-        this.$refs.emailForm.submit()
-        this.email = ''
-      }
-    }
-  },
-  watch: {
-    email () {
-      if (this.emailErr) {
-        this.emailErr = ''
-      }
-    }
+const emailForm = useTemplateRef<HTMLFormElement>('emailForm')
+const email = ref('')
+const emailErr = ref('')
+
+const thisYear = new Date().getFullYear()
+const copyRightText = `Copyright © 2015-${thisYear} okTurtles Foundation`
+
+const validateEmailField = (): boolean => {
+  const getAddressSegment = (str: string) => str.split('@')[1]
+  let passed = true
+
+  if (!validateEmail(email.value)) {
+    emailErr.value = L('Please enter a valid email address.')
+    passed = false
+  } else if (EMAIL_BLACKLIST.includes(getAddressSegment(email.value).toLowerCase())) {
+    openModal('NewsLetterWarningModal')
+    passed = false
+  }
+  return passed
+}
+
+const onFormSubmit = () => {
+  if (validateEmailField()) {
+    emailForm.value?.submit()
+    email.value = ''
   }
 }
+
+watch(email, () => {
+  if (emailErr.value) {
+    emailErr.value = ''
+  }
+})
 </script>
 
 <style lang="scss" scoped>

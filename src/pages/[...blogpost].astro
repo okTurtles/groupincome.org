@@ -1,11 +1,13 @@
 ---
 import { sortedPosts } from '@/utils/helpers'
+import type { MarkdownInstance } from 'astro'
+import type { PostFrontmatter } from '@/types'
 import '@fontsource/gelasio/400.css'
 import '@fontsource/gelasio/400-italic.css'
 import '@fontsource/gelasio/700.css'
 import '@fontsource/gelasio/700-italic.css'
 export async function getStaticPaths() {
-  const posts = sortedPosts(import.meta.glob('../posts/*.{md,mdx}', { eager: true }))
+  const posts = sortedPosts(import.meta.glob<MarkdownInstance<PostFrontmatter>>('../posts/*.{md,mdx}', { eager: true }))
   return posts.map(post => {
     return {
       params: {

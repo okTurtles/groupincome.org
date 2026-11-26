@@ -4,9 +4,11 @@ import BlogPostEntry from '@/components/BlogPostEntry.vue'
 import { resolvePath, sortedPosts } from '@/utils/helpers.js'
 import { supportedLangCodes } from '@/i18n/utils'
 import I18n from '@/i18n/i18n.astro'
+import type { GetStaticPathsOptions, MarkdownInstance, Page } from 'astro'
+import type { PostFrontmatter } from '@/types'
 
-export async function getStaticPaths({ paginate }: any) {
-	const posts = sortedPosts(import.meta.glob('../../../posts/*.{md,mdx}', { eager: true }))
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	const posts = sortedPosts(import.meta.glob<MarkdownInstance<PostFrontmatter>>('../../../posts/*.{md,mdx}', { eager: true }))
 	const result = supportedLangCodes.flatMap((langCode) =>
     paginate(posts, {
       pageSize: 4,
@@ -17,6 +19,10 @@ export async function getStaticPaths({ paginate }: any) {
   )
 
   return result
+}
+
+type Props = {
+  page: Page<MarkdownInstance<PostFrontmatter>>
 }
 
 // All paginated data is passed on the "page" prop
@@ -35,7 +41,7 @@ const indexActive = (index: number, currentUrl: string) => {
 
 	<section class="blog-wrapper" v-if="posts">
 		{
-			data.map((article: any) => <BlogPostEntry client:only="vue" postFrontmatter={article.frontmatter} />)
+			data.map((article) => <BlogPostEntry client:only="vue" postFrontmatter={article.frontmatter} />)
 		}
 		<div class="pagination">
 			<a class={ url.prev ? '' : 'inactive' } href={url.prev ? resolvePath(url.prev) : null}>

@@ -13,8 +13,9 @@ This is the **marketing website** for [Group Income](https://groupincome.org), n
 | `npm run build:prod` | Build for production (`BUILD_TARGET=production` → `groupincome.org`) |
 | `npm run preview` | Preview staging build locally |
 | `npm run preview:prod` | Preview production build locally |
+| `npm run typecheck` | Type-check with `vue-tsc --noEmit`: all `.ts` files and the `<script lang="ts">` blocks of `.vue` files |
 
-No test suite or linter is configured in this project.
+No test suite or linter is configured in this project. `npm run typecheck` does not report errors in `.js` files or in `.vue` files without `lang="ts"` (`checkJs` is off), and it does not check `.astro` files (that needs `astro check`).
 
 Every `astro` script in `package.json` starts with `ASTRO_TELEMETRY_DISABLED=1`. Keep it there when you add or change a script.
 
@@ -165,8 +166,8 @@ Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at
 
 - **Platform**: GitHub Pages
 - **Branch**: `master` (not `main`)
-- **CI**: `.github/workflows/astro.yml` — on Node 24 runs `npm install && npm run build` (staging), then uploads `dist` with `actions/upload-pages-artifact`
-- **Legacy**: `deploy.yml` exists but appears superseded by `astro.yml`
+- **Staging deploy**: `.github/workflows/astro.yml` — on pushes to `master` (or a manual run), on Node 24 runs `npm install && npm run build` (staging), then uploads `dist` with `actions/upload-pages-artifact`. The production site is not deployed from this workflow.
+- **Type check**: `.github/workflows/ci.yml` — on pushes to `master` and on PRs, on Node 24 runs `npm ci && npm run typecheck`. `npm ci` fails when `package-lock.json` is out of sync with `package.json`.
 
 ## Gotchas
 
@@ -175,7 +176,7 @@ Vue `<style lang="scss" scoped>` blocks use `@use "../styles/variables" as *` at
 3. **Blog post permalinks** must start and end with `/` — the `getStaticPaths()` functions strip these via `.slice(1).slice(0, -1)` to create URL params.
 4. **`_variables.scss` cannot contain CSS classes** — only Sass variables, mixins, functions, and `@forward` rules. This file is included in Vue component `<style>` blocks, and any classes would be duplicated across components.
 5. **`helpers.js` is plain JavaScript** (not TypeScript) — uses `'use strict'` and CommonJS-compatible `export function` syntax.
-6. **Footer.vue uses Options API** while most other Vue components use `<script setup>` (Composition API) — both patterns coexist.
+6. **All Vue components use `<script setup lang="ts">` (Composition API).** Write new components the same way, not with the Options API.
 7. **Blog post images** historically reference `/wp-content/uploads/...` paths (legacy from WordPress). New posts can use any path under `public/`.
 8. **The newsletter form** in Footer.vue blacklists Gmail/Google addresses and shows a warning modal instead — this is intentional.
 9. **The `PageWrapper` Vue island (`client:load` in `DefaultLayout.astro`) wraps the whole page body.** When it hydrates (about 50 ms after `DOMContentLoaded`), Vue makes all the body DOM again from the server HTML. A page script that finds elements or adds listeners before that works on removed elements. Wait for the island's `astro:hydrate` event, as `Comments.astro` does. This is probably also why `waitForElement()` in helpers.js exists: it first looks 100 ms later.

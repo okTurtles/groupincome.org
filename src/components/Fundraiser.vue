@@ -19,7 +19,7 @@
 </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { isFundraiserOpen, closeFundraiser } from '../store.ts';
 import { useStore } from '@nanostores/vue';
 

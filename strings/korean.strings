@@ -253,6 +253,9 @@
 "Join our team" = "팀에 합류하기";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "유효한 이메일 주소를 입력해 주세요.";
+
+/* components/Footer.vue */
 "Privacy Policy" = "개인정보 보호정책";
 
 /* components/Footer.vue */

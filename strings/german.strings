@@ -265,6 +265,9 @@
 "Join our team" = "Werde Teil unseres Teams";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "Bitte eine gültige E-Mail-Adresse eingeben.";
+
+/* components/Footer.vue */
 "Privacy Policy" = "Datenschutzrichtlinie";
 
 /* components/Footer.vue */

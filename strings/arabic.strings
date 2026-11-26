@@ -253,6 +253,9 @@
 "Join our team" = "انضم إلى فريقنا";
 
 /* components/Footer.vue */
+"Please enter a valid email address." = "يرجى إدخال عنوان بريد إلكتروني صالح.";
+
+/* components/Footer.vue */
 "Privacy Policy" = "سياسة الخصوصية";
 
 /* components/Footer.vue */

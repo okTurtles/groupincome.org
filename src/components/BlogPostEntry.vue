@@ -9,20 +9,18 @@
 </article>
 </template>
 
-<script setup>
-import { inject } from 'vue'
+<script setup lang="ts">
+import { useLocale } from '@/composables/translations'
 import { resolvePath } from '@/utils/helpers.js'
 import { localeAwareDateString } from '@/i18n/utils'
+import type { PostFrontmatter } from '@/types'
 
-const locale = inject('locale')
+const locale = useLocale()
 const isLocaleEn = locale === 'en'
 
-const props = defineProps({
-  postFrontmatter: {
-    type: Object,
-    required: true
-  }
-})
+const props = defineProps<{
+  postFrontmatter: PostFrontmatter
+}>()
 
 const {
   permalink,
@@ -35,7 +33,7 @@ const {
 
 const postUrl = resolvePath(permalink)
 const imgSrc = resolvePath(image) || resolvePath('/images/' + permalink + '.jpeg')
-const getDateDisplay = (dateString) => {
+const getDateDisplay = (dateString: string) => {
   return isLocaleEn ? dateString : localeAwareDateString(dateString, locale)
 }
 </script>

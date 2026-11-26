@@ -167,18 +167,15 @@
 </div>
 </template>
 
-<script>
-export default {
-  props: {
-    activeStep: {
-      default: 0,
-      type: Number
-    },
-    steps: {
-      type: Object
-    }
-  }
+<script setup lang="ts">
+type Step = {
+  image: string
 }
+
+const { activeStep = 0, steps } = defineProps<{
+  activeStep?: number
+  steps: Step[]
+}>()
 </script>
 
 <style lang="scss" scoped>

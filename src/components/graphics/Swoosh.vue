@@ -10,16 +10,10 @@
 </svg>
 </template>
 
-<script>
-export default {
-  name: 'Swoosh',
-  props: {
-    stopColor: {
-      type: String,
-      default: '#D0DEEA'
-    }
-  }
-}
+<script setup lang="ts">
+const { stopColor = '#D0DEEA' } = defineProps<{
+  stopColor?: string
+}>()
 </script>
 
 <style lang="scss" scoped>
